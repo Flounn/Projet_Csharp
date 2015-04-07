@@ -7,13 +7,15 @@ namespace DataService.BSDataObjects
 {
     public class Contrat
     {
+        public enum Statut_Juridique { Titulaire, Beneficiaire };
+
         private long numeroContrat;
         private DateTime dateSouscription;
         private string intitule;
         private Client client;
         private Produit produit;
         private Compte compte;
-        private string statutJuridique;
+        private Statut_Juridique statutJuridique;
 
         public long NumeroContrat
         {
@@ -27,9 +29,9 @@ namespace DataService.BSDataObjects
             get { return intitule; }
             set { intitule = value; }
         }
-        
 
-        public string StatutJuridique
+
+        public Statut_Juridique StatutJuridique
         {
             get { return statutJuridique; }
             set { statutJuridique = value; }

@@ -7,6 +7,8 @@ namespace DataService.BSDataObjects
 {
     public class Operation
     {
+        //public enum statut{Realise,EnCours};
+
         private long reference;
         private string libelle;
         private DateTime dateComptable;

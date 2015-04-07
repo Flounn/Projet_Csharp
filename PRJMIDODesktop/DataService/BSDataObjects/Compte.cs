@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DataService.DAOService;
 
 namespace DataService.BSDataObjects
 {
     public class Compte
     {
+        public enum Type { Courant, Epargne };
+
         private long numeroCompte;
-        private string typeCompte;        
+        private Type typeCompte;        
         private DateTime dateOuverture;
         private decimal montantInitial;
         private Client client;
@@ -20,7 +23,7 @@ namespace DataService.BSDataObjects
             set { numeroCompte = value; }
         }
 
-        public string TypeCompte
+        public Type TypeCompte
         {
             get { return typeCompte; }
             set { typeCompte = value; }
@@ -88,5 +91,19 @@ namespace DataService.BSDataObjects
            
             return chaine.ToString();
         }
+
+
+        #region DAO Compte
+
+        private static DAOCompte dao = new DAOCompte();
+
+        public bool insert()
+        {
+            return dao.insert(this);
+        }
+
+        #endregion
+
+
     }
 }
