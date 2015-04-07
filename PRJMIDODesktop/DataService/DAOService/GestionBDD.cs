@@ -10,47 +10,71 @@ namespace DataService.DAOService
 {
     public class GestionBDD
     {
+       
         //Attributs de la classe
         private string hostname;
-        private string userid;
+        private string user;
         private string password;
         private string databasename;
 
-        //Constructeur
-        public GestionBDD(string machine, string schema, string pwd, string bdd)
+        //String de la connection
+        private string connexionString;
+
+        //Constructeur par defaut
+        public GestionBDD()
         {
-            hostname = machine;
-            userid = schema;
+            hostname = "mysql-etrade.alwaysdata.net";
+            user = "etrade";
+            password = "azerty123";
+            databasename =  "etrade_csharp";
+            majConnexionUrl();
+        }
+
+        //Constructeur
+        public GestionBDD(string host, string user, string pwd, string database)
+        {
+            hostname = host;
+            this.user = user;
             password = pwd;
-            databasename = bdd;
+            databasename = database;
+            majConnexionUrl();
+        }
+
+        private void majConnexionUrl()
+        {
+            MySqlConnectionStringBuilder connectionString = new MySqlConnectionStringBuilder();
+            connectionString.Server = Hostname;
+            connectionString.UserID = User;
+            connectionString.Password = Password;
+            connectionString.Database = Databasename;
+            this.connexionString = connectionString.ToString();
         }
 
         //Getter et Setter
         public string Hostname
         {
             get { return hostname; }
-            set { hostname = value; }
+            set { hostname = value; majConnexionUrl(); }
         }    
 
-        public string Userid
+        public string User
         {
-            get { return userid; }
-            set { userid = value; }
+            get { return user; }
+            set { user = value; majConnexionUrl(); }
         }    
 
         public string Password
         {
             get { return password; }
-            set { password = value; }
+            set { password = value; majConnexionUrl(); }
         }    
 
         public string Databasename
         {
             get { return databasename; }
-            set { databasename = value; }
+            set { databasename = value; majConnexionUrl(); }
         }
-    
-        //Méthodes d'instance
+
 
         //1 - Renvoie une connexion à partir des attributs de la classe
         public MySqlConnection Connection()
@@ -59,13 +83,7 @@ namespace DataService.DAOService
 
             try
             {
-                MySqlConnectionStringBuilder connectionString = new MySqlConnectionStringBuilder();
-                connectionString.Server = Hostname;
-                connectionString.UserID = Userid;
-                connectionString.Password = Password;
-                connectionString.Database = Databasename;
-
-                conn = new MySqlConnection(connectionString.ToString());
+                conn = new MySqlConnection(connexionString);
                 conn.Open();
             }
             catch (Exception e)
@@ -193,28 +211,6 @@ namespace DataService.DAOService
             return nbLignes;
         }   
 
-        //9 - Exécute une requete de selection sur la table passée en argument
-        public void ExecuteSelectQuery(string table_name)
-        {
-            string nom_fichier = table_name + ".xml";
-            using (MySqlConnection myConn = this.Connection())
-            {
-                if (!table_name.Equals(string.Empty))
-                {
-                    //Déclaration de la DataSet
-                    DataSet ds = new DataSet();
 
-                    //Exécution de la requête
-                    string stm = "SELECT * FROM "+ table_name;
-                    MySqlDataAdapter da = new MySqlDataAdapter(stm, myConn);
-
-                    //Remplissage de la dataset avec le résultat de la 1ère requête
-                    da.Fill(ds, table_name);
-
-                    DataTable dt = ds.Tables[table_name];
-                    dt.WriteXml(nom_fichier);
-                }           
-            }        
-        }   
     }
 }

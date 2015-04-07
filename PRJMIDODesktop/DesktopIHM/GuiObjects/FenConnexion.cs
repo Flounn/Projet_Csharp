@@ -42,15 +42,20 @@ namespace DesktopIHM
             string _login = txtLogin.Text;
             string _pwd = txtPassword.Text;
 
-
-
-            bool trouver = GestionnaireUtilisateur.UtilisateurExtiste(_login, _pwd);
-
-            if (trouver)
+            if (String.IsNullOrEmpty(_login))
             {
-                this.MonCompte = GestionnaireUtilisateur.DetailCompte(_login, _pwd);
-                this.Close();
+                MessageBox.Show("Veuillez saisir votre login", "Echec de connexion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+            if (String.IsNullOrEmpty(_pwd))
+            {
+                MessageBox.Show("Veuillez saisir votre mot de passe", "Echec de connexion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
+            if (Session.seConnecter(_login, _pwd))
+                this.Close();
+                //}
             else
                 MessageBox.Show("Erreur d'identification. Reessayez", "Echec de connexion", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
         }       
