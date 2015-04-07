@@ -247,4 +247,3 @@ create table OPERATION
 );
 
 alter table OPERATION comment 'Table des transactions effectuées sur un compte';
-
