@@ -63,7 +63,7 @@ namespace DataService.BSDataObjects
             }
             else
             {
-                if ((((HistoriqueEtudiant)obj).ReferenceHistorique == this.ReferenceHistorique) &&
+                if ((((HistoriqueEtudiant)obj).IdHistorique == this.IdHistorique) &&
                     (((HistoriqueEtudiant)obj).Client.Equals(this.Client))
                 )
                 {
@@ -80,7 +80,7 @@ namespace DataService.BSDataObjects
         public override string ToString()
         {
             StringBuilder chaine = new StringBuilder("Historique Etudiant ");
-            chaine.Append("Référence histo : " + this.ReferenceHistorique);
+            chaine.Append("Id histo : " + this.IdHistorique);
             chaine.Append("Année académique : "+this.AnneeAcademique);
             chaine.Append("Diplôme préparé : "+this.DiplomePrepare);
             chaine.Append("Niveau d'étude : "+this.NiveauEtude);

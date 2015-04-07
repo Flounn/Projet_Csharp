@@ -39,7 +39,7 @@ namespace DataService.BSDataObjects
             }
             else
             {
-                if ((((Produit)obj).CodeProduit == this.CodeProduit) &&
+                if ((((Produit)obj).IdProduit == this.IdProduit) &&
                     (((Produit)obj).Libelle.Equals(this.Libelle))
                 )
                 {
@@ -56,7 +56,7 @@ namespace DataService.BSDataObjects
         public override string ToString()
         {
             StringBuilder chaine = new StringBuilder("Détail produit ");
-            chaine.Append("Code  : " + this.CodeProduit);
+            chaine.Append("Id  : " + this.IdProduit);
             chaine.Append("Libelle : " + this.Libelle);
 
             return chaine.ToString();

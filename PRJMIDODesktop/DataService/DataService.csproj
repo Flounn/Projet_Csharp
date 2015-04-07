@@ -60,6 +60,9 @@
     <Compile Include="BSService\CritereRechercheClient.cs" />
     <Compile Include="BSService\CritereRechercheCompte.cs" />
     <Compile Include="BSService\CritereRechercheContrat.cs" />
+    <Compile Include="DAOService\Connexion.cs" />
+    <Compile Include="DAOService\DAOCompte.cs" />
+    <Compile Include="DAOService\DAOGenerique.cs" />
     <Compile Include="DAOService\GestionBDD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -69,7 +72,8 @@
   <ItemGroup>
     <Content Include="libs\MySql.Data.dll" />
     <Content Include="sql\connexion.txt" />
-    <Content Include="sql\Create_TABLE.sql" />
+    <Content Include="sql\donnees.sql" />
+    <Content Include="sql\etrade_csharp.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -14,8 +14,7 @@ namespace DataService.BSDataObjects
         {
             get { return idMoyenPaiement; }
             set { idMoyenPaiement = value; }
-        }
-        
+        }        
 
         public string LibelleMoyenPaiement
         {

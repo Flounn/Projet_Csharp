@@ -84,7 +84,7 @@ namespace DataService.BSDataObjects
             }
             else
             {
-                if ((((Contrat)obj).NumeroContrat == this.NumeroContrat) &&
+                if ((((Contrat)obj).IdContrat == this.IdContrat) &&
                     (((Compte)obj).Client.Equals(this.Client))
                 )
                 {
@@ -101,8 +101,8 @@ namespace DataService.BSDataObjects
         public override string ToString()
         {
             StringBuilder chaine = new StringBuilder("Détail contrat ");
-            chaine.Append("Numéro Contrat : " + this.NumeroContrat);
-            chaine.Append("Numéro Client : " + this.Client.NumeroClient);
+            chaine.Append("Id Contrat : " + this.IdContrat);
+            chaine.Append("Id Client : " + this.Client.IdClient);
 
             return chaine.ToString();
         }
