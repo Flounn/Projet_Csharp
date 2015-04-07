@@ -67,6 +67,10 @@
   <ItemGroup>
     <Compile Include="BSService\CritereRechercheOperation.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="libs\MySql.Data.dll" />
+    <Content Include="sql\Create_TABLE.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
