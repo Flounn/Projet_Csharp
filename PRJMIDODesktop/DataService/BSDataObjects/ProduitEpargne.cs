@@ -5,7 +5,13 @@ using System.Text;
 
 namespace DataService.BSDataObjects
 {
-    public class ProduitEpargne : Produit
+    public class ContratEpargne
     {
+		private Contrat contrat;
+		private string typeEpargne;
+		private string typeVersement;
+		private string periodicite;
+		private DateTime dateVersement;
+		private decimal montantVerse;
     }
 }
