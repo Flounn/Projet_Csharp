@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="libs\MySql.Data.dll" />
+    <Content Include="sql\connexion.txt" />
     <Content Include="sql\Create_TABLE.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

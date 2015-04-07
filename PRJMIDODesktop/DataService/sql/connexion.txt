@@ -1,0 +1,4 @@
+﻿hote : mysql-etrade.alwaysdata.net
+database : etrade_csharp
+user : etrade
+pw : azerty123
