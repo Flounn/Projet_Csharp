@@ -29,7 +29,19 @@ namespace DataService.BSDataObjects
         {
             get { return type; }
             set { type = value; }
-        }        
+        }
+
+        public string TypeStr
+        {
+            get { return type.ToString(); }
+            set
+            {
+                if (value.Equals("Credit"))
+                    type = TypeContrat.Credit;
+                else if (value.Equals("Epargne"))
+                    type = TypeContrat.Epargne;
+            }
+        }
 
         public string Intitule
         {
@@ -41,6 +53,17 @@ namespace DataService.BSDataObjects
         {
             get { return statutJuridique; }
             set { statutJuridique = value; }
+        }
+
+        public string StatutJuridiqueStr
+        {
+            get { return statutJuridique.ToString(); }
+            set { 
+                if(value.Equals("Beneficiaire"))
+                    statutJuridique = Statut_Juridique.Beneficiaire;
+                else if(value.Equals("Titulaire"))
+                    statutJuridique = Statut_Juridique.Titulaire;
+            }
         }
         
         public DateTime DateSouscription

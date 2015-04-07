@@ -29,6 +29,17 @@ namespace DataService.BSDataObjects
             get { return typeCompte; }
             set { typeCompte = value; }
         }
+        public string TypeCompteStr
+        {
+            get { return typeCompte.ToString(); }
+            set
+            {
+                if (value.Equals("Courant"))
+                    typeCompte = Type.Courant;
+                else if (value.Equals("Epargne"))
+                    typeCompte = Type.Epargne;
+            }
+        }
 
         public DateTime DateOuverture
         {
