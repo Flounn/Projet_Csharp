@@ -78,6 +78,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GuiObjects\Utilisateur.cs" />
+    <Compile Include="test.cs" />
     <EmbeddedResource Include="GuiObjects\FenConnexion.resx">
       <DependentUpon>FenConnexion.cs</DependentUpon>
     </EmbeddedResource>
