@@ -10,17 +10,18 @@ namespace DataService.BSDataObjects
     {
         public enum Type { Courant, Epargne };
 
-        private long numeroCompte;
+        private long idCompte;
         private Type typeCompte;        
         private DateTime dateOuverture;
         private decimal montantInitial;
         private Client client;
         private MoyenPaiement moyenPaiement;
+        private IList<Contrat> listeContrats;
 
-        public long NumeroCompte
+        public long IdCompte
         {
-            get { return numeroCompte; }
-            set { numeroCompte = value; }
+            get { return idCompte; }
+            set { idCompte = value; }
         }
 
         public Type TypeCompte
@@ -55,6 +56,12 @@ namespace DataService.BSDataObjects
             set { client = value; }
         }
 
+        public IList<Contrat> ListeContrats
+        {
+            get { return listeContrats; }
+            set { listeContrats = value; }
+        }
+
         public override bool Equals(object obj)
         {
             bool b = true;
@@ -69,7 +76,7 @@ namespace DataService.BSDataObjects
             }
             else
             {
-                if ((((Compte)obj).NumeroCompte == this.NumeroCompte) &&
+                if ((((Compte)obj).IdCompte == this.IdCompte) &&
                     (((Compte)obj).Client.Equals(this.Client))
                 )
                 {
@@ -86,8 +93,8 @@ namespace DataService.BSDataObjects
         public override string ToString()
         {
             StringBuilder chaine = new StringBuilder("Détail compte ");
-            chaine.Append("Numéro compte : " + this.NumeroCompte);
-            chaine.Append("Numéro Client : " + this.Client.NumeroClient);
+            chaine.Append("Id compte : " + this.IdCompte);
+            chaine.Append("Id Client : " + this.Client.IdClient);
            
             return chaine.ToString();
         }

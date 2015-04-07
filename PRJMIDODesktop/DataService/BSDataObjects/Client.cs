@@ -7,7 +7,7 @@ namespace DataService.BSDataObjects
 {
     public class Client
     {
-        private long numeroClient;
+        private long idClient;
         private string nom;
         private string prenom;
         private DateTime dateNaissance;
@@ -26,10 +26,10 @@ namespace DataService.BSDataObjects
             set { historique = value; }
         }
 
-        public long NumeroClient
+        public long IdClient
         {
-            get { return numeroClient; }
-            set { numeroClient = value; }
+            get { return idClient; }
+            set { idClient = value; }
         }
         
 
@@ -109,7 +109,7 @@ namespace DataService.BSDataObjects
             }
             else
             {
-                if((((Client)obj).NumeroClient == this.NumeroClient) &&
+                if((((Client)obj).IdClient == this.IdClient) &&
                     (((Client)obj).Nom == this.Nom) &&
                     (((Client)obj).Prenom == this.Prenom) &&
                     (((Client)obj).Email == this.Email)
@@ -128,7 +128,7 @@ namespace DataService.BSDataObjects
         public override string ToString()
         {
             StringBuilder chaine = new StringBuilder("Détail du client ");
-            chaine.Append("Numéro du client : " + this.NumeroClient);
+            chaine.Append("Numéro du client : " + this.IdClient);
             chaine.Append("Nom : "+this.Nom);
             chaine.Append("Prénom : "+this.Prenom);
             chaine.Append("Date de Naissance : "+this.DateNaissance);

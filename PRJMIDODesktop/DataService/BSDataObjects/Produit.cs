@@ -7,13 +7,14 @@ namespace DataService.BSDataObjects
 {
     public class Produit
     {
-        private long code;
+        private long idProduit;
         private string libelle;
+        private IList<Contrat> listeContrats;    
 
-        public long Code
+        public long IdProduit
         {
-            get { return code; }
-            set { code = value; }
+            get { return idProduit; }
+            set { idProduit = value; }
         }
 
         public string Libelle
@@ -38,7 +39,7 @@ namespace DataService.BSDataObjects
             }
             else
             {
-                if ((((Produit)obj).Code == this.Code) &&
+                if ((((Produit)obj).CodeProduit == this.CodeProduit) &&
                     (((Produit)obj).Libelle.Equals(this.Libelle))
                 )
                 {
@@ -55,7 +56,7 @@ namespace DataService.BSDataObjects
         public override string ToString()
         {
             StringBuilder chaine = new StringBuilder("Détail produit ");
-            chaine.Append("Code  : " + this.Code);
+            chaine.Append("Code  : " + this.CodeProduit);
             chaine.Append("Libelle : " + this.Libelle);
 
             return chaine.ToString();

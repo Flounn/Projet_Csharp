@@ -10,7 +10,6 @@ namespace DataService.BSDataObjects
         private string numeroCarte;
         private DateTime dateDebValidite;
         private DateTime dateFinValidite;
-        private string reseauCarte;
         private TypeCarte typeCarte;
 
         public string NumeroCarte
@@ -33,14 +32,6 @@ namespace DataService.BSDataObjects
             set { dateFinValidite = value; }
         }
         
-
-        public string ReseauCarte
-        {
-            get { return reseauCarte; }
-            set { reseauCarte = value; }
-        }
-        
-
         public TypeCarte TypeCarte
         {
             get { return typeCarte; }

@@ -7,18 +7,19 @@ namespace DataService.BSDataObjects
 {
     public class Operation
     {
-        //public enum statut{Realise,EnCours};
+        public enum StatutOperation {Realise,EnCours};
 
-        private long reference;
+        private long idOperation;
         private string libelle;
         private DateTime dateComptable;
         private DateTime dateOperation;
         private DateTime dateValeur;
         private decimal montantDebit;
         private decimal montantCredit;
-        private string statut;
+        private StatutOperation statut;
         private Compte compte;
         private string typeOperation;
+        private IList<MoyenPaiement> moyenPaiements;
 
         public string TypeOperation
         {
@@ -27,10 +28,10 @@ namespace DataService.BSDataObjects
         }
 
 
-        public long Reference
+        public long IdOperation
         {
-            get { return reference; }
-            set { reference = value; }
+            get { return idOperation; }
+            set { idOperation = value; }
         }
         
 
@@ -74,9 +75,9 @@ namespace DataService.BSDataObjects
             get { return montantCredit; }
             set { montantCredit = value; }
         }
-        
 
-        public string Statut
+
+        public StatutOperation Statut
         {
             get { return statut; }
             set { statut = value; }
@@ -89,6 +90,11 @@ namespace DataService.BSDataObjects
             set { compte = value; }
         }
 
+        public IList<MoyenPaiement> MoyenPaiements
+        {
+            get { return moyenPaiements; }
+            set { moyenPaiements = value; }
+        }
 
         public Operation() { }
 
@@ -106,8 +112,8 @@ namespace DataService.BSDataObjects
             }
             else
             {
-                if ((((Operation)obj).Reference == this.Reference) &&
-                    (((Operation)obj).Compte.NumeroCompte.Equals(this.Compte.NumeroCompte))
+                if ((((Operation)obj).IdOperation == this.IdOperation) &&
+                    (((Operation)obj).Compte.IdCompte.Equals(this.Compte.IdCompte))
                 )
                 {
                     b = true;
@@ -123,8 +129,8 @@ namespace DataService.BSDataObjects
         public override string ToString()
         {
             StringBuilder chaine = new StringBuilder("Détail opération ");
-            chaine.Append("Référence : " + this.Reference);
-            chaine.Append("Compte concerné : " + this.Compte.NumeroCompte);
+            chaine.Append("Id : " + this.IdOperation);
+            chaine.Append("Compte concerné : " + this.Compte.IdCompte);
 
             return chaine.ToString();
         }

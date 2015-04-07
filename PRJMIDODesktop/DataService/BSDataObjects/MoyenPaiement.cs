@@ -7,13 +7,13 @@ namespace DataService.BSDataObjects
 {
     public class MoyenPaiement
     {
-        private long codeMoyenPaiement;
-        private string libelleMoyenPaiement;
+        protected long idMoyenPaiement;
+        protected string libelleMoyenPaiement;
 
-        public long CodeMoyenPaiement
+        public long IdMoyenPaiement
         {
-            get { return codeMoyenPaiement; }
-            set { codeMoyenPaiement = value; }
+            get { return idMoyenPaiement; }
+            set { idMoyenPaiement = value; }
         }
         
 
@@ -39,7 +39,7 @@ namespace DataService.BSDataObjects
             }
             else
             {
-                if ((((MoyenPaiement)obj).CodeMoyenPaiement == this.CodeMoyenPaiement) &&
+                if ((((MoyenPaiement)obj).idMoyenPaiement == this.idMoyenPaiement) &&
                     (((MoyenPaiement)obj).LibelleMoyenPaiement.Equals(this.LibelleMoyenPaiement))
                 )
                 {
@@ -56,7 +56,7 @@ namespace DataService.BSDataObjects
         public override string ToString()
         {
             StringBuilder chaine = new StringBuilder("Détail moyen paiement ");
-            chaine.Append("Code : " + this.CodeMoyenPaiement);
+            chaine.Append("Code : " + this.idMoyenPaiement);
             chaine.Append("Libellé : " + this.LibelleMoyenPaiement);
 
             return chaine.ToString();

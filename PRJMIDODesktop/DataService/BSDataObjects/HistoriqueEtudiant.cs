@@ -7,16 +7,16 @@ namespace DataService.BSDataObjects
 {
     public class HistoriqueEtudiant
     {
-        private long referenceHistorique;
+        private long idHistorique;
         private string anneeAcademique;
         private string diplomePrepare;
         private string niveauEtude;
         private Client client;
 
-        public long ReferenceHistorique
+        public long IdHistorique
         {
-            get { return referenceHistorique; }
-            set { referenceHistorique = value; }
+            get { return idHistorique; }
+            set { idHistorique = value; }
         }
         
 
