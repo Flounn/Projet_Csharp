@@ -11,7 +11,7 @@ using DataService.BSService;
 
 namespace DesktopIHM.GuiObjects
 {
-    public partial class fenRechercheClient : Form
+    public partial class fen_recherche_client : Form
     {
         private CritereRechercheClient crtRecherche = null;
 
@@ -23,23 +23,42 @@ namespace DesktopIHM.GuiObjects
 
         private void initCritereRecherche()
         {
-            //if(cbDateNaissance
+            if (!(cb_date_naissance.SelectedText.Equals("Choisissez")
+                && txt_adresse.Text.Equals("")
+                && txt_email.Text.Equals("")
+                && txt_id.Text.Equals("")
+                && txt_nom.Text.Equals("")
+                && txt_prenom.Text.Equals("")))
+            {
+                crtRecherche = new CritereRechercheClient();
+                crtRecherche.Adresse = txt_adresse.Text;
+                crtRecherche.Email = txt_email.Text;
+                crtRecherche.IdClient = long.Parse(txt_id.Text);
+                crtRecherche.Nom = txt_nom.Text;
+                crtRecherche.Prenom = txt_prenom.Text;
+                if(cb_date_naissance.SelectedText.Equals("Né le")
+                    || cb_date_naissance.SelectedText.Equals("Né entre le"))
+                {
+                    crtRecherche.DateNaissanceDebut = dt_data_naissance_debut.Value;
+                    crtRecherche.DateNaissanceFin = dt_date_naissance_fin.Value;
+                } else if(cb_date_naissance.SelectedText.Equals("Né après le")){
+                    crtRecherche.DateNaissanceDebut = dt_data_naissance_debut.Value;
+                } else if(cb_date_naissance.SelectedText.Equals("Né avant le")){
+                    crtRecherche.DateNaissanceFin = dt_date_naissance_fin.Value;
+                }
+            }
         }
 
-        public fenRechercheClient()
+        public fen_recherche_client()
         {
             InitializeComponent();
+            cb_date_naissance.Items.Add("Choisissez");
+            cb_date_naissance.Items.Add("Né le");
+            cb_date_naissance.Items.Add("Né après le");
+            cb_date_naissance.Items.Add("Né avant le");
+            cb_date_naissance.Items.Add("Né entre le");
         }
 
-        private void lbNom_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btRechercher_Click(object sender, EventArgs e)
-        {
-            InitData();
-        }
 
         private void InitData()
         {
@@ -50,19 +69,22 @@ namespace DesktopIHM.GuiObjects
             foreach (Client c in lstC)
                 listeClient.Add(c);
 
-            this.dgwLstClient.DataSource = listeClient;
-            dgwLstClient.Refresh();
+            this.dgw_lst_client.DataSource = listeClient;
+            dgw_lst_client.Refresh();
         }
 
-        private void dgwLstClient_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void fen_recherche_client_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void fenRechercheClient_Load(object sender, EventArgs e)
+        private void bt_rechercher_Click(object sender, EventArgs e)
         {
-
+            if (crtRecherche != null)
+            {
+                initCritereRecherche();
+                InitData();
+            }
         }
-
     }
 }
