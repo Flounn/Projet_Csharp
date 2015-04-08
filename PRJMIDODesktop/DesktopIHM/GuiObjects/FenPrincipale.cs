@@ -60,6 +60,11 @@ namespace DesktopIHM
         {
             FenMonProfil monProfile = new FenMonProfil(this.MonCompte);
             monProfile.ShowDialog(this);
+        }
+
+        private void détailsAcadémieToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }             
     }
 }

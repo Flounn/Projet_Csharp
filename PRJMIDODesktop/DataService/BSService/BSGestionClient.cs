@@ -6,35 +6,35 @@ using DataService.BSDataObjects;
 
 namespace DataService.BSService
 {
-    public class BSGestionClient
+    public static class BSGestionClient
     {
 
-        public IList<Client> RechercherClient(CritereRechercheClient critere)
+        public static IList<Client> RechercherClient(CritereRechercheClient critere)
         {
             return null;
         }
 
-        public IList<Compte> RechercherCompteClient(CritereRechercheCompte critere)
+        public static IList<Compte> RechercherCompteClient(CritereRechercheCompte critere)
         {
             return null;
         }
 
-        public IList<Operation> RechercherOperations(CritereRechercheOperation critere)
+        public static IList<Operation> RechercherOperations(CritereRechercheOperation critere)
         {
             return null;
         }
 
-        public bool CreerModifierClient(Client c)
+        public static bool CreerModifierClient(Client c)
         {
             return false;
         }
 
-        public long CreerModifierCompte(Compte compte)
+        public static long CreerModifierCompte(Compte compte)
         {
             return 1;
         }
 
-        public Contrat RechercherContrat(CritereRechercheContrat contrat)
+        public static Contrat RechercherContrat(CritereRechercheContrat contrat)
         {
             return null;
         }

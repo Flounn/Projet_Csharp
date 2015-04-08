@@ -20,9 +20,6 @@ namespace DataService.DAOService
         /// <summary>
         /// Exécute une requete de selection sur la table passée en argument
         /// </summary>
-        /// <example>
-        ///     <code>codeeeee</code>
-        /// </example>
         public static void ExecuteSelectQuery(string table_name)
         {
             if (!table_name.Equals(string.Empty))

@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>PRJMIDODesktop.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -76,6 +79,12 @@
     <Compile Include="GuiObjects\FenSaisirCompte.Designer.cs">
       <DependentUpon>FenSaisirCompte.cs</DependentUpon>
     </Compile>
+    <Compile Include="GuiObjects\FenRechercheClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GuiObjects\Add.Designer.cs">
+      <DependentUpon>FenRechercheClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="GuiObjects\GestionnaireUtilisateur.cs" />
     <Compile Include="GuiObjects\Session.cs" />
     <Compile Include="Program.cs" />
@@ -92,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GuiObjects\FenPrincipale.resx">
       <DependentUpon>FenPrincipale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GuiObjects\FenRechercheClient.resx">
+      <DependentUpon>FenRechercheClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GuiObjects\FenSaisirCompte.resx">
       <DependentUpon>FenSaisirCompte.cs</DependentUpon>
