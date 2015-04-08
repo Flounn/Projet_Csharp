@@ -31,7 +31,8 @@
             this.menuGeneral = new System.Windows.Forms.MenuStrip();
             this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saisirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.academieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mi_saisir_client = new System.Windows.Forms.ToolStripMenuItem();
+            this.mi_saisir_compte = new System.Windows.Forms.ToolStripMenuItem();
             this.universitéToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.etudiantToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rechercherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,6 +40,7 @@
             this.déytailsEtudiantToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unCompteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uneOpérationSurUnCompteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.monProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sécuritéToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listeDesUtilisateursToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,7 +49,6 @@
             this.utilisationDeLapplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.auteursToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.versionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.monProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuGeneral.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,18 +78,26 @@
             // saisirToolStripMenuItem
             // 
             this.saisirToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.academieToolStripMenuItem,
+            this.mi_saisir_client,
+            this.mi_saisir_compte,
             this.universitéToolStripMenuItem,
             this.etudiantToolStripMenuItem});
             this.saisirToolStripMenuItem.Name = "saisirToolStripMenuItem";
             this.saisirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saisirToolStripMenuItem.Text = "Saisir";
             // 
-            // academieToolStripMenuItem
+            // mi_saisir_client
             // 
-            this.academieToolStripMenuItem.Name = "academieToolStripMenuItem";
-            this.academieToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.academieToolStripMenuItem.Text = "Un compte client";
+            this.mi_saisir_client.Name = "mi_saisir_client";
+            this.mi_saisir_client.Size = new System.Drawing.Size(188, 22);
+            this.mi_saisir_client.Text = "Un client";
+            this.mi_saisir_client.Click += new System.EventHandler(this.mi_saisir_client_Click);
+            // 
+            // mi_saisir_compte
+            // 
+            this.mi_saisir_compte.Name = "mi_saisir_compte";
+            this.mi_saisir_compte.Size = new System.Drawing.Size(188, 22);
+            this.mi_saisir_compte.Text = "Un compte client";
             // 
             // universitéToolStripMenuItem
             // 
@@ -136,6 +145,13 @@
             this.uneOpérationSurUnCompteToolStripMenuItem.Name = "uneOpérationSurUnCompteToolStripMenuItem";
             this.uneOpérationSurUnCompteToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.uneOpérationSurUnCompteToolStripMenuItem.Text = "Une opération sur un compte";
+            // 
+            // monProfileToolStripMenuItem
+            // 
+            this.monProfileToolStripMenuItem.Name = "monProfileToolStripMenuItem";
+            this.monProfileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.monProfileToolStripMenuItem.Text = "Mon profile";
+            this.monProfileToolStripMenuItem.Click += new System.EventHandler(this.monProfileToolStripMenuItem_Click);
             // 
             // quitterToolStripMenuItem
             // 
@@ -195,13 +211,6 @@
             this.versionToolStripMenuItem.Text = "Version";
             this.versionToolStripMenuItem.Click += new System.EventHandler(this.versionToolStripMenuItem_Click);
             // 
-            // monProfileToolStripMenuItem
-            // 
-            this.monProfileToolStripMenuItem.Name = "monProfileToolStripMenuItem";
-            this.monProfileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.monProfileToolStripMenuItem.Text = "Mon profile";
-            this.monProfileToolStripMenuItem.Click += new System.EventHandler(this.monProfileToolStripMenuItem_Click);
-            // 
             // FenPrincipale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,7 +235,7 @@
         private System.Windows.Forms.ToolStripMenuItem saisirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rechercherToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem academieToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mi_saisir_compte;
         private System.Windows.Forms.ToolStripMenuItem universitéToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem etudiantToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem détailsAcadémieToolStripMenuItem;
@@ -241,6 +250,7 @@
         private System.Windows.Forms.ToolStripMenuItem unCompteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uneOpérationSurUnCompteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem monProfileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mi_saisir_client;
     }
 }
 

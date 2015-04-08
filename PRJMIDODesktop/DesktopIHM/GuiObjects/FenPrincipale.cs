@@ -12,13 +12,6 @@ namespace DesktopIHM
 {
     public partial class FenPrincipale : Form
     {
-        private Utilisateur monCompte;
-
-        public Utilisateur MonCompte
-        {
-            get { return monCompte; }
-            set { monCompte = value; }
-        }
        
         public FenPrincipale()
         {
@@ -43,12 +36,10 @@ namespace DesktopIHM
 
         private void FenPrincipale_Load(object sender, EventArgs e)
         {
-            FenConnexion connexion = new FenConnexion();
-            connexion.ShowDialog(this);
-            if (connexion.MonCompte != null)
-            {
-                this.MonCompte = connexion.MonCompte;
-            }
+            //FenConnexion connexion = new FenConnexion();
+            //connexion.ShowDialog(this);
+            Session.seConnecter("tata", "yoyo");
+            new FenSaisirClient().Show(this);
         }
 
         private void versionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -58,13 +49,24 @@ namespace DesktopIHM
 
         private void monProfileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FenMonProfil monProfile = new FenMonProfil(this.MonCompte);
+            FenMonProfil monProfile = new FenMonProfil();
             monProfile.ShowDialog(this);
         }
 
         private void détailsAcadémieToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-        }             
+        }
+
+        private void mi_saisir_compte_Click(object sender, EventArgs e)
+        {
+            new FenSaisirCompte().Show(this);
+        }
+
+        private void mi_saisir_client_Click(object sender, EventArgs e)
+        {
+            new FenSaisirClient().Show(this);
+        }
+        
     }
 }

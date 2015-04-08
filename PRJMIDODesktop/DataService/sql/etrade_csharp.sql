@@ -70,7 +70,7 @@ create table CLIENT
    ADRESSE_PRINC        VARCHAR(100),
    ADRESSE_TEMP         VARCHAR(100),
    TEL_FIXE             VARCHAR(20),
-   TEL_PRTABLE          VARCHAR(20),
+   TEL_PORTABLE          VARCHAR(20),
    primary key (ID_CLIENT)
 );
 

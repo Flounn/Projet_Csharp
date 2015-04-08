@@ -11,29 +11,20 @@ namespace DesktopIHM.GuiObjects
 {
     public partial class FenMonProfil : Form
     {
-        private Utilisateur compteUtilisateur;
-
-        public Utilisateur CompteUtilisateur
+        
+        public FenMonProfil()
         {
-            get { return compteUtilisateur; }
-            set { compteUtilisateur = value; }
-        }
-
-        public FenMonProfil(Utilisateur user)
-        {
-            this.CompteUtilisateur = user;
             InitializeComponent();
             InitProfile();
         }
 
         public void InitProfile()
         {
-            if (this.CompteUtilisateur != null)
-            {
-                this.monLogin.Text = CompteUtilisateur.Login;
-                this.monEmail.Text = CompteUtilisateur.Email;
-                this.monProfile.Text = CompteUtilisateur.Profile;          
-            }
+
+            this.monLogin.Text = Session.Utilisateur.Login;
+            this.monEmail.Text = Session.Utilisateur.Email;
+            this.monProfile.Text = Session.Utilisateur.Profile;          
+
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DataService.DAOService;
 
 namespace DataService.BSDataObjects
 {
@@ -19,6 +20,27 @@ namespace DataService.BSDataObjects
         private IList<HistoriqueEtudiant> historique;
         private IList<Contrat> listeContrats;
         private IList<Compte> listeComptes;
+
+        public Client()
+        {
+            historique = new List<HistoriqueEtudiant>();
+            listeContrats = new List<Contrat>();
+            listeComptes = new List<Compte>();
+        }
+
+
+        public Client(string nom, string prenom, DateTime ddn, string email, string adr_princ, string adr_temp, string tel_fixe, string tel_port)
+        {
+            this.nom = nom;
+            this.prenom = prenom;
+            this.dateNaissance = ddn;
+            this.email = email;
+            this.adressePrincipale = adr_princ;
+            this.adresseTemporaire = adr_temp;
+            this.telFixe = tel_fixe;
+            this.telPortable = tel_port;
+        }
+
         
         public IList<HistoriqueEtudiant> Historique
         {
@@ -88,13 +110,6 @@ namespace DataService.BSDataObjects
             set { telPortable = value; }
         }
 
-        public Client()
-        {
-            historique = new List<HistoriqueEtudiant>();
-            listeContrats = new List<Contrat>();
-            listeComptes = new List<Compte>();
-        }
-
         public override bool Equals(object obj)
         {
             bool b = true;
@@ -140,5 +155,16 @@ namespace DataService.BSDataObjects
 
             return chaine.ToString();
         }
+
+        #region DAO Client
+
+        private static DAOClient dao = new DAOClient();
+
+        public bool insert()
+        {
+            return dao.insert(this);
+        }
+
+        #endregion
     }
 }

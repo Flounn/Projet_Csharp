@@ -77,8 +77,7 @@ namespace DataService.DAOService
                 //parameters.Add(values[i]);
             }
 
-            commandText.Append(commandValues);
-            commandText.Append(");");
+            commandText.Append(commandValues+");");
             return insert(commandText.ToString());
 
 

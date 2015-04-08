@@ -12,23 +12,10 @@ namespace DesktopIHM
 {
     public partial class FenConnexion : Form
     {
-        private Utilisateur monCompte;
-
-        public Utilisateur MonCompte
-        {
-            get { return monCompte; }
-            set { monCompte = value; }
-        }
-
+       
         public FenConnexion()
         {
             InitializeComponent();
-        }
-
-        public FenConnexion(Utilisateur user)
-        {
-            InitializeComponent();
-            monCompte = user;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -55,9 +42,10 @@ namespace DesktopIHM
             
             if (Session.seConnecter(_login, _pwd))
                 this.Close();
-                //}
             else
                 MessageBox.Show("Erreur d'identification. Reessayez", "Echec de connexion", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-        }       
+        }
+
+          
     }
 }

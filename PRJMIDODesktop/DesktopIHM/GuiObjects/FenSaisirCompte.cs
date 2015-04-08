@@ -23,7 +23,11 @@ namespace DesktopIHM.GuiObjects
 
         private void bt_creer_Click(object sender, EventArgs e)
         {
-            compte.MontantInitial = decimal.Parse(txt_montant_initial.Text);
+            try
+            {
+                compte.MontantInitial = decimal.Parse(txt_montant_initial.Text);
+            }
+            catch (FormatException) { return; }
             compte.TypeCompte = rb_courant.Checked ? Compte.Type.Courant : Compte.Type.Epargne;
             //compte.Client=
                 //Connexion.insert
