@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GuiObjects\FenRechercheContrat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GuiObjects\FenRechercheContrat.Designer.cs">
+      <DependentUpon>FenRechercheContrat.cs</DependentUpon>
+    </Compile>
     <Compile Include="GuiObjects\FenConnexion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,23 +85,26 @@
     <Compile Include="GuiObjects\FenSaisirCompte.Designer.cs">
       <DependentUpon>FenSaisirCompte.cs</DependentUpon>
     </Compile>
-    <Compile Include="GuiObjects\fenRechercheClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GuiObjects\fenRechercheClient.Designer.cs">
-      <DependentUpon>fenRechercheClient.cs</DependentUpon>
-    </Compile>
     <Compile Include="GuiObjects\FenSaisirClient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GuiObjects\FenSaisirClient.Designer.cs">
       <DependentUpon>FenSaisirClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="GuiObjects\FenRechercheClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GuiObjects\FenRechercheClient.Designer.cs">
+      <DependentUpon>FenRechercheClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="GuiObjects\GestionnaireUtilisateur.cs" />
     <Compile Include="GuiObjects\Session.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GuiObjects\Utilisateur.cs" />
+    <EmbeddedResource Include="GuiObjects\FenRechercheContrat.resx">
+      <DependentUpon>FenRechercheContrat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GuiObjects\FenConnexion.resx">
       <DependentUpon>FenConnexion.cs</DependentUpon>
     </EmbeddedResource>
@@ -108,14 +117,14 @@
     <EmbeddedResource Include="GuiObjects\FenPrincipale.resx">
       <DependentUpon>FenPrincipale.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GuiObjects\fenRechercheClient.resx">
-      <DependentUpon>fenRechercheClient.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GuiObjects\FenSaisirClient.resx">
       <DependentUpon>FenSaisirClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GuiObjects\FenSaisirCompte.resx">
       <DependentUpon>FenSaisirCompte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GuiObjects\FenRechercheClient.resx">
+      <DependentUpon>FenRechercheClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

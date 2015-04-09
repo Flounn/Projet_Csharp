@@ -34,7 +34,7 @@ namespace DataService.BSService
             return 1;
         }
 
-        public static Contrat RechercherContrat(CritereRechercheContrat contrat)
+        public static IList<Contrat> RechercherContrat(CritereRechercheContrat contrat)
         {
             return null;
         }

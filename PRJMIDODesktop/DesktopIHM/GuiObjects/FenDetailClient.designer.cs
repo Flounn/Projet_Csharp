@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.gbDonneesPersonnelles = new System.Windows.Forms.GroupBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtAge = new System.Windows.Forms.TextBox();
+            this.txtPrenom = new System.Windows.Forms.TextBox();
+            this.txtNom = new System.Windows.Forms.TextBox();
+            this.lEmail = new System.Windows.Forms.Label();
+            this.lAge = new System.Windows.Forms.Label();
+            this.lPrenom = new System.Windows.Forms.Label();
+            this.lNom = new System.Windows.Forms.Label();
             this.gbListeContrats = new System.Windows.Forms.GroupBox();
             this.gbListeComptes = new System.Windows.Forms.GroupBox();
             this.gbListeTransactions = new System.Windows.Forms.GroupBox();
             this.btImprimer = new System.Windows.Forms.Button();
-            this.lNom = new System.Windows.Forms.Label();
-            this.lPrenom = new System.Windows.Forms.Label();
-            this.lAge = new System.Windows.Forms.Label();
-            this.lEmail = new System.Windows.Forms.Label();
-            this.txtNom = new System.Windows.Forms.TextBox();
-            this.txtPrenom = new System.Windows.Forms.TextBox();
-            this.txtAge = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             this.gbDonneesPersonnelles.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +60,70 @@
             this.gbDonneesPersonnelles.TabIndex = 0;
             this.gbDonneesPersonnelles.TabStop = false;
             this.gbDonneesPersonnelles.Text = "Données Personnelles";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(306, 52);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(141, 20);
+            this.txtEmail.TabIndex = 7;
+            // 
+            // txtAge
+            // 
+            this.txtAge.Location = new System.Drawing.Point(306, 23);
+            this.txtAge.Name = "txtAge";
+            this.txtAge.Size = new System.Drawing.Size(141, 20);
+            this.txtAge.TabIndex = 6;
+            // 
+            // txtPrenom
+            // 
+            this.txtPrenom.Location = new System.Drawing.Point(98, 52);
+            this.txtPrenom.Name = "txtPrenom";
+            this.txtPrenom.Size = new System.Drawing.Size(141, 20);
+            this.txtPrenom.TabIndex = 5;
+            // 
+            // txtNom
+            // 
+            this.txtNom.Location = new System.Drawing.Point(98, 23);
+            this.txtNom.Name = "txtNom";
+            this.txtNom.Size = new System.Drawing.Size(141, 20);
+            this.txtNom.TabIndex = 4;
+            // 
+            // lEmail
+            // 
+            this.lEmail.AutoSize = true;
+            this.lEmail.Location = new System.Drawing.Point(256, 59);
+            this.lEmail.Name = "lEmail";
+            this.lEmail.Size = new System.Drawing.Size(32, 13);
+            this.lEmail.TabIndex = 3;
+            this.lEmail.Text = "Email";
+            // 
+            // lAge
+            // 
+            this.lAge.AutoSize = true;
+            this.lAge.Location = new System.Drawing.Point(256, 30);
+            this.lAge.Name = "lAge";
+            this.lAge.Size = new System.Drawing.Size(26, 13);
+            this.lAge.TabIndex = 2;
+            this.lAge.Text = "Age";
+            // 
+            // lPrenom
+            // 
+            this.lPrenom.AutoSize = true;
+            this.lPrenom.Location = new System.Drawing.Point(39, 59);
+            this.lPrenom.Name = "lPrenom";
+            this.lPrenom.Size = new System.Drawing.Size(43, 13);
+            this.lPrenom.TabIndex = 1;
+            this.lPrenom.Text = "Prenom";
+            // 
+            // lNom
+            // 
+            this.lNom.AutoSize = true;
+            this.lNom.Location = new System.Drawing.Point(39, 30);
+            this.lNom.Name = "lNom";
+            this.lNom.Size = new System.Drawing.Size(29, 13);
+            this.lNom.TabIndex = 0;
+            this.lNom.Text = "Nom";
             // 
             // gbListeContrats
             // 
@@ -96,70 +160,6 @@
             this.btImprimer.TabIndex = 4;
             this.btImprimer.Text = "Imprimer";
             this.btImprimer.UseVisualStyleBackColor = true;
-            // 
-            // lNom
-            // 
-            this.lNom.AutoSize = true;
-            this.lNom.Location = new System.Drawing.Point(39, 30);
-            this.lNom.Name = "lNom";
-            this.lNom.Size = new System.Drawing.Size(29, 13);
-            this.lNom.TabIndex = 0;
-            this.lNom.Text = "Nom";
-            // 
-            // lPrenom
-            // 
-            this.lPrenom.AutoSize = true;
-            this.lPrenom.Location = new System.Drawing.Point(39, 59);
-            this.lPrenom.Name = "lPrenom";
-            this.lPrenom.Size = new System.Drawing.Size(43, 13);
-            this.lPrenom.TabIndex = 1;
-            this.lPrenom.Text = "Prenom";
-            // 
-            // lAge
-            // 
-            this.lAge.AutoSize = true;
-            this.lAge.Location = new System.Drawing.Point(256, 30);
-            this.lAge.Name = "lAge";
-            this.lAge.Size = new System.Drawing.Size(26, 13);
-            this.lAge.TabIndex = 2;
-            this.lAge.Text = "Age";
-            // 
-            // lEmail
-            // 
-            this.lEmail.AutoSize = true;
-            this.lEmail.Location = new System.Drawing.Point(256, 59);
-            this.lEmail.Name = "lEmail";
-            this.lEmail.Size = new System.Drawing.Size(32, 13);
-            this.lEmail.TabIndex = 3;
-            this.lEmail.Text = "Email";
-            // 
-            // txtNom
-            // 
-            this.txtNom.Location = new System.Drawing.Point(98, 23);
-            this.txtNom.Name = "txtNom";
-            this.txtNom.Size = new System.Drawing.Size(141, 20);
-            this.txtNom.TabIndex = 4;
-            // 
-            // txtPrenom
-            // 
-            this.txtPrenom.Location = new System.Drawing.Point(98, 52);
-            this.txtPrenom.Name = "txtPrenom";
-            this.txtPrenom.Size = new System.Drawing.Size(141, 20);
-            this.txtPrenom.TabIndex = 5;
-            // 
-            // txtAge
-            // 
-            this.txtAge.Location = new System.Drawing.Point(306, 23);
-            this.txtAge.Name = "txtAge";
-            this.txtAge.Size = new System.Drawing.Size(141, 20);
-            this.txtAge.TabIndex = 6;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(306, 52);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(141, 20);
-            this.txtEmail.TabIndex = 7;
             // 
             // FenDetailClient
             // 

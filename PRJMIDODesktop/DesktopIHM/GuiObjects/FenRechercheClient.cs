@@ -11,52 +11,55 @@ using DataService.BSService;
 
 namespace DesktopIHM.GuiObjects
 {
-    public partial class fen_recherche_client : Form
+    public partial class FenRechercheClient : Form
     {
-        private CritereRechercheClient crtRecherche = null;
+        private CritereRechercheClient crtRechercheClient = null;
 
-        public CritereRechercheClient CrtRecherche
+        public CritereRechercheClient CrtRechercheClient
         {
-            get { return crtRecherche; }
-            set { crtRecherche = value; }
+            get { return crtRechercheClient; }
+            set { crtRechercheClient = value; }
         }
 
         private void initCritereRecherche()
         {
-            if (!(cb_date_naissance.SelectedText.Equals("Choisissez")
-                && txt_adresse.Text.Equals("")
-                && txt_email.Text.Equals("")
-                && txt_id.Text.Equals("")
-                && txt_nom.Text.Equals("")
-                && txt_prenom.Text.Equals("")))
+            if (!(cbDateSouscription.SelectedIndex==0
+                && txtIntitule.Text.Equals("")
+                && txtIdCompte.Text.Equals("")
+                && txtId.Text.Equals("")
+                && txtIdClient.Text.Equals("")
+                && txtIdProduit.Text.Equals("")))
             {
-                crtRecherche = new CritereRechercheClient();
-                crtRecherche.Adresse = txt_adresse.Text;
-                crtRecherche.Email = txt_email.Text;
-                crtRecherche.IdClient = long.Parse(txt_id.Text);
-                crtRecherche.Nom = txt_nom.Text;
-                crtRecherche.Prenom = txt_prenom.Text;
-                if(cb_date_naissance.SelectedText.Equals("Né le")
-                    || cb_date_naissance.SelectedText.Equals("Né entre le"))
-                {
-                    crtRecherche.DateNaissanceDebut = dt_data_naissance_debut.Value;
-                    crtRecherche.DateNaissanceFin = dt_date_naissance_fin.Value;
-                } else if(cb_date_naissance.SelectedText.Equals("Né après le")){
-                    crtRecherche.DateNaissanceDebut = dt_data_naissance_debut.Value;
-                } else if(cb_date_naissance.SelectedText.Equals("Né avant le")){
-                    crtRecherche.DateNaissanceFin = dt_date_naissance_fin.Value;
+                crtRechercheClient = new CritereRechercheClient();
+                crtRechercheClient.Adresse = txtIntitule.Text;
+                crtRechercheClient.Email = txtIdCompte.Text;
+                crtRechercheClient.IdClient = long.Parse(txtId.Text);
+                crtRechercheClient.Nom = txtIdClient.Text;
+                crtRechercheClient.Prenom = txtIdProduit.Text;
+                switch (cbDateSouscription.SelectedIndex){
+                    default:
+                        crtRechercheClient.DateNaissanceDebut = dtDateSouscriptionDebut.Value;
+                        crtRechercheClient.DateNaissanceFin = dtDateSouscriptionFin.Value;
+                        break;
+                    case 2:               
+                        crtRechercheClient.DateNaissanceDebut = dtDateSouscriptionDebut.Value;
+                        break;
+                    case 3:
+                        crtRechercheClient.DateNaissanceFin = dtDateSouscriptionFin.Value;
+                        break;
                 }
             }
         }
 
-        public fen_recherche_client()
+        public FenRechercheClient()
         {
             InitializeComponent();
-            cb_date_naissance.Items.Add("Choisissez");
-            cb_date_naissance.Items.Add("Né le");
-            cb_date_naissance.Items.Add("Né après le");
-            cb_date_naissance.Items.Add("Né avant le");
-            cb_date_naissance.Items.Add("Né entre le");
+            cbDateSouscription.Text = "Choisissez";
+            cbDateSouscription.Items.Add("");
+            cbDateSouscription.Items.Add("Né le");
+            cbDateSouscription.Items.Add("Né après le");
+            cbDateSouscription.Items.Add("Né avant le");
+            cbDateSouscription.Items.Add("Né entre le");
         }
 
 
@@ -64,26 +67,51 @@ namespace DesktopIHM.GuiObjects
         {
             BindingList<Client> listeClient = new BindingList<Client>();
 
-            IList<Client> lstC = BSGestionClient.RechercherClient(CrtRecherche);
+            IList<Client> lstC = BSGestionClient.RechercherClient(crtRechercheClient);
 
             foreach (Client c in lstC)
                 listeClient.Add(c);
 
-            this.dgw_lst_client.DataSource = listeClient;
-            dgw_lst_client.Refresh();
+            this.dgwLstContrat.DataSource = listeClient;
+            dgwLstContrat.Refresh();
         }
 
-        private void fen_recherche_client_Load(object sender, EventArgs e)
+        private void fenRechercheClient_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void bt_rechercher_Click(object sender, EventArgs e)
+        private void btDetail_Click(object sender, EventArgs e)
         {
-            if (crtRecherche != null)
+            //new FenDetailClient(dgwLstContrat.SelectedRows.Cast<Client>().);
+        }
+
+        private void btRechercher_Click(object sender, EventArgs e)
+        {
+            if (crtRechercheClient != null)
             {
                 initCritereRecherche();
                 InitData();
+            }
+        }
+
+        private void cbDateSouscription_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cbDateSouscription.SelectedIndex)
+            {
+                case 0:
+                    dtDateSouscriptionDebut.Enabled = false;
+                    dtDateSouscriptionFin.Visible = false;
+                    break;
+                case 4:
+                    dtDateSouscriptionDebut.Enabled = true;
+                    dtDateSouscriptionFin.Visible = true;
+                    dtDateSouscriptionFin.Enabled = true;
+                    break;
+                default:
+                    dtDateSouscriptionDebut.Enabled = true;
+                    dtDateSouscriptionFin.Visible = false;
+                    break;
             }
         }
     }

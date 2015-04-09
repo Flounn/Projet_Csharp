@@ -29,187 +29,188 @@
         private void InitializeComponent()
         {
             this.menuGeneral = new System.Windows.Forms.MenuStrip();
-            this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saisirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mi_saisir_client = new System.Windows.Forms.ToolStripMenuItem();
-            this.mi_saisir_compte = new System.Windows.Forms.ToolStripMenuItem();
-            this.universitéToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.etudiantToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rechercherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.détailsAcadémieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.déytailsEtudiantToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.unCompteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uneOpérationSurUnCompteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.monProfileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sécuritéToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listeDesUtilisateursToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ajouterUnUtilisateurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.utilisationDeLapplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.auteursToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.versionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.miFichier = new System.Windows.Forms.ToolStripMenuItem();
+            this.miSaisir = new System.Windows.Forms.ToolStripMenuItem();
+            this.miSaisirClient = new System.Windows.Forms.ToolStripMenuItem();
+            this.miSaisirCompte = new System.Windows.Forms.ToolStripMenuItem();
+            this.miSouscription = new System.Windows.Forms.ToolStripMenuItem();
+            this.miDonneesReferentiel = new System.Windows.Forms.ToolStripMenuItem();
+            this.miRechercher = new System.Windows.Forms.ToolStripMenuItem();
+            this.miRechercheClient = new System.Windows.Forms.ToolStripMenuItem();
+            this.miRechercheContrat = new System.Windows.Forms.ToolStripMenuItem();
+            this.miRechercheCompte = new System.Windows.Forms.ToolStripMenuItem();
+            this.miRechercheOperation = new System.Windows.Forms.ToolStripMenuItem();
+            this.miProfile = new System.Windows.Forms.ToolStripMenuItem();
+            this.miQuit = new System.Windows.Forms.ToolStripMenuItem();
+            this.miSecurite = new System.Windows.Forms.ToolStripMenuItem();
+            this.miLstUtilisateurs = new System.Windows.Forms.ToolStripMenuItem();
+            this.miAddUtilisateur = new System.Windows.Forms.ToolStripMenuItem();
+            this.miHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.miUtilisation = new System.Windows.Forms.ToolStripMenuItem();
+            this.miAuteurs = new System.Windows.Forms.ToolStripMenuItem();
+            this.miVersion = new System.Windows.Forms.ToolStripMenuItem();
             this.menuGeneral.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuGeneral
             // 
             this.menuGeneral.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fichierToolStripMenuItem,
-            this.sécuritéToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.miFichier,
+            this.miSecurite,
+            this.miHelp});
             this.menuGeneral.Location = new System.Drawing.Point(0, 0);
             this.menuGeneral.Name = "menuGeneral";
             this.menuGeneral.Size = new System.Drawing.Size(1213, 24);
             this.menuGeneral.TabIndex = 1;
             this.menuGeneral.Text = "menuStrip1";
             // 
-            // fichierToolStripMenuItem
+            // miFichier
             // 
-            this.fichierToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saisirToolStripMenuItem,
-            this.rechercherToolStripMenuItem,
-            this.monProfileToolStripMenuItem,
-            this.quitterToolStripMenuItem});
-            this.fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
-            this.fichierToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.fichierToolStripMenuItem.Text = "Fichier";
+            this.miFichier.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miSaisir,
+            this.miRechercher,
+            this.miProfile,
+            this.miQuit});
+            this.miFichier.Name = "miFichier";
+            this.miFichier.Size = new System.Drawing.Size(54, 20);
+            this.miFichier.Text = "Fichier";
             // 
-            // saisirToolStripMenuItem
+            // miSaisir
             // 
-            this.saisirToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mi_saisir_client,
-            this.mi_saisir_compte,
-            this.universitéToolStripMenuItem,
-            this.etudiantToolStripMenuItem});
-            this.saisirToolStripMenuItem.Name = "saisirToolStripMenuItem";
-            this.saisirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.saisirToolStripMenuItem.Text = "Saisir";
+            this.miSaisir.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miSaisirClient,
+            this.miSaisirCompte,
+            this.miSouscription,
+            this.miDonneesReferentiel});
+            this.miSaisir.Name = "miSaisir";
+            this.miSaisir.Size = new System.Drawing.Size(136, 22);
+            this.miSaisir.Text = "Saisir";
             // 
-            // mi_saisir_client
+            // miSaisirClient
             // 
-            this.mi_saisir_client.Name = "mi_saisir_client";
-            this.mi_saisir_client.Size = new System.Drawing.Size(188, 22);
-            this.mi_saisir_client.Text = "Un client";
-            this.mi_saisir_client.Click += new System.EventHandler(this.mi_saisir_client_Click);
+            this.miSaisirClient.Name = "miSaisirClient";
+            this.miSaisirClient.Size = new System.Drawing.Size(188, 22);
+            this.miSaisirClient.Text = "Un client";
+            this.miSaisirClient.Click += new System.EventHandler(this.miSaisirClient_Click);
             // 
-            // mi_saisir_compte
+            // miSaisirCompte
             // 
-            this.mi_saisir_compte.Name = "mi_saisir_compte";
-            this.mi_saisir_compte.Size = new System.Drawing.Size(188, 22);
-            this.mi_saisir_compte.Text = "Un compte client";
+            this.miSaisirCompte.Name = "miSaisirCompte";
+            this.miSaisirCompte.Size = new System.Drawing.Size(188, 22);
+            this.miSaisirCompte.Text = "Un compte client";
             // 
-            // universitéToolStripMenuItem
+            // miSouscription
             // 
-            this.universitéToolStripMenuItem.Name = "universitéToolStripMenuItem";
-            this.universitéToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.universitéToolStripMenuItem.Text = "Une souscription";
+            this.miSouscription.Name = "miSouscription";
+            this.miSouscription.Size = new System.Drawing.Size(188, 22);
+            this.miSouscription.Text = "Une souscription";
             // 
-            // etudiantToolStripMenuItem
+            // miDonneesReferentiel
             // 
-            this.etudiantToolStripMenuItem.Name = "etudiantToolStripMenuItem";
-            this.etudiantToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.etudiantToolStripMenuItem.Text = "Donnée du référentiel";
+            this.miDonneesReferentiel.Name = "miDonneesReferentiel";
+            this.miDonneesReferentiel.Size = new System.Drawing.Size(188, 22);
+            this.miDonneesReferentiel.Text = "Donnée du référentiel";
             // 
-            // rechercherToolStripMenuItem
+            // miRechercher
             // 
-            this.rechercherToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.détailsAcadémieToolStripMenuItem,
-            this.déytailsEtudiantToolStripMenuItem,
-            this.unCompteToolStripMenuItem,
-            this.uneOpérationSurUnCompteToolStripMenuItem});
-            this.rechercherToolStripMenuItem.Name = "rechercherToolStripMenuItem";
-            this.rechercherToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.rechercherToolStripMenuItem.Text = "Rechercher";
+            this.miRechercher.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miRechercheClient,
+            this.miRechercheContrat,
+            this.miRechercheCompte,
+            this.miRechercheOperation});
+            this.miRechercher.Name = "miRechercher";
+            this.miRechercher.Size = new System.Drawing.Size(136, 22);
+            this.miRechercher.Text = "Rechercher";
             // 
-            // détailsAcadémieToolStripMenuItem
+            // miRechercheClient
             // 
-            this.détailsAcadémieToolStripMenuItem.Name = "détailsAcadémieToolStripMenuItem";
-            this.détailsAcadémieToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-            this.détailsAcadémieToolStripMenuItem.Text = "Un client";
+            this.miRechercheClient.Name = "miRechercheClient";
+            this.miRechercheClient.Size = new System.Drawing.Size(229, 22);
+            this.miRechercheClient.Text = "Un client";
+            this.miRechercheClient.Click += new System.EventHandler(this.miRechercheClient_Click);
             // 
-            // déytailsEtudiantToolStripMenuItem
+            // miRechercheContrat
             // 
-            this.déytailsEtudiantToolStripMenuItem.Name = "déytailsEtudiantToolStripMenuItem";
-            this.déytailsEtudiantToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-            this.déytailsEtudiantToolStripMenuItem.Text = "Un contrat";
+            this.miRechercheContrat.Name = "miRechercheContrat";
+            this.miRechercheContrat.Size = new System.Drawing.Size(229, 22);
+            this.miRechercheContrat.Text = "Un contrat";
             // 
-            // unCompteToolStripMenuItem
+            // miRechercheCompte
             // 
-            this.unCompteToolStripMenuItem.Name = "unCompteToolStripMenuItem";
-            this.unCompteToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-            this.unCompteToolStripMenuItem.Text = "Un compte";
+            this.miRechercheCompte.Name = "miRechercheCompte";
+            this.miRechercheCompte.Size = new System.Drawing.Size(229, 22);
+            this.miRechercheCompte.Text = "Un compte";
             // 
-            // uneOpérationSurUnCompteToolStripMenuItem
+            // miRechercheOperation
             // 
-            this.uneOpérationSurUnCompteToolStripMenuItem.Name = "uneOpérationSurUnCompteToolStripMenuItem";
-            this.uneOpérationSurUnCompteToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-            this.uneOpérationSurUnCompteToolStripMenuItem.Text = "Une opération sur un compte";
+            this.miRechercheOperation.Name = "miRechercheOperation";
+            this.miRechercheOperation.Size = new System.Drawing.Size(229, 22);
+            this.miRechercheOperation.Text = "Une opération sur un compte";
             // 
-            // monProfileToolStripMenuItem
+            // miProfile
             // 
-            this.monProfileToolStripMenuItem.Name = "monProfileToolStripMenuItem";
-            this.monProfileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.monProfileToolStripMenuItem.Text = "Mon profile";
-            this.monProfileToolStripMenuItem.Click += new System.EventHandler(this.monProfileToolStripMenuItem_Click);
+            this.miProfile.Name = "miProfile";
+            this.miProfile.Size = new System.Drawing.Size(136, 22);
+            this.miProfile.Text = "Mon profile";
+            this.miProfile.Click += new System.EventHandler(this.monProfileToolStripMenuItem_Click);
             // 
-            // quitterToolStripMenuItem
+            // miQuit
             // 
-            this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
-            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.quitterToolStripMenuItem.Text = "Quitter";
-            this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
+            this.miQuit.Name = "miQuit";
+            this.miQuit.Size = new System.Drawing.Size(136, 22);
+            this.miQuit.Text = "Quitter";
+            this.miQuit.Click += new System.EventHandler(this.miQuit_Click);
             // 
-            // sécuritéToolStripMenuItem
+            // miSecurite
             // 
-            this.sécuritéToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.listeDesUtilisateursToolStripMenuItem,
-            this.ajouterUnUtilisateurToolStripMenuItem});
-            this.sécuritéToolStripMenuItem.Name = "sécuritéToolStripMenuItem";
-            this.sécuritéToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.sécuritéToolStripMenuItem.Text = "Sécurité";
+            this.miSecurite.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miLstUtilisateurs,
+            this.miAddUtilisateur});
+            this.miSecurite.Name = "miSecurite";
+            this.miSecurite.Size = new System.Drawing.Size(61, 20);
+            this.miSecurite.Text = "Sécurité";
             // 
-            // listeDesUtilisateursToolStripMenuItem
+            // miLstUtilisateurs
             // 
-            this.listeDesUtilisateursToolStripMenuItem.Name = "listeDesUtilisateursToolStripMenuItem";
-            this.listeDesUtilisateursToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.listeDesUtilisateursToolStripMenuItem.Text = "Liste des utilisateurs";
+            this.miLstUtilisateurs.Name = "miLstUtilisateurs";
+            this.miLstUtilisateurs.Size = new System.Drawing.Size(185, 22);
+            this.miLstUtilisateurs.Text = "Liste des utilisateurs";
             // 
-            // ajouterUnUtilisateurToolStripMenuItem
+            // miAddUtilisateur
             // 
-            this.ajouterUnUtilisateurToolStripMenuItem.Name = "ajouterUnUtilisateurToolStripMenuItem";
-            this.ajouterUnUtilisateurToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.ajouterUnUtilisateurToolStripMenuItem.Text = "Ajouter un utilisateur";
+            this.miAddUtilisateur.Name = "miAddUtilisateur";
+            this.miAddUtilisateur.Size = new System.Drawing.Size(185, 22);
+            this.miAddUtilisateur.Text = "Ajouter un utilisateur";
             // 
-            // helpToolStripMenuItem
+            // miHelp
             // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.utilisationDeLapplicationToolStripMenuItem,
-            this.auteursToolStripMenuItem,
-            this.versionToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.miHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miUtilisation,
+            this.miAuteurs,
+            this.miVersion});
+            this.miHelp.Name = "miHelp";
+            this.miHelp.Size = new System.Drawing.Size(44, 20);
+            this.miHelp.Text = "Help";
             // 
-            // utilisationDeLapplicationToolStripMenuItem
+            // miUtilisation
             // 
-            this.utilisationDeLapplicationToolStripMenuItem.Name = "utilisationDeLapplicationToolStripMenuItem";
-            this.utilisationDeLapplicationToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.utilisationDeLapplicationToolStripMenuItem.Text = "Utilisation de l\'application";
+            this.miUtilisation.Name = "miUtilisation";
+            this.miUtilisation.Size = new System.Drawing.Size(211, 22);
+            this.miUtilisation.Text = "Utilisation de l\'application";
             // 
-            // auteursToolStripMenuItem
+            // miAuteurs
             // 
-            this.auteursToolStripMenuItem.Name = "auteursToolStripMenuItem";
-            this.auteursToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.auteursToolStripMenuItem.Text = "A propos des auteurs";
-            this.auteursToolStripMenuItem.Click += new System.EventHandler(this.auteursToolStripMenuItem_Click);
+            this.miAuteurs.Name = "miAuteurs";
+            this.miAuteurs.Size = new System.Drawing.Size(211, 22);
+            this.miAuteurs.Text = "A propos des auteurs";
+            this.miAuteurs.Click += new System.EventHandler(this.miAuteurs_Click);
             // 
-            // versionToolStripMenuItem
+            // miVersion
             // 
-            this.versionToolStripMenuItem.Name = "versionToolStripMenuItem";
-            this.versionToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.versionToolStripMenuItem.Text = "Version";
-            this.versionToolStripMenuItem.Click += new System.EventHandler(this.versionToolStripMenuItem_Click);
+            this.miVersion.Name = "miVersion";
+            this.miVersion.Size = new System.Drawing.Size(211, 22);
+            this.miVersion.Text = "Version";
+            this.miVersion.Click += new System.EventHandler(this.miVersion_Click);
             // 
             // FenPrincipale
             // 
@@ -231,26 +232,26 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuGeneral;
-        private System.Windows.Forms.ToolStripMenuItem fichierToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saisirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rechercherToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mi_saisir_compte;
-        private System.Windows.Forms.ToolStripMenuItem universitéToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem etudiantToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem détailsAcadémieToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem déytailsEtudiantToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sécuritéToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listeDesUtilisateursToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ajouterUnUtilisateurToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem utilisationDeLapplicationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem auteursToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem versionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem unCompteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem uneOpérationSurUnCompteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem monProfileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mi_saisir_client;
+        private System.Windows.Forms.ToolStripMenuItem miFichier;
+        private System.Windows.Forms.ToolStripMenuItem miSaisir;
+        private System.Windows.Forms.ToolStripMenuItem miRechercher;
+        private System.Windows.Forms.ToolStripMenuItem miQuit;
+        private System.Windows.Forms.ToolStripMenuItem miSaisirCompte;
+        private System.Windows.Forms.ToolStripMenuItem miSouscription;
+        private System.Windows.Forms.ToolStripMenuItem miDonneesReferentiel;
+        private System.Windows.Forms.ToolStripMenuItem miRechercheClient;
+        private System.Windows.Forms.ToolStripMenuItem miRechercheContrat;
+        private System.Windows.Forms.ToolStripMenuItem miSecurite;
+        private System.Windows.Forms.ToolStripMenuItem miLstUtilisateurs;
+        private System.Windows.Forms.ToolStripMenuItem miAddUtilisateur;
+        private System.Windows.Forms.ToolStripMenuItem miHelp;
+        private System.Windows.Forms.ToolStripMenuItem miUtilisation;
+        private System.Windows.Forms.ToolStripMenuItem miAuteurs;
+        private System.Windows.Forms.ToolStripMenuItem miVersion;
+        private System.Windows.Forms.ToolStripMenuItem miRechercheCompte;
+        private System.Windows.Forms.ToolStripMenuItem miRechercheOperation;
+        private System.Windows.Forms.ToolStripMenuItem miProfile;
+        private System.Windows.Forms.ToolStripMenuItem miSaisirClient;
     }
 }
 

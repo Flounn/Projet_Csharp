@@ -24,14 +24,9 @@ namespace DesktopIHM
             //A remplir
         }
 
-        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
+        private void miQuit_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void auteursToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Ce logiciel a été développé par l'équipe MIDO Paris Dauphine \nAvec la participation de M. Alexis ONGAGNA\nAucours de l'année académique 2014 - 2015", "A propos des auteurs", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void FenPrincipale_Load(object sender, EventArgs e)
@@ -42,7 +37,7 @@ namespace DesktopIHM
             new FenSaisirClient().Show(this);
         }
 
-        private void versionToolStripMenuItem_Click(object sender, EventArgs e)
+        private void miVersion_Click(object sender, EventArgs e)
         {
             MessageBox.Show("LCP Gestionnaire Clientèle\nV1.0.0.2015\nRelease du 12/04/2015", "Version", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -53,19 +48,24 @@ namespace DesktopIHM
             monProfile.ShowDialog(this);
         }
 
-        private void détailsAcadémieToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void mi_saisir_compte_Click(object sender, EventArgs e)
+        private void miSaisirCompte_Click(object sender, EventArgs e)
         {
             new FenSaisirCompte().Show(this);
         }
 
-        private void mi_saisir_client_Click(object sender, EventArgs e)
+        private void miSaisirClient_Click(object sender, EventArgs e)
         {
             new FenSaisirClient().Show(this);
+        }
+
+        private void miRechercheClient_Click(object sender, EventArgs e)
+        {
+            new FenRechercheClient().Show(this);
+        }
+
+        private void miAuteurs_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Ce logiciel a été développé par l'équipe MIDO Paris Dauphine \nAvec la participation de M. Alexis ONGAGNA\nAu cours de l'année académique 2014 - 2015", "A propos des auteurs", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         
     }
