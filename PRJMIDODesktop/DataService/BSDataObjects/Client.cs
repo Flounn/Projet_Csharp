@@ -164,6 +164,14 @@ namespace DataService.BSDataObjects
         {
             return dao.insert(this);
         }
+        public bool delete()
+        {
+            return dao.delete(this);
+        }
+        public bool update()
+        {
+            return dao.update(this);
+        }
 
         #endregion
     }

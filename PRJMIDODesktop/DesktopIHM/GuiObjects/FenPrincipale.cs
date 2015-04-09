@@ -67,6 +67,11 @@ namespace DesktopIHM
         {
             new FenSaisirClient().Show(this);
         }
+
+        private void listeDesUtilisateursToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FenListeUtilisateurs().Show(this);
+        }
         
     }
 }

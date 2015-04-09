@@ -83,7 +83,7 @@
             this.universitéToolStripMenuItem,
             this.etudiantToolStripMenuItem});
             this.saisirToolStripMenuItem.Name = "saisirToolStripMenuItem";
-            this.saisirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saisirToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.saisirToolStripMenuItem.Text = "Saisir";
             // 
             // mi_saisir_client
@@ -119,7 +119,7 @@
             this.unCompteToolStripMenuItem,
             this.uneOpérationSurUnCompteToolStripMenuItem});
             this.rechercherToolStripMenuItem.Name = "rechercherToolStripMenuItem";
-            this.rechercherToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rechercherToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.rechercherToolStripMenuItem.Text = "Rechercher";
             // 
             // détailsAcadémieToolStripMenuItem
@@ -149,14 +149,14 @@
             // monProfileToolStripMenuItem
             // 
             this.monProfileToolStripMenuItem.Name = "monProfileToolStripMenuItem";
-            this.monProfileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.monProfileToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.monProfileToolStripMenuItem.Text = "Mon profile";
             this.monProfileToolStripMenuItem.Click += new System.EventHandler(this.monProfileToolStripMenuItem_Click);
             // 
             // quitterToolStripMenuItem
             // 
             this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
-            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.quitterToolStripMenuItem.Text = "Quitter";
             this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
@@ -174,6 +174,7 @@
             this.listeDesUtilisateursToolStripMenuItem.Name = "listeDesUtilisateursToolStripMenuItem";
             this.listeDesUtilisateursToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.listeDesUtilisateursToolStripMenuItem.Text = "Liste des utilisateurs";
+            this.listeDesUtilisateursToolStripMenuItem.Click += new System.EventHandler(this.listeDesUtilisateursToolStripMenuItem_Click);
             // 
             // ajouterUnUtilisateurToolStripMenuItem
             // 
