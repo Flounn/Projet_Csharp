@@ -67,6 +67,11 @@ namespace DesktopIHM
         {
             MessageBox.Show("Ce logiciel a été développé par l'équipe MIDO Paris Dauphine \nAvec la participation de M. Alexis ONGAGNA\nAu cours de l'année académique 2014 - 2015", "A propos des auteurs", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void listeDesUtilisateursToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FenListeUtilisateurs().Show(this);
+        }
         
     }
 }

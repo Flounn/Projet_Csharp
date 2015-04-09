@@ -45,6 +45,7 @@
             this.txt_adresse_temp = new System.Windows.Forms.TextBox();
             this.txt_tel_fixe = new System.Windows.Forms.TextBox();
             this.txt_tel_port = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // bt_creer
@@ -185,11 +186,20 @@
             this.txt_tel_port.Size = new System.Drawing.Size(100, 20);
             this.txt_tel_port.TabIndex = 16;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(335, 84);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(73, 13);
+            this.label9.TabIndex = 17;
+            // 
             // FenSaisirClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(473, 329);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.txt_tel_port);
             this.Controls.Add(this.txt_tel_fixe);
             this.Controls.Add(this.txt_adresse_temp);
@@ -233,5 +243,6 @@
         private System.Windows.Forms.TextBox txt_adresse_temp;
         private System.Windows.Forms.TextBox txt_tel_fixe;
         private System.Windows.Forms.TextBox txt_tel_port;
+        private System.Windows.Forms.Label label9;
     }
 }

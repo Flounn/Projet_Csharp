@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using DataService.DAOService;
 using DataService.BSDataObjects;
+using System.Globalization;
+
 
 namespace DesktopIHM.GuiObjects
 {
@@ -16,6 +18,7 @@ namespace DesktopIHM.GuiObjects
         public FenSaisirClient()
         {
             InitializeComponent();
+            label9.Text = "(" + DateTimeFormatInfo.CurrentInfo.ShortDatePattern + ")";
         }
 
         private void bt_creer_Click(object sender, EventArgs e)
@@ -41,6 +44,12 @@ namespace DesktopIHM.GuiObjects
                 ddn = DateTime.Parse(txt_ddn.Text);
             }
             catch (FormatException) { return; }
+
+            if (!Utilities.isEmailValid(txt_email.Text))
+            {
+                return;
+            }
+
             Client client = new Client(txt_nom.Text, txt_prenom.Text, ddn,txt_email.Text, txt_adresse_princ.Text, txt_adresse_temp.Text, txt_tel_fixe.Text, txt_tel_port.Text);
             client.insert();
         }

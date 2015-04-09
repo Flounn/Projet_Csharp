@@ -172,6 +172,7 @@
             // 
             // miLstUtilisateurs
             // 
+
             this.miLstUtilisateurs.Name = "miLstUtilisateurs";
             this.miLstUtilisateurs.Size = new System.Drawing.Size(185, 22);
             this.miLstUtilisateurs.Text = "Liste des utilisateurs";

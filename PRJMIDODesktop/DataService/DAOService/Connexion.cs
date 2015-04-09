@@ -45,43 +45,98 @@ namespace DataService.DAOService
             }
         }
 
-        private static bool insert(string query)
-        {
-            if (!query.Equals(string.Empty))
-                return false;
-            MySqlCommand comand = new MySqlCommand(query,singleton.Connection());
-            return comand.ExecuteNonQuery()>0;
-        }
-
-        private static bool insert(string query, MySqlParameterCollection parameters)
-        {
-            if (!query.Equals(string.Empty))
-                return false;
-            MySqlCommand comand = new MySqlCommand(query, singleton.Connection());
-            return comand.ExecuteNonQuery() > 0;
-        }
 
         public static bool insert(string table_name, string[] champs,object[] values)
         {
             if (string.IsNullOrEmpty(table_name) || champs.Length != values.Length || champs.Length==0)
                 return false;
-            StringBuilder commandText = new StringBuilder("INSERT INTO " + table_name + " ('" + champs[0]+"'");
-            StringBuilder commandValues = new StringBuilder(") VALUES('" + values[0]+"'");
+            StringBuilder commandText = new StringBuilder("INSERT INTO " + table_name.ToUpper() + " (" + champs[0]+"");
+            StringBuilder commandValues = new StringBuilder(") VALUES(@0");
             MySqlCommand cmd = new MySqlCommand();
-            //MySqlParameterCollection parameters = new MySql.Data.MySqlClient.MySqlParameterCollection();
+            cmd.Parameters.AddWithValue("@0", values[0]);
             int nbParameters = champs.Length;
             for(int i = 1; i<nbParameters;i++)
             {
-                commandText.Append(",'"+champs[i]+"'");
-                commandValues.Append(",?");
-                //parameters.Add(values[i]);
+                commandText.Append(","+champs[i]);
+                commandValues.Append(",@"+i);
+                cmd.Parameters.AddWithValue("@" + i, values[i]);
             }
 
             commandText.Append(commandValues+");");
-            return insert(commandText.ToString());
-
-
+            cmd.CommandText = commandText.ToString();
+            Console.WriteLine(cmd.CommandText);
+            cmd.Connection = singleton.Connection();
+            bool result = cmd.ExecuteNonQuery() > 0;
+            cmd.Connection.Close();
+            return result;
         }
+        public static bool delete(string table_name, string[] champs, object[] values)
+        {
+            if (string.IsNullOrEmpty(table_name) || champs.Length != values.Length || champs.Length == 0)
+                return false;
+            StringBuilder commandText = new StringBuilder("DELETE FROM " + table_name.ToUpper() + " WHERE " + champs[0] + "=@0");
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Parameters.AddWithValue("@0", values[0]);
+            int nbParameters = champs.Length;
+            for (int i = 1; i < nbParameters; i++)
+            {
+                commandText.Append(" AND " + champs[i] + "=@"+i);
+                cmd.Parameters.AddWithValue("@" + i, values[i]);
+            }
+
+            commandText.Append(";");
+            cmd.CommandText = commandText.ToString();
+            Console.WriteLine(cmd.CommandText);
+            cmd.Connection = singleton.Connection();
+            bool result = cmd.ExecuteNonQuery() > 0;
+            cmd.Connection.Close();
+            return result;
+        }
+
+        public static bool update(string table_name, string[] champs, object[] values,string[] champsWhere,object[] valuesWhere)
+        {
+            if (string.IsNullOrEmpty(table_name) || champs.Length != values.Length || champs.Length == 0 || champsWhere.Length != valuesWhere.Length || champsWhere.Length == 0)
+                return false;
+            StringBuilder commandText = new StringBuilder("UPDATE "+ table_name.ToUpper() +" SET "  + champs[0] + "=@0");
+            
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Parameters.AddWithValue("@0", values[0]);
+            int nbParameters = champs.Length+champsWhere.Length;
+            int i = 1;
+            while (i < champs.Length)
+            {
+                commandText.Append("," + champs[i] + "=@" + i);
+                cmd.Parameters.AddWithValue("@" + i, values[i]);
+                i++;
+            }
+            commandText.Append(" WHERE " + champsWhere[0] + "=@" + i);
+            i++;
+            while (i < nbParameters)
+            {
+                commandText.Append(" AND " + champsWhere[i-champs.Length] + "=@" + i);
+                cmd.Parameters.AddWithValue("@" + i, valuesWhere[i-champs.Length]);
+                i++;
+            }
+
+            commandText.Append(";");
+            cmd.CommandText = commandText.ToString();
+            Console.WriteLine(cmd.CommandText);
+            cmd.Connection = singleton.Connection();
+            bool result = cmd.ExecuteNonQuery() > 0;
+            cmd.Connection.Close();
+            return result;
+        }
+
+        public static IDataReader getAll(string table_name)
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM "+table_name.ToUpper()+";");
+            Console.WriteLine(cmd.CommandText);
+            cmd.Connection = singleton.Connection();
+            IDataReader reader = cmd.ExecuteReader();
+            //cmd.Connection.Close();
+            return reader;
+        }
+
 
     }
 
