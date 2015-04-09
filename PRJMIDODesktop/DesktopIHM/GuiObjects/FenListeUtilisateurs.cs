@@ -16,12 +16,23 @@ namespace DesktopIHM.GuiObjects
         {
             InitializeComponent();
             DataTable dtt = new DataTable();
+            dtt.ColumnChanged+=new DataColumnChangeEventHandler(dtt_ColumnChanged);
             dtt.Load(DAOClient.getAll());
-            DataColumn column = new DataColumn();
-            column.Caption = "ID";
-            column.ColumnName = "ID_CLIENT";
-            dtt.Columns.Add(column);
             dg_utilisateurs.DataSource = dtt;
+            dtt.TableNewRow+=new DataTableNewRowEventHandler(dtt_TableNewRow);
+
+        }
+
+        void dtt_ColumnChanged(object sender, DataColumnChangeEventArgs e)
+        {
+            int ID_CLIENT = (int)e.Row.ItemArray[0];
+            Console.WriteLine(sender);
+        }
+
+        void dtt_TableNewRow(object sender, DataTableNewRowEventArgs e)
+        {
+
+            //throw new NotImplementedException();
         }
 
     }

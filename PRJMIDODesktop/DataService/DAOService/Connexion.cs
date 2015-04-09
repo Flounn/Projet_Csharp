@@ -129,12 +129,10 @@ namespace DataService.DAOService
 
         public static IDataReader getAll(string table_name)
         {
-            MySqlCommand cmd = new MySqlCommand("SELECT ID_CLIENT FROM "+table_name.ToUpper()+";");
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM "+table_name.ToUpper()+";");
             Console.WriteLine(cmd.CommandText);
             cmd.Connection = singleton.Connection();
-            MySqlDataReader reader = cmd.ExecuteReader();
-            while (reader.NextResult())
-                Console.WriteLine("Nom : "+reader.GetName(1)+ " ; Value : "+reader.GetValue(1));
+            IDataReader reader = cmd.ExecuteReader();
             //cmd.Connection.Close();
             return reader;
         }

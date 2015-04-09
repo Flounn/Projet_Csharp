@@ -49,9 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GuiObjects\DataAdapterIReader.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="GuiObjects\FenConnexion.cs">
       <SubType>Form</SubType>
     </Compile>
