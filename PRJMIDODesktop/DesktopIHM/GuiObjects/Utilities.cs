@@ -12,10 +12,5 @@ namespace DesktopIHM.GuiObjects
         {
         return Regex.IsMatch(emailString, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
         }
-
-        public static bool isNumber(string numberString)
-        {
-            return Regex.IsMatch(numberString, @"^[0-9]+&");
-        }
     }
 }

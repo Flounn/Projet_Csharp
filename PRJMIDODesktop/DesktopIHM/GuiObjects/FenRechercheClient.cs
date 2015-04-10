@@ -16,59 +16,65 @@ namespace DesktopIHM.GuiObjects
     {
         private CritereRechercheClient crtRechercheClient = null;
 
+        private static string[] valuesDateNaissance = new string[]{"Choisissez","Né le","Né après le"
+            ,"Né avant le","Né entre le"};
+
         public CritereRechercheClient CrtRechercheClient
         {
             get { return crtRechercheClient; }
             set { crtRechercheClient = value; }
         }
 
-        private void initCritereRecherche()
+        private bool initCritereRecherche()
         {
-            if (!(cbDateNaissance.SelectedIndex==-1
-                && txtAdresse.Text.Equals("")
-                && txtEmail.Text.Equals("")
-                && string.IsNullOrEmpty(txtId.Text);
-                && txtNom.Text.Equals("")
-                && txtPrenom.Text.Equals("")))
-            {
-                crtRechercheClient = new CritereRechercheClient();
-                crtRechercheClient.Adresse = txtAdresse.Text;
-                crtRechercheClient.Email = txtEmail.Text;
-                if(Utilities.isNumber(txtId.Text))
-                    crtRechercheClient.IdClient = long.Parse(txtId.Text);
-                crtRechercheClient.Nom = txtNom.Text;
-                crtRechercheClient.Prenom = txtPrenom.Text;
-                switch (cbDateNaissance.SelectedIndex){
-                    default:
-                        crtRechercheClient.DateNaissanceDebut = dtDateNaissanceDebut.Value;
-                        crtRechercheClient.DateNaissanceFin = dtDateNaissanceFin.Value;
-                        break;
-                    case 2:               
-                        crtRechercheClient.DateNaissanceDebut = dtDateNaissanceDebut.Value;
-                        break;
-                    case 3:
-                        crtRechercheClient.DateNaissanceFin = dtDateNaissanceFin.Value;
-                        break;
+           
+            crtRechercheClient = new CritereRechercheClient();
+            crtRechercheClient.Adresse = txtAdresse.Text;
+            crtRechercheClient.Email = txtEmail.Text;
+            if (!string.IsNullOrEmpty(txtId.Text))
+                try{
+                crtRechercheClient.IdClient = long.Parse(txtId.Text);
                 }
+                catch (Exception) {
+                    MessageBox.Show("L'ID n'a pas été saisi correctement", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false; }
+            crtRechercheClient.Nom = txtNom.Text;
+            crtRechercheClient.Prenom = txtPrenom.Text;
+            switch (cbDateNaissance.SelectedIndex){
+                case 0: break;
+                default:
+                    crtRechercheClient.DateNaissanceDebut = dtDateNaissanceDebut.Value;
+                    crtRechercheClient.DateNaissanceFin = dtDateNaissanceFin.Value;
+                    break;
+                case 2:               
+                    crtRechercheClient.DateNaissanceDebut = dtDateNaissanceDebut.Value;
+                    break;
+                case 3:
+                    crtRechercheClient.DateNaissanceFin = dtDateNaissanceFin.Value;
+                    break;
             }
+            return true;
+            
         }
 
         public FenRechercheClient()
         {
             InitializeComponent();
-            cbDateNaissance.Text = "Choisissez";
-            cbDateNaissance.Items.Add("");
-            cbDateNaissance.Items.Add("Né le");
-            cbDateNaissance.Items.Add("Né après le");
-            cbDateNaissance.Items.Add("Né avant le");
-            cbDateNaissance.Items.Add("Né entre le");
+            cbDateNaissance.Items.AddRange(valuesDateNaissance);
+            cbDateNaissance.SelectedIndex = 0;
+            dgvLstClient.SelectionChanged += new EventHandler(dgvLstClient_SelectionChanged);
+        }
+
+        void dgvLstClient_SelectionChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine("dgvLstClient_SelectionChanged");
         }
 
 
         private void InitData()
         {
             DataTable dtt = new DataTable();
-            dtt.Load(DAOClient.getAll());
+            dtt.Load(DAOClient.get(crtRechercheClient));
             dgvLstClient.DataSource = dtt;
             
             /*BindingList<Client> listeClient = new BindingList<Client>();
@@ -94,13 +100,15 @@ namespace DesktopIHM.GuiObjects
                 MessageBox.Show("L'email n'a pas été saisi correctement", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (!Utilities.isNumber(txtId.Text) && !string.IsNullOrEmpty(txtId.Text))
+            if (cbDateNaissance.SelectedIndex==0 && string.IsNullOrEmpty(txtAdresse.Text)
+                    && string.IsNullOrEmpty(txtEmail.Text) && string.IsNullOrEmpty(txtId.Text)
+                    && string.IsNullOrEmpty(txtNom.Text) && string.IsNullOrEmpty(txtPrenom.Text))
             {
-                MessageBox.Show("L'ID n'a pas été saisi correctement", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                 MessageBox.Show("Veuillez saisir un des critères", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            initCritereRecherche();
-            if (crtRechercheClient != null)
+
+            if (initCritereRecherche())
                 InitData();
         }
 
@@ -122,12 +130,6 @@ namespace DesktopIHM.GuiObjects
                     dtDateNaissanceFin.Visible = false;
                     break;
             }
-        }
-
-        private void dgwLstClient_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            Client client = (Client)dgvLstClient.SelectedRows[e.RowIndex].DataBoundItem;
-            //new FenDetailClient(client).Show();
         }
     }
 }

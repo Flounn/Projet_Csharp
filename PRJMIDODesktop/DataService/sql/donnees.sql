@@ -15,8 +15,8 @@ INSERT INTO `CHEQUIER` (`ID_MOYEN_PAIEMENT`, `NOMBRE_CHQ`, `NUMERO_1_CHQ`, `NUME
 (2, 20, '123456', '123476');
 
 INSERT INTO `CLIENT` (`ID_CLIENT`, `NOM`, `PRENOM`, `DT_NAISS`, `EMAIL`, `ADRESSE_PRINC`, `ADRESSE_TEMP`, `TEL_FIXE`, `TEL_PORTABLE`) VALUES
-(1, 'Tiganu', 'Eugen', '1989-08-29 22:00:00', 'eugen.tiganu@gmail.com', '5 Rue de Reims 75013 Paris', NULL, NULL, '0676112039'),
-(2, 'Lestic', 'Florian', '1992-04-06 22:00:00', 'lestic.florian@gmail.com', 'Paris', NULL, NULL, '0635965468');
+(1, 'Tiganu', 'Eugen', '1989-08-29 00:00:00', 'eugen.tiganu@gmail.com', '5 Rue de Reims 75013 Paris', NULL, NULL, '0676112039'),
+(2, 'Lestic', 'Florian', '1992-04-06 00:00:00', 'lestic.florian@gmail.com', 'Paris', NULL, NULL, '0635965468');
 
 INSERT INTO `COMPTE` (`ID_COMPTE`, `DT_OUVERTURE`, `MONTANT_INITIAL`, `ID_CLIENT`, `ID_MOYEN_PAIEMENT`, `TYPE_COMPTE`) VALUES
 (2, '2015-04-07 16:12:08', '20', 1, 1, 'Courant'),

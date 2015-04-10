@@ -31,9 +31,9 @@ namespace DataService.BSService
             return false;
         }
 
-        public static long CreerModifierCompte(Compte compte)
+        public static bool CreerModifierCompte(Compte compte)
         {
-            return dao.
+            return dao.update(compte);
         }
 
         public static IList<Contrat> RechercherContrat(CritereRechercheContrat contrat)

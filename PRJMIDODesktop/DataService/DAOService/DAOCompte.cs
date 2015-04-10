@@ -37,5 +37,3 @@ namespace DataService.DAOService
     }
 }
 
-    }
-}

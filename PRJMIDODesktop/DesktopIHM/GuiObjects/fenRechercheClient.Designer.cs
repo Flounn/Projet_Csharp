@@ -127,7 +127,6 @@
             this.dgvLstClient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLstClient.Size = new System.Drawing.Size(485, 207);
             this.dgvLstClient.TabIndex = 9;
-            this.dgvLstClient.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwLstClient_CellContentClick);
             // 
             // btRechercher
             // 
@@ -225,7 +224,6 @@
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "FenRechercheClient";
             this.Text = "Rechercher un client";
-            this.Load += new System.EventHandler(this.FenRechercheClient_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLstClient)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
