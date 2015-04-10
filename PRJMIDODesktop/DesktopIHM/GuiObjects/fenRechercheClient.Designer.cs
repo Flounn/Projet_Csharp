@@ -1,4 +1,6 @@
-﻿namespace DesktopIHM.GuiObjects
+﻿using System;
+using System.Windows.Forms;
+namespace DesktopIHM.GuiObjects
 {
     partial class FenRechercheClient
     {
@@ -120,6 +122,7 @@
             this.dgvLstClient.AllowUserToAddRows = false;
             this.dgvLstClient.AllowUserToDeleteRows = false;
             this.dgvLstClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLstClient.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvLstClient.Location = new System.Drawing.Point(37, 186);
             this.dgvLstClient.MultiSelect = false;
             this.dgvLstClient.Name = "dgvLstClient";
@@ -127,6 +130,7 @@
             this.dgvLstClient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLstClient.Size = new System.Drawing.Size(485, 207);
             this.dgvLstClient.TabIndex = 9;
+            this.dgvLstClient.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLstClient_CellDoubleClick);
             // 
             // btRechercher
             // 
@@ -198,6 +202,7 @@
             this.btDetail.TabIndex = 17;
             this.btDetail.Text = "Détail";
             this.btDetail.UseVisualStyleBackColor = true;
+            this.btDetail.Click += new System.EventHandler(this.btDetail_Click);
             // 
             // FenRechercheClient
             // 
@@ -221,9 +226,11 @@
             this.Controls.Add(this.lbDdn);
             this.Controls.Add(this.lbPrenom);
             this.Controls.Add(this.lbNom);
-            this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Name = "FenRechercheClient";
+            this.ShowIcon = false;
             this.Text = "Rechercher un client";
+            this.Load += new System.EventHandler(this.FenRechercheClient_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLstClient)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -62,12 +62,6 @@ namespace DesktopIHM.GuiObjects
             InitializeComponent();
             cbDateNaissance.Items.AddRange(valuesDateNaissance);
             cbDateNaissance.SelectedIndex = 0;
-            dgvLstClient.SelectionChanged += new EventHandler(dgvLstClient_SelectionChanged);
-        }
-
-        void dgvLstClient_SelectionChanged(object sender, EventArgs e)
-        {
-            Console.WriteLine("dgvLstClient_SelectionChanged");
         }
 
 
@@ -76,23 +70,7 @@ namespace DesktopIHM.GuiObjects
             DataTable dtt = new DataTable();
             dtt.Load(DAOClient.get(crtRechercheClient));
             dgvLstClient.DataSource = dtt;
-            
-            /*BindingList<Client> listeClient = new BindingList<Client>();
-
-            IList<Client> lstC = BSGestionClient.RechercherClient(crtRechercheClient);
-
-            foreach (Client c in lstC)
-                listeClient.Add(c);
-
-            this.dgwLstClient.DataSource = listeClient;*/
-            dgvLstClient.Refresh();
         }
-
-        private void btDetail_Click(object sender, EventArgs e)
-        {
-            //new FenDetailClient(dgwLstContrat.SelectedRows.Cast<Client>().);
-        }
-
         private void btRechercher_Click(object sender, EventArgs e)
         {
             if (!Utilities.isEmailValid(txtEmail.Text) && !string.IsNullOrEmpty(txtEmail.Text))
@@ -130,6 +108,22 @@ namespace DesktopIHM.GuiObjects
                     dtDateNaissanceFin.Visible = false;
                     break;
             }
+        }
+
+        private void btDetail_Click(object sender, EventArgs e)
+        {
+            new FenDetailClient().Show();
+        }
+
+        private void dgvLstClient_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Console.WriteLine("dgvLstClient_CellDoubleClick");
+            new FenDetailClient().Show();
+        }
+
+        private void FenRechercheClient_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

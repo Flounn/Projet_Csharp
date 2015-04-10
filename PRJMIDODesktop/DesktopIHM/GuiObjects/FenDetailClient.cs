@@ -20,11 +20,11 @@ namespace DesktopIHM.GuiObjects
             set { monClient = value; }
         }
 
-        public FenDetailClient(Client cli)
+        public FenDetailClient()
         {
             InitializeComponent();
-            monClient = cli;
-            initData();
+            //monClient = cli;
+            //initData();
         }
 
 
