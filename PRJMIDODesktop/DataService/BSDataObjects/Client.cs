@@ -28,6 +28,18 @@ namespace DataService.BSDataObjects
             listeComptes = new List<Compte>();
         }
 
+        public Client(long id, string nom, string prenom, DateTime ddn, string email, string adr_princ, string adr_temp, string tel_fixe, string tel_port)
+        {
+            this.idClient = id;
+            this.nom = nom;
+            this.prenom = prenom;
+            this.dateNaissance = ddn;
+            this.email = email;
+            this.adressePrincipale = adr_princ;
+            this.adresseTemporaire = adr_temp;
+            this.telFixe = tel_fixe;
+            this.telPortable = tel_port;
+        }
 
         public Client(string nom, string prenom, DateTime ddn, string email, string adr_princ, string adr_temp, string tel_fixe, string tel_port)
         {

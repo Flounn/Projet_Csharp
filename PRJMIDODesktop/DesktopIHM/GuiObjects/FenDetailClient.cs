@@ -14,16 +14,10 @@ namespace DesktopIHM.GuiObjects
     {
         private Client monClient;
 
-        public Client MonClient
-        {
-            get { return monClient; }
-            set { monClient = value; }
-        }
-
-        public FenDetailClient()
+        public FenDetailClient(Client client)
         {
             InitializeComponent();
-            //monClient = cli;
+            monClient = client;
             //initData();
         }
 

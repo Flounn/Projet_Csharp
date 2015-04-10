@@ -116,13 +116,27 @@ namespace DesktopIHM.GuiObjects
 
         private void btDetail_Click(object sender, EventArgs e)
         {
-            new FenDetailClient().Show();
+            new FenDetailClient(getClientRow()).Show();
         }
 
         private void dgvLstClient_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Console.WriteLine("dgvLstClient_CellDoubleClick");
-            new FenDetailClient().Show();
+            new FenDetailClient(getClientRow(e.RowIndex)).Show();
+        }
+
+        private Client getClientRow(int index)
+        {
+            DataGridViewRow row = dgvLstClient.Rows[index];
+            Client client = new Client(long.Parse(row.Cells[0].Value.ToString()), row.Cells[1].Value.ToString(), row.Cells[2].Value.ToString()
+                , DateTime.Parse(row.Cells[3].Value.ToString()), row.Cells[4].Value.ToString(), row.Cells[5].Value.ToString(),
+                row.Cells[6].Value.ToString(), row.Cells[7].Value.ToString(), row.Cells[8].Value.ToString());
+            return client;
+        }
+
+        private Client getClientRow()
+        {
+            return getClientRow(dgvLstClient.SelectedRows[0].Index);
         }
 
     }

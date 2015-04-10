@@ -61,6 +61,7 @@
     <Compile Include="BSService\CritereRechercheCompte.cs" />
     <Compile Include="BSService\CritereRechercheContrat.cs" />
     <Compile Include="DAOService\Connexion.cs" />
+    <Compile Include="DAOService\DAOContrat.cs" />
     <Compile Include="DAOService\DAOClient.cs" />
     <Compile Include="DAOService\DAOCompte.cs" />
     <Compile Include="DAOService\DAOGenerique.cs" />
