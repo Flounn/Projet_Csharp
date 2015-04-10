@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using DataService.BSDataObjects;
+using DataService.DAOService;
 
 namespace DataService.BSService
 {
     public static class BSGestionClient
     {
+        private static DAOCompte dao = new DAOCompte();
 
         public static IList<Client> RechercherClient(CritereRechercheClient critere)
         {
@@ -31,7 +33,7 @@ namespace DataService.BSService
 
         public static long CreerModifierCompte(Compte compte)
         {
-            return 1;
+            return dao.
         }
 
         public static IList<Contrat> RechercherContrat(CritereRechercheContrat contrat)

@@ -20,7 +20,6 @@ namespace DesktopIHM.GuiObjects
             dtt.Load(DAOClient.getAll());
             dg_utilisateurs.DataSource = dtt;
             dtt.TableNewRow+=new DataTableNewRowEventHandler(dtt_TableNewRow);
-
         }
 
         void dtt_ColumnChanged(object sender, DataColumnChangeEventArgs e)
