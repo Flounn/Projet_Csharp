@@ -15,7 +15,7 @@ namespace DataService.DAOService
         public const string EGAL = "=";
         public const string SUP = ">";
         public const string INF = "<";
-        public const string LIKE = "LIKE";
+        public const string LIKE = " LIKE ";
 
         static Connexion()
         {
@@ -165,14 +165,14 @@ namespace DataService.DAOService
         {
             if (string.IsNullOrEmpty(table_name) || champsWhere.Length != valuesWhere.Length || champsWhere.Length == 0 || operators.Length != champsWhere.Length)
                 return null;
-            StringBuilder commandText = new StringBuilder("SELECT * FROM " + table_name.ToUpper() + " WHERE " + champsWhere[0] + getOperator(operators[0], "@0"));
+            StringBuilder commandText = new StringBuilder("SELECT * FROM " + table_name.ToUpper() + " WHERE " + champsWhere[0] + operators[0]+ "@0");
             MySqlCommand cmd = new MySqlCommand();
-            cmd.Parameters.AddWithValue("@0", valuesWhere[0]);
+            cmd.Parameters.AddWithValue("@0", operators[0].Equals(LIKE) ? "%" + valuesWhere[0] + "%" : valuesWhere[0]);
             int nbParameters = champsWhere.Length;
             for (int i = 1; i < nbParameters; i++)
             {
-                commandText.Append(" AND " + champsWhere[i] + getOperator(operators[i], "@" + i));
-                cmd.Parameters.AddWithValue("@" + i, valuesWhere[i]);
+                commandText.Append(" AND " + champsWhere[i] + operators[i]+ "@" + i);
+                cmd.Parameters.AddWithValue("@" + i, operators[i].Equals(LIKE) ? "%" + valuesWhere[i] + "%" : valuesWhere[i]);
             }
 
             commandText.Append(";");
@@ -181,17 +181,6 @@ namespace DataService.DAOService
             cmd.Connection = singleton.Connection();
             return cmd.ExecuteReader();
         }
-
-        private static string getOperator(string ope, string value)
-        {
-            switch (ope)
-            {
-                case LIKE: return " " + ope + " %" + value + "%";
-                default: return ope + value;
-            }
-
-        }
-
 
     }
      
