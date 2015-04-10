@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.bt_creer = new System.Windows.Forms.Button();
+            this.btCreer = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,26 +37,26 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txt_nom = new System.Windows.Forms.TextBox();
-            this.txt_prenom = new System.Windows.Forms.TextBox();
-            this.txt_ddn = new System.Windows.Forms.TextBox();
-            this.txt_email = new System.Windows.Forms.TextBox();
-            this.txt_adresse_princ = new System.Windows.Forms.TextBox();
-            this.txt_adresse_temp = new System.Windows.Forms.TextBox();
-            this.txt_tel_fixe = new System.Windows.Forms.TextBox();
-            this.txt_tel_port = new System.Windows.Forms.TextBox();
+            this.txtNom = new System.Windows.Forms.TextBox();
+            this.txtPrenom = new System.Windows.Forms.TextBox();
+            this.txtDdn = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtAdressePrinc = new System.Windows.Forms.TextBox();
+            this.txtAdresseTemp = new System.Windows.Forms.TextBox();
+            this.txtTelFixe = new System.Windows.Forms.TextBox();
+            this.txtTelPort = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // bt_creer
+            // btCreer
             // 
-            this.bt_creer.Location = new System.Drawing.Point(175, 294);
-            this.bt_creer.Name = "bt_creer";
-            this.bt_creer.Size = new System.Drawing.Size(75, 23);
-            this.bt_creer.TabIndex = 0;
-            this.bt_creer.Text = "Créer";
-            this.bt_creer.UseVisualStyleBackColor = true;
-            this.bt_creer.Click += new System.EventHandler(this.bt_creer_Click);
+            this.btCreer.Location = new System.Drawing.Point(175, 294);
+            this.btCreer.Name = "btCreer";
+            this.btCreer.Size = new System.Drawing.Size(75, 23);
+            this.btCreer.TabIndex = 0;
+            this.btCreer.Text = "Créer";
+            this.btCreer.UseVisualStyleBackColor = true;
+            this.btCreer.Click += new System.EventHandler(this.btCreer_Click);
             // 
             // label1
             // 
@@ -130,68 +130,69 @@
             this.label8.TabIndex = 8;
             this.label8.Text = "Téléphone fixe :";
             // 
-            // txt_nom
+            // txtNom
             // 
-            this.txt_nom.Location = new System.Drawing.Point(229, 23);
-            this.txt_nom.Name = "txt_nom";
-            this.txt_nom.Size = new System.Drawing.Size(100, 20);
-            this.txt_nom.TabIndex = 9;
+            this.txtNom.Location = new System.Drawing.Point(229, 23);
+            this.txtNom.Name = "txtNom";
+            this.txtNom.Size = new System.Drawing.Size(100, 20);
+            this.txtNom.TabIndex = 9;
             // 
-            // txt_prenom
+            // txtPrenom
             // 
-            this.txt_prenom.Location = new System.Drawing.Point(229, 49);
-            this.txt_prenom.Name = "txt_prenom";
-            this.txt_prenom.Size = new System.Drawing.Size(100, 20);
-            this.txt_prenom.TabIndex = 10;
+            this.txtPrenom.Location = new System.Drawing.Point(229, 49);
+            this.txtPrenom.Name = "txtPrenom";
+            this.txtPrenom.Size = new System.Drawing.Size(100, 20);
+            this.txtPrenom.TabIndex = 10;
             // 
-            // txt_ddn
+            // txtDdn
             // 
-            this.txt_ddn.Location = new System.Drawing.Point(229, 81);
-            this.txt_ddn.Name = "txt_ddn";
-            this.txt_ddn.Size = new System.Drawing.Size(100, 20);
-            this.txt_ddn.TabIndex = 11;
+            this.txtDdn.Location = new System.Drawing.Point(229, 81);
+            this.txtDdn.Name = "txtDdn";
+            this.txtDdn.Size = new System.Drawing.Size(100, 20);
+            this.txtDdn.TabIndex = 11;
             // 
-            // txt_email
+            // txtEmail
             // 
-            this.txt_email.Location = new System.Drawing.Point(229, 112);
-            this.txt_email.Name = "txt_email";
-            this.txt_email.Size = new System.Drawing.Size(100, 20);
-            this.txt_email.TabIndex = 12;
+            this.txtEmail.Location = new System.Drawing.Point(229, 112);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtEmail.TabIndex = 12;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
-            // txt_adresse_princ
+            // txtAdressePrinc
             // 
-            this.txt_adresse_princ.Location = new System.Drawing.Point(229, 145);
-            this.txt_adresse_princ.Name = "txt_adresse_princ";
-            this.txt_adresse_princ.Size = new System.Drawing.Size(100, 20);
-            this.txt_adresse_princ.TabIndex = 13;
+            this.txtAdressePrinc.Location = new System.Drawing.Point(229, 145);
+            this.txtAdressePrinc.Name = "txtAdressePrinc";
+            this.txtAdressePrinc.Size = new System.Drawing.Size(100, 20);
+            this.txtAdressePrinc.TabIndex = 13;
             // 
-            // txt_adresse_temp
+            // txtAdresseTemp
             // 
-            this.txt_adresse_temp.Location = new System.Drawing.Point(229, 175);
-            this.txt_adresse_temp.Name = "txt_adresse_temp";
-            this.txt_adresse_temp.Size = new System.Drawing.Size(100, 20);
-            this.txt_adresse_temp.TabIndex = 14;
+            this.txtAdresseTemp.Location = new System.Drawing.Point(229, 175);
+            this.txtAdresseTemp.Name = "txtAdresseTemp";
+            this.txtAdresseTemp.Size = new System.Drawing.Size(100, 20);
+            this.txtAdresseTemp.TabIndex = 14;
             // 
-            // txt_tel_fixe
+            // txtTelFixe
             // 
-            this.txt_tel_fixe.Location = new System.Drawing.Point(229, 209);
-            this.txt_tel_fixe.Name = "txt_tel_fixe";
-            this.txt_tel_fixe.Size = new System.Drawing.Size(100, 20);
-            this.txt_tel_fixe.TabIndex = 15;
+            this.txtTelFixe.Location = new System.Drawing.Point(229, 209);
+            this.txtTelFixe.Name = "txtTelFixe";
+            this.txtTelFixe.Size = new System.Drawing.Size(100, 20);
+            this.txtTelFixe.TabIndex = 15;
             // 
-            // txt_tel_port
+            // txtTelPort
             // 
-            this.txt_tel_port.Location = new System.Drawing.Point(229, 247);
-            this.txt_tel_port.Name = "txt_tel_port";
-            this.txt_tel_port.Size = new System.Drawing.Size(100, 20);
-            this.txt_tel_port.TabIndex = 16;
+            this.txtTelPort.Location = new System.Drawing.Point(229, 247);
+            this.txtTelPort.Name = "txtTelPort";
+            this.txtTelPort.Size = new System.Drawing.Size(100, 20);
+            this.txtTelPort.TabIndex = 16;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(335, 84);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(73, 13);
+            this.label9.Size = new System.Drawing.Size(0, 13);
             this.label9.TabIndex = 17;
             // 
             // FenSaisirClient
@@ -200,14 +201,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(473, 329);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.txt_tel_port);
-            this.Controls.Add(this.txt_tel_fixe);
-            this.Controls.Add(this.txt_adresse_temp);
-            this.Controls.Add(this.txt_adresse_princ);
-            this.Controls.Add(this.txt_email);
-            this.Controls.Add(this.txt_ddn);
-            this.Controls.Add(this.txt_prenom);
-            this.Controls.Add(this.txt_nom);
+            this.Controls.Add(this.txtTelPort);
+            this.Controls.Add(this.txtTelFixe);
+            this.Controls.Add(this.txtAdresseTemp);
+            this.Controls.Add(this.txtAdressePrinc);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtDdn);
+            this.Controls.Add(this.txtPrenom);
+            this.Controls.Add(this.txtNom);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -216,7 +217,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.bt_creer);
+            this.Controls.Add(this.btCreer);
             this.Name = "FenSaisirClient";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -226,7 +227,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button bt_creer;
+        private System.Windows.Forms.Button btCreer;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -235,14 +236,14 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txt_nom;
-        private System.Windows.Forms.TextBox txt_prenom;
-        private System.Windows.Forms.TextBox txt_ddn;
-        private System.Windows.Forms.TextBox txt_email;
-        private System.Windows.Forms.TextBox txt_adresse_princ;
-        private System.Windows.Forms.TextBox txt_adresse_temp;
-        private System.Windows.Forms.TextBox txt_tel_fixe;
-        private System.Windows.Forms.TextBox txt_tel_port;
+        private System.Windows.Forms.TextBox txtNom;
+        private System.Windows.Forms.TextBox txtPrenom;
+        private System.Windows.Forms.TextBox txtDdn;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtAdressePrinc;
+        private System.Windows.Forms.TextBox txtAdresseTemp;
+        private System.Windows.Forms.TextBox txtTelFixe;
+        private System.Windows.Forms.TextBox txtTelPort;
         private System.Windows.Forms.Label label9;
     }
 }

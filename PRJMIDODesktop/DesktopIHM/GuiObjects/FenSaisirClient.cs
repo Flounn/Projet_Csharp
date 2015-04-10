@@ -21,37 +21,42 @@ namespace DesktopIHM.GuiObjects
             label9.Text = "(" + DateTimeFormatInfo.CurrentInfo.ShortDatePattern + ")";
         }
 
-        private void bt_creer_Click(object sender, EventArgs e)
+        private void btCreer_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txt_nom.Text)){
+            if (string.IsNullOrEmpty(txtNom.Text)){
                 return;
             }
-            if (string.IsNullOrEmpty(txt_prenom.Text))
+            if (string.IsNullOrEmpty(txtPrenom.Text))
             {
                 return;
             }
-            if (string.IsNullOrEmpty(txt_ddn.Text))
+            if (string.IsNullOrEmpty(txtDdn.Text))
             {
                 return;
             }
-            if (string.IsNullOrEmpty(txt_email.Text))
+            if (string.IsNullOrEmpty(txtEmail.Text))
             {
                 return;
             }
             DateTime ddn;
             try
             {
-                ddn = DateTime.Parse(txt_ddn.Text);
+                ddn = DateTime.Parse(txtDdn.Text);
             }
             catch (FormatException) { return; }
 
-            if (!Utilities.isEmailValid(txt_email.Text))
+            if (!Utilities.isEmailValid(txtEmail.Text))
             {
                 return;
             }
 
-            Client client = new Client(txt_nom.Text, txt_prenom.Text, ddn,txt_email.Text, txt_adresse_princ.Text, txt_adresse_temp.Text, txt_tel_fixe.Text, txt_tel_port.Text);
+            Client client = new Client(txtNom.Text, txtPrenom.Text, ddn,txtEmail.Text, txtAdressePrinc.Text, txtAdresseTemp.Text, txtTelFixe.Text, txtTelPort.Text);
             client.insert();
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
