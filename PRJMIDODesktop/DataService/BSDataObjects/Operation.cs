@@ -8,6 +8,7 @@ namespace DataService.BSDataObjects
     public class Operation
     {
         public enum StatutOperation {Realise,EnCours};
+        public enum Type_Operation { Debit, Credit };
 
         private long idOperation;
         private string libelle;
@@ -18,13 +19,25 @@ namespace DataService.BSDataObjects
         private decimal montantCredit;
         private StatutOperation statut;
         private Compte compte;
-        private string typeOperation;
+        private Type_Operation typeOperation;
         private IList<MoyenPaiement> moyenPaiements;
 
-        public string TypeOperation
+        public Type_Operation TypeOperation
         {
             get { return typeOperation; }
             set { typeOperation = value; }
+        }
+
+        public string TypeOperationStr
+        {
+            get { return typeOperation.ToString(); }
+            set
+            {
+                if (value.Equals("Credit"))
+                    typeOperation = Type_Operation.Credit;
+                else if (value.Equals("Debit"))
+                    typeOperation = Type_Operation.Debit;
+            }
         }
 
 
@@ -76,12 +89,18 @@ namespace DataService.BSDataObjects
             set { montantCredit = value; }
         }
 
-
-        public StatutOperation Statut
+        public string StatutStr
         {
-            get { return statut; }
-            set { statut = value; }
-        }
+            get { return statut.ToString(); }
+            set
+            {
+                if (value.Equals("EnCours"))
+                    statut = StatutOperation.EnCours;
+                else if (value.Equals("Realise"))
+                    statut = StatutOperation.Realise;
+            }
+        }   
+
         
 
         public Compte Compte
