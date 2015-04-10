@@ -139,5 +139,16 @@ namespace DesktopIHM.GuiObjects
             return getClientRow(dgvLstClient.SelectedRows[0].Index);
         }
 
+        private void btVider_Click(object sender, EventArgs e)
+        {
+            txtId.Text = string.Empty;
+            txtNom.Text = string.Empty;
+            txtPrenom.Text = string.Empty;
+            txtEmail.Text = string.Empty;
+            txtAdresse.Text = string.Empty;
+            cbDateNaissance.Items.AddRange(valuesDateNaissance);
+            cbDateNaissance.SelectedIndex = 0;
+        }
+
     }
 }

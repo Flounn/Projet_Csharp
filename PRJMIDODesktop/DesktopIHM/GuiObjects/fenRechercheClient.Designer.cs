@@ -47,6 +47,7 @@ namespace DesktopIHM.GuiObjects
             this.txtId = new System.Windows.Forms.TextBox();
             this.lbId = new System.Windows.Forms.Label();
             this.btDetail = new System.Windows.Forms.Button();
+            this.btVider = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLstClient)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,8 +95,7 @@ namespace DesktopIHM.GuiObjects
             this.dtDateNaissanceDebut.Name = "dtDateNaissanceDebut";
             this.dtDateNaissanceDebut.Size = new System.Drawing.Size(86, 20);
             this.dtDateNaissanceDebut.TabIndex = 4;
-            System.DateTime dateNow = System.DateTime.Now;
-            this.dtDateNaissanceDebut.Value = new System.DateTime(dateNow.Year,dateNow.Month,dateNow.Day);
+            this.dtDateNaissanceDebut.Value = new System.DateTime(2015, 4, 10, 0, 0, 0, 0);
             // 
             // txtAdresse
             // 
@@ -122,7 +122,7 @@ namespace DesktopIHM.GuiObjects
             // 
             this.dgvLstClient.AllowUserToAddRows = false;
             this.dgvLstClient.AllowUserToDeleteRows = false;
-            this.dgvLstClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLstClient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvLstClient.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvLstClient.Location = new System.Drawing.Point(37, 186);
             this.dgvLstClient.MultiSelect = false;
@@ -131,6 +131,7 @@ namespace DesktopIHM.GuiObjects
             this.dgvLstClient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLstClient.Size = new System.Drawing.Size(485, 207);
             this.dgvLstClient.TabIndex = 9;
+            this.dgvLstClient.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLstClient_CellContentClick);
             this.dgvLstClient.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLstClient_CellDoubleClick);
             // 
             // btRechercher
@@ -151,7 +152,7 @@ namespace DesktopIHM.GuiObjects
             this.dtDateNaissanceFin.Name = "dtDateNaissanceFin";
             this.dtDateNaissanceFin.Size = new System.Drawing.Size(86, 20);
             this.dtDateNaissanceFin.TabIndex = 11;
-            this.dtDateNaissanceFin.Value = new System.DateTime(dateNow.Year, dateNow.Month, dateNow.Day);
+            this.dtDateNaissanceFin.Value = new System.DateTime(2015, 4, 10, 0, 0, 0, 0);
             this.dtDateNaissanceFin.Visible = false;
             // 
             // cbDateNaissance
@@ -205,11 +206,22 @@ namespace DesktopIHM.GuiObjects
             this.btDetail.UseVisualStyleBackColor = true;
             this.btDetail.Click += new System.EventHandler(this.btDetail_Click);
             // 
+            // btVider
+            // 
+            this.btVider.Location = new System.Drawing.Point(37, 145);
+            this.btVider.Name = "btVider";
+            this.btVider.Size = new System.Drawing.Size(128, 21);
+            this.btVider.TabIndex = 18;
+            this.btVider.Text = "Vider les champs";
+            this.btVider.UseVisualStyleBackColor = true;
+            this.btVider.Click += new System.EventHandler(this.btVider_Click);
+            // 
             // FenRechercheClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(565, 429);
+            this.Controls.Add(this.btVider);
             this.Controls.Add(this.btDetail);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.lbId);
@@ -256,5 +268,6 @@ namespace DesktopIHM.GuiObjects
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label lbId;
         private System.Windows.Forms.Button btDetail;
+        private Button btVider;
     }
 }
