@@ -65,12 +65,12 @@ create table CLIENT
    ID_CLIENT            INT not null auto_increment,
    NOM                  VARCHAR(100) not null,
    PRENOM               VARCHAR(40) not null,
-   DT_NAISS             datetime not null,
+   DT_NAISS             DATE not null,
    EMAIL                VARCHAR(100) not null,
    ADRESSE_PRINC        VARCHAR(100),
    ADRESSE_TEMP         VARCHAR(100),
    TEL_FIXE             VARCHAR(20),
-   TEL_PORTABLE          VARCHAR(20),
+   TEL_PORTABLE         VARCHAR(20),
    primary key (ID_CLIENT)
 );
 
@@ -117,11 +117,11 @@ create table CONTRAT_CREDIT
 (
    ID_CONTRAT           INT not null,
    OBJ_CREDIT           VARCHAR(100),
-   DT_ECHEANCE          datetime not null,
+   DT_ECHEANCE          DATE not null,
    DUREE                INT not null,
    TAUX                 DECIMAL,
    MNT_CREDIT           DECIMAL not null,
-   DT_PROC_ECHANCE      datetime,
+   DT_PROC_ECHANCE      DATE,
    MNT_ECHEANCE         DECIMAL,
    TAUX_NOMINAL         DECIMAL,
    ENCOURS              DECIMAL,
@@ -139,7 +139,7 @@ create table CONTRAT_EPARGNE
    TYPE_EPARGNE         VARCHAR(30) not null,
    TYPE_VERSEMENT       VARCHAR(30) not null,
    PERIODICITE          VARCHAR(30),
-   DT_VERSEMENT         datetime,
+   DT_VERSEMENT         DATE,
    MNT_VERSE            DECIMAL not null,
    primary key (ID_CONTRAT)
 );
