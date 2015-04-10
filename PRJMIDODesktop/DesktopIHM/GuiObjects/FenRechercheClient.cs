@@ -27,7 +27,7 @@ namespace DesktopIHM.GuiObjects
             if (!(cbDateNaissance.SelectedIndex==-1
                 && txtAdresse.Text.Equals("")
                 && txtEmail.Text.Equals("")
-                && txtId.Text.Equals("")
+                && string.IsNullOrEmpty(txtId.Text);
                 && txtNom.Text.Equals("")
                 && txtPrenom.Text.Equals("")))
             {
