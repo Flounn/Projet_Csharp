@@ -118,6 +118,7 @@ namespace DataService.DAOService
                 i++;
             }
             commandText.Append(" WHERE " + champsWhere[0] + "=@" + i);
+            cmd.Parameters.AddWithValue("@" + i, valuesWhere[0]);
             i++;
             while (i < nbParameters)
             {
