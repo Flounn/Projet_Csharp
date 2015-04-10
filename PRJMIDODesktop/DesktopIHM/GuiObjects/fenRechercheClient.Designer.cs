@@ -92,7 +92,8 @@
             this.dtDateNaissanceDebut.Name = "dtDateNaissanceDebut";
             this.dtDateNaissanceDebut.Size = new System.Drawing.Size(86, 20);
             this.dtDateNaissanceDebut.TabIndex = 4;
-            this.dtDateNaissanceDebut.Value = new System.DateTime(2015, 4, 8, 18, 8, 0, 0);
+            System.DateTime dateNow = System.DateTime.Now;
+            this.dtDateNaissanceDebut.Value = new System.DateTime(dateNow.Year,dateNow.Month,dateNow.Day);
             // 
             // txtAdresse
             // 
@@ -146,7 +147,7 @@
             this.dtDateNaissanceFin.Name = "dtDateNaissanceFin";
             this.dtDateNaissanceFin.Size = new System.Drawing.Size(86, 20);
             this.dtDateNaissanceFin.TabIndex = 11;
-            this.dtDateNaissanceFin.Value = new System.DateTime(2015, 4, 8, 18, 8, 0, 0);
+            this.dtDateNaissanceFin.Value = new System.DateTime(dateNow.Year, dateNow.Month, dateNow.Day);
             this.dtDateNaissanceFin.Visible = false;
             // 
             // cbDateNaissance

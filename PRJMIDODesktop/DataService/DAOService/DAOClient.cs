@@ -53,8 +53,8 @@ namespace DataService.DAOService
             Utilities.addCritere(champsWhere, valuesWhere, operators, "NOM", criteres.Nom, Connexion.LIKE);
             Utilities.addCritere(champsWhere, valuesWhere, operators, "PRENOM", criteres.Prenom, Connexion.LIKE);
             Utilities.addCritere(champsWhere, valuesWhere, operators, "ADRESSE_PRINC", criteres.Adresse, Connexion.LIKE);
-            Utilities.addCritere(champsWhere, valuesWhere, operators, "DT_NAISS", criteres.DateNaissanceFin, Connexion.INF);
-            Utilities.addCritere(champsWhere, valuesWhere, operators, "DT_NAISS", criteres.DateNaissanceDebut, Connexion.SUP);
+            Utilities.addCritere(champsWhere, valuesWhere, operators, "DT_NAISS", criteres.DateNaissanceFin,Connexion.INFEGAL);
+            Utilities.addCritere(champsWhere, valuesWhere, operators, "DT_NAISS", criteres.DateNaissanceDebut,Connexion.SUPEGAL);
             Utilities.addCritere(champsWhere, valuesWhere, operators, "ID_CLIENT", criteres.IdClient, Connexion.EGAL);
             return Connexion.get(tableName, champsWhere, valuesWhere, operators);
         }

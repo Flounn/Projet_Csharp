@@ -42,14 +42,18 @@ namespace DesktopIHM.GuiObjects
             crtRechercheClient.Prenom = txtPrenom.Text;
             switch (cbDateNaissance.SelectedIndex){
                 case 0: break;
-                default:
+                case 1:
                     crtRechercheClient.DateNaissanceDebut = dtDateNaissanceDebut.Value;
-                    crtRechercheClient.DateNaissanceFin = dtDateNaissanceFin.Value;
+                    crtRechercheClient.DateNaissanceFin = dtDateNaissanceDebut.Value;
                     break;
                 case 2:               
                     crtRechercheClient.DateNaissanceDebut = dtDateNaissanceDebut.Value;
                     break;
                 case 3:
+                    crtRechercheClient.DateNaissanceFin = dtDateNaissanceFin.Value;
+                    break;
+                case 4:
+                    crtRechercheClient.DateNaissanceDebut = dtDateNaissanceDebut.Value;
                     crtRechercheClient.DateNaissanceFin = dtDateNaissanceFin.Value;
                     break;
             }
@@ -131,5 +135,6 @@ namespace DesktopIHM.GuiObjects
                     break;
             }
         }
+
     }
 }
