@@ -8,15 +8,48 @@ namespace DataService.BSService
 {
 	public class CritereRechercheOperation
 	{
+
         private long idOperation;
         private string libelle;
         private DateTime dateOperationDebut;
         private DateTime dateOperationFin;
-        private decimal montantDebit;
-        private decimal montantCredit;
         private DataService.BSDataObjects.Operation.StatutOperation statut;
         private long idCompte;
         private DataService.BSDataObjects.Operation.Type_Operation typeOperation;
+        private long idMoyenPaiement;
+        private string type;
+
+        public string Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
+        public bool isCredit()
+        {
+            return type.Equals(DataService.BSDataObjects.Operation.Type_Operation.Credit.ToString());
+        }
+        public bool isDebit()
+        {
+            return type.Equals(DataService.BSDataObjects.Operation.Type_Operation.Debit.ToString());
+        }
+
+        public DateTime DateOperationDebut
+        {
+            get { return dateOperationDebut; }
+            set { dateOperationDebut = value; }
+        }
+
+        public DateTime DateOperationFin
+        {
+            get { return dateOperationFin; }
+            set { dateOperationFin = value; }
+        }
+
+        public long IdMoyenPaiement
+        {
+            get { return idMoyenPaiement; }
+            set { idMoyenPaiement = value; }
+        }
 
         public long IdOperation
         {
@@ -28,19 +61,7 @@ namespace DataService.BSService
         {
             get { return libelle; }
             set { libelle = value; }
-        }         
-
-        public decimal MontantDebit
-        {
-            get { return montantDebit; }
-            set { montantDebit = value; }
-        }       
-
-        public decimal MontantCredit
-        {
-            get { return montantCredit; }
-            set { montantCredit = value; }
-        }       
+        }
 
         public long IdCompte
         {

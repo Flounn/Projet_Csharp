@@ -18,6 +18,7 @@ namespace DataService.DAOService
         public const string INF = "<";
         public const string INFEGAL = INF+EGAL;
         public const string LIKE = " LIKE ";
+        public const string IS = " IS ";
 
         static Connexion()
         {

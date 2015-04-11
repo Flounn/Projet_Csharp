@@ -290,7 +290,6 @@
             this.dgvLstContrats.Name = "dgvLstContrats";
             this.dgvLstContrats.Size = new System.Drawing.Size(689, 105);
             this.dgvLstContrats.TabIndex = 0;
-            this.dgvLstContrats.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLstContrats_CellContentClick);
             // 
             // gbListeComptes
             // 

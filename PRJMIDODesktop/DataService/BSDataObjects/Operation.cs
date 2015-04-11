@@ -20,7 +20,7 @@ namespace DataService.BSDataObjects
         private StatutOperation statut;
         private Compte compte;
         private Type_Operation typeOperation;
-        private IList<MoyenPaiement> moyenPaiements;
+        private MoyenPaiement moyenPaiement;
 
         public Type_Operation TypeOperation
         {
@@ -109,10 +109,10 @@ namespace DataService.BSDataObjects
             set { compte = value; }
         }
 
-        public IList<MoyenPaiement> MoyenPaiements
+        public MoyenPaiement MoyenPaiement
         {
-            get { return moyenPaiements; }
-            set { moyenPaiements = value; }
+            get { return moyenPaiement; }
+            set { moyenPaiement = value; }
         }
 
         public Operation() { }

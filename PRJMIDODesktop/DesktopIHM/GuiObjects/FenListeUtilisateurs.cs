@@ -15,11 +15,8 @@ namespace DesktopIHM.GuiObjects
         public FenListeUtilisateurs()
         {
             InitializeComponent();
-            DataTable dtt = new DataTable();
-            dtt.ColumnChanged+=new DataColumnChangeEventHandler(dtt_ColumnChanged);
-            dtt.Load(DAOClient.getAll());
-            dg_utilisateurs.DataSource = dtt;
-            dtt.TableNewRow+=new DataTableNewRowEventHandler(dtt_TableNewRow);
+         
+            dg_utilisateurs.DataSource=GestionnaireUtilisateur.ListeUtilisateurs();
         }
 
         void dtt_ColumnChanged(object sender, DataColumnChangeEventArgs e)

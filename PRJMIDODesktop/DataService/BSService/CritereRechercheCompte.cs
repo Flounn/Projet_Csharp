@@ -45,7 +45,7 @@ namespace DataService.BSService
             set { dateOuvertureFin = value; }
         }        
 
-        public long Client
+        public long IdClient
         {
             get { return idClient; }
             set { idClient = value; }

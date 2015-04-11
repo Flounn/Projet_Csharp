@@ -14,6 +14,13 @@ namespace DataService.BSService
         private long idClient;
         private long idProduit;
         private long idCompte;
+        private string type;
+
+        public string Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
 
         public long IdContrat
         {

@@ -178,6 +178,7 @@ create table OPERATION
 (
    ID_OPERATION         INT not null auto_increment,
    ID_MOYEN_PAIEMENT    INT not null,
+   ID_COMPTE			INT not null,
    LIBELLE              VARCHAR(100) not null,
    TYPE_OPERATION       VARCHAR(30) not null,
    DT_COMPTABLE         timestamp NULL default NULL,
