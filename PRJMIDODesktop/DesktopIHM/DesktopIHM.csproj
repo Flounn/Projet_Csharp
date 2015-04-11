@@ -123,6 +123,7 @@
     </Compile>
     <Compile Include="GuiObjects\GestionnaireUtilisateur.cs" />
     <Compile Include="GuiObjects\Session.cs" />
+    <Compile Include="GuiObjects\UpdateDataGridView.cs" />
     <Compile Include="GuiObjects\Utilities.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -12,11 +12,13 @@ namespace DesktopIHM.GuiObjects
     public partial class FenModifierUtilisateur : Form
     {
         private readonly Utilisateur utilisateur;
+        private readonly UpdateDataGridView callback;
 
-        public FenModifierUtilisateur(Utilisateur utilisateur)
+        public FenModifierUtilisateur(Utilisateur utilisateur, UpdateDataGridView callback)
         {
             InitializeComponent();
             this.utilisateur = utilisateur;
+            this.callback = callback;
             txt_email.Text = utilisateur.Email;
             txt_login.Text = utilisateur.Login;
             txt_password.Text = utilisateur.Password;
@@ -31,6 +33,8 @@ namespace DesktopIHM.GuiObjects
             utilisateur.Password = txt_password.Text;
             utilisateur.Profil = (string)cb_profil.SelectedItem;
             GestionnaireUtilisateur.modifierUtilisateur(utilisateur);
+            callback.refresh();
+            this.Close();
         }
     }
 }
