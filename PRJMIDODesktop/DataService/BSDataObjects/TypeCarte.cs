@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DataService.DAOService;
 
 namespace DataService.BSDataObjects
 {
@@ -19,7 +20,6 @@ namespace DataService.BSDataObjects
         private decimal plfRetraitFrance;
         private decimal plfGlobalRetraitInternes; //Sur les distributeurs de la banque
         private int periodePlfGlobalRetrait;
-        private IList<MoyenPaiement> moyensPaiements;
 
         public ReseauCarteBancaire ReseauCarte
         {
@@ -92,5 +92,28 @@ namespace DataService.BSDataObjects
             get { return periodePlfGlobalRetrait; }
             set { periodePlfGlobalRetrait = value; }
         }
+
+        #region DAO TypeCarte
+
+        private static DAOTypeCarte dao = new DAOTypeCarte();
+
+        public bool isPersist()
+        {
+            return idTypeCarte != 0;
+        }
+
+        public bool persist()
+        {
+            if (isPersist())
+                return dao.update(this);
+            else return dao.insert(this);
+        }
+        public bool delete()
+        {
+            if (!isPersist())
+                return false;
+            return dao.delete(this);
+        }
+        #endregion
     }
 }

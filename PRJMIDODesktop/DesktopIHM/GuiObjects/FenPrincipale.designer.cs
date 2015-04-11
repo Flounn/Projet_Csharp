@@ -83,7 +83,7 @@
             this.miSouscription,
             this.miDonneesReferentiel});
             this.miSaisir.Name = "miSaisir";
-            this.miSaisir.Size = new System.Drawing.Size(136, 22);
+            this.miSaisir.Size = new System.Drawing.Size(152, 22);
             this.miSaisir.Text = "Saisir";
             // 
             // miSaisirClient
@@ -119,7 +119,7 @@
             this.miRechercheCompte,
             this.miRechercheOperation});
             this.miRechercher.Name = "miRechercher";
-            this.miRechercher.Size = new System.Drawing.Size(136, 22);
+            this.miRechercher.Size = new System.Drawing.Size(152, 22);
             this.miRechercher.Text = "Rechercher";
             // 
             // miRechercheClient
@@ -134,12 +134,14 @@
             this.miRechercheContrat.Name = "miRechercheContrat";
             this.miRechercheContrat.Size = new System.Drawing.Size(229, 22);
             this.miRechercheContrat.Text = "Un contrat";
+            this.miRechercheContrat.Click += new System.EventHandler(this.miRechercheContrat_Click);
             // 
             // miRechercheCompte
             // 
             this.miRechercheCompte.Name = "miRechercheCompte";
             this.miRechercheCompte.Size = new System.Drawing.Size(229, 22);
             this.miRechercheCompte.Text = "Un compte";
+            this.miRechercheCompte.Click += new System.EventHandler(this.miRechercheCompte_Click);
             // 
             // miRechercheOperation
             // 
@@ -150,14 +152,14 @@
             // miProfile
             // 
             this.miProfile.Name = "miProfile";
-            this.miProfile.Size = new System.Drawing.Size(136, 22);
+            this.miProfile.Size = new System.Drawing.Size(152, 22);
             this.miProfile.Text = "Mon profile";
             this.miProfile.Click += new System.EventHandler(this.monProfileToolStripMenuItem_Click);
             // 
             // miQuit
             // 
             this.miQuit.Name = "miQuit";
-            this.miQuit.Size = new System.Drawing.Size(136, 22);
+            this.miQuit.Size = new System.Drawing.Size(152, 22);
             this.miQuit.Text = "Quitter";
             this.miQuit.Click += new System.EventHandler(this.miQuit_Click);
             // 

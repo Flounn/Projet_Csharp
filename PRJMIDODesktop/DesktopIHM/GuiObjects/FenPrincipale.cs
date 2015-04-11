@@ -77,6 +77,16 @@ namespace DesktopIHM
         {
             new FenSaisirUtilisateur().Show(this);
         }
+
+        private void miRechercheContrat_Click(object sender, EventArgs e)
+        {
+            new FenRechercheContrat().Show(this);
+        }
+
+        private void miRechercheCompte_Click(object sender, EventArgs e)
+        {
+            //new Fenr
+        }
         
     }
 }

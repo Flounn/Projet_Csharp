@@ -11,7 +11,7 @@ using DataService.BSService;
 
 namespace DesktopIHM.GuiObjects
 {
-    public partial class fenRechercheContrat : Form
+    public partial class FenRechercheContrat : Form
     {
         private CritereRechercheContrat crtRechercheContrat = null;
 
@@ -54,7 +54,7 @@ namespace DesktopIHM.GuiObjects
             }
         }
 
-        public fenRechercheContrat()
+        public FenRechercheContrat()
         {
             InitializeComponent();
             cbDateSouscription.Items.Add("Choisissez");

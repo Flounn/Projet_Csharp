@@ -1,6 +1,6 @@
 ﻿namespace DesktopIHM.GuiObjects
 {
-    partial class fenRechercheContrat
+    partial class FenRechercheContrat
     {
         /// <summary>
         /// Required designer variable.
