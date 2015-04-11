@@ -71,7 +71,8 @@ namespace DesktopIHM.GuiObjects
                 }
             
             crtRechercheContrat.Intitule = txtIntitule.Text;
-            
+            if (cb_type.SelectedIndex > 0)
+                crtRechercheContrat.Type = (string)cb_type.SelectedItem;
             switch (cbDateSouscription.SelectedIndex)
             {
                 case 0: break;
@@ -104,11 +105,11 @@ namespace DesktopIHM.GuiObjects
         private void btRechercher_Click(object sender, EventArgs e)
         {
 
-            if (cbDateSouscription.SelectedIndex == 0 && string.IsNullOrEmpty(txtId.Text)
+            if (cbDateSouscription.SelectedIndex <1 && string.IsNullOrEmpty(txtId.Text)
                    && string.IsNullOrEmpty(txtIdClient.Text) && string.IsNullOrEmpty(txtIdCompte.Text)
                    && string.IsNullOrEmpty(txtIdProduit.Text) && string.IsNullOrEmpty(txtIntitule.Text))
             {
-                Utilities.showErrorMessage("Veuillez saisir un des critères", "Error");
+                Utilities.showErrorMessage("Veuillez saisir un des critères", "Erreur");
                 return;
             }
            

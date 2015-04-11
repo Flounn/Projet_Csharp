@@ -51,7 +51,7 @@ namespace DesktopIHM.GuiObjects
                 }
 
             if (cb_type.SelectedIndex>0)
-                crtRechercheCompte.TypeCompte = (string)cb_type.SelectedValue;
+                crtRechercheCompte.TypeCompte = (string)cb_type.SelectedItem;
             
             switch (cbDateOuverture.SelectedIndex)
             {
@@ -78,7 +78,7 @@ namespace DesktopIHM.GuiObjects
         private void InitData()
         {
             DataTable dtt = new DataTable();
-            dtt.Load(BSGestionClient.RechercherComptes(crtRechercheCompte);
+            dtt.Load(BSGestionClient.RechercherComptes(crtRechercheCompte));
             dgwLstCompte.DataSource = dtt;
         }
 
@@ -88,7 +88,7 @@ namespace DesktopIHM.GuiObjects
             if (cbDateOuverture.SelectedIndex <1 && string.IsNullOrEmpty(txtIdClient.Text)
                    && string.IsNullOrEmpty(txtIdCompte.Text) && cb_type.SelectedIndex<1)
             {
-                Utilities.showErrorMessage("Veuillez saisir un des critères", "Error");
+                Utilities.showErrorMessage("Veuillez saisir un des critères", "Erreur");
                 return;
             }
            
