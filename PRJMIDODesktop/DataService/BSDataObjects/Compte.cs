@@ -9,6 +9,10 @@ namespace DataService.BSDataObjects
     public class Compte
     {
         public enum Type { Courant, Epargne };
+        public static string[] getTypes()
+        {
+            return Enum.GetNames(typeof(Type));
+        }
 
         private long idCompte;
         private Type typeCompte;        

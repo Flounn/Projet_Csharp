@@ -85,7 +85,7 @@ namespace DesktopIHM
 
         private void miRechercheCompte_Click(object sender, EventArgs e)
         {
-            //new Fenr
+            new FenRechercheCompte().Show(this);
         }
         
     }

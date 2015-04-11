@@ -97,7 +97,7 @@ namespace DesktopIHM.GuiObjects
             this.dtDateNaissanceDebut.Name = "dtDateNaissanceDebut";
             this.dtDateNaissanceDebut.Size = new System.Drawing.Size(86, 20);
             this.dtDateNaissanceDebut.TabIndex = 4;
-            this.dtDateNaissanceDebut.Value = new System.DateTime(2015, 4, 10, 0, 0, 0, 0);
+            this.dtDateNaissanceDebut.Value = new System.DateTime(System.DateTime.Now.Year, System.DateTime.Now.Month, System.DateTime.Now.Day);
             // 
             // txtAdresse
             // 
@@ -154,7 +154,7 @@ namespace DesktopIHM.GuiObjects
             this.dtDateNaissanceFin.Name = "dtDateNaissanceFin";
             this.dtDateNaissanceFin.Size = new System.Drawing.Size(86, 20);
             this.dtDateNaissanceFin.TabIndex = 11;
-            this.dtDateNaissanceFin.Value = new System.DateTime(2015, 4, 10, 0, 0, 0, 0);
+            this.dtDateNaissanceFin.Value = new System.DateTime(System.DateTime.Now.Year, System.DateTime.Now.Month, System.DateTime.Now.Day);
             this.dtDateNaissanceFin.Visible = false;
             // 
             // cbDateNaissance
@@ -164,7 +164,7 @@ namespace DesktopIHM.GuiObjects
             this.cbDateNaissance.Name = "cbDateNaissance";
             this.cbDateNaissance.Size = new System.Drawing.Size(86, 21);
             this.cbDateNaissance.TabIndex = 12;
-            this.cbDateNaissance.SelectedIndexChanged += new System.EventHandler(this.cbDateSouscription_SelectedIndexChanged);
+            this.cbDateNaissance.SelectedIndexChanged+=new EventHandler(cbDateNaissance_SelectedIndexChanged);
             // 
             // txtEmail
             // 

@@ -14,81 +14,138 @@ namespace DesktopIHM.GuiObjects
     public partial class FenRechercheContrat : Form
     {
         private CritereRechercheContrat crtRechercheContrat = null;
-
-        public CritereRechercheContrat CrtRechercheContrat
-        {
-            get { return crtRechercheContrat; }
-            set { crtRechercheContrat = value; }
-        }
-
-
-        private void initCritereRecherche()
-        {
-            if (!(cbDateSouscription.SelectedText.Equals("Choisissez")
-                && txtIntitule.Text.Equals("")
-                && txtIdCompte.Text.Equals("")
-                && txtId.Text.Equals("")
-                && txtIdClient.Text.Equals("")
-                && txtIdProduit.Text.Equals("")))
-            {
-                crtRechercheContrat = new CritereRechercheContrat();
-                crtRechercheContrat.Intitule = txtIntitule.Text;
-                crtRechercheContrat.IdCompte =  long.Parse(txtIdCompte.Text);
-                crtRechercheContrat.IdContrat = long.Parse(txtId.Text);
-                crtRechercheContrat.IdClient =  long.Parse(txtIdClient.Text);
-                crtRechercheContrat.IdProduit =  long.Parse(txtIdProduit.Text);
-                if (cbDateSouscription.SelectedText.Equals("Le")
-                    || cbDateSouscription.SelectedText.Equals("Entre le"))
-                {
-                    crtRechercheContrat.DateSouscriptionDebut = dtDateSouscriptionDebut.Value;
-                    crtRechercheContrat.DateSouscriptionFin = dtDateSouscriptionFin.Value;
-                }
-                else if (cbDateSouscription.SelectedText.Equals("Après le"))
-                {
-                    crtRechercheContrat.DateSouscriptionDebut = dtDateSouscriptionDebut.Value;
-                }
-                else if (cbDateSouscription.SelectedText.Equals("Né avant le"))
-                {
-                    crtRechercheContrat.DateSouscriptionFin = dtDateSouscriptionFin.Value;
-                }
-            }
-        }
-
+        private static string[] valuesDateSouscription = new string[] { "Choisissez", "Le", "Après le", "Avant le", "Entre le" };
+        
         public FenRechercheContrat()
         {
             InitializeComponent();
-            cbDateSouscription.Items.Add("Choisissez");
-            cbDateSouscription.Items.Add("Le");
-            cbDateSouscription.Items.Add("Après le");
-            cbDateSouscription.Items.Add("Avant le");
-            cbDateSouscription.Items.Add("Entre le");
+            cbDateSouscription.Items.AddRange(valuesDateSouscription);
+            cb_type.Items.Add("Choisissez");
+            cb_type.Items.AddRange(Contrat.getTypesContrat());
+            cbDateSouscription.SelectedIndex = 0;
+            cb_type.SelectedIndex = 0;
+        }
+        
+        private bool initCritereRecherche()
+        {
+            crtRechercheContrat = new CritereRechercheContrat();
+            if (!string.IsNullOrEmpty(txtIdClient.Text))
+                try
+                {
+                    crtRechercheContrat.IdClient = long.Parse(txtIdClient.Text);
+                }
+                catch
+                {
+                    Utilities.showErrorMessage("Veuillez saisir un id client valide", "Id client non valide");
+                    return false;
+                }
+            if (!string.IsNullOrEmpty(txtId.Text))
+                try
+                {
+                    crtRechercheContrat.IdContrat = long.Parse(txtId.Text);
+                }
+                catch
+                {
+                    Utilities.showErrorMessage("Veuillez saisir un id contrat valide", "Id contrat non valide");
+                    return false;
+                }
+            if (!string.IsNullOrEmpty(txtIdCompte.Text))
+                try
+                {
+                    crtRechercheContrat.IdCompte = long.Parse(txtIdCompte.Text);
+                }
+                catch
+                {
+                    Utilities.showErrorMessage("Veuillez saisir un id compte valide", "Id compte non valide");
+                    return false;
+                }
+            if (!string.IsNullOrEmpty(txtIdProduit.Text))
+                try
+                {
+                    crtRechercheContrat.IdProduit = long.Parse(txtIdProduit.Text);
+                }
+                catch
+                {
+                    Utilities.showErrorMessage("Veuillez saisir un id produit valide", "Id produit non valide");
+                    return false;
+                }
+            
+            crtRechercheContrat.Intitule = txtIntitule.Text;
+            
+            switch (cbDateSouscription.SelectedIndex)
+            {
+                case 0: break;
+                case 1:
+                    crtRechercheContrat.DateSouscriptionDebut = dtDateSouscriptionDebut.Value;
+                    crtRechercheContrat.DateSouscriptionFin = dtDateSouscriptionDebut.Value;
+                    break;
+                case 2:
+                    crtRechercheContrat.DateSouscriptionDebut = dtDateSouscriptionDebut.Value;
+                    break;
+                case 3:
+                    crtRechercheContrat.DateSouscriptionFin = dtDateSouscriptionFin.Value;
+                    break;
+                case 4:
+                    crtRechercheContrat.DateSouscriptionDebut = dtDateSouscriptionDebut.Value;
+                    crtRechercheContrat.DateSouscriptionFin = dtDateSouscriptionFin.Value;
+                    break;
+            }
+            return true;
         }
 
 
         private void InitData()
         {
-            this.dgwLstContrat.DataSource = BSGestionClient.RechercherContrat(crtRechercheContrat);
-        }
-
-
-
-        private void btDetail_Click(object sender, EventArgs e)
-        {
-            //new FenDetailContrat(dgwLstContrat.SelectedRows.Cast<Client>());
-        }
-
-        private void fenRechercheClient_Load(object sender, EventArgs e)
-        {
-
+            this.dgwLstContrat.DataSource = BSGestionClient.RechercherContrats(crtRechercheContrat);
         }
 
         private void btRechercher_Click(object sender, EventArgs e)
         {
-            if (crtRechercheContrat != null)
+
+            if (cbDateSouscription.SelectedIndex == 0 && string.IsNullOrEmpty(txtId.Text)
+                   && string.IsNullOrEmpty(txtIdClient.Text) && string.IsNullOrEmpty(txtIdCompte.Text)
+                   && string.IsNullOrEmpty(txtIdProduit.Text) && string.IsNullOrEmpty(txtIntitule.Text))
             {
-                initCritereRecherche();
+                MessageBox.Show("Veuillez saisir un des critères", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+           
+            if (initCritereRecherche())
                 InitData();
+            
+        }
+
+
+        private void cbDateSouscription_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cbDateSouscription.SelectedIndex)
+            {
+                case 0:
+                    dtDateSouscriptionDebut.Enabled = false;
+                    dtDateSouscriptionFin.Visible = false;
+                    break;
+                case 4:
+                    dtDateSouscriptionDebut.Enabled = true;
+                    dtDateSouscriptionFin.Visible = true;
+                    dtDateSouscriptionFin.Enabled = true;
+                    break;
+                default:
+                    dtDateSouscriptionDebut.Enabled = true;
+                    dtDateSouscriptionFin.Visible = false;
+                    break;
             }
         }
+
+        private void btVider_Click(object sender, EventArgs e)
+        {
+            txtId.Text = string.Empty;
+            txtIdClient.Text = string.Empty;
+            txtIdCompte.Text = string.Empty;
+            txtIdProduit.Text = string.Empty;
+            txtIntitule.Text = string.Empty;
+            cbDateSouscription.SelectedIndex = 0;
+            cb_type.SelectedIndex = 0;
+        }
+
     }
 }

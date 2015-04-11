@@ -8,8 +8,7 @@ namespace DataService.BSDataObjects
     public class Produit
     {
         private long idProduit;
-        private string libelle;
-        private IList<Contrat> listeContrats;    
+        private string libelle;  
 
         public long IdProduit
         {

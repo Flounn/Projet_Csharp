@@ -9,16 +9,24 @@ namespace DataService.BSDataObjects
     public class Contrat
     {
         public enum Statut_Juridique { Titulaire, Beneficiaire };
+        public static string[] getStatutJuridique()
+        {
+            return Enum.GetNames(typeof(Statut_Juridique));
+        }
         public enum TypeContrat { Credit, Epargne }
+        public static string[] getTypesContrat()
+        {
+            return Enum.GetNames(typeof(TypeContrat));
+        }
 
-        protected long idContrat;
-        protected DateTime dateSouscription;
-        protected string intitule;
-        protected Client client;
-        protected Produit produit;
-        protected Compte compte;
-        protected Statut_Juridique statutJuridique;
-        protected TypeContrat type;
+        private long idContrat;
+        private DateTime dateSouscription;
+        private string intitule;
+        private Client client;
+        private Produit produit;
+        private Compte compte;
+        private Statut_Juridique statutJuridique;
+        private TypeContrat type;
 
         public long IdContrat
         {

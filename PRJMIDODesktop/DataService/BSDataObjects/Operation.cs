@@ -9,7 +9,15 @@ namespace DataService.BSDataObjects
     public class Operation
     {
         public enum StatutOperation {Realise,EnCours};
+        public static string[] getStatutOperation()
+        {
+            return Enum.GetNames(typeof(StatutOperation));
+        }
         public enum Type_Operation { Debit, Credit };
+        public static string[] getTypesOperation()
+        {
+            return Enum.GetNames(typeof(Type_Operation));
+        }
 
         private long idOperation;
         private string libelle;

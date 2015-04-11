@@ -5,12 +5,19 @@ using System.Text;
 
 namespace DataService.BSDataObjects
 {
-    public enum TypeMoyenPaiement {Carte, Chequier};
+    public enum TypeMoyenPaiement { Carte, Chequier };
+   
     public class MoyenPaiement
     {
-        protected long idMoyenPaiement;
+        
+        public static string[] getTypesMoyenPaiement()
+        {
+            return Enum.GetNames(typeof(TypeMoyenPaiement));
+        }
+
+        private long idMoyenPaiement;
         private Compte compte;
-        protected TypeMoyenPaiement libelleMoyenPaiement;
+        private TypeMoyenPaiement libelleMoyenPaiement;
 
         public long IdMoyenPaiement
         {

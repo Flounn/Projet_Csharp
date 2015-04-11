@@ -44,7 +44,9 @@
             this.IdCompte = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lbId = new System.Windows.Forms.Label();
-            this.btDetail = new System.Windows.Forms.Button();
+            this.btVider = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cb_type = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgwLstContrat)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,7 +94,7 @@
             this.dtDateSouscriptionDebut.Name = "dtDateSouscriptionDebut";
             this.dtDateSouscriptionDebut.Size = new System.Drawing.Size(86, 20);
             this.dtDateSouscriptionDebut.TabIndex = 4;
-            this.dtDateSouscriptionDebut.Value = new System.DateTime(2015, 4, 8, 18, 8, 0, 0);
+            this.dtDateSouscriptionDebut.Value = new System.DateTime(System.DateTime.Now.Year, System.DateTime.Now.Month, System.DateTime.Now.Day);
             // 
             // txtIntitule
             // 
@@ -120,7 +122,7 @@
             this.dgwLstContrat.AllowUserToAddRows = false;
             this.dgwLstContrat.AllowUserToDeleteRows = false;
             this.dgwLstContrat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwLstContrat.Location = new System.Drawing.Point(37, 186);
+            this.dgwLstContrat.Location = new System.Drawing.Point(37, 210);
             this.dgwLstContrat.MultiSelect = false;
             this.dgwLstContrat.Name = "dgwLstContrat";
             this.dgwLstContrat.ReadOnly = true;
@@ -129,7 +131,7 @@
             // 
             // btRechercher
             // 
-            this.btRechercher.Location = new System.Drawing.Point(258, 145);
+            this.btRechercher.Location = new System.Drawing.Point(258, 173);
             this.btRechercher.Name = "btRechercher";
             this.btRechercher.Size = new System.Drawing.Size(264, 21);
             this.btRechercher.TabIndex = 10;
@@ -145,7 +147,7 @@
             this.dtDateSouscriptionFin.Name = "dtDateSouscriptionFin";
             this.dtDateSouscriptionFin.Size = new System.Drawing.Size(86, 20);
             this.dtDateSouscriptionFin.TabIndex = 11;
-            this.dtDateSouscriptionFin.Value = new System.DateTime(2015, 4, 8, 18, 8, 0, 0);
+            this.dtDateSouscriptionFin.Value = new System.DateTime(System.DateTime.Now.Year, System.DateTime.Now.Month, System.DateTime.Now.Day);
             this.dtDateSouscriptionFin.Visible = false;
             // 
             // cbDateSouscription
@@ -155,6 +157,7 @@
             this.cbDateSouscription.Name = "cbDateSouscription";
             this.cbDateSouscription.Size = new System.Drawing.Size(86, 21);
             this.cbDateSouscription.TabIndex = 12;
+            this.cbDateSouscription.SelectedIndexChanged+=new System.EventHandler(cbDateSouscription_SelectedIndexChanged);
             // 
             // txtIdCompte
             // 
@@ -188,22 +191,41 @@
             this.lbId.TabIndex = 15;
             this.lbId.Text = "ID Contrat";
             // 
-            // btDetail
+            // btVider
             // 
-            this.btDetail.Location = new System.Drawing.Point(148, 399);
-            this.btDetail.Name = "btDetail";
-            this.btDetail.Size = new System.Drawing.Size(264, 21);
-            this.btDetail.TabIndex = 17;
-            this.btDetail.Text = "Détail";
-            this.btDetail.UseVisualStyleBackColor = true;
-            this.btDetail.Click += new System.EventHandler(this.btDetail_Click);
+            this.btVider.Location = new System.Drawing.Point(37, 173);
+            this.btVider.Name = "btVider";
+            this.btVider.Size = new System.Drawing.Size(128, 21);
+            this.btVider.TabIndex = 19;
+            this.btVider.Text = "Vider les champs";
+            this.btVider.UseVisualStyleBackColor = true;
+            this.btVider.Click += new System.EventHandler(this.btVider_Click);
             // 
-            // fenRechercheContrat
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(34, 143);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Type";
+            // 
+            // cb_type
+            // 
+            this.cb_type.FormattingEnabled = true;
+            this.cb_type.Location = new System.Drawing.Point(91, 140);
+            this.cb_type.Name = "cb_type";
+            this.cb_type.Size = new System.Drawing.Size(141, 21);
+            this.cb_type.TabIndex = 21;
+            // 
+            // FenRechercheContrat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(565, 429);
-            this.Controls.Add(this.btDetail);
+            this.Controls.Add(this.cb_type);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btVider);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.lbId);
             this.Controls.Add(this.txtIdCompte);
@@ -221,9 +243,8 @@
             this.Controls.Add(this.lbIdProduit);
             this.Controls.Add(this.lbIdClient);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Name = "fenRechercheContrat";
+            this.Name = "FenRechercheContrat";
             this.Text = "Rechercher un contrat";
-            this.Load += new System.EventHandler(this.fenRechercheClient_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwLstContrat)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -248,6 +269,8 @@
         private System.Windows.Forms.Label IdCompte;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label lbId;
-        private System.Windows.Forms.Button btDetail;
+        private System.Windows.Forms.Button btVider;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cb_type;
     }
 }

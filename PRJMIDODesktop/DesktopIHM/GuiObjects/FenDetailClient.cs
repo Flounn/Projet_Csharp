@@ -42,13 +42,13 @@ namespace DesktopIHM.GuiObjects
                 CritereRechercheContrat crtRechercheContrat = new CritereRechercheContrat();
                 crtRechercheContrat.IdClient = client.IdClient;
                 DataTable dtContrat = new DataTable();
-                dtContrat.Load(BSGestionClient.RechercherContrat(crtRechercheContrat));
+                dtContrat.Load(BSGestionClient.RechercherContrats(crtRechercheContrat));
                 dgvLstContrats.DataSource = dtContrat;
 
                 CritereRechercheCompte crtRechercheCompte = new CritereRechercheCompte();
                 crtRechercheCompte.IdClient = client.IdClient;
                 DataTable dtCompte = new DataTable();
-                dtCompte.Load(BSGestionClient.RechercherCompteClient(crtRechercheCompte));
+                dtCompte.Load(BSGestionClient.RechercherComptes(crtRechercheCompte));
                 dgvLstComptes.DataSource = dtCompte;
             }
         }

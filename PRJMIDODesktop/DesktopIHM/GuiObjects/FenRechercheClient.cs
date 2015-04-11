@@ -19,12 +19,6 @@ namespace DesktopIHM.GuiObjects
         private static string[] valuesDateNaissance = new string[]{"Choisissez","Né le","Né après le"
             ,"Né avant le","Né entre le"};
 
-        public CritereRechercheClient CrtRechercheClient
-        {
-            get { return crtRechercheClient; }
-            set { crtRechercheClient = value; }
-        }
-
         private bool initCritereRecherche()
         {
            
@@ -94,7 +88,7 @@ namespace DesktopIHM.GuiObjects
                 initData();
         }
 
-        private void cbDateSouscription_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbDateNaissance_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (cbDateNaissance.SelectedIndex)
             {
@@ -148,7 +142,6 @@ namespace DesktopIHM.GuiObjects
             txtPrenom.Text = string.Empty;
             txtEmail.Text = string.Empty;
             txtAdresse.Text = string.Empty;
-            cbDateNaissance.Items.AddRange(valuesDateNaissance);
             cbDateNaissance.SelectedIndex = 0;
         }
 

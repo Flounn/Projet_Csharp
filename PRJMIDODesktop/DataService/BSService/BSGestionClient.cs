@@ -11,12 +11,12 @@ namespace DataService.BSService
     public static class BSGestionClient
     {
 
-        public static IDataReader RechercherClient(CritereRechercheClient criteres)
+        public static IDataReader RechercherClients(CritereRechercheClient criteres)
         {
             return DAOClient.get(criteres);
         }
 
-        public static IDataReader RechercherCompteClient(CritereRechercheCompte criteres)
+        public static IDataReader RechercherComptes(CritereRechercheCompte criteres)
         {
             return DAOCompte.get(criteres);
         }
@@ -26,7 +26,7 @@ namespace DataService.BSService
             return DAOOperation.get(criteres);
         }
 
-        public static IDataReader RechercherContrat(CritereRechercheContrat criteres)
+        public static IDataReader RechercherContrats(CritereRechercheContrat criteres)
         {
             return DAOContrat.get(criteres);
         }

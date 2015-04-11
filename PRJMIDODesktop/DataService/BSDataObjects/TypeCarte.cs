@@ -6,10 +6,14 @@ using DataService.DAOService;
 
 namespace DataService.BSDataObjects
 {
-    public enum ReseauCarteBancaire {Visa, MasterCard}
-    
+        
     public class TypeCarte
     {
+        public enum ReseauCarteBancaire { Visa, MasterCard }
+        public static string[] getReseauCarteBancaire()
+        {
+            return Enum.GetNames(typeof(ReseauCarteBancaire));
+        }
         private long idTypeCarte;
         private ReseauCarteBancaire reseauCarte;
         private decimal plfGloPaiement;
