@@ -72,6 +72,11 @@ namespace DesktopIHM
         {
             new FenListeUtilisateurs().Show(this);
         }
+
+        private void miAddUtilisateur_Click(object sender, EventArgs e)
+        {
+            new FenSaisirUtilisateur().Show(this);
+        }
         
     }
 }

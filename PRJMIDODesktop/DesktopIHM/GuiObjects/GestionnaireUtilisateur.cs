@@ -9,25 +9,27 @@ namespace DesktopIHM.GuiObjects
 {
     public class GestionnaireUtilisateur
     {
+        private const string file = "XMLFile/Utilisateurs.xml";
+
         public static bool UtilisateurExtiste(string login, string password)
         {
             bool trouver = false;
-
+            
             IList<Utilisateur> liste = new List<Utilisateur>();
 
             //Chargement du fichier clients.xml
-            XDocument fic = XDocument.Load("XMLFile/Utilisateurs.xml");
+            XDocument fic = XDocument.Load(file);
 
             //Sélection d'un utilisateur
             var util = from i in fic.Elements("users").Elements("user")
                        where (string)i.Element("login") == login
-                          && (string)i.Element("passwd") == password
+                          && (string)i.Element("password") == password
                        select new Utilisateur
                        (
                           (string)i.Element("login"),
-                          (string)i.Element("passwd"),
+                          (string)i.Element("password"),
                           (string)i.Element("email"),
-                          (string)i.Element("profile")
+                          (string)i.Element("profil")
                       );
 
             IEnumerator enumuser = util.GetEnumerator();
@@ -48,18 +50,18 @@ namespace DesktopIHM.GuiObjects
             Utilisateur unCompte = null;
 
             //Chargement du fichier clients.xml
-            XDocument fic = XDocument.Load("XMLFile/Utilisateurs.xml");
+            XDocument fic = XDocument.Load(file);
 
             //Sélection d'un utilisateur
             var util = from i in fic.Elements("users").Elements("user")
                        where (string)i.Element("login") == login
-                          && (string)i.Element("passwd") == password
+                          && (string)i.Element("password") == password
                        select new Utilisateur
                        (
                           (string)i.Element("login"),
-                          (string)i.Element("passwd"),
+                          (string)i.Element("password"),
                           (string)i.Element("email"),
-                          (string)i.Element("profile")
+                          (string)i.Element("profil")
                       );
 
             IEnumerator enumuser = util.GetEnumerator();
@@ -75,16 +77,16 @@ namespace DesktopIHM.GuiObjects
             IList<Utilisateur> maListe = new List<Utilisateur>();
 
             //Chargement du fichier clients.xml
-            XDocument fic = XDocument.Load("XMLFile/Utilisateurs.xml");
+            XDocument fic = XDocument.Load(file);
 
             //Sélection d'un utilisateur
             var util = from i in fic.Elements("users").Elements("user")                     
                        select new Utilisateur
                        (
                           (string)i.Element("login"),
-                          (string)i.Element("passwd"),
+                          (string)i.Element("password"),
                           (string)i.Element("email"),
-                          (string)i.Element("profile")
+                          (string)i.Element("profil")
                       );
 
             IEnumerator enumuser = util.GetEnumerator();
@@ -96,8 +98,9 @@ namespace DesktopIHM.GuiObjects
         }
 
         public static void addUtilisateur(Utilisateur utilisateur){
-             XDocument fic = XDocument.Load("XMLFile/Utilisateurs.xml");
-             fic.Element("users").Add(utilisateur);
+            XDocument fic = XDocument.Load(file);
+             fic.Element("users").Add(utilisateur.ToXml());
+             fic.Save(file);
         }
 
     }

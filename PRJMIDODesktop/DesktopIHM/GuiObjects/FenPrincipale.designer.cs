@@ -182,6 +182,7 @@
             this.miAddUtilisateur.Name = "miAddUtilisateur";
             this.miAddUtilisateur.Size = new System.Drawing.Size(185, 22);
             this.miAddUtilisateur.Text = "Ajouter un utilisateur";
+            this.miAddUtilisateur.Click += new System.EventHandler(this.miAddUtilisateur_Click);
             // 
             // miHelp
             // 
