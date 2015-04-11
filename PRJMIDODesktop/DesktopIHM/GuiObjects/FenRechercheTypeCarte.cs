@@ -15,7 +15,7 @@ namespace DesktopIHM.GuiObjects
         private static string[] valuesReseau = { "Choisissez", "Visa", "MasterCard" };
 
         FenSaisirMoyenPaiement fenSaisirMoyenPaiement = null;
-        CritereRechercheCarteBancaire crtRechercheCarteBancaire;
+        CritereRechercheTypeCarte crtRechercheTypeCarte;
 
         public FenRechercheTypeCarte(FenSaisirMoyenPaiement fenSaisirMoyenPaiement)
         {
@@ -27,14 +27,14 @@ namespace DesktopIHM.GuiObjects
 
         private bool initCritereRecherche()
         {
-            crtRechercheCarteBancaire = new CritereRechercheCarteBancaire();
+            crtRechercheTypeCarte = new CritereRechercheTypeCarte();
             if (cbReseau.SelectedIndex != 0 && cbReseau.SelectedIndex != -1)
-                crtRechercheCarteBancaire.ReseauCarte = cbReseau.SelectedText;
+                crtRechercheTypeCarte.ReseauCarte = cbReseau.SelectedText;
             
             if (!string.IsNullOrEmpty(txtPlfGloPaiement.Text))
                 try{
                     decimal plfGloPaiement = decimal.Parse(txtPlfGloPaiement.Text);
-                    crtRechercheCarteBancaire.PlfGloPaiement = plfGloPaiement;
+                    crtRechercheTypeCarte.PlfGloPaiement = plfGloPaiement;
                 }catch (Exception) {
                     MessageBox.Show("Le plafond global de paiement n'a pas été saisi correctement", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
@@ -42,7 +42,7 @@ namespace DesktopIHM.GuiObjects
             if (!string.IsNullOrEmpty(txtPeriodePlfGloPaiement.Text))
                 try{
                     int periodePlfGloPaiement = int.Parse(txtPeriodePlfGloPaiement.Text);
-                    crtRechercheCarteBancaire.PeriodePlfPaiement = periodePlfGloPaiement;
+                    crtRechercheTypeCarte.PeriodePlfPaiement = periodePlfGloPaiement;
                 }catch(Exception) {
                     MessageBox.Show("La période du plafond global de paiement n'a pas été saisie correctement", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
@@ -50,7 +50,7 @@ namespace DesktopIHM.GuiObjects
             if (!string.IsNullOrEmpty(txtPlfGloRetrait.Text))
                 try{
                     decimal plfGloRetrait = decimal.Parse(txtPlfGloRetrait.Text);
-                    crtRechercheCarteBancaire.PlfGlobalRetraitInternes = plfGloRetrait;
+                    crtRechercheTypeCarte.PlfGlobalRetraitInternes = plfGloRetrait;
                 }catch(Exception) {
                     MessageBox.Show("Le plafond global de retrait n'a pas été saisi correctement", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
@@ -58,7 +58,7 @@ namespace DesktopIHM.GuiObjects
             if (!string.IsNullOrEmpty(txtPeriodePlfGloRetrait.Text))
                 try{
                     int periodePlfGloRetrait = int.Parse(txtPeriodePlfGloRetrait.Text);
-                    crtRechercheCarteBancaire.PeriodePlfGlobalRetrait = periodePlfGloRetrait;
+                    crtRechercheTypeCarte.PeriodePlfGlobalRetrait = periodePlfGloRetrait;
                 }catch(Exception) {
                     MessageBox.Show("La période du plafond global de retrait n'a pas été saisie correctement", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
@@ -66,7 +66,7 @@ namespace DesktopIHM.GuiObjects
             if (!string.IsNullOrEmpty(txtId.Text))
                 try{
                     long id = long.Parse(txtId.Text);
-                    crtRechercheCarteBancaire.IdTypeCarte = id;
+                    crtRechercheTypeCarte.IdTypeCarte = id;
                 }catch(Exception) {
                     MessageBox.Show("L'ID n'a pas été saisi correctement", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;

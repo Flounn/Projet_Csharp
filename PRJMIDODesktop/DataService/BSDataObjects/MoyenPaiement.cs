@@ -18,7 +18,7 @@ namespace DataService.BSDataObjects
             set { idMoyenPaiement = value; }
         }
 
-        protected Compte Compte
+        public Compte Compte
         {
             get { return compte; }
             set { compte = value; }

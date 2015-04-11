@@ -39,7 +39,7 @@ namespace DataService.BSDataObjects
             }
         }
 
-        public int IdTypeCarte
+        public long IdTypeCarte
         {
             get { return idTypeCarte; }
             set { idTypeCarte = value; }

@@ -134,15 +134,10 @@ namespace DesktopIHM.GuiObjects
                     "Ajout d'une type de carte bancaire", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            TypeCarte typeCarte = new TypeCarte(decimal vPlfGloPaiement, );
+            TypeCarte typeCarte = new TypeCarte();
             //BSGestionClient.CreerModifierClient(client); 
             MessageBox.Show("Le type de carte vient d'être ajouté",
                 "Ajout d'une type de carte bancaire", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void FenSaisirTypeCarte_Load(object sender, EventArgs e)
-        {
-        
         }
     }
 }

@@ -97,13 +97,13 @@ namespace DesktopIHM.GuiObjects
             return maListe;
         }
 
-        public static void addUtilisateur(Utilisateur utilisateur){
+        public static void ajouterUtilisateur(Utilisateur utilisateur){
             XDocument fic = XDocument.Load(file);
              fic.Element("users").Add(utilisateur.ToXml());
              fic.Save(file);
         }
 
-        public static void delUtilisateur(Utilisateur utilisateur)
+        public static void supprimerUtilisateur(Utilisateur utilisateur)
         {
             XDocument fic = XDocument.Load(file);
             fic.Element("users").Elements("user").Single(x => (string)x.Element("email") == utilisateur.Email).Remove();
