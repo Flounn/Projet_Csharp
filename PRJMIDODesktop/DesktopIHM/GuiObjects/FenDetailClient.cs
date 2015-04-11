@@ -115,10 +115,12 @@ namespace DesktopIHM.GuiObjects
         private void btSupprimer_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Etes-vous sûr de vouloir supprimer le client?",
-                    "Modification des données", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) ==
+                    "Supprimer un client", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) ==
                     DialogResult.Yes)
             {
                 monClient.delete();
+                MessageBox.Show("Le client vient d'être supprimé",
+                    "Supprimer un client", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Dispose();
             }
         }

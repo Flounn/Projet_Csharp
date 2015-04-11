@@ -18,45 +18,41 @@ namespace DesktopIHM.GuiObjects
         public FenSaisirClient()
         {
             InitializeComponent();
-            label9.Text = "(" + DateTimeFormatInfo.CurrentInfo.ShortDatePattern + ")";
+            dtDateNaissance.Value = DateTime.Today;
         }
 
         private void btCreer_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtNom.Text)){
+            if (string.IsNullOrEmpty(txtNom.Text))
+            {
+                MessageBox.Show("Le nom du client n'a pas été renseigné",
+                    "Ajout d'un client", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (string.IsNullOrEmpty(txtPrenom.Text))
             {
-                return;
-            }
-            if (string.IsNullOrEmpty(txtDdn.Text))
-            {
+                MessageBox.Show("Le prenom du client n'a pas été renseigné",
+                    "Ajout d'un client", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (string.IsNullOrEmpty(txtEmail.Text))
             {
+                MessageBox.Show("Le email du client n'a pas été renseigné",
+                    "Ajout d'un client", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            DateTime ddn;
-            try
-            {
-                ddn = DateTime.Parse(txtDdn.Text);
-            }
-            catch (FormatException) { return; }
-
             if (!Utilities.isEmailValid(txtEmail.Text))
             {
+                MessageBox.Show("Le email du client n'a pas été renseigné correctement",
+                    "Ajout d'un client", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            Client client = new Client(txtNom.Text, txtPrenom.Text, ddn,txtEmail.Text, txtAdressePrinc.Text, txtAdresseTemp.Text, txtTelFixe.Text, txtTelPort.Text);
+            Client client = new Client(txtNom.Text, txtPrenom.Text, dtDateNaissance.Value ,txtEmail.Text, txtAdressePrinc.Text, txtAdresseTemp.Text, txtTelFixe.Text, txtTelPort.Text);
             client.insert();
+            MessageBox.Show("Le client vient d'être rajouté",
+                "Ajout d'un client", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void txtEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -156,10 +156,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="GuiObjects\XMLFile\ReferentielStatic.xml">
+    <Content Include="XMLFile\ReferentielStatic.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="GuiObjects\XMLFile\Utilisateurs.xml">
+    <Content Include="XMLFile\Utilisateurs.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
