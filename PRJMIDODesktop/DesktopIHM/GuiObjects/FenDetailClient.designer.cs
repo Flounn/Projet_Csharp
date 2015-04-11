@@ -276,6 +276,8 @@ namespace DesktopIHM.GuiObjects
             // 
             // gbListeContrats
             // 
+            this.gbListeContrats.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.gbListeContrats.Controls.Add(this.dgvLstContrats);
             this.gbListeContrats.Location = new System.Drawing.Point(12, 175);
             this.gbListeContrats.Name = "gbListeContrats";
@@ -288,6 +290,8 @@ namespace DesktopIHM.GuiObjects
             // 
             this.dgvLstContrats.AllowUserToAddRows = false;
             this.dgvLstContrats.AllowUserToDeleteRows = false;
+            this.dgvLstContrats.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvLstContrats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvLstContrats.Location = new System.Drawing.Point(6, 17);
             this.dgvLstContrats.MultiSelect = false;
@@ -296,10 +300,11 @@ namespace DesktopIHM.GuiObjects
             this.dgvLstContrats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLstContrats.Size = new System.Drawing.Size(687, 107);
             this.dgvLstContrats.TabIndex = 10;
-
             // 
             // gbListeComptes
             // 
+            this.gbListeComptes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.gbListeComptes.Controls.Add(this.dgvLstComptes);
             this.gbListeComptes.Location = new System.Drawing.Point(12, 311);
             this.gbListeComptes.Name = "gbListeComptes";
@@ -312,6 +317,8 @@ namespace DesktopIHM.GuiObjects
             // 
             this.dgvLstComptes.AllowUserToAddRows = false;
             this.dgvLstComptes.AllowUserToDeleteRows = false;
+            this.dgvLstComptes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvLstComptes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvLstComptes.Location = new System.Drawing.Point(6, 17);
             this.dgvLstComptes.MultiSelect = false;
@@ -325,6 +332,8 @@ namespace DesktopIHM.GuiObjects
             // 
             // gbListeTransactions
             // 
+            this.gbListeTransactions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.gbListeTransactions.Controls.Add(this.dgvLstOperations);
             this.gbListeTransactions.Location = new System.Drawing.Point(12, 447);
             this.gbListeTransactions.Name = "gbListeTransactions";
@@ -337,6 +346,8 @@ namespace DesktopIHM.GuiObjects
             // 
             this.dgvLstOperations.AllowUserToAddRows = false;
             this.dgvLstOperations.AllowUserToDeleteRows = false;
+            this.dgvLstOperations.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvLstOperations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvLstOperations.Location = new System.Drawing.Point(6, 17);
             this.dgvLstOperations.MultiSelect = false;
@@ -348,6 +359,8 @@ namespace DesktopIHM.GuiObjects
             // 
             // btImprimer
             // 
+            this.btImprimer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.btImprimer.Location = new System.Drawing.Point(290, 583);
             this.btImprimer.Name = "btImprimer";
             this.btImprimer.Size = new System.Drawing.Size(132, 30);

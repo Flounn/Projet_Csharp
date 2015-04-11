@@ -91,6 +91,6 @@ namespace DataService.BSService
                 else if (value.Equals("Realise"))
                     statut = DataService.BSDataObjects.Operation.StatutOperation.Realise;
             }
-        } 
-	}
+        }
+    }
 }

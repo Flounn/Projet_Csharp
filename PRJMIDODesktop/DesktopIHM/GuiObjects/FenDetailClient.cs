@@ -39,16 +39,16 @@ namespace DesktopIHM.GuiObjects
                 this.txtTelFixe.Text = monClient.TelFixe;
                 this.txtTelPort.Text = monClient.TelPortable;
                 
-                CritereRechercheClient crtRechercheContrat = new CritereRechercheClient();
+                CritereRechercheContrat crtRechercheContrat = new CritereRechercheContrat();
                 crtRechercheContrat.IdClient = monClient.IdClient;
                 DataTable dtContrat = new DataTable();
-                dtContrat.Load(DAOClient.get(crtRechercheContrat));
+                dtContrat.Load(DAOContrat.get(crtRechercheContrat));
                 dgvLstContrats.DataSource = dtContrat;
 
-                CritereRechercheClient crtRechercheCompte = new CritereRechercheClient();
+                CritereRechercheCompte crtRechercheCompte = new CritereRechercheCompte();
                 crtRechercheCompte.IdClient = monClient.IdClient;
                 DataTable dtCompte = new DataTable();
-                dtCompte.Load(DAOClient.get(crtRechercheCompte));
+                dtCompte.Load(DAOCompte.get(crtRechercheCompte));
                 dgvLstComptes.DataSource = dtCompte;
             }
         }
@@ -141,11 +141,11 @@ namespace DesktopIHM.GuiObjects
 
         private void dgvLstComptes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            CritereRechercheClient crtRechercheOperation = new CritereRechercheClient();
-            crtRechercheOperation.IdClient = monClient.IdClient;
-            DataTable dtCompte = new DataTable();
-            dtCompte.Load(DAOClient.get(crtRechercheOperation));
-            dgvLstComptes.DataSource = dtCompte;
+            CritereRechercheOperation crtRechercheOperation = new CritereRechercheOperation();
+            crtRechercheOperation.IdCompte = long.Parse(dgvLstComptes.Rows[e.RowIndex].Cells[0].Value.ToString());
+            DataTable dtOperation = new DataTable();
+            dtOperation.Load(DAOOperation.get(crtRechercheOperation));
+            dgvLstOperations.DataSource = dtOperation;
         }
     }
 }

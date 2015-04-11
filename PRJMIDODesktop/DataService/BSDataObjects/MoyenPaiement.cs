@@ -5,11 +5,12 @@ using System.Text;
 
 namespace DataService.BSDataObjects
 {
+    public enum TypeMoyenPaiement {Carte, Chequier};
     public class MoyenPaiement
     {
         protected long idMoyenPaiement;
         private Compte compte;
-        protected string libelleMoyenPaiement;
+        protected TypeMoyenPaiement libelleMoyenPaiement;
 
         public long IdMoyenPaiement
         {
@@ -23,10 +24,22 @@ namespace DataService.BSDataObjects
             set { compte = value; }
         }
 
-        public string LibelleMoyenPaiement
+        public TypeMoyenPaiement LibelleMoyenPaiement
         {
             get { return libelleMoyenPaiement; }
             set { libelleMoyenPaiement = value; }
+        }
+
+        public string LibelleMoyenPaiementStr
+        {
+            get { return libelleMoyenPaiement.ToString(); }
+            set
+            {
+                if (value.Equals("Carte"))
+                    libelleMoyenPaiement = TypeMoyenPaiement.Carte;
+                else if (value.Equals("Chequier"))
+                    libelleMoyenPaiement = TypeMoyenPaiement.Chequier;
+            }
         }
 
         public MoyenPaiement() { }
