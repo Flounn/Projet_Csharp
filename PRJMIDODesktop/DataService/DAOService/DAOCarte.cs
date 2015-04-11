@@ -11,11 +11,11 @@ namespace DataService.DAOService
     public class DAOCarte
     {
         private const string tableName = "CARTE_BANCAIRE";
-        private readonly string[] champs = new string[] { "DT_DEB_VALIDITE", "DT_FIN_VALIDITE", "ID_TYPE_CARTE", "NUMERO_CARTE" };
+        private readonly string[] champs = new string[] { "ID_MOYEN_PAIEMENT","DT_DEB_VALIDITE", "DT_FIN_VALIDITE", "ID_TYPE_CARTE", "NUMERO_CARTE" };
         private static readonly string[] champsWhere = new string[] { "ID_MOYEN_PAIEMENT" };
 
         public bool insert(Carte carte){
-            object[] values = new object[] { carte.DateDebValidite, carte.DateFinValidite, carte.TypeCarte, carte.NumeroCarte};
+            object[] values = new object[] { carte.IdMoyenPaiement, carte.DateDebValidite, carte.DateFinValidite, carte.TypeCarte, carte.NumeroCarte };
             return Connexion.insert(tableName, champs, values);
         }
 
@@ -26,7 +26,7 @@ namespace DataService.DAOService
 
         public bool update(Carte carte)
         {
-            object[] values = new object[] { carte.DateDebValidite, carte.DateFinValidite, carte.TypeCarte, carte.NumeroCarte };
+            object[] values = new object[] { carte.IdMoyenPaiement, carte.DateDebValidite, carte.DateFinValidite, carte.TypeCarte, carte.NumeroCarte };
            object[] valuesWhere = new object[] { carte.IdMoyenPaiement };
            return Connexion.update(tableName, champs, values, champsWhere, valuesWhere);
         }
@@ -47,12 +47,10 @@ namespace DataService.DAOService
             IList<object> valuesWhere = new List<object>();
             IList<string> operators = new List<string>();
 
-            /*Utilities.addCritere(champsWhere, valuesWhere, operators, "TYPE_COMPTE", criteres.TypeCarte, Connexion.LIKE);
-            Utilities.addCritere(champsWhere, valuesWhere, operators, "DT_OUVERTURE", criteres.DateOuvertureFin, Connexion.INFEGAL);
-            Utilities.addCritere(champsWhere, valuesWhere, operators, "DT_OUVERTURE", criteres.DateOuvertureDebut, Connexion.SUPEGAL);
-            Utilities.addCritere(champsWhere, valuesWhere, operators, "ID_CLIENT", criteres.IdClient, Connexion.EGAL);
+            Utilities.addCritere(champsWhere, valuesWhere, operators, "NUMERO_CARTE", criteres.Numero, Connexion.LIKE);
             Utilities.addCritere(champsWhere, valuesWhere, operators, "ID_MOYEN_PAIEMENT", criteres.IdMoyenPaiement, Connexion.EGAL);
-            */return Connexion.get(tableName, champsWhere, valuesWhere, operators);
+            Utilities.addCritere(champsWhere, valuesWhere, operators, "ID_TYPE_CARTE", criteres.IdTypeCarte, Connexion.EGAL);
+            return Connexion.get(tableName, champsWhere, valuesWhere, operators);
         }
     }
 }
