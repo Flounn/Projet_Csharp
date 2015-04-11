@@ -78,7 +78,7 @@ namespace DesktopIHM.GuiObjects
             XDocument fic = XDocument.Load("XMLFile/Utilisateurs.xml");
 
             //Sélection d'un utilisateur
-            var util = from i in fic.Elements("users").Elements("user")                       
+            var util = from i in fic.Elements("users").Elements("user")                     
                        select new Utilisateur
                        (
                           (string)i.Element("login"),
@@ -94,5 +94,11 @@ namespace DesktopIHM.GuiObjects
 
             return maListe;
         }
+
+        public static void addUtilisateur(Utilisateur utilisateur){
+             XDocument fic = XDocument.Load("XMLFile/Utilisateurs.xml");
+             fic.Element("users").Add(utilisateur);
+        }
+
     }
 }
