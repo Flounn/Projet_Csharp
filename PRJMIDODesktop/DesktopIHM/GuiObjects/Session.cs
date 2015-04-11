@@ -24,5 +24,12 @@ namespace DesktopIHM.GuiObjects
             utilisateur = GestionnaireUtilisateur.DetailCompte(login, password);
             return estConnecter();
         }
+
+        public static void modifierUtilisateur(string login, string password)
+        {
+            utilisateur.Login = login;
+            utilisateur.Password = password;
+            GestionnaireUtilisateur.modifierUtilisateur(utilisateur);
+        }
     }
 }

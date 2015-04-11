@@ -21,15 +21,27 @@ namespace DesktopIHM.GuiObjects
         public void InitProfile()
         {
 
-            this.monLogin.Text = Session.Utilisateur.Login;
-            this.monEmail.Text = Session.Utilisateur.Email;
-            this.monProfile.Text = Session.Utilisateur.Profil;          
+            txt_login.Text = Session.Utilisateur.Login;
+            txt_email.Text = Session.Utilisateur.Email;
+            lbl_profil.Text = Session.Utilisateur.Profil;
+            txt_password.Text = Session.Utilisateur.Password;
 
         }
 
         private void bt_modifier_Click(object sender, EventArgs e)
         {
-            
+            if (string.IsNullOrEmpty(txt_login.Text))
+            {
+                Utilities.showErrorMessage("Veuillez saisir un login", "Login non valide");
+                return;
+            }
+            if (string.IsNullOrEmpty(txt_password.Text))
+            {
+                Utilities.showErrorMessage("Veuillez saisir un mot de passe", "Mot de passe non valide");
+                return;
+            }
+            Session.modifierUtilisateur(txt_login.Text, txt_password.Text);
         }
+
     }
 }

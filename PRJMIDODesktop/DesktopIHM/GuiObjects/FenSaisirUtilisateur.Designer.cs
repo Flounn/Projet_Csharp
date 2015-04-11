@@ -88,28 +88,28 @@
             // cb_profil
             // 
             this.cb_profil.FormattingEnabled = true;
-            this.cb_profil.Location = new System.Drawing.Point(122, 136);
+            this.cb_profil.Location = new System.Drawing.Point(143, 136);
             this.cb_profil.Name = "cb_profil";
-            this.cb_profil.Size = new System.Drawing.Size(121, 21);
+            this.cb_profil.Size = new System.Drawing.Size(100, 21);
             this.cb_profil.TabIndex = 5;
             // 
             // txt_login
             // 
-            this.txt_login.Location = new System.Drawing.Point(122, 44);
+            this.txt_login.Location = new System.Drawing.Point(143, 44);
             this.txt_login.Name = "txt_login";
             this.txt_login.Size = new System.Drawing.Size(100, 20);
             this.txt_login.TabIndex = 6;
             // 
             // txt_password
             // 
-            this.txt_password.Location = new System.Drawing.Point(122, 77);
+            this.txt_password.Location = new System.Drawing.Point(143, 77);
             this.txt_password.Name = "txt_password";
             this.txt_password.Size = new System.Drawing.Size(100, 20);
             this.txt_password.TabIndex = 7;
             // 
             // txt_email
             // 
-            this.txt_email.Location = new System.Drawing.Point(122, 107);
+            this.txt_email.Location = new System.Drawing.Point(143, 107);
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(100, 20);
             this.txt_email.TabIndex = 8;

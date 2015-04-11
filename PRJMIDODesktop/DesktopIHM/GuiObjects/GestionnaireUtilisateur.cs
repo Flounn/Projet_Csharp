@@ -103,5 +103,23 @@ namespace DesktopIHM.GuiObjects
              fic.Save(file);
         }
 
+        public static void delUtilisateur(Utilisateur utilisateur)
+        {
+            XDocument fic = XDocument.Load(file);
+            fic.Element("users").Elements("user").Single(x => (string)x.Element("email") == utilisateur.Email).Remove();
+            fic.Save(file);
+        }
+
+        public static void modifierUtilisateur(Utilisateur utilisateur)
+        {
+            XDocument fic = XDocument.Load(file);
+            XElement user = fic.Element("users").Elements("user").Single(x => (string)x.Element("email") == utilisateur.Email);
+            user.Element("password").Value = utilisateur.Password;
+            user.Element("email").Value = utilisateur.Email;
+            user.Element("profil").Value = utilisateur.Profil;
+            user.Element("login").Value = utilisateur.Login;
+            fic.Save(file);
+        }
+
     }
 }

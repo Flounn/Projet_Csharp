@@ -121,6 +121,8 @@ namespace DesktopIHM.GuiObjects
 
         private void dgvLstClient_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex == -1)
+                return;
             Console.WriteLine("dgvLstClient_CellDoubleClick");
             new FenDetailClient(getClientRow(e.RowIndex)).Show();
         }

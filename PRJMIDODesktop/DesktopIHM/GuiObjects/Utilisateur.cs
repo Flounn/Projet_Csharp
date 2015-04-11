@@ -39,12 +39,12 @@ namespace DesktopIHM.GuiObjects
             set { password = value; }
         }
 
-        public Utilisateur(string _login, string _password, string _email, string _profile)
+        public Utilisateur(string _login, string _password, string _email, string _profil)
         {
             this.login = _login;
             this.password = _password;
             this.email = _email;
-            this.profil = _profile;
+            this.profil = _profil;
         }
 
         public override bool Equals(object obj)

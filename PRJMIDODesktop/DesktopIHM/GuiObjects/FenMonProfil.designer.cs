@@ -30,7 +30,7 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.bt_modifier = new System.Windows.Forms.Button();
-            this.txt_profil = new System.Windows.Forms.TextBox();
+            this.txt_password = new System.Windows.Forms.TextBox();
             this.txt_email = new System.Windows.Forms.TextBox();
             this.txt_login = new System.Windows.Forms.TextBox();
             this.monProfile = new System.Windows.Forms.Label();
@@ -47,7 +47,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.bt_modifier);
-            this.groupBox1.Controls.Add(this.txt_profil);
+            this.groupBox1.Controls.Add(this.txt_password);
             this.groupBox1.Controls.Add(this.txt_email);
             this.groupBox1.Controls.Add(this.txt_login);
             this.groupBox1.Controls.Add(this.monProfile);
@@ -73,15 +73,16 @@
             this.bt_modifier.UseVisualStyleBackColor = true;
             this.bt_modifier.Click += new System.EventHandler(this.bt_modifier_Click);
             // 
-            // txt_profil
+            // txt_password
             // 
-            this.txt_profil.Location = new System.Drawing.Point(126, 54);
-            this.txt_profil.Name = "txt_profil";
-            this.txt_profil.Size = new System.Drawing.Size(100, 20);
-            this.txt_profil.TabIndex = 8;
+            this.txt_password.Location = new System.Drawing.Point(126, 54);
+            this.txt_password.Name = "txt_password";
+            this.txt_password.Size = new System.Drawing.Size(100, 20);
+            this.txt_password.TabIndex = 8;
             // 
             // txt_email
             // 
+            this.txt_email.Enabled = false;
             this.txt_email.Location = new System.Drawing.Point(126, 84);
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(100, 20);
@@ -172,7 +173,6 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "FenMonProfil";
             this.Text = "Mon profile Utilisateur";
-            this.Load += new System.EventHandler(this.FenMonProfil_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -190,7 +190,7 @@
         private System.Windows.Forms.Label monEmail;
         private System.Windows.Forms.Label monLogin;
         private System.Windows.Forms.Button bt_modifier;
-        private System.Windows.Forms.TextBox txt_profil;
+        private System.Windows.Forms.TextBox txt_password;
         private System.Windows.Forms.TextBox txt_email;
         private System.Windows.Forms.TextBox txt_login;
         private System.Windows.Forms.Label label4;
