@@ -172,19 +172,24 @@ namespace DataService.BSDataObjects
 
         private static DAOClient dao = new DAOClient();
 
-        public bool insert()
+        public bool isPersist()
         {
-            return dao.insert(this);
+            return idClient != 0;
+        }
+
+        public bool persist()
+        {
+            if (isPersist())
+                return dao.update(this);
+            else return dao.insert(this);
         }
         public bool delete()
         {
+            if (!isPersist())
+                return false;
             return dao.delete(this);
         }
-        public bool update()
-        {
-            return dao.update(this);
-        }
-
+       
         #endregion
     }
 }

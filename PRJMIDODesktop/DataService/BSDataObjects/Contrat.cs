@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DataService.DAOService;
 
 namespace DataService.BSDataObjects
 {
@@ -129,5 +130,28 @@ namespace DataService.BSDataObjects
 
             return chaine.ToString();
         }
+
+        #region DAO Contrat
+
+        private static DAOContrat dao = new DAOContrat();
+
+        public bool isPersist()
+        {
+            return idContrat != 0;
+        }
+
+        public bool persist()
+        {
+            if (isPersist())
+                return dao.update(this);
+            else return dao.insert(this);
+        }
+        public bool delete()
+        {
+            if (!isPersist())
+                return false;
+            return dao.delete(this);
+        }
+        #endregion
     }
 }

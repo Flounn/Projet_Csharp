@@ -4,41 +4,52 @@ using System.Linq;
 using System.Text;
 using DataService.BSDataObjects;
 using DataService.DAOService;
+using System.Data;
 
 namespace DataService.BSService
 {
     public static class BSGestionClient
     {
-        private static DAOCompte dao = new DAOCompte();
 
-        public static IList<Client> RechercherClient(CritereRechercheClient critere)
+        public static IDataReader RechercherClient(CritereRechercheClient criteres)
         {
-            return null;
+            return DAOClient.get(criteres);
         }
 
-        public static IList<Compte> RechercherCompteClient(CritereRechercheCompte critere)
+        public static IDataReader RechercherCompteClient(CritereRechercheCompte criteres)
         {
-            return null;
+            return DAOCompte.get(criteres);
         }
 
-        public static IList<Operation> RechercherOperations(CritereRechercheOperation critere)
+        public static IDataReader RechercherOperations(CritereRechercheOperation criteres)
         {
-            return null;
+            return DAOOperation.get(criteres);
         }
 
-        public static bool CreerModifierClient(Client c)
+        public static IDataReader RechercherContrat(CritereRechercheContrat criteres)
         {
-            return false;
+            return DAOContrat.get(criteres);
+        }
+
+        public static bool CreerModifierClient(Client client)
+        {
+            return client.persist();
         }
 
         public static bool CreerModifierCompte(Compte compte)
         {
-            return dao.update(compte);
+            return compte.persist();
         }
 
-        public static IList<Contrat> RechercherContrat(CritereRechercheContrat contrat)
+        public static bool CreerModifierOperation(Operation operation)
         {
-            return null;
+            return operation.persist();
         }
+
+        public static bool CreerModifierContrat(Contrat contrat)
+        {
+            return contrat.persist();
+        }
+
     }
 }

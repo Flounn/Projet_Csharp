@@ -107,13 +107,24 @@ namespace DataService.BSDataObjects
 
         private static DAOCompte dao = new DAOCompte();
 
-        public bool insert()
+        public bool isPersist()
         {
-            return dao.insert(this);
+            return idCompte != 0;
         }
 
+        public bool persist()
+        {
+            if (isPersist())
+                return dao.update(this);
+            else return dao.insert(this);
+        }
+        public bool delete()
+        {
+            if (!isPersist())
+                return false;
+            return dao.delete(this);
+        }
         #endregion
-
 
     }
 }

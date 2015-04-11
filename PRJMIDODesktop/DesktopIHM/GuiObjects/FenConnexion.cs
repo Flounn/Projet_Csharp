@@ -31,12 +31,12 @@ namespace DesktopIHM
 
             if (String.IsNullOrEmpty(_login))
             {
-                MessageBox.Show("Veuillez saisir votre login", "Echec de connexion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.showErrorMessage("Veuillez saisir votre login", "Echec de connexion");
                 return;
             }
             if (String.IsNullOrEmpty(_pwd))
             {
-                MessageBox.Show("Veuillez saisir votre mot de passe", "Echec de connexion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.showErrorMessage("Veuillez saisir votre mot de passe", "Echec de connexion");
                 return;
             }
             

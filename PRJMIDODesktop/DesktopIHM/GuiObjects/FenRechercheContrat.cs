@@ -67,15 +67,7 @@ namespace DesktopIHM.GuiObjects
 
         private void InitData()
         {
-            BindingList<Contrat> listeContrat = new BindingList<Contrat>();
-
-            IList<Contrat> lstC = BSGestionClient.RechercherContrat(crtRechercheContrat);
-
-            foreach (Contrat c in lstC)
-                listeContrat.Add(c);
-
-            this.dgwLstContrat.DataSource = listeContrat;
-            dgwLstContrat.Refresh();
+            this.dgwLstContrat.DataSource = BSGestionClient.RechercherContrat(crtRechercheContrat);
         }
 
 
