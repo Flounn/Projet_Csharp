@@ -13,25 +13,25 @@ using DataService.BSService;
 namespace DesktopIHM.GuiObjects
 {
 
-    public partial class FenSaisirCompte : Form
+    public partial class FenSaisirContrat : Form
     {
-        private Compte compte = new Compte();
+        private Contrat contrat = new Contrat();
 
-        public FenSaisirCompte(Client client)
+        public FenSaisirContrat(Client client)
         {
             InitializeComponent();
-            compte.Client = client;
+            contrat.Client = client;
         }
 
         private void bt_creer_Click(object sender, EventArgs e)
         {
-            try
+            /*try
             {
                 compte.MontantInitial = decimal.Parse(txt_montant_initial.Text);
             }
             catch (FormatException) { return; }
             compte.TypeCompte = rb_courant.Checked ? Compte.Type.Courant : Compte.Type.Epargne;
-            BSGestionClient.CreerModifierCompte(compte);
+            BSGestionClient.CreerModifierCompte(compte);*/
         }
 
     }
