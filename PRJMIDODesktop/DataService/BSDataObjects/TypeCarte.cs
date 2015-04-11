@@ -9,7 +9,7 @@ namespace DataService.BSDataObjects
     
     public class TypeCarte
     {
-        private int idTypeCarte;
+        private long idTypeCarte;
         private ReseauCarteBancaire reseauCarte;
         private decimal plfGloPaiement;
         private decimal plfGloPaiementEtranger;

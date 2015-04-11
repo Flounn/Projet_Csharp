@@ -25,7 +25,7 @@ namespace DesktopIHM.GuiObjects
 
         private void btTypeCarte_Click(object sender, EventArgs e)
         {
-
+            new FenRechercheTypeCarte(this).Show();
         }
 
         private void rbChequier_CheckedChanged(object sender, EventArgs e)
@@ -40,6 +40,11 @@ namespace DesktopIHM.GuiObjects
                 gbCheque.Visible = false;
                 gbCarteBancaire.Visible = true;
             }
+        }
+
+        public void setTxtMoyenPaiement(string idMoyenPaiement)
+        {
+            this.txtIdTypeCarte.Text = idMoyenPaiement;
         }
 
     }

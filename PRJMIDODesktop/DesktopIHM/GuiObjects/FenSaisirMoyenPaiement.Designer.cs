@@ -30,24 +30,27 @@
         {
             this.lbIdCompte = new System.Windows.Forms.Label();
             this.gbCheque = new System.Windows.Forms.GroupBox();
-            this.gbCarteBancaire = new System.Windows.Forms.GroupBox();
-            this.lbNbCheque = new System.Windows.Forms.Label();
-            this.lbNbPrCheque = new System.Windows.Forms.Label();
+            this.cbNbCheques = new System.Windows.Forms.ComboBox();
+            this.txtNbDernierCheque = new System.Windows.Forms.TextBox();
+            this.txtNbPremierCheque = new System.Windows.Forms.TextBox();
             this.nbDrnCheque = new System.Windows.Forms.Label();
-            this.lbDateDebut = new System.Windows.Forms.Label();
-            this.dtDateDebut = new System.Windows.Forms.DateTimePicker();
+            this.lbNbPrCheque = new System.Windows.Forms.Label();
+            this.lbNbCheque = new System.Windows.Forms.Label();
+            this.gbCarteBancaire = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtIdTypeCarte = new System.Windows.Forms.TextBox();
+            this.btTypeCarte = new System.Windows.Forms.Button();
+            this.lbTypeCarte = new System.Windows.Forms.Label();
             this.dtDateFin = new System.Windows.Forms.DateTimePicker();
             this.lbDateFin = new System.Windows.Forms.Label();
-            this.lbTypeCarte = new System.Windows.Forms.Label();
-            this.txtNbPremierCheque = new System.Windows.Forms.TextBox();
-            this.txtNbDernierCheque = new System.Windows.Forms.TextBox();
-            this.cbNbCheques = new System.Windows.Forms.ComboBox();
+            this.dtDateDebut = new System.Windows.Forms.DateTimePicker();
+            this.lbDateDebut = new System.Windows.Forms.Label();
             this.rbChequier = new System.Windows.Forms.RadioButton();
             this.rbCarteBancaire = new System.Windows.Forms.RadioButton();
             this.txtIdCompte = new System.Windows.Forms.TextBox();
             this.gbType = new System.Windows.Forms.GroupBox();
-            this.btTypeCarte = new System.Windows.Forms.Button();
-            this.txtIdTypeCarte = new System.Windows.Forms.TextBox();
+            this.btAjoutMoyenPaiement = new System.Windows.Forms.Button();
             this.gbCheque.SuspendLayout();
             this.gbCarteBancaire.SuspendLayout();
             this.gbType.SuspendLayout();
@@ -77,9 +80,62 @@
             this.gbCheque.TabStop = false;
             this.gbCheque.Text = "Chequier";
             // 
+            // cbNbCheques
+            // 
+            this.cbNbCheques.FormattingEnabled = true;
+            this.cbNbCheques.Location = new System.Drawing.Point(137, 33);
+            this.cbNbCheques.Name = "cbNbCheques";
+            this.cbNbCheques.Size = new System.Drawing.Size(98, 21);
+            this.cbNbCheques.TabIndex = 9;
+            // 
+            // txtNbDernierCheque
+            // 
+            this.txtNbDernierCheque.Enabled = false;
+            this.txtNbDernierCheque.Location = new System.Drawing.Point(137, 86);
+            this.txtNbDernierCheque.Name = "txtNbDernierCheque";
+            this.txtNbDernierCheque.Size = new System.Drawing.Size(98, 20);
+            this.txtNbDernierCheque.TabIndex = 6;
+            // 
+            // txtNbPremierCheque
+            // 
+            this.txtNbPremierCheque.Enabled = false;
+            this.txtNbPremierCheque.Location = new System.Drawing.Point(137, 60);
+            this.txtNbPremierCheque.Name = "txtNbPremierCheque";
+            this.txtNbPremierCheque.Size = new System.Drawing.Size(98, 20);
+            this.txtNbPremierCheque.TabIndex = 5;
+            // 
+            // nbDrnCheque
+            // 
+            this.nbDrnCheque.AutoSize = true;
+            this.nbDrnCheque.Location = new System.Drawing.Point(25, 89);
+            this.nbDrnCheque.Name = "nbDrnCheque";
+            this.nbDrnCheque.Size = new System.Drawing.Size(98, 13);
+            this.nbDrnCheque.TabIndex = 3;
+            this.nbDrnCheque.Text = "Nb Dernier Cheque";
+            // 
+            // lbNbPrCheque
+            // 
+            this.lbNbPrCheque.AutoSize = true;
+            this.lbNbPrCheque.Location = new System.Drawing.Point(25, 64);
+            this.lbNbPrCheque.Name = "lbNbPrCheque";
+            this.lbNbPrCheque.Size = new System.Drawing.Size(99, 13);
+            this.lbNbPrCheque.TabIndex = 2;
+            this.lbNbPrCheque.Text = "Nb Premier Cheque";
+            // 
+            // lbNbCheque
+            // 
+            this.lbNbCheque.AutoSize = true;
+            this.lbNbCheque.Location = new System.Drawing.Point(25, 38);
+            this.lbNbCheque.Name = "lbNbCheque";
+            this.lbNbCheque.Size = new System.Drawing.Size(66, 13);
+            this.lbNbCheque.TabIndex = 1;
+            this.lbNbCheque.Text = "Nb Cheques";
+            // 
             // gbCarteBancaire
             // 
             this.gbCarteBancaire.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbCarteBancaire.Controls.Add(this.textBox1);
+            this.gbCarteBancaire.Controls.Add(this.label1);
             this.gbCarteBancaire.Controls.Add(this.txtIdTypeCarte);
             this.gbCarteBancaire.Controls.Add(this.btTypeCarte);
             this.gbCarteBancaire.Controls.Add(this.lbTypeCarte);
@@ -95,50 +151,47 @@
             this.gbCarteBancaire.TabStop = false;
             this.gbCarteBancaire.Text = "Carte bancaire";
             // 
-            // lbNbCheque
+            // textBox1
             // 
-            this.lbNbCheque.AutoSize = true;
-            this.lbNbCheque.Location = new System.Drawing.Point(25, 38);
-            this.lbNbCheque.Name = "lbNbCheque";
-            this.lbNbCheque.Size = new System.Drawing.Size(66, 13);
-            this.lbNbCheque.TabIndex = 1;
-            this.lbNbCheque.Text = "Nb Cheques";
+            this.textBox1.Location = new System.Drawing.Point(120, 84);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(121, 20);
+            this.textBox1.TabIndex = 12;
             // 
-            // lbNbPrCheque
+            // label1
             // 
-            this.lbNbPrCheque.AutoSize = true;
-            this.lbNbPrCheque.Location = new System.Drawing.Point(25, 64);
-            this.lbNbPrCheque.Name = "lbNbPrCheque";
-            this.lbNbPrCheque.Size = new System.Drawing.Size(99, 13);
-            this.lbNbPrCheque.TabIndex = 2;
-            this.lbNbPrCheque.Text = "Nb Premier Cheque";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(34, 87);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 13);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "No Carte";
             // 
-            // nbDrnCheque
+            // txtIdTypeCarte
             // 
-            this.nbDrnCheque.AutoSize = true;
-            this.nbDrnCheque.Location = new System.Drawing.Point(25, 89);
-            this.nbDrnCheque.Name = "nbDrnCheque";
-            this.nbDrnCheque.Size = new System.Drawing.Size(98, 13);
-            this.nbDrnCheque.TabIndex = 3;
-            this.nbDrnCheque.Text = "Nb Dernier Cheque";
+            this.txtIdTypeCarte.Location = new System.Drawing.Point(120, 110);
+            this.txtIdTypeCarte.Name = "txtIdTypeCarte";
+            this.txtIdTypeCarte.Size = new System.Drawing.Size(121, 20);
+            this.txtIdTypeCarte.TabIndex = 10;
             // 
-            // lbDateDebut
+            // btTypeCarte
             // 
-            this.lbDateDebut.AutoSize = true;
-            this.lbDateDebut.Location = new System.Drawing.Point(34, 35);
-            this.lbDateDebut.Name = "lbDateDebut";
-            this.lbDateDebut.Size = new System.Drawing.Size(60, 13);
-            this.lbDateDebut.TabIndex = 2;
-            this.lbDateDebut.Text = "Date début";
+            this.btTypeCarte.Location = new System.Drawing.Point(241, 109);
+            this.btTypeCarte.Name = "btTypeCarte";
+            this.btTypeCarte.Size = new System.Drawing.Size(28, 22);
+            this.btTypeCarte.TabIndex = 9;
+            this.btTypeCarte.Text = "+";
+            this.btTypeCarte.UseVisualStyleBackColor = true;
+            this.btTypeCarte.Click += new System.EventHandler(this.btTypeCarte_Click);
             // 
-            // dtDateDebut
+            // lbTypeCarte
             // 
-            this.dtDateDebut.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDateDebut.Location = new System.Drawing.Point(120, 32);
-            this.dtDateDebut.Name = "dtDateDebut";
-            this.dtDateDebut.Size = new System.Drawing.Size(121, 20);
-            this.dtDateDebut.TabIndex = 5;
-            this.dtDateDebut.Value = new System.DateTime(2015, 4, 10, 0, 0, 0, 0);
+            this.lbTypeCarte.AutoSize = true;
+            this.lbTypeCarte.Location = new System.Drawing.Point(34, 113);
+            this.lbTypeCarte.Name = "lbTypeCarte";
+            this.lbTypeCarte.Size = new System.Drawing.Size(59, 13);
+            this.lbTypeCarte.TabIndex = 4;
+            this.lbTypeCarte.Text = "Type Carte";
             // 
             // dtDateFin
             // 
@@ -159,38 +212,23 @@
             this.lbDateFin.TabIndex = 6;
             this.lbDateFin.Text = "Date fin";
             // 
-            // lbTypeCarte
+            // dtDateDebut
             // 
-            this.lbTypeCarte.AutoSize = true;
-            this.lbTypeCarte.Location = new System.Drawing.Point(34, 87);
-            this.lbTypeCarte.Name = "lbTypeCarte";
-            this.lbTypeCarte.Size = new System.Drawing.Size(59, 13);
-            this.lbTypeCarte.TabIndex = 4;
-            this.lbTypeCarte.Text = "Type Carte";
+            this.dtDateDebut.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtDateDebut.Location = new System.Drawing.Point(120, 32);
+            this.dtDateDebut.Name = "dtDateDebut";
+            this.dtDateDebut.Size = new System.Drawing.Size(121, 20);
+            this.dtDateDebut.TabIndex = 5;
+            this.dtDateDebut.Value = new System.DateTime(2015, 4, 10, 0, 0, 0, 0);
             // 
-            // txtNbPremierCheque
+            // lbDateDebut
             // 
-            this.txtNbPremierCheque.Enabled = false;
-            this.txtNbPremierCheque.Location = new System.Drawing.Point(137, 60);
-            this.txtNbPremierCheque.Name = "txtNbPremierCheque";
-            this.txtNbPremierCheque.Size = new System.Drawing.Size(98, 20);
-            this.txtNbPremierCheque.TabIndex = 5;
-            // 
-            // txtNbDernierCheque
-            // 
-            this.txtNbDernierCheque.Enabled = false;
-            this.txtNbDernierCheque.Location = new System.Drawing.Point(137, 86);
-            this.txtNbDernierCheque.Name = "txtNbDernierCheque";
-            this.txtNbDernierCheque.Size = new System.Drawing.Size(98, 20);
-            this.txtNbDernierCheque.TabIndex = 6;
-            // 
-            // cbNbCheques
-            // 
-            this.cbNbCheques.FormattingEnabled = true;
-            this.cbNbCheques.Location = new System.Drawing.Point(137, 33);
-            this.cbNbCheques.Name = "cbNbCheques";
-            this.cbNbCheques.Size = new System.Drawing.Size(98, 21);
-            this.cbNbCheques.TabIndex = 9;
+            this.lbDateDebut.AutoSize = true;
+            this.lbDateDebut.Location = new System.Drawing.Point(34, 35);
+            this.lbDateDebut.Name = "lbDateDebut";
+            this.lbDateDebut.Size = new System.Drawing.Size(60, 13);
+            this.lbDateDebut.TabIndex = 2;
+            this.lbDateDebut.Text = "Date début";
             // 
             // rbChequier
             // 
@@ -234,28 +272,21 @@
             this.gbType.TabStop = false;
             this.gbType.Text = "Type";
             // 
-            // btTypeCarte
+            // btAjoutMoyenPaiement
             // 
-            this.btTypeCarte.Location = new System.Drawing.Point(241, 83);
-            this.btTypeCarte.Name = "btTypeCarte";
-            this.btTypeCarte.Size = new System.Drawing.Size(28, 22);
-            this.btTypeCarte.TabIndex = 9;
-            this.btTypeCarte.Text = "+";
-            this.btTypeCarte.UseVisualStyleBackColor = true;
-            this.btTypeCarte.Click += new System.EventHandler(this.btTypeCarte_Click);
-            // 
-            // txtIdTypeCarte
-            // 
-            this.txtIdTypeCarte.Location = new System.Drawing.Point(120, 84);
-            this.txtIdTypeCarte.Name = "txtIdTypeCarte";
-            this.txtIdTypeCarte.Size = new System.Drawing.Size(121, 20);
-            this.txtIdTypeCarte.TabIndex = 10;
+            this.btAjoutMoyenPaiement.Location = new System.Drawing.Point(406, 53);
+            this.btAjoutMoyenPaiement.Name = "btAjoutMoyenPaiement";
+            this.btAjoutMoyenPaiement.Size = new System.Drawing.Size(155, 27);
+            this.btAjoutMoyenPaiement.TabIndex = 12;
+            this.btAjoutMoyenPaiement.Text = "Ajouter le moyen de paiement";
+            this.btAjoutMoyenPaiement.UseVisualStyleBackColor = true;
             // 
             // FenSaisirMoyenPaiement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(573, 245);
+            this.Controls.Add(this.btAjoutMoyenPaiement);
             this.Controls.Add(this.gbType);
             this.Controls.Add(this.txtIdCompte);
             this.Controls.Add(this.gbCarteBancaire);
@@ -297,5 +328,8 @@
         private System.Windows.Forms.GroupBox gbType;
         private System.Windows.Forms.Button btTypeCarte;
         private System.Windows.Forms.TextBox txtIdTypeCarte;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btAjoutMoyenPaiement;
     }
 }

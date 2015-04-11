@@ -69,7 +69,7 @@ namespace DesktopIHM.GuiObjects
         }
 
 
-        private void InitData()
+        private void initData()
         {
             DataTable dtt = new DataTable();
             dtt.Load(DAOClient.get(crtRechercheClient));
@@ -91,7 +91,7 @@ namespace DesktopIHM.GuiObjects
             }
 
             if (initCritereRecherche())
-                InitData();
+                initData();
         }
 
         private void cbDateSouscription_SelectedIndexChanged(object sender, EventArgs e)
@@ -151,5 +151,6 @@ namespace DesktopIHM.GuiObjects
             cbDateNaissance.Items.AddRange(valuesDateNaissance);
             cbDateNaissance.SelectedIndex = 0;
         }
+
     }
 }

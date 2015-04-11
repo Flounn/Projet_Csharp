@@ -231,6 +231,7 @@
             this.Name = "FenSaisirTypeCarte";
             this.ShowIcon = false;
             this.Text = "Saisir Type Carte";
+            this.Load += new System.EventHandler(this.FenSaisirTypeCarte_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

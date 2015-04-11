@@ -7,7 +7,7 @@ namespace DataService.BSService
 {
     public class CritereRechercheCarteBancaire
     {
-        private int idTypeCarte;
+        private long idTypeCarte;
         private string reseauCarte;
         private decimal plfGloPaiement;
         private int periodePlfPaiement;
@@ -15,7 +15,7 @@ namespace DataService.BSService
         private decimal plfGlobalRetraitInternes;//Sur les distributeurs de la banque
         private int periodePlfGlobalRetrait;
 
-        public int IdTypeCarte
+        public long IdTypeCarte
         {
             get { return idTypeCarte; }
             set { idTypeCarte = value; }
