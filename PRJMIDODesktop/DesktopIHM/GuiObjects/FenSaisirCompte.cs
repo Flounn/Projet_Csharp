@@ -23,6 +23,11 @@ namespace DesktopIHM.GuiObjects
             compte.Client = client;
         }
 
+        public FenSaisirCompte()
+        {
+            InitializeComponent();
+        }
+
         private void bt_creer_Click(object sender, EventArgs e)
         {
             try

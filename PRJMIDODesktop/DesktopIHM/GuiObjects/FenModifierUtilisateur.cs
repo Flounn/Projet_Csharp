@@ -36,5 +36,14 @@ namespace DesktopIHM.GuiObjects
             callback.refresh();
             this.Close();
         }
+
+        private void bt_supprimer_Click(object sender, EventArgs e)
+        {
+            GestionnaireUtilisateur.modifierUtilisateur(utilisateur);
+            callback.refresh();
+            this.Close();
+        }
+
+      
     }
 }

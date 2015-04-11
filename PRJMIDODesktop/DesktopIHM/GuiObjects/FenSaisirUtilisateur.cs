@@ -36,7 +36,7 @@ namespace DesktopIHM.GuiObjects
                 return;
             }
 
-            GestionnaireUtilisateur.addUtilisateur(new Utilisateur(txt_login.Text,txt_password.Text,txt_email.Text,(string)cb_profil.SelectedValue));
+            GestionnaireUtilisateur.ajouterUtilisateur(new Utilisateur(txt_login.Text,txt_password.Text,txt_email.Text,(string)cb_profil.SelectedValue));
         }
     }
 }

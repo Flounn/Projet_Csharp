@@ -47,10 +47,8 @@ namespace DataService.DAOService
             IList<object> valuesWhere = new List<object>();
             IList<string> operators = new List<string>();
 
-            Utilities.addCritere(champsWhere, valuesWhere, operators, "TYPE_COMPTE", criteres.TypeMoyenPaiement, Connexion.LIKE);
-            Utilities.addCritere(champsWhere, valuesWhere, operators, "DT_OUVERTURE", criteres.DateOuvertureFin, Connexion.INFEGAL);
-            Utilities.addCritere(champsWhere, valuesWhere, operators, "DT_OUVERTURE", criteres.DateOuvertureDebut, Connexion.SUPEGAL);
-            Utilities.addCritere(champsWhere, valuesWhere, operators, "ID_CLIENT", criteres.IdClient, Connexion.EGAL);
+            Utilities.addCritere(champsWhere, valuesWhere, operators, "LIBELLE_MOYEN_PAIEMENT", criteres.IdMoyenPaiement, Connexion.LIKE);
+            Utilities.addCritere(champsWhere, valuesWhere, operators, "ID_COMPTE", criteres.IdCompte, Connexion.EGAL);
             Utilities.addCritere(champsWhere, valuesWhere, operators, "ID_MOYEN_PAIEMENT", criteres.IdMoyenPaiement, Connexion.EGAL);
             return Connexion.get(tableName, champsWhere, valuesWhere, operators);
         }

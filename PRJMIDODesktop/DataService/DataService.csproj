@@ -57,7 +57,7 @@
     <Compile Include="BSDataObjects\Produit.cs" />
     <Compile Include="BSDataObjects\ProduitEpargne.cs" />
     <Compile Include="BSService\BSGestionClient.cs" />
-    <Compile Include="BSService\CritereRechercheCarteBancaire.cs" />
+    <Compile Include="BSService\CritereRechercheCarte.cs" />
     <Compile Include="BSService\CritereRechercheMoyenPaiement.cs" />
     <Compile Include="BSService\CritereRechercheClient.cs" />
     <Compile Include="BSService\CritereRechercheCompte.cs" />

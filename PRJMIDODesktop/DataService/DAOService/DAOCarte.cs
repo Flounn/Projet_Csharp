@@ -26,7 +26,7 @@ namespace DataService.DAOService
 
         public bool update(Carte carte)
         {
-           object[] values = new object[] { carte.MontantInitial, carte.Client.IdClient, carte.TypeCarteStr};
+            object[] values = new object[] { carte.DateDebValidite, carte.DateFinValidite, carte.TypeCarte, carte.NumeroCarte };
            object[] valuesWhere = new object[] { carte.IdMoyenPaiement };
            return Connexion.update(tableName, champs, values, champsWhere, valuesWhere);
         }
@@ -47,12 +47,12 @@ namespace DataService.DAOService
             IList<object> valuesWhere = new List<object>();
             IList<string> operators = new List<string>();
 
-            Utilities.addCritere(champsWhere, valuesWhere, operators, "TYPE_COMPTE", criteres.TypeCarte, Connexion.LIKE);
+            /*Utilities.addCritere(champsWhere, valuesWhere, operators, "TYPE_COMPTE", criteres.TypeCarte, Connexion.LIKE);
             Utilities.addCritere(champsWhere, valuesWhere, operators, "DT_OUVERTURE", criteres.DateOuvertureFin, Connexion.INFEGAL);
             Utilities.addCritere(champsWhere, valuesWhere, operators, "DT_OUVERTURE", criteres.DateOuvertureDebut, Connexion.SUPEGAL);
             Utilities.addCritere(champsWhere, valuesWhere, operators, "ID_CLIENT", criteres.IdClient, Connexion.EGAL);
             Utilities.addCritere(champsWhere, valuesWhere, operators, "ID_MOYEN_PAIEMENT", criteres.IdMoyenPaiement, Connexion.EGAL);
-            return Connexion.get(tableName, champsWhere, valuesWhere, operators);
+            */return Connexion.get(tableName, champsWhere, valuesWhere, operators);
         }
     }
 }

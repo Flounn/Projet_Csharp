@@ -37,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.bt_modifier = new System.Windows.Forms.Button();
+            this.bt_supprimer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txt_email
@@ -107,19 +108,30 @@
             // 
             // bt_modifier
             // 
-            this.bt_modifier.Location = new System.Drawing.Point(111, 186);
+            this.bt_modifier.Location = new System.Drawing.Point(147, 187);
             this.bt_modifier.Name = "bt_modifier";
-            this.bt_modifier.Size = new System.Drawing.Size(62, 31);
+            this.bt_modifier.Size = new System.Drawing.Size(62, 23);
             this.bt_modifier.TabIndex = 9;
             this.bt_modifier.Text = "Modifier";
             this.bt_modifier.UseVisualStyleBackColor = true;
             this.bt_modifier.Click += new System.EventHandler(this.bt_ajouter_Click);
+            // 
+            // bt_supprimer
+            // 
+            this.bt_supprimer.Location = new System.Drawing.Point(55, 187);
+            this.bt_supprimer.Name = "bt_supprimer";
+            this.bt_supprimer.Size = new System.Drawing.Size(75, 23);
+            this.bt_supprimer.TabIndex = 18;
+            this.bt_supprimer.Text = "Supprimer";
+            this.bt_supprimer.UseVisualStyleBackColor = true;
+            this.bt_supprimer.Click += new System.EventHandler(this.bt_supprimer_Click);
             // 
             // FenModifierUtilisateur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.bt_supprimer);
             this.Controls.Add(this.txt_email);
             this.Controls.Add(this.txt_password);
             this.Controls.Add(this.txt_login);
@@ -147,5 +159,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button bt_modifier;
+        private System.Windows.Forms.Button bt_supprimer;
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataService.BSService
 {
-    public class CritereRechercheCarteBancaire
+    public class CritereRechercheCarte
     {
         private int idTypeCarte;
         private string reseauCarte;

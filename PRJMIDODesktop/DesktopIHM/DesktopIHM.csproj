@@ -55,7 +55,6 @@
     <Compile Include="GuiObjects\FenSaisirContrat.Designer.cs">
       <DependentUpon>FenSaisirContrat.cs</DependentUpon>
     </Compile>
-    <Compile Include="GuiObjects\GestionnaireReferentiel.cs" />
     <Compile Include="GuiObjects\FenModifierUtilisateur.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +151,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GuiObjects\Utilisateur.cs" />
+    <Compile Include="UpdateDataGridView.cs" />
     <EmbeddedResource Include="GuiObjects\FenSaisirContrat.resx">
       <DependentUpon>FenSaisirContrat.cs</DependentUpon>
     </EmbeddedResource>

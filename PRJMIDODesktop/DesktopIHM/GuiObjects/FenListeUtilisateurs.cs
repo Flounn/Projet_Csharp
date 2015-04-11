@@ -15,14 +15,8 @@ namespace DesktopIHM.GuiObjects
         public FenListeUtilisateurs()
         {
             InitializeComponent();
-            this.Activated += new EventHandler(FenListeUtilisateurs_Activated);
             dg_utilisateurs.DataSource = GestionnaireUtilisateur.ListeUtilisateurs();
             dg_utilisateurs.CellDoubleClick += new DataGridViewCellEventHandler(dg_utilisateurs_CellDoubleClick);
-        }
-
-        void FenListeUtilisateurs_Activated(object sender, EventArgs e)
-        {
-            Console.WriteLine("FenListeUtilisateurs_Activated");
         }
 
         void dg_utilisateurs_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

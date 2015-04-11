@@ -49,13 +49,6 @@
             this.miUtilisation = new System.Windows.Forms.ToolStripMenuItem();
             this.miAuteurs = new System.Windows.Forms.ToolStripMenuItem();
             this.miVersion = new System.Windows.Forms.ToolStripMenuItem();
-            this.référentielToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.typeDeContratToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.voirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ajouterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.voirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.ajouterToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuGeneral.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,7 +57,6 @@
             this.menuGeneral.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miFichier,
             this.miSecurite,
-            this.référentielToolStripMenuItem,
             this.miHelp});
             this.menuGeneral.Location = new System.Drawing.Point(0, 0);
             this.menuGeneral.Name = "menuGeneral";
@@ -222,57 +214,6 @@
             this.miVersion.Text = "Version";
             this.miVersion.Click += new System.EventHandler(this.miVersion_Click);
             // 
-            // référentielToolStripMenuItem
-            // 
-            this.référentielToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.listeToolStripMenuItem,
-            this.typeDeContratToolStripMenuItem});
-            this.référentielToolStripMenuItem.Name = "référentielToolStripMenuItem";
-            this.référentielToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
-            this.référentielToolStripMenuItem.Text = "Référentiel";
-            // 
-            // listeToolStripMenuItem
-            // 
-            this.listeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.voirToolStripMenuItem1,
-            this.ajouterToolStripMenuItem1});
-            this.listeToolStripMenuItem.Name = "listeToolStripMenuItem";
-            this.listeToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.listeToolStripMenuItem.Text = "Type d\'opération";
-            // 
-            // typeDeContratToolStripMenuItem
-            // 
-            this.typeDeContratToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.voirToolStripMenuItem,
-            this.ajouterToolStripMenuItem});
-            this.typeDeContratToolStripMenuItem.Name = "typeDeContratToolStripMenuItem";
-            this.typeDeContratToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.typeDeContratToolStripMenuItem.Text = "Type de contrat";
-            // 
-            // voirToolStripMenuItem
-            // 
-            this.voirToolStripMenuItem.Name = "voirToolStripMenuItem";
-            this.voirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.voirToolStripMenuItem.Text = "Voir";
-            // 
-            // ajouterToolStripMenuItem
-            // 
-            this.ajouterToolStripMenuItem.Name = "ajouterToolStripMenuItem";
-            this.ajouterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.ajouterToolStripMenuItem.Text = "Ajouter";
-            // 
-            // voirToolStripMenuItem1
-            // 
-            this.voirToolStripMenuItem1.Name = "voirToolStripMenuItem1";
-            this.voirToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.voirToolStripMenuItem1.Text = "Voir";
-            // 
-            // ajouterToolStripMenuItem1
-            // 
-            this.ajouterToolStripMenuItem1.Name = "ajouterToolStripMenuItem1";
-            this.ajouterToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.ajouterToolStripMenuItem1.Text = "Ajouter";
-            // 
             // FenPrincipale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -313,13 +254,6 @@
         private System.Windows.Forms.ToolStripMenuItem miRechercheOperation;
         private System.Windows.Forms.ToolStripMenuItem miProfile;
         private System.Windows.Forms.ToolStripMenuItem miSaisirClient;
-        private System.Windows.Forms.ToolStripMenuItem référentielToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem voirToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem ajouterToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem typeDeContratToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem voirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ajouterToolStripMenuItem;
     }
 }
 
