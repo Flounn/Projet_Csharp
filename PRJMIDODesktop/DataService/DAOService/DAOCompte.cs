@@ -11,11 +11,11 @@ namespace DataService.DAOService
     public class DAOCompte
     {
          private const string tableName = "Compte";
-        private readonly string[] champs = new string[] { "MONTANT_INITIAL", "ID_CLIENT","ID_MOYEN_PAIEMENT","TYPE_COMPTE"};
+        private readonly string[] champs = new string[] { "MONTANT_INITIAL", "ID_CLIENT","TYPE_COMPTE"};
         private static readonly string[] champsWhere = new string[] { "ID_COMPTE" };
 
         public bool insert(Compte compte){
-            object[] values = new object[] { compte.MontantInitial, compte.Client.IdClient, compte.MoyenPaiement.IdMoyenPaiement,compte.TypeCompteStr};
+            object[] values = new object[] { compte.MontantInitial, compte.Client.IdClient, compte.TypeCompteStr};
             return Connexion.insert(tableName, champs, values);
         }
 
@@ -26,7 +26,7 @@ namespace DataService.DAOService
 
         public bool update(Compte compte)
         {
-           object[] values = new object[] { compte.MontantInitial, compte.Client.IdClient, compte.MoyenPaiement.IdMoyenPaiement,compte.TypeCompteStr};
+           object[] values = new object[] { compte.MontantInitial, compte.Client.IdClient, compte.TypeCompteStr};
            object[] valuesWhere = new object[] { compte.IdCompte };
            return Connexion.update(tableName, champs, values, champsWhere, valuesWhere);
         }

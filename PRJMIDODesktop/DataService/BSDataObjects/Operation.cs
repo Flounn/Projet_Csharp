@@ -109,7 +109,9 @@ namespace DataService.BSDataObjects
             set { compte = value; }
         }
 
+
         public MoyenPaiement MoyenPaiement
+
         {
             get { return moyenPaiement; }
             set { moyenPaiement = value; }

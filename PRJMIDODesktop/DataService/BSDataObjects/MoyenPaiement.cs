@@ -8,13 +8,20 @@ namespace DataService.BSDataObjects
     public class MoyenPaiement
     {
         protected long idMoyenPaiement;
+        private Compte compte;
         protected string libelleMoyenPaiement;
 
         public long IdMoyenPaiement
         {
             get { return idMoyenPaiement; }
             set { idMoyenPaiement = value; }
-        }        
+        }
+
+        protected Compte Compte
+        {
+            get { return compte; }
+            set { compte = value; }
+        }
 
         public string LibelleMoyenPaiement
         {

@@ -1,4 +1,5 @@
-﻿namespace DesktopIHM.GuiObjects
+﻿using System.Windows.Forms;
+namespace DesktopIHM.GuiObjects
 {
     partial class FenDetailClient
     {
@@ -54,7 +55,7 @@
             this.gbListeComptes = new System.Windows.Forms.GroupBox();
             this.dgvLstComptes = new System.Windows.Forms.DataGridView();
             this.gbListeTransactions = new System.Windows.Forms.GroupBox();
-            this.dgvLstTransactions = new System.Windows.Forms.DataGridView();
+            this.dgvLstOperations = new System.Windows.Forms.DataGridView();
             this.btImprimer = new System.Windows.Forms.Button();
             this.gbDonneesPersonnelles.SuspendLayout();
             this.gbListeContrats.SuspendLayout();
@@ -62,7 +63,7 @@
             this.gbListeComptes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLstComptes)).BeginInit();
             this.gbListeTransactions.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLstTransactions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLstOperations)).BeginInit();
             this.SuspendLayout();
             // 
             // gbDonneesPersonnelles
@@ -285,11 +286,17 @@
             // 
             // dgvLstContrats
             // 
-            this.dgvLstContrats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLstContrats.Location = new System.Drawing.Point(4, 19);
+            this.dgvLstContrats.AllowUserToAddRows = false;
+            this.dgvLstContrats.AllowUserToDeleteRows = false;
+            this.dgvLstContrats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvLstContrats.Location = new System.Drawing.Point(6, 17);
+            this.dgvLstContrats.MultiSelect = false;
             this.dgvLstContrats.Name = "dgvLstContrats";
-            this.dgvLstContrats.Size = new System.Drawing.Size(689, 105);
-            this.dgvLstContrats.TabIndex = 0;
+            this.dgvLstContrats.ReadOnly = true;
+            this.dgvLstContrats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLstContrats.Size = new System.Drawing.Size(687, 107);
+            this.dgvLstContrats.TabIndex = 10;
+
             // 
             // gbListeComptes
             // 
@@ -303,15 +310,22 @@
             // 
             // dgvLstComptes
             // 
-            this.dgvLstComptes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLstComptes.Location = new System.Drawing.Point(6, 19);
+            this.dgvLstComptes.AllowUserToAddRows = false;
+            this.dgvLstComptes.AllowUserToDeleteRows = false;
+            this.dgvLstComptes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvLstComptes.Location = new System.Drawing.Point(6, 17);
+            this.dgvLstComptes.MultiSelect = false;
             this.dgvLstComptes.Name = "dgvLstComptes";
-            this.dgvLstComptes.Size = new System.Drawing.Size(687, 105);
-            this.dgvLstComptes.TabIndex = 1;
+            this.dgvLstComptes.ReadOnly = true;
+            this.dgvLstComptes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLstComptes.Size = new System.Drawing.Size(687, 107);
+            this.dgvLstComptes.TabIndex = 11;
+            this.dgvLstComptes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLstComptes_CellContentClick);
+            this.dgvLstComptes.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLstComptes_CellContentDoubleClick);
             // 
             // gbListeTransactions
             // 
-            this.gbListeTransactions.Controls.Add(this.dgvLstTransactions);
+            this.gbListeTransactions.Controls.Add(this.dgvLstOperations);
             this.gbListeTransactions.Location = new System.Drawing.Point(12, 447);
             this.gbListeTransactions.Name = "gbListeTransactions";
             this.gbListeTransactions.Size = new System.Drawing.Size(699, 130);
@@ -319,13 +333,18 @@
             this.gbListeTransactions.TabStop = false;
             this.gbListeTransactions.Text = "Liste des transactions";
             // 
-            // dgvLstTransactions
+            // dgvLstOperations
             // 
-            this.dgvLstTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLstTransactions.Location = new System.Drawing.Point(6, 19);
-            this.dgvLstTransactions.Name = "dgvLstTransactions";
-            this.dgvLstTransactions.Size = new System.Drawing.Size(687, 105);
-            this.dgvLstTransactions.TabIndex = 2;
+            this.dgvLstOperations.AllowUserToAddRows = false;
+            this.dgvLstOperations.AllowUserToDeleteRows = false;
+            this.dgvLstOperations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvLstOperations.Location = new System.Drawing.Point(6, 17);
+            this.dgvLstOperations.MultiSelect = false;
+            this.dgvLstOperations.Name = "dgvLstOperations";
+            this.dgvLstOperations.ReadOnly = true;
+            this.dgvLstOperations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLstOperations.Size = new System.Drawing.Size(687, 107);
+            this.dgvLstOperations.TabIndex = 12;
             // 
             // btImprimer
             // 
@@ -356,7 +375,7 @@
             this.gbListeComptes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLstComptes)).EndInit();
             this.gbListeTransactions.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLstTransactions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLstOperations)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -375,9 +394,6 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtPrenom;
         private System.Windows.Forms.TextBox txtNom;
-        private System.Windows.Forms.DataGridView dgvLstContrats;
-        private System.Windows.Forms.DataGridView dgvLstComptes;
-        private System.Windows.Forms.DataGridView dgvLstTransactions;
         private System.Windows.Forms.DateTimePicker dtDateNaissance;
         private System.Windows.Forms.TextBox txtAdresseTemp;
         private System.Windows.Forms.TextBox txtTelPort;
@@ -391,5 +407,8 @@
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Button btModifier;
         private System.Windows.Forms.Button btSupprimer;
+        private System.Windows.Forms.DataGridView dgvLstContrats;
+        private System.Windows.Forms.DataGridView dgvLstComptes;
+        private System.Windows.Forms.DataGridView dgvLstOperations;
     }
 }

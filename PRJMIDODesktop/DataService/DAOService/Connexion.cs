@@ -143,7 +143,6 @@ namespace DataService.DAOService
             Console.WriteLine(cmd.CommandText);
             cmd.Connection = singleton.Connection();
             IDataReader reader = cmd.ExecuteReader();
-            cmd.Connection.Close();
             return reader;
         }
 
