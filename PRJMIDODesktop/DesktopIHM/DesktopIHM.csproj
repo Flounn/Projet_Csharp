@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GuiObjects\FenModifierUtilisateur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GuiObjects\FenModifierUtilisateur.designer.cs">
+      <DependentUpon>FenModifierUtilisateur.cs</DependentUpon>
+    </Compile>
     <Compile Include="GuiObjects\FenSaisirContrat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GuiObjects\Utilisateur.cs" />
     <Compile Include="UpdateDataGridView.cs" />
+    <EmbeddedResource Include="GuiObjects\FenModifierUtilisateur.resx">
+      <DependentUpon>FenModifierUtilisateur.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GuiObjects\FenSaisirContrat.resx">
       <DependentUpon>FenSaisirContrat.cs</DependentUpon>
     </EmbeddedResource>
