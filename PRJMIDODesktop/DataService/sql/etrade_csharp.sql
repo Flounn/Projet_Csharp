@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* Nom de SGBD :  MySQL 5.0                                     */
-/* Date de création :  08/04/2015 00:28:57                      */
+/* Date de création :  11/04/2015 13:35:41                      */
 /*==============================================================*/
 
 
@@ -34,8 +34,8 @@ drop table if exists TYPE_CARTE;
 create table CARTE_BANCAIRE
 (
    ID_MOYEN_PAIEMENT    int not null,
-   DT_DEB_VALIDITE      datetime not null,
-   DT_FIN_VALIDITE      datetime not null,
+   DT_DEB_VALIDITE      date not null,
+   DT_FIN_VALIDITE      date not null,
    ID_TYPE_CARTE        INT not null,
    NUMERO_CARTE         VARCHAR(30) not null,
    primary key (ID_MOYEN_PAIEMENT)
@@ -65,7 +65,7 @@ create table CLIENT
    ID_CLIENT            INT not null auto_increment,
    NOM                  VARCHAR(100) not null,
    PRENOM               VARCHAR(40) not null,
-   DT_NAISS             DATE not null,
+   DT_NAISS             date not null,
    EMAIL                VARCHAR(100) not null,
    ADRESSE_PRINC        VARCHAR(100),
    ADRESSE_TEMP         VARCHAR(100),
@@ -85,7 +85,6 @@ create table COMPTE
    DT_OUVERTURE         timestamp not null default CURRENT_TIMESTAMP,
    MONTANT_INITIAL      DECIMAL,
    ID_CLIENT            INT not null,
-   ID_MOYEN_PAIEMENT    INT,
    TYPE_COMPTE          VARCHAR(50) not null,
    primary key (ID_COMPTE)
 );
@@ -117,11 +116,11 @@ create table CONTRAT_CREDIT
 (
    ID_CONTRAT           INT not null,
    OBJ_CREDIT           VARCHAR(100),
-   DT_ECHEANCE          DATE not null,
+   DT_ECHEANCE          date not null,
    DUREE                INT not null,
    TAUX                 DECIMAL,
    MNT_CREDIT           DECIMAL not null,
-   DT_PROC_ECHANCE      DATE,
+   DT_PROC_ECHANCE      date,
    MNT_ECHEANCE         DECIMAL,
    TAUX_NOMINAL         DECIMAL,
    ENCOURS              DECIMAL,
@@ -139,7 +138,7 @@ create table CONTRAT_EPARGNE
    TYPE_EPARGNE         VARCHAR(30) not null,
    TYPE_VERSEMENT       VARCHAR(30) not null,
    PERIODICITE          VARCHAR(30),
-   DT_VERSEMENT         DATE,
+   DT_VERSEMENT         date,
    MNT_VERSE            DECIMAL not null,
    primary key (ID_CONTRAT)
 );
@@ -167,6 +166,7 @@ alter table HISTO_ETUDIANT comment 'Table d''historiques pour un client étudiant
 create table MOYEN_PAIEMENT
 (
    ID_MOYEN_PAIEMENT    INT not null auto_increment,
+   ID_COMPTE            INT,
    LIBELLE_MOYEN_PAIEMENT VARCHAR(30) not null,
    primary key (ID_MOYEN_PAIEMENT)
 );
@@ -178,8 +178,8 @@ create table OPERATION
 (
    ID_OPERATION         INT not null auto_increment,
    ID_MOYEN_PAIEMENT    INT not null,
+   ID_COMPTE            INT,
    LIBELLE              VARCHAR(100) not null,
-   TYPE_OPERATION       VARCHAR(30) not null,
    DT_COMPTABLE         timestamp NULL default NULL,
    DT_OPERATION         timestamp not null default CURRENT_TIMESTAMP,
    DT_VALEUR            timestamp NULL default NULL,
@@ -232,9 +232,6 @@ alter table CARTE_BANCAIRE add constraint FK_REFERENCE_15 foreign key (ID_MOYEN_
 alter table CHEQUIER add constraint FK_REFERENCE_11 foreign key (ID_MOYEN_PAIEMENT)
       references MOYEN_PAIEMENT (ID_MOYEN_PAIEMENT) on delete restrict on update restrict;
 
-alter table COMPTE add constraint FK_REFERENCE_10 foreign key (ID_MOYEN_PAIEMENT)
-      references MOYEN_PAIEMENT (ID_MOYEN_PAIEMENT) on delete restrict on update restrict;
-
 alter table COMPTE add constraint FK_REFERENCE_3 foreign key (ID_CLIENT)
       references CLIENT (ID_CLIENT) on delete restrict on update restrict;
 
@@ -255,6 +252,12 @@ alter table CONTRAT_EPARGNE add constraint FK_REFERENCE_12 foreign key (ID_CONTR
 
 alter table HISTO_ETUDIANT add constraint FK_REFERENCE_7 foreign key (NUMERO_CLI)
       references CLIENT (ID_CLIENT) on delete restrict on update restrict;
+
+alter table MOYEN_PAIEMENT add constraint FK_REFERENCE_19 foreign key (ID_COMPTE)
+      references COMPTE (ID_COMPTE) on delete restrict on update restrict;
+
+alter table OPERATION add constraint FK_REFERENCE_18 foreign key (ID_COMPTE)
+      references COMPTE (ID_COMPTE) on delete restrict on update restrict;
 
 alter table OPERATION add constraint FK_REFERENCE_8 foreign key (ID_MOYEN_PAIEMENT)
       references MOYEN_PAIEMENT (ID_MOYEN_PAIEMENT) on delete restrict on update restrict;

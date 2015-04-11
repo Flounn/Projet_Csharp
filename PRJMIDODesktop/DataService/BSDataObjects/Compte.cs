@@ -15,7 +15,6 @@ namespace DataService.BSDataObjects
         private DateTime dateOuverture;
         private decimal montantInitial;
         private Client client;
-        private MoyenPaiement moyenPaiement;
         private IList<Contrat> listeContrats;
 
         public long IdCompte
@@ -52,13 +51,6 @@ namespace DataService.BSDataObjects
         {
             get { return montantInitial; }
             set { montantInitial = value; }
-        }
-
-
-        public MoyenPaiement MoyenPaiement
-        {
-            get { return moyenPaiement; }
-            set { moyenPaiement = value; }
         }
 
         public Client Client

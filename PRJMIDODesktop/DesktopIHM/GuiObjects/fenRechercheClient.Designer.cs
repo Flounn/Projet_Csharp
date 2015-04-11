@@ -123,7 +123,6 @@ namespace DesktopIHM.GuiObjects
             this.dgvLstClient.AllowUserToAddRows = false;
             this.dgvLstClient.AllowUserToDeleteRows = false;
             this.dgvLstClient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvLstClient.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvLstClient.Location = new System.Drawing.Point(37, 186);
             this.dgvLstClient.MultiSelect = false;
             this.dgvLstClient.Name = "dgvLstClient";
@@ -238,7 +237,6 @@ namespace DesktopIHM.GuiObjects
             this.Controls.Add(this.lbDdn);
             this.Controls.Add(this.lbPrenom);
             this.Controls.Add(this.lbNom);
-            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Name = "FenRechercheClient";
             this.ShowIcon = false;
             this.Text = "Rechercher un client";

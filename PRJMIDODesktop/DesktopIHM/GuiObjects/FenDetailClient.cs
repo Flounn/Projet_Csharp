@@ -29,6 +29,7 @@ namespace DesktopIHM.GuiObjects
         {
             if (monClient != null)
             {
+                this.txtId.Text = monClient.IdClient.ToString();
                 this.txtNom.Text= monClient.Nom;
                 this.txtPrenom.Text = monClient.Prenom;
                 this.dtDateNaissance.Value = monClient.DateNaissance;
@@ -47,11 +48,18 @@ namespace DesktopIHM.GuiObjects
                 CritereRechercheClient crtRechercheCompte = new CritereRechercheClient();
                 crtRechercheCompte.IdClient = monClient.IdClient;
                 DataTable dtCompte = new DataTable();
-                dtContrat.Load(DAOClient.get(crtRechercheCompte));
-                dgvLstContrats.DataSource = dtCompte;
-
-                //DataTable dtt
+                dtCompte.Load(DAOClient.get(crtRechercheCompte));
+                dgvLstComptes.DataSource = dtCompte;
             }
+        }
+
+        void dgvLstComptes_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CritereRechercheClient crtRechercheOperation = new CritereRechercheClient();
+            crtRechercheOperation.IdClient = monClient.IdClient;
+            DataTable dtCompte = new DataTable();
+            dtCompte.Load(DAOClient.get(crtRechercheOperation));
+            dgvLstComptes.DataSource = dtCompte;
         }
 
         private void btModifier_Click(object sender, EventArgs e)
@@ -129,6 +137,15 @@ namespace DesktopIHM.GuiObjects
                     "Supprimer un client", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Dispose();
             }
+        }
+
+        private void dgvLstComptes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CritereRechercheClient crtRechercheOperation = new CritereRechercheClient();
+            crtRechercheOperation.IdClient = monClient.IdClient;
+            DataTable dtCompte = new DataTable();
+            dtCompte.Load(DAOClient.get(crtRechercheOperation));
+            dgvLstComptes.DataSource = dtCompte;
         }
     }
 }
