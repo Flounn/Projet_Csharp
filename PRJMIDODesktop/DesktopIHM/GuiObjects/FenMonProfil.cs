@@ -23,7 +23,7 @@ namespace DesktopIHM.GuiObjects
 
             this.monLogin.Text = Session.Utilisateur.Login;
             this.monEmail.Text = Session.Utilisateur.Email;
-            this.monProfile.Text = Session.Utilisateur.Profile;          
+            this.monProfile.Text = Session.Utilisateur.Profil;          
 
         }
     }

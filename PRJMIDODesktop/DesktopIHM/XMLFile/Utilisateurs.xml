@@ -2,26 +2,26 @@
 <users>
     <user>
       <login>tudor</login>
-      <passwd>Vanille95*</passwd>
+      <password>Vanille95*</password>
       <email>tudor@lcp.com</email>
-      <profile>Administrateur</profile>
+      <profil>Administrateur</profil>
     </user>
     <user>
       <login>tata</login>
-      <passwd>yoyo</passwd>
+      <password>yoyo</password>
       <email>tatayoyo@lcp.com</email>
-      <profile>Administrateur</profile>
+      <profil>Administrateur</profil>
     </user>
     <user>
       <login>midoif</login>
-      <passwd>passw1</passwd>
+      <password>passw1</password>
       <email>midoif-id@externe.lcp.com</email>
-      <profile>Opératrice de saisie</profile>
+      <profil>Opératrice de saisie</profil>
     </user>
     <user>
       <login>anthony</login>
-      <passwd>anthony</passwd>
+      <password>anthony</password>
       <email>anthony-b@externe.lcp.com</email>
-      <profile>Consultation</profile>
+      <profil>Consultation</profil>
     </user>
 </users>

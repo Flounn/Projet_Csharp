@@ -10,8 +10,9 @@ namespace DesktopIHM.GuiObjects
         private string login;
         private string password;
         private string email;
-        private string profile;
+        private string profil;
 
+        public static string[] profils = new string[] { "Administrateur", "Opératrice de saisie", "Consultation" };
 
         public string Email
         {
@@ -19,10 +20,10 @@ namespace DesktopIHM.GuiObjects
             set { email = value; }
         }        
 
-        public string Profile
+        public string Profil
         {
-            get { return profile; }
-            set { profile = value; }
+            get { return profil; }
+            set { profil = value; }
         }
 
         public string Login
@@ -43,7 +44,7 @@ namespace DesktopIHM.GuiObjects
             this.login = _login;
             this.password = _password;
             this.email = _email;
-            this.profile = _profile;
+            this.profil = _profile;
         }
 
         public override bool Equals(object obj)
@@ -66,6 +67,15 @@ namespace DesktopIHM.GuiObjects
         public override string ToString()
         {
             return "Utilisateur "+this.login+" / Password : "+this.Password;
+        }
+        public System.Xml.Linq.XElement ToXml()
+        {
+            return new System.Xml.Linq.XElement("user",
+                new System.Xml.Linq.XElement("login",login),
+                new System.Xml.Linq.XElement("password", password),
+                new System.Xml.Linq.XElement("email", email),
+                new System.Xml.Linq.XElement("profil", profil)
+                );
         }
     }
 }
