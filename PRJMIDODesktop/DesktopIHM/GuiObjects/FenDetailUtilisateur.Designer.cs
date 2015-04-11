@@ -1,6 +1,6 @@
 ﻿namespace DesktopIHM.GuiObjects
 {
-    partial class FenModifierUtilisateur
+    partial class FenDetailUtilisateur
     {
         /// <summary>
         /// Required designer variable.

@@ -55,11 +55,11 @@
     <Compile Include="GuiObjects\FenSaisirContrat.Designer.cs">
       <DependentUpon>FenSaisirContrat.cs</DependentUpon>
     </Compile>
-    <Compile Include="GuiObjects\FenModifierUtilisateur.cs">
+    <Compile Include="GuiObjects\FenDetailUtilisateur.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GuiObjects\FenModifierUtilisateur.Designer.cs">
-      <DependentUpon>FenModifierUtilisateur.cs</DependentUpon>
+    <Compile Include="GuiObjects\FenDetailUtilisateur.Designer.cs">
+      <DependentUpon>FenDetailUtilisateur.cs</DependentUpon>
     </Compile>
     <Compile Include="GuiObjects\FenRechercheContrat.cs">
       <SubType>Form</SubType>
@@ -155,8 +155,8 @@
     <EmbeddedResource Include="GuiObjects\FenSaisirContrat.resx">
       <DependentUpon>FenSaisirContrat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GuiObjects\FenModifierUtilisateur.resx">
-      <DependentUpon>FenModifierUtilisateur.cs</DependentUpon>
+    <EmbeddedResource Include="GuiObjects\FenDetailUtilisateur.resx">
+      <DependentUpon>FenDetailUtilisateur.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GuiObjects\FenRechercheContrat.resx">
       <DependentUpon>FenRechercheContrat.cs</DependentUpon>

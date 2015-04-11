@@ -9,12 +9,12 @@ using System.Windows.Forms;
 
 namespace DesktopIHM.GuiObjects
 {
-    public partial class FenModifierUtilisateur : Form
+    public partial class FenDetailUtilisateur : Form
     {
-        private readonly Utilisateur utilisateur;
+        private Utilisateur utilisateur;
         private readonly UpdateDataGridView callback;
 
-        public FenModifierUtilisateur(Utilisateur utilisateur, UpdateDataGridView callback)
+        public FenDetailUtilisateur(Utilisateur utilisateur, UpdateDataGridView callback)
         {
             InitializeComponent();
             this.utilisateur = utilisateur;
@@ -39,7 +39,8 @@ namespace DesktopIHM.GuiObjects
 
         private void bt_supprimer_Click(object sender, EventArgs e)
         {
-            GestionnaireUtilisateur.modifierUtilisateur(utilisateur);
+            GestionnaireUtilisateur.supprimerUtilisateur(utilisateur);
+            utilisateur = null;
             callback.refresh();
             this.Close();
         }

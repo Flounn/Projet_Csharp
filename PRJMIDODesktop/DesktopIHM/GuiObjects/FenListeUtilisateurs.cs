@@ -15,19 +15,19 @@ namespace DesktopIHM.GuiObjects
         public FenListeUtilisateurs()
         {
             InitializeComponent();
-            dg_utilisateurs.DataSource = GestionnaireUtilisateur.ListeUtilisateurs();
             dg_utilisateurs.CellDoubleClick += new DataGridViewCellEventHandler(dg_utilisateurs_CellDoubleClick);
+            refresh();
         }
 
         void dg_utilisateurs_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1)
                 return;
-            new FenModifierUtilisateur((Utilisateur)dg_utilisateurs.Rows[e.RowIndex].DataBoundItem,this).Show(this);
+            new FenDetailUtilisateur((Utilisateur)dg_utilisateurs.Rows[e.RowIndex].DataBoundItem,this).Show(this);
         }
 
         public void refresh(){
-            dg_utilisateurs.Refresh();
+            dg_utilisateurs.DataSource = GestionnaireUtilisateur.ListeUtilisateurs();
         }
 
     }
