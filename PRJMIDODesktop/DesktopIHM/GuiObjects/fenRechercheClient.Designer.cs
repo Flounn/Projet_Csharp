@@ -48,13 +48,15 @@ namespace DesktopIHM.GuiObjects
             this.lbId = new System.Windows.Forms.Label();
             this.btDetail = new System.Windows.Forms.Button();
             this.btVider = new System.Windows.Forms.Button();
+            this.gbDonneesRecherche = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLstClient)).BeginInit();
+            this.gbDonneesRecherche.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbNom
             // 
             this.lbNom.AutoSize = true;
-            this.lbNom.Location = new System.Drawing.Point(34, 71);
+            this.lbNom.Location = new System.Drawing.Point(10, 59);
             this.lbNom.Name = "lbNom";
             this.lbNom.Size = new System.Drawing.Size(29, 13);
             this.lbNom.TabIndex = 0;
@@ -63,7 +65,7 @@ namespace DesktopIHM.GuiObjects
             // lbPrenom
             // 
             this.lbPrenom.AutoSize = true;
-            this.lbPrenom.Location = new System.Drawing.Point(34, 111);
+            this.lbPrenom.Location = new System.Drawing.Point(10, 103);
             this.lbPrenom.Name = "lbPrenom";
             this.lbPrenom.Size = new System.Drawing.Size(43, 13);
             this.lbPrenom.TabIndex = 1;
@@ -72,7 +74,7 @@ namespace DesktopIHM.GuiObjects
             // lbDdn
             // 
             this.lbDdn.AutoSize = true;
-            this.lbDdn.Location = new System.Drawing.Point(255, 70);
+            this.lbDdn.Location = new System.Drawing.Point(215, 59);
             this.lbDdn.Name = "lbDdn";
             this.lbDdn.Size = new System.Drawing.Size(83, 13);
             this.lbDdn.TabIndex = 2;
@@ -81,7 +83,7 @@ namespace DesktopIHM.GuiObjects
             // lbAdresse
             // 
             this.lbAdresse.AutoSize = true;
-            this.lbAdresse.Location = new System.Drawing.Point(255, 111);
+            this.lbAdresse.Location = new System.Drawing.Point(215, 103);
             this.lbAdresse.Name = "lbAdresse";
             this.lbAdresse.Size = new System.Drawing.Size(45, 13);
             this.lbAdresse.TabIndex = 3;
@@ -91,7 +93,7 @@ namespace DesktopIHM.GuiObjects
             // 
             this.dtDateNaissanceDebut.Enabled = false;
             this.dtDateNaissanceDebut.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDateNaissanceDebut.Location = new System.Drawing.Point(436, 66);
+            this.dtDateNaissanceDebut.Location = new System.Drawing.Point(393, 57);
             this.dtDateNaissanceDebut.Name = "dtDateNaissanceDebut";
             this.dtDateNaissanceDebut.Size = new System.Drawing.Size(86, 20);
             this.dtDateNaissanceDebut.TabIndex = 4;
@@ -99,21 +101,21 @@ namespace DesktopIHM.GuiObjects
             // 
             // txtAdresse
             // 
-            this.txtAdresse.Location = new System.Drawing.Point(344, 108);
+            this.txtAdresse.Location = new System.Drawing.Point(301, 99);
             this.txtAdresse.Name = "txtAdresse";
             this.txtAdresse.Size = new System.Drawing.Size(178, 20);
             this.txtAdresse.TabIndex = 5;
             // 
             // txtNom
             // 
-            this.txtNom.Location = new System.Drawing.Point(81, 67);
+            this.txtNom.Location = new System.Drawing.Point(57, 57);
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(141, 20);
             this.txtNom.TabIndex = 6;
             // 
             // txtPrenom
             // 
-            this.txtPrenom.Location = new System.Drawing.Point(81, 108);
+            this.txtPrenom.Location = new System.Drawing.Point(57, 99);
             this.txtPrenom.Name = "txtPrenom";
             this.txtPrenom.Size = new System.Drawing.Size(141, 20);
             this.txtPrenom.TabIndex = 7;
@@ -122,19 +124,21 @@ namespace DesktopIHM.GuiObjects
             // 
             this.dgvLstClient.AllowUserToAddRows = false;
             this.dgvLstClient.AllowUserToDeleteRows = false;
+            this.dgvLstClient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvLstClient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvLstClient.Location = new System.Drawing.Point(37, 186);
+            this.dgvLstClient.Location = new System.Drawing.Point(37, 163);
             this.dgvLstClient.MultiSelect = false;
             this.dgvLstClient.Name = "dgvLstClient";
             this.dgvLstClient.ReadOnly = true;
             this.dgvLstClient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLstClient.Size = new System.Drawing.Size(485, 207);
+            this.dgvLstClient.Size = new System.Drawing.Size(485, 237);
             this.dgvLstClient.TabIndex = 9;
             this.dgvLstClient.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLstClient_CellDoubleClick);
             // 
             // btRechercher
             // 
-            this.btRechercher.Location = new System.Drawing.Point(258, 145);
+            this.btRechercher.Location = new System.Drawing.Point(258, 136);
             this.btRechercher.Name = "btRechercher";
             this.btRechercher.Size = new System.Drawing.Size(264, 21);
             this.btRechercher.TabIndex = 10;
@@ -146,7 +150,7 @@ namespace DesktopIHM.GuiObjects
             // 
             this.dtDateNaissanceFin.Enabled = false;
             this.dtDateNaissanceFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDateNaissanceFin.Location = new System.Drawing.Point(436, 86);
+            this.dtDateNaissanceFin.Location = new System.Drawing.Point(393, 77);
             this.dtDateNaissanceFin.Name = "dtDateNaissanceFin";
             this.dtDateNaissanceFin.Size = new System.Drawing.Size(86, 20);
             this.dtDateNaissanceFin.TabIndex = 11;
@@ -156,7 +160,7 @@ namespace DesktopIHM.GuiObjects
             // cbDateNaissance
             // 
             this.cbDateNaissance.FormattingEnabled = true;
-            this.cbDateNaissance.Location = new System.Drawing.Point(344, 66);
+            this.cbDateNaissance.Location = new System.Drawing.Point(301, 57);
             this.cbDateNaissance.Name = "cbDateNaissance";
             this.cbDateNaissance.Size = new System.Drawing.Size(86, 21);
             this.cbDateNaissance.TabIndex = 12;
@@ -164,7 +168,7 @@ namespace DesktopIHM.GuiObjects
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(344, 26);
+            this.txtEmail.Location = new System.Drawing.Point(301, 18);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(178, 20);
             this.txtEmail.TabIndex = 14;
@@ -172,7 +176,7 @@ namespace DesktopIHM.GuiObjects
             // lbEmail
             // 
             this.lbEmail.AutoSize = true;
-            this.lbEmail.Location = new System.Drawing.Point(255, 30);
+            this.lbEmail.Location = new System.Drawing.Point(215, 21);
             this.lbEmail.Name = "lbEmail";
             this.lbEmail.Size = new System.Drawing.Size(32, 13);
             this.lbEmail.TabIndex = 13;
@@ -180,7 +184,7 @@ namespace DesktopIHM.GuiObjects
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(81, 27);
+            this.txtId.Location = new System.Drawing.Point(57, 20);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(141, 20);
             this.txtId.TabIndex = 16;
@@ -188,7 +192,7 @@ namespace DesktopIHM.GuiObjects
             // lbId
             // 
             this.lbId.AutoSize = true;
-            this.lbId.Location = new System.Drawing.Point(34, 31);
+            this.lbId.Location = new System.Drawing.Point(10, 22);
             this.lbId.Name = "lbId";
             this.lbId.Size = new System.Drawing.Size(18, 13);
             this.lbId.TabIndex = 15;
@@ -196,7 +200,9 @@ namespace DesktopIHM.GuiObjects
             // 
             // btDetail
             // 
-            this.btDetail.Location = new System.Drawing.Point(148, 399);
+            this.btDetail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.btDetail.Location = new System.Drawing.Point(148, 406);
             this.btDetail.Name = "btDetail";
             this.btDetail.Size = new System.Drawing.Size(264, 21);
             this.btDetail.TabIndex = 17;
@@ -206,7 +212,7 @@ namespace DesktopIHM.GuiObjects
             // 
             // btVider
             // 
-            this.btVider.Location = new System.Drawing.Point(37, 145);
+            this.btVider.Location = new System.Drawing.Point(37, 136);
             this.btVider.Name = "btVider";
             this.btVider.Size = new System.Drawing.Size(128, 21);
             this.btVider.TabIndex = 18;
@@ -214,35 +220,46 @@ namespace DesktopIHM.GuiObjects
             this.btVider.UseVisualStyleBackColor = true;
             this.btVider.Click += new System.EventHandler(this.btVider_Click);
             // 
+            // gbDonneesRecherche
+            // 
+            this.gbDonneesRecherche.Controls.Add(this.txtId);
+            this.gbDonneesRecherche.Controls.Add(this.lbId);
+            this.gbDonneesRecherche.Controls.Add(this.txtEmail);
+            this.gbDonneesRecherche.Controls.Add(this.lbEmail);
+            this.gbDonneesRecherche.Controls.Add(this.cbDateNaissance);
+            this.gbDonneesRecherche.Controls.Add(this.dtDateNaissanceFin);
+            this.gbDonneesRecherche.Controls.Add(this.txtPrenom);
+            this.gbDonneesRecherche.Controls.Add(this.txtNom);
+            this.gbDonneesRecherche.Controls.Add(this.txtAdresse);
+            this.gbDonneesRecherche.Controls.Add(this.dtDateNaissanceDebut);
+            this.gbDonneesRecherche.Controls.Add(this.lbAdresse);
+            this.gbDonneesRecherche.Controls.Add(this.lbDdn);
+            this.gbDonneesRecherche.Controls.Add(this.lbPrenom);
+            this.gbDonneesRecherche.Controls.Add(this.lbNom);
+            this.gbDonneesRecherche.Location = new System.Drawing.Point(37, 3);
+            this.gbDonneesRecherche.Name = "gbDonneesRecherche";
+            this.gbDonneesRecherche.Size = new System.Drawing.Size(485, 127);
+            this.gbDonneesRecherche.TabIndex = 19;
+            this.gbDonneesRecherche.TabStop = false;
+            this.gbDonneesRecherche.Text = "Données de recherche";
+            // 
             // FenRechercheClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(565, 429);
+            this.Controls.Add(this.gbDonneesRecherche);
             this.Controls.Add(this.btVider);
             this.Controls.Add(this.btDetail);
-            this.Controls.Add(this.txtId);
-            this.Controls.Add(this.lbId);
-            this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.lbEmail);
-            this.Controls.Add(this.cbDateNaissance);
-            this.Controls.Add(this.dtDateNaissanceFin);
             this.Controls.Add(this.btRechercher);
             this.Controls.Add(this.dgvLstClient);
-            this.Controls.Add(this.txtPrenom);
-            this.Controls.Add(this.txtNom);
-            this.Controls.Add(this.txtAdresse);
-            this.Controls.Add(this.dtDateNaissanceDebut);
-            this.Controls.Add(this.lbAdresse);
-            this.Controls.Add(this.lbDdn);
-            this.Controls.Add(this.lbPrenom);
-            this.Controls.Add(this.lbNom);
             this.Name = "FenRechercheClient";
             this.ShowIcon = false;
             this.Text = "Rechercher un client";
             ((System.ComponentModel.ISupportInitialize)(this.dgvLstClient)).EndInit();
+            this.gbDonneesRecherche.ResumeLayout(false);
+            this.gbDonneesRecherche.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -266,5 +283,6 @@ namespace DesktopIHM.GuiObjects
         private System.Windows.Forms.Label lbId;
         private System.Windows.Forms.Button btDetail;
         private Button btVider;
+        private GroupBox gbDonneesRecherche;
     }
 }

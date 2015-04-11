@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using DataService.DAOService;
 using DataService.BSDataObjects;
 using System.Globalization;
-
+using DataService.BSService;
 
 namespace DesktopIHM.GuiObjects
 {
@@ -49,7 +49,7 @@ namespace DesktopIHM.GuiObjects
             }
 
             Client client = new Client(txtNom.Text, txtPrenom.Text, dtDateNaissance.Value ,txtEmail.Text, txtAdressePrinc.Text, txtAdresseTemp.Text, txtTelFixe.Text, txtTelPort.Text);
-            client.insert();
+            BSGestionClient.CreerModifierClient(client); 
             MessageBox.Show("Le client vient d'être rajouté",
                 "Ajout d'un client", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

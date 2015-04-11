@@ -26,5 +26,10 @@ namespace DesktopIHM.GuiObjects
             this.monProfile.Text = Session.Utilisateur.Profil;          
 
         }
+
+        private void bt_modifier_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

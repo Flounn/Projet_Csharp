@@ -103,6 +103,12 @@
     <Compile Include="GuiObjects\FenRechercheClient.Designer.cs">
       <DependentUpon>FenRechercheClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="GuiObjects\FenDetailCompte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GuiObjects\FenDetailCompte.Designer.cs">
+      <DependentUpon>FenDetailCompte.cs</DependentUpon>
+    </Compile>
     <Compile Include="GuiObjects\FenSaisirUtilisateur.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GuiObjects\FenRechercheClient.resx">
       <DependentUpon>FenRechercheClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GuiObjects\FenDetailCompte.resx">
+      <DependentUpon>FenDetailCompte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GuiObjects\FenSaisirUtilisateur.resx">
       <DependentUpon>FenSaisirUtilisateur.cs</DependentUpon>
