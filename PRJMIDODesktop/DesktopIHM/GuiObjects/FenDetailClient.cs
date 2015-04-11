@@ -38,11 +38,17 @@ namespace DesktopIHM.GuiObjects
                 this.txtTelFixe.Text = monClient.TelFixe;
                 this.txtTelPort.Text = monClient.TelPortable;
                 
-                CritereRechercheContrat crtRechercheContrat = new CritereRechercheContrat();
+                CritereRechercheClient crtRechercheContrat = new CritereRechercheClient();
                 crtRechercheContrat.IdClient = monClient.IdClient;
                 DataTable dtContrat = new DataTable();
-                dtContrat.Load(DAOContrat.get(crtRechercheContrat));
+                dtContrat.Load(DAOClient.get(crtRechercheContrat));
                 dgvLstContrats.DataSource = dtContrat;
+
+                CritereRechercheClient crtRechercheCompte = new CritereRechercheClient();
+                crtRechercheCompte.IdClient = monClient.IdClient;
+                DataTable dtCompte = new DataTable();
+                dtContrat.Load(DAOClient.get(crtRechercheCompte));
+                dgvLstContrats.DataSource = dtCompte;
 
                 //DataTable dtt
             }
