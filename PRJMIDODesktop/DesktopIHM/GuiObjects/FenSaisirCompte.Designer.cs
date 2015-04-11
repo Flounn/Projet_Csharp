@@ -106,7 +106,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bt_creer);
             this.Name = "FenSaisirCompte";
-            this.Text = "Form1";
+            this.ShowIcon = false;
+            this.Text = "Saisir Compte";
             this.gb_type_compte.ResumeLayout(false);
             this.gb_type_compte.PerformLayout();
             this.ResumeLayout(false);

@@ -134,6 +134,7 @@ namespace DesktopIHM.GuiObjects
             this.dgvLstClient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLstClient.Size = new System.Drawing.Size(485, 237);
             this.dgvLstClient.TabIndex = 9;
+            this.dgvLstClient.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLstClient_CellContentClick);
             this.dgvLstClient.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLstClient_CellDoubleClick);
             // 
             // btRechercher

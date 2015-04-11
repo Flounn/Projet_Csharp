@@ -67,5 +67,10 @@ namespace DesktopIHM.GuiObjects
                 this.Dispose();
             }
         }
+
+        private void btDetailClient_Click(object sender, EventArgs e)
+        {
+            new FenDetailClient(monClient).Show();
+        }
     }
 }

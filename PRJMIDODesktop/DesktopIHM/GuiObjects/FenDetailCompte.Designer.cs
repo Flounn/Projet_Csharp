@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gbDonneesCompte = new System.Windows.Forms.GroupBox();
+            this.btDetailClient = new System.Windows.Forms.Button();
             this.btSupprimer = new System.Windows.Forms.Button();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lbId = new System.Windows.Forms.Label();
@@ -46,7 +47,6 @@
             this.lbIdClient = new System.Windows.Forms.Label();
             this.dgvLstMoyenPaiements = new System.Windows.Forms.DataGridView();
             this.gbListeMoyensPaiement = new System.Windows.Forms.GroupBox();
-            this.btDetailClient = new System.Windows.Forms.Button();
             this.btAjouterMoyenPaiement = new System.Windows.Forms.Button();
             this.gbDonneesCompte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLstMoyenPaiements)).BeginInit();
@@ -78,6 +78,16 @@
             this.gbDonneesCompte.TabStop = false;
             this.gbDonneesCompte.Text = "Données du compte";
             // 
+            // btDetailClient
+            // 
+            this.btDetailClient.Location = new System.Drawing.Point(11, 131);
+            this.btDetailClient.Name = "btDetailClient";
+            this.btDetailClient.Size = new System.Drawing.Size(147, 20);
+            this.btDetailClient.TabIndex = 19;
+            this.btDetailClient.Text = "Détail Client";
+            this.btDetailClient.UseVisualStyleBackColor = true;
+            this.btDetailClient.Click += new System.EventHandler(this.btDetailClient_Click);
+            // 
             // btSupprimer
             // 
             this.btSupprimer.Location = new System.Drawing.Point(329, 131);
@@ -90,7 +100,7 @@
             // txtId
             // 
             this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(94, 24);
+            this.txtId.Location = new System.Drawing.Point(88, 24);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(129, 20);
             this.txtId.TabIndex = 17;
@@ -98,7 +108,7 @@
             // lbId
             // 
             this.lbId.AutoSize = true;
-            this.lbId.Location = new System.Drawing.Point(14, 28);
+            this.lbId.Location = new System.Drawing.Point(8, 28);
             this.lbId.Name = "lbId";
             this.lbId.Size = new System.Drawing.Size(18, 13);
             this.lbId.TabIndex = 16;
@@ -155,7 +165,7 @@
             // txtPrenomClient
             // 
             this.txtPrenomClient.Enabled = false;
-            this.txtPrenomClient.Location = new System.Drawing.Point(94, 102);
+            this.txtPrenomClient.Location = new System.Drawing.Point(88, 102);
             this.txtPrenomClient.Name = "txtPrenomClient";
             this.txtPrenomClient.Size = new System.Drawing.Size(129, 20);
             this.txtPrenomClient.TabIndex = 7;
@@ -163,7 +173,7 @@
             // txtNomClient
             // 
             this.txtNomClient.Enabled = false;
-            this.txtNomClient.Location = new System.Drawing.Point(94, 76);
+            this.txtNomClient.Location = new System.Drawing.Point(88, 76);
             this.txtNomClient.Name = "txtNomClient";
             this.txtNomClient.Size = new System.Drawing.Size(129, 20);
             this.txtNomClient.TabIndex = 5;
@@ -171,7 +181,7 @@
             // txtIdClient
             // 
             this.txtIdClient.Enabled = false;
-            this.txtIdClient.Location = new System.Drawing.Point(94, 50);
+            this.txtIdClient.Location = new System.Drawing.Point(88, 50);
             this.txtIdClient.Name = "txtIdClient";
             this.txtIdClient.Size = new System.Drawing.Size(129, 20);
             this.txtIdClient.TabIndex = 4;
@@ -179,7 +189,7 @@
             // lbPrenomClient
             // 
             this.lbPrenomClient.AutoSize = true;
-            this.lbPrenomClient.Location = new System.Drawing.Point(14, 106);
+            this.lbPrenomClient.Location = new System.Drawing.Point(8, 106);
             this.lbPrenomClient.Name = "lbPrenomClient";
             this.lbPrenomClient.Size = new System.Drawing.Size(72, 13);
             this.lbPrenomClient.TabIndex = 3;
@@ -197,7 +207,7 @@
             // lbNomClient
             // 
             this.lbNomClient.AutoSize = true;
-            this.lbNomClient.Location = new System.Drawing.Point(14, 80);
+            this.lbNomClient.Location = new System.Drawing.Point(8, 80);
             this.lbNomClient.Name = "lbNomClient";
             this.lbNomClient.Size = new System.Drawing.Size(58, 13);
             this.lbNomClient.TabIndex = 1;
@@ -206,7 +216,7 @@
             // lbIdClient
             // 
             this.lbIdClient.AutoSize = true;
-            this.lbIdClient.Location = new System.Drawing.Point(14, 54);
+            this.lbIdClient.Location = new System.Drawing.Point(8, 54);
             this.lbIdClient.Name = "lbIdClient";
             this.lbIdClient.Size = new System.Drawing.Size(47, 13);
             this.lbIdClient.TabIndex = 0;
@@ -238,15 +248,6 @@
             this.gbListeMoyensPaiement.TabIndex = 3;
             this.gbListeMoyensPaiement.TabStop = false;
             this.gbListeMoyensPaiement.Text = "Liste des moyens de paiement";
-            // 
-            // btDetailClient
-            // 
-            this.btDetailClient.Location = new System.Drawing.Point(17, 131);
-            this.btDetailClient.Name = "btDetailClient";
-            this.btDetailClient.Size = new System.Drawing.Size(147, 20);
-            this.btDetailClient.TabIndex = 19;
-            this.btDetailClient.Text = "Détail Client";
-            this.btDetailClient.UseVisualStyleBackColor = true;
             // 
             // btAjouterMoyenPaiement
             // 

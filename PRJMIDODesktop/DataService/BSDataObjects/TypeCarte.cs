@@ -5,18 +5,39 @@ using System.Text;
 
 namespace DataService.BSDataObjects
 {
+    public enum ReseauCarteBancaire {Visa, MasterCard}
+    
     public class TypeCarte
     {
         private int idTypeCarte;
+        private ReseauCarteBancaire reseauCarte;
         private decimal plfGloPaiement;
         private decimal plfGloPaiementEtranger;
         private int periodePlfPaiement;
-        private decimal plfGlobalRetraitExterne; //Sur les tous les distributeurs
+        private decimal plfGlobalRetraitExterne; //Sur tous les distributeurs
         private decimal plfRetEtranger;
         private decimal plfRetraitFrance;
         private decimal plfGlobalRetraitInternes; //Sur les distributeurs de la banque
         private int periodePlfGlobalRetrait;
         private IList<MoyenPaiement> moyensPaiements;
+
+        public ReseauCarteBancaire ReseauCarte
+        {
+            get { return reseauCarte; }
+            set { reseauCarte = value; }
+        }
+
+        public string ReseauCarteStr
+        {
+            get { return reseauCarte.ToString(); }
+            set
+            {
+                if (value.Equals("Visa"))
+                    reseauCarte = ReseauCarteBancaire.Visa;
+                else if (value.Equals("MasterCard"))
+                    reseauCarte = ReseauCarteBancaire.MasterCard;
+            }
+        }
 
         public int IdTypeCarte
         {

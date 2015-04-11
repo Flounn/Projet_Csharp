@@ -151,6 +151,5 @@ namespace DesktopIHM.GuiObjects
             cbDateNaissance.Items.AddRange(valuesDateNaissance);
             cbDateNaissance.SelectedIndex = 0;
         }
-
     }
 }
