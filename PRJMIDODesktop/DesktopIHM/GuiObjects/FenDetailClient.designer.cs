@@ -51,8 +51,10 @@ namespace DesktopIHM.GuiObjects
             this.lPrenom = new System.Windows.Forms.Label();
             this.lNom = new System.Windows.Forms.Label();
             this.gbListeContrats = new System.Windows.Forms.GroupBox();
+            this.bt_ajouter_contrat = new System.Windows.Forms.Button();
             this.dgvLstContrats = new System.Windows.Forms.DataGridView();
             this.gbListeComptes = new System.Windows.Forms.GroupBox();
+            this.bt_ajouter_compte = new System.Windows.Forms.Button();
             this.dgvLstComptes = new System.Windows.Forms.DataGridView();
             this.gbListeTransactions = new System.Windows.Forms.GroupBox();
             this.dgvLstOperations = new System.Windows.Forms.DataGridView();
@@ -276,22 +278,33 @@ namespace DesktopIHM.GuiObjects
             // 
             // gbListeContrats
             // 
-            this.gbListeContrats.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbListeContrats.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbListeContrats.Controls.Add(this.bt_ajouter_contrat);
             this.gbListeContrats.Controls.Add(this.dgvLstContrats);
             this.gbListeContrats.Location = new System.Drawing.Point(12, 175);
             this.gbListeContrats.Name = "gbListeContrats";
-            this.gbListeContrats.Size = new System.Drawing.Size(699, 130);
+            this.gbListeContrats.Size = new System.Drawing.Size(699, 164);
             this.gbListeContrats.TabIndex = 1;
             this.gbListeContrats.TabStop = false;
             this.gbListeContrats.Text = "Liste des contrats";
+            // 
+            // bt_ajouter_contrat
+            // 
+            this.bt_ajouter_contrat.Location = new System.Drawing.Point(306, 135);
+            this.bt_ajouter_contrat.Name = "bt_ajouter_contrat";
+            this.bt_ajouter_contrat.Size = new System.Drawing.Size(75, 23);
+            this.bt_ajouter_contrat.TabIndex = 11;
+            this.bt_ajouter_contrat.Text = "Ajouter";
+            this.bt_ajouter_contrat.UseVisualStyleBackColor = true;
+            this.bt_ajouter_contrat.Click += new System.EventHandler(this.bt_ajouter_contrat_Click);
             // 
             // dgvLstContrats
             // 
             this.dgvLstContrats.AllowUserToAddRows = false;
             this.dgvLstContrats.AllowUserToDeleteRows = false;
-            this.dgvLstContrats.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvLstContrats.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvLstContrats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvLstContrats.Location = new System.Drawing.Point(6, 17);
             this.dgvLstContrats.MultiSelect = false;
@@ -303,22 +316,33 @@ namespace DesktopIHM.GuiObjects
             // 
             // gbListeComptes
             // 
-            this.gbListeComptes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbListeComptes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbListeComptes.Controls.Add(this.bt_ajouter_compte);
             this.gbListeComptes.Controls.Add(this.dgvLstComptes);
-            this.gbListeComptes.Location = new System.Drawing.Point(12, 311);
+            this.gbListeComptes.Location = new System.Drawing.Point(12, 356);
             this.gbListeComptes.Name = "gbListeComptes";
-            this.gbListeComptes.Size = new System.Drawing.Size(699, 130);
+            this.gbListeComptes.Size = new System.Drawing.Size(699, 167);
             this.gbListeComptes.TabIndex = 2;
             this.gbListeComptes.TabStop = false;
             this.gbListeComptes.Text = "Liste des comptes";
+            // 
+            // bt_ajouter_compte
+            // 
+            this.bt_ajouter_compte.Location = new System.Drawing.Point(306, 136);
+            this.bt_ajouter_compte.Name = "bt_ajouter_compte";
+            this.bt_ajouter_compte.Size = new System.Drawing.Size(75, 23);
+            this.bt_ajouter_compte.TabIndex = 12;
+            this.bt_ajouter_compte.Text = "Ajouter";
+            this.bt_ajouter_compte.UseVisualStyleBackColor = true;
+            this.bt_ajouter_compte.Click += new System.EventHandler(this.bt_ajouter_compte_Click);
             // 
             // dgvLstComptes
             // 
             this.dgvLstComptes.AllowUserToAddRows = false;
             this.dgvLstComptes.AllowUserToDeleteRows = false;
-            this.dgvLstComptes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvLstComptes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvLstComptes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvLstComptes.Location = new System.Drawing.Point(6, 17);
             this.dgvLstComptes.MultiSelect = false;
@@ -332,12 +356,12 @@ namespace DesktopIHM.GuiObjects
             // 
             // gbListeTransactions
             // 
-            this.gbListeTransactions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbListeTransactions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbListeTransactions.Controls.Add(this.dgvLstOperations);
-            this.gbListeTransactions.Location = new System.Drawing.Point(12, 447);
+            this.gbListeTransactions.Location = new System.Drawing.Point(12, 531);
             this.gbListeTransactions.Name = "gbListeTransactions";
-            this.gbListeTransactions.Size = new System.Drawing.Size(699, 130);
+            this.gbListeTransactions.Size = new System.Drawing.Size(699, 153);
             this.gbListeTransactions.TabIndex = 3;
             this.gbListeTransactions.TabStop = false;
             this.gbListeTransactions.Text = "Liste des transactions";
@@ -346,22 +370,22 @@ namespace DesktopIHM.GuiObjects
             // 
             this.dgvLstOperations.AllowUserToAddRows = false;
             this.dgvLstOperations.AllowUserToDeleteRows = false;
-            this.dgvLstOperations.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvLstOperations.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvLstOperations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvLstOperations.Location = new System.Drawing.Point(6, 17);
+            this.dgvLstOperations.Location = new System.Drawing.Point(6, 19);
             this.dgvLstOperations.MultiSelect = false;
             this.dgvLstOperations.Name = "dgvLstOperations";
             this.dgvLstOperations.ReadOnly = true;
             this.dgvLstOperations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLstOperations.Size = new System.Drawing.Size(687, 107);
+            this.dgvLstOperations.Size = new System.Drawing.Size(687, 128);
             this.dgvLstOperations.TabIndex = 12;
             // 
             // btImprimer
             // 
-            this.btImprimer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.btImprimer.Location = new System.Drawing.Point(290, 583);
+            this.btImprimer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btImprimer.Location = new System.Drawing.Point(287, 694);
             this.btImprimer.Name = "btImprimer";
             this.btImprimer.Size = new System.Drawing.Size(132, 30);
             this.btImprimer.TabIndex = 4;
@@ -372,7 +396,7 @@ namespace DesktopIHM.GuiObjects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(723, 620);
+            this.ClientSize = new System.Drawing.Size(723, 733);
             this.Controls.Add(this.gbListeComptes);
             this.Controls.Add(this.btImprimer);
             this.Controls.Add(this.gbListeTransactions);
@@ -423,5 +447,7 @@ namespace DesktopIHM.GuiObjects
         private System.Windows.Forms.DataGridView dgvLstContrats;
         private System.Windows.Forms.DataGridView dgvLstComptes;
         private System.Windows.Forms.DataGridView dgvLstOperations;
+        private Button bt_ajouter_compte;
+        private Button bt_ajouter_contrat;
     }
 }

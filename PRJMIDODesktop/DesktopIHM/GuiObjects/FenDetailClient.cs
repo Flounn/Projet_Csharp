@@ -14,12 +14,12 @@ namespace DesktopIHM.GuiObjects
 {
     public partial class FenDetailClient : Form
     {
-        private Client monClient;
+        private Client client;
 
         public FenDetailClient(Client client)
         {
             InitializeComponent();
-            monClient = client;
+            this.client = client;
             initData();
             dtDateNaissance.MaxDate = DateTime.Today;
         }
@@ -27,26 +27,26 @@ namespace DesktopIHM.GuiObjects
 
         private void initData()
         {
-            if (monClient != null)
+            if (client != null)
             {
-                this.txtId.Text = monClient.IdClient.ToString();
-                this.txtNom.Text= monClient.Nom;
-                this.txtPrenom.Text = monClient.Prenom;
-                this.dtDateNaissance.Value = monClient.DateNaissance;
-                this.txtEmail.Text = monClient.Email;
-                this.txtAdressePrinc.Text = monClient.AdressePrincipale;
-                this.txtAdresseTemp.Text = monClient.AdresseTemporaire;
-                this.txtTelFixe.Text = monClient.TelFixe;
-                this.txtTelPort.Text = monClient.TelPortable;
+                this.txtId.Text = client.IdClient.ToString();
+                this.txtNom.Text= client.Nom;
+                this.txtPrenom.Text = client.Prenom;
+                this.dtDateNaissance.Value = client.DateNaissance;
+                this.txtEmail.Text = client.Email;
+                this.txtAdressePrinc.Text = client.AdressePrincipale;
+                this.txtAdresseTemp.Text = client.AdresseTemporaire;
+                this.txtTelFixe.Text = client.TelFixe;
+                this.txtTelPort.Text = client.TelPortable;
 
                 CritereRechercheContrat crtRechercheContrat = new CritereRechercheContrat();
-                crtRechercheContrat.IdClient = monClient.IdClient;
+                crtRechercheContrat.IdClient = client.IdClient;
                 DataTable dtContrat = new DataTable();
                 dtContrat.Load(BSGestionClient.RechercherContrat(crtRechercheContrat));
                 dgvLstContrats.DataSource = dtContrat;
 
                 CritereRechercheCompte crtRechercheCompte = new CritereRechercheCompte();
-                crtRechercheCompte.IdClient = monClient.IdClient;
+                crtRechercheCompte.IdClient = client.IdClient;
                 DataTable dtCompte = new DataTable();
                 dtCompte.Load(BSGestionClient.RechercherCompteClient(crtRechercheCompte));
                 dgvLstComptes.DataSource = dtCompte;
@@ -56,7 +56,7 @@ namespace DesktopIHM.GuiObjects
         void dgvLstComptes_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             CritereRechercheClient crtRechercheOperation = new CritereRechercheClient();
-            crtRechercheOperation.IdClient = monClient.IdClient;
+            crtRechercheOperation.IdClient = client.IdClient;
             DataTable dtCompte = new DataTable();
             dtCompte.Load(DAOClient.get(crtRechercheOperation));
             dgvLstComptes.DataSource = dtCompte;
@@ -90,19 +90,19 @@ namespace DesktopIHM.GuiObjects
                     "Modification des données", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                monClient.Nom = this.txtNom.Text;
-                monClient.Prenom = this.txtPrenom.Text;
-                monClient.DateNaissance = this.dtDateNaissance.Value;
-                monClient.Email = this.txtEmail.Text;
-                monClient.AdressePrincipale = this.txtAdressePrinc.Text;
-                monClient.AdresseTemporaire = this.txtAdresseTemp.Text;
-                monClient.TelFixe = this.txtTelFixe.Text;
-                monClient.TelPortable = this.txtTelPort.Text;
+                client.Nom = this.txtNom.Text;
+                client.Prenom = this.txtPrenom.Text;
+                client.DateNaissance = this.dtDateNaissance.Value;
+                client.Email = this.txtEmail.Text;
+                client.AdressePrincipale = this.txtAdressePrinc.Text;
+                client.AdresseTemporaire = this.txtAdresseTemp.Text;
+                client.TelFixe = this.txtTelFixe.Text;
+                client.TelPortable = this.txtTelPort.Text;
                 if(MessageBox.Show("Etes-vous sûr de vouloir modifier les données du client?", 
                     "Modification des données", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) ==
                     DialogResult.Yes)
                 {
-                    BSGestionClient.CreerModifierClient(monClient);
+                    BSGestionClient.CreerModifierClient(client);
                     this.txtNom.Enabled = false;
                     this.txtPrenom.Enabled = false;
                     this.dtDateNaissance.Enabled = false;
@@ -132,7 +132,7 @@ namespace DesktopIHM.GuiObjects
                     "Supprimer un client", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) ==
                     DialogResult.Yes)
             {
-                monClient.delete();
+                client.delete();
                 MessageBox.Show("Le client vient d'être supprimé",
                     "Supprimer un client", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Dispose();
@@ -147,5 +147,17 @@ namespace DesktopIHM.GuiObjects
             dtOperation.Load(DAOOperation.get(crtRechercheOperation));
             dgvLstOperations.DataSource = dtOperation;
         }
+
+        private void bt_ajouter_compte_Click(object sender, EventArgs e)
+        {
+            new FenSaisirCompte(client).Show(this);
+        }
+
+        private void bt_ajouter_contrat_Click(object sender, EventArgs e)
+        {
+            new FenSaisirContrat(client).Show(this);
+        }
+
+
     }
 }
