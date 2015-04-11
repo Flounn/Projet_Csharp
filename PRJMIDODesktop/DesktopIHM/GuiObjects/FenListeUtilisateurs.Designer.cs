@@ -52,7 +52,7 @@
             this.ClientSize = new System.Drawing.Size(592, 305);
             this.Controls.Add(this.dg_utilisateurs);
             this.Name = "FenListeUtilisateurs";
-            this.Text = "FenListeUtilisateurs";
+            this.Text = "Liste Utilisateurs";
             ((System.ComponentModel.ISupportInitialize)(this.dg_utilisateurs)).EndInit();
             this.ResumeLayout(false);
 

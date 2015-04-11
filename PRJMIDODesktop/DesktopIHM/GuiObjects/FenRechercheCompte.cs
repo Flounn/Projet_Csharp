@@ -77,7 +77,9 @@ namespace DesktopIHM.GuiObjects
 
         private void InitData()
         {
-            this.dgwLstCompte.DataSource = BSGestionClient.RechercherComptes(crtRechercheCompte);
+            DataTable dtt = new DataTable();
+            dtt.Load(BSGestionClient.RechercherComptes(crtRechercheCompte);
+            dgwLstCompte.DataSource = dtt;
         }
 
         private void btRechercher_Click(object sender, EventArgs e)
@@ -86,7 +88,7 @@ namespace DesktopIHM.GuiObjects
             if (cbDateOuverture.SelectedIndex <1 && string.IsNullOrEmpty(txtIdClient.Text)
                    && string.IsNullOrEmpty(txtIdCompte.Text) && cb_type.SelectedIndex<1)
             {
-                MessageBox.Show("Veuillez saisir un des critères", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.showErrorMessage("Veuillez saisir un des critères", "Error");
                 return;
             }
            

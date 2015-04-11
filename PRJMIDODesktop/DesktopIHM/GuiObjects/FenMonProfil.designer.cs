@@ -172,7 +172,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox1);
             this.Name = "FenMonProfil";
-            this.Text = "Mon profile Utilisateur";
+            this.Text = "Mon profil";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

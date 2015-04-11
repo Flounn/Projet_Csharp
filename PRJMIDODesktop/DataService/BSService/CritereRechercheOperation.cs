@@ -13,9 +13,9 @@ namespace DataService.BSService
         private string libelle;
         private DateTime dateOperationDebut;
         private DateTime dateOperationFin;
-        private DataService.BSDataObjects.Operation.StatutOperation statut;
+        private string statut;
         private long idCompte;
-        private DataService.BSDataObjects.Operation.Type_Operation typeOperation;
+        private string typeOperation;
         private long idMoyenPaiement;
         private string type;
 
@@ -71,26 +71,14 @@ namespace DataService.BSService
 
         public string TypeOperation
         {
-            get { return typeOperation.ToString(); }
-            set
-            {
-                if (value.Equals("Credit"))
-                    typeOperation = DataService.BSDataObjects.Operation.Type_Operation.Credit;
-                else if (value.Equals("Debit"))
-                    typeOperation = DataService.BSDataObjects.Operation.Type_Operation.Debit;
-            }
+            get { return typeOperation; }
+            set { typeOperation = value; }
         }
 
         public string Statut
         {
             get { return statut.ToString(); }
-            set
-            {
-                if (value.Equals("EnCours"))
-                    statut = DataService.BSDataObjects.Operation.StatutOperation.EnCours;
-                else if (value.Equals("Realise"))
-                    statut = DataService.BSDataObjects.Operation.StatutOperation.Realise;
-            }
+            set { statut = value; }
         }
     }
 }

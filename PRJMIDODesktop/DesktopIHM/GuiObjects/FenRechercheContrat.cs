@@ -96,7 +96,9 @@ namespace DesktopIHM.GuiObjects
 
         private void InitData()
         {
-            this.dgwLstContrat.DataSource = BSGestionClient.RechercherContrats(crtRechercheContrat);
+            DataTable dtt = new DataTable();
+            dtt.Load(BSGestionClient.RechercherContrats(crtRechercheContrat));
+            dgwLstContrat.DataSource = dtt;
         }
 
         private void btRechercher_Click(object sender, EventArgs e)
@@ -106,7 +108,7 @@ namespace DesktopIHM.GuiObjects
                    && string.IsNullOrEmpty(txtIdClient.Text) && string.IsNullOrEmpty(txtIdCompte.Text)
                    && string.IsNullOrEmpty(txtIdProduit.Text) && string.IsNullOrEmpty(txtIntitule.Text))
             {
-                MessageBox.Show("Veuillez saisir un des critères", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.showErrorMessage("Veuillez saisir un des critères", "Error");
                 return;
             }
            

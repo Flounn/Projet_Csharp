@@ -29,9 +29,10 @@ namespace DesktopIHM.GuiObjects
                 try{
                 crtRechercheClient.IdClient = long.Parse(txtId.Text);
                 }
-                catch (Exception) {
-                    MessageBox.Show("L'ID n'a pas été saisi correctement", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false; }
+                catch {
+                    Utilities.showErrorMessage("L'ID n'a pas été saisi correctement", "Erreur");
+                    return false; 
+                }
             crtRechercheClient.Nom = txtNom.Text;
             crtRechercheClient.Prenom = txtPrenom.Text;
             switch (cbDateNaissance.SelectedIndex){
@@ -73,14 +74,14 @@ namespace DesktopIHM.GuiObjects
         {
             if (!Utilities.isEmailValid(txtEmail.Text) && !string.IsNullOrEmpty(txtEmail.Text))
             {
-                MessageBox.Show("L'email n'a pas été saisi correctement", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.showErrorMessage("L'email n'a pas été saisi correctement", "Erreur");
                 return;
             }
             if (cbDateNaissance.SelectedIndex==0 && string.IsNullOrEmpty(txtAdresse.Text)
                     && string.IsNullOrEmpty(txtEmail.Text) && string.IsNullOrEmpty(txtId.Text)
                     && string.IsNullOrEmpty(txtNom.Text) && string.IsNullOrEmpty(txtPrenom.Text))
             {
-                 MessageBox.Show("Veuillez saisir un des critères", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.showErrorMessage("Veuillez saisir un des critères", "Erreur");
                 return;
             }
 
@@ -117,7 +118,6 @@ namespace DesktopIHM.GuiObjects
         {
             if (e.RowIndex == -1)
                 return;
-            Console.WriteLine("dgvLstClient_CellDoubleClick");
             new FenDetailClient(getClientRow(e.RowIndex)).Show();
         }
 

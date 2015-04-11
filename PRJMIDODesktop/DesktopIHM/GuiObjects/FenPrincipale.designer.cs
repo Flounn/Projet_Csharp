@@ -98,12 +98,14 @@
             this.miSaisirCompte.Name = "miSaisirCompte";
             this.miSaisirCompte.Size = new System.Drawing.Size(188, 22);
             this.miSaisirCompte.Text = "Un compte client";
+            this.miSaisirCompte.Click += new System.EventHandler(this.miSaisirCompte_Click);
             // 
             // miSouscription
             // 
             this.miSouscription.Name = "miSouscription";
             this.miSouscription.Size = new System.Drawing.Size(188, 22);
             this.miSouscription.Text = "Une souscription";
+            this.miSouscription.Click += new System.EventHandler(this.miSouscription_Click);
             // 
             // miDonneesReferentiel
             // 

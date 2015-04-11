@@ -94,7 +94,7 @@
             this.dtDateSouscriptionDebut.Name = "dtDateSouscriptionDebut";
             this.dtDateSouscriptionDebut.Size = new System.Drawing.Size(86, 20);
             this.dtDateSouscriptionDebut.TabIndex = 4;
-            this.dtDateSouscriptionDebut.Value = new System.DateTime(System.DateTime.Now.Year, System.DateTime.Now.Month, System.DateTime.Now.Day);
+            this.dtDateSouscriptionDebut.Value = new System.DateTime(2015, 4, 12, 0, 0, 0, 0);
             // 
             // txtIntitule
             // 
@@ -147,7 +147,7 @@
             this.dtDateSouscriptionFin.Name = "dtDateSouscriptionFin";
             this.dtDateSouscriptionFin.Size = new System.Drawing.Size(86, 20);
             this.dtDateSouscriptionFin.TabIndex = 11;
-            this.dtDateSouscriptionFin.Value = new System.DateTime(System.DateTime.Now.Year, System.DateTime.Now.Month, System.DateTime.Now.Day);
+            this.dtDateSouscriptionFin.Value = new System.DateTime(2015, 4, 12, 0, 0, 0, 0);
             this.dtDateSouscriptionFin.Visible = false;
             // 
             // cbDateSouscription
@@ -157,7 +157,7 @@
             this.cbDateSouscription.Name = "cbDateSouscription";
             this.cbDateSouscription.Size = new System.Drawing.Size(86, 21);
             this.cbDateSouscription.TabIndex = 12;
-            this.cbDateSouscription.SelectedIndexChanged+=new System.EventHandler(cbDateSouscription_SelectedIndexChanged);
+            this.cbDateSouscription.SelectedIndexChanged += new System.EventHandler(this.cbDateSouscription_SelectedIndexChanged);
             // 
             // txtIdCompte
             // 
@@ -244,7 +244,7 @@
             this.Controls.Add(this.lbIdClient);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "FenRechercheContrat";
-            this.Text = "Rechercher un contrat";
+            this.Text = "Rechercher Contrat";
             ((System.ComponentModel.ISupportInitialize)(this.dgwLstContrat)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

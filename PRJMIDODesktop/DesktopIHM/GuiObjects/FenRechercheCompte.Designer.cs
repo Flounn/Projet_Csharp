@@ -79,7 +79,7 @@
             this.dtDateOuvertureDebut.Name = "dtDateOuvertureDebut";
             this.dtDateOuvertureDebut.Size = new System.Drawing.Size(86, 20);
             this.dtDateOuvertureDebut.TabIndex = 4;
-            this.dtDateOuvertureDebut.Value = new System.DateTime(System.DateTime.Now.Year, System.DateTime.Now.Month, System.DateTime.Now.Day);
+            this.dtDateOuvertureDebut.Value = new System.DateTime(2015, 4, 12, 0, 0, 0, 0);
             // 
             // txtIdClient
             // 
@@ -121,7 +121,7 @@
             this.dtDateOuvertureFin.Name = "dtDateOuvertureFin";
             this.dtDateOuvertureFin.Size = new System.Drawing.Size(86, 20);
             this.dtDateOuvertureFin.TabIndex = 11;
-            this.dtDateOuvertureFin.Value = new System.DateTime(System.DateTime.Now.Year, System.DateTime.Now.Month, System.DateTime.Now.Day);
+            this.dtDateOuvertureFin.Value = new System.DateTime(2015, 4, 12, 0, 0, 0, 0);
             this.dtDateOuvertureFin.Visible = false;
             // 
             // cbDateOuverture
@@ -187,7 +187,7 @@
             this.Controls.Add(this.lbIdClient);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "FenRechercheCompte";
-            this.Text = "Rechercher un compte";
+            this.Text = "Rechercher Compte";
             ((System.ComponentModel.ISupportInitialize)(this.dgwLstCompte)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

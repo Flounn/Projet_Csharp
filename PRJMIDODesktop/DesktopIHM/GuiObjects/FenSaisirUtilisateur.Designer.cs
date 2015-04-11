@@ -129,7 +129,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bt_ajouter);
             this.Name = "FenSaisirUtilisateur";
-            this.Text = "FenSaisirUtilisateur";
+            this.Text = "Saisir Utilisateur";
             this.ResumeLayout(false);
             this.PerformLayout();
 

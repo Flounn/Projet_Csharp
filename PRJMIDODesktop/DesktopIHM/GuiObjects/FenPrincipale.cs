@@ -34,7 +34,6 @@ namespace DesktopIHM
             //FenConnexion connexion = new FenConnexion();
             //connexion.ShowDialog(this);
             Session.seConnecter("tata", "yoyo");
-            new FenSaisirClient().Show(this);
         }
 
         private void miVersion_Click(object sender, EventArgs e)
@@ -86,6 +85,11 @@ namespace DesktopIHM
         private void miRechercheCompte_Click(object sender, EventArgs e)
         {
             new FenRechercheCompte().Show(this);
+        }
+
+        private void miSouscription_Click(object sender, EventArgs e)
+        {
+            new FenSaisirContrat().Show();
         }
         
     }

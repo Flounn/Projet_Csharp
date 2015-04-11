@@ -126,7 +126,7 @@
             this.bt_supprimer.UseVisualStyleBackColor = true;
             this.bt_supprimer.Click += new System.EventHandler(this.bt_supprimer_Click);
             // 
-            // FenModifierUtilisateur
+            // FenDetailUtilisateur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -141,8 +141,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bt_modifier);
-            this.Name = "FenModifierUtilisateur";
-            this.Text = "FenModifierUtilisateur";
+            this.Name = "FenDetailUtilisateur";
+            this.Text = "Détail Utilisateur";
             this.ResumeLayout(false);
             this.PerformLayout();
 

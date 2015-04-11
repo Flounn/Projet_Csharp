@@ -68,26 +68,22 @@ namespace DesktopIHM.GuiObjects
             {
                 if (string.IsNullOrEmpty(txtNom.Text))
                 {
-                    MessageBox.Show("Le nom du client n'a pas été renseigné",
-                    "Modification des données", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Utilities.showErrorMessage("Le nom du client n'a pas été renseigné","Modification des données");
                     return;
                 }
                 if (string.IsNullOrEmpty(txtPrenom.Text))
                 {
-                    MessageBox.Show("Le prenom du client n'a pas été renseigné",
-                    "Modification des données", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Utilities.showErrorMessage("Le prenom du client n'a pas été renseigné","Modification des données");
                     return;
                 }
                 if (string.IsNullOrEmpty(txtEmail.Text))
                 {
-                    MessageBox.Show("Le email du client n'a pas été renseigné",
-                    "Modification des données", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Utilities.showErrorMessage("L' email du client n'a pas été renseigné","Modification des données");
                     return;
                 }
                 if (!Utilities.isEmailValid(txtEmail.Text))
                 {
-                    MessageBox.Show("Le email du client n'a pas été renseigné correctement",
-                    "Modification des données", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Utilities.showErrorMessage("L' email du client n'a pas été renseigné correctement","Modification des données");
                     return;
                 }
                 client.Nom = this.txtNom.Text;

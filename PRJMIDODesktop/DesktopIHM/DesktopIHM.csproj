@@ -55,12 +55,6 @@
     <Compile Include="GuiObjects\FenRechercheCompte.Designer.cs">
       <DependentUpon>FenRechercheCompte.cs</DependentUpon>
     </Compile>
-    <Compile Include="GuiObjects\FenModifierUtilisateur.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GuiObjects\FenModifierUtilisateur.designer.cs">
-      <DependentUpon>FenModifierUtilisateur.cs</DependentUpon>
-    </Compile>
     <Compile Include="GuiObjects\FenSaisirContrat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,9 +160,6 @@
     <Compile Include="UpdateDataGridView.cs" />
     <EmbeddedResource Include="GuiObjects\FenRechercheCompte.resx">
       <DependentUpon>FenRechercheCompte.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GuiObjects\FenModifierUtilisateur.resx">
-      <DependentUpon>FenModifierUtilisateur.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GuiObjects\FenSaisirContrat.resx">
       <DependentUpon>FenSaisirContrat.cs</DependentUpon>

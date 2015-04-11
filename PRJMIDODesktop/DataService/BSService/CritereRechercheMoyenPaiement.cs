@@ -10,7 +10,7 @@ namespace DataService.BSService
     {
         private long idCompte;
         private long idMoyenPaiement;
-        private TypeMoyenPaiement libelle;
+        private string libelle;
 
         public long IdCompte
         {
@@ -24,7 +24,7 @@ namespace DataService.BSService
             set { idMoyenPaiement = value; }
         }       
 
-        public TypeMoyenPaiement Libelle
+        public string Libelle
         {
             get { return libelle; }
             set { libelle = value; }

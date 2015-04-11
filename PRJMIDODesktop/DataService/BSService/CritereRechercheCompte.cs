@@ -9,7 +9,7 @@ namespace DataService.BSService
     public class CritereRechercheCompte
     {
         private long idCompte;
-        private DataService.BSDataObjects.Compte.Type typeCompte;
+        private string typeCompte;
         private DateTime dateOuvertureDebut;
         private DateTime dateOuvertureFin;
         private long idClient;
@@ -23,14 +23,8 @@ namespace DataService.BSService
 
         public string TypeCompte
         {
-            get { return typeCompte.ToString(); }
-            set
-            {
-                if (value.Equals("Courant"))
-                    typeCompte = DataService.BSDataObjects.Compte.Type.Courant;
-                else if (value.Equals("Epargne"))
-                    typeCompte = DataService.BSDataObjects.Compte.Type.Epargne;
-            }
+            get { return typeCompte; }
+            set { typeCompte = value; }
         }      
 
         public DateTime DateOuvertureDebut

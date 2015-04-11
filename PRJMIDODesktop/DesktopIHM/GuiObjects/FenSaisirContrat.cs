@@ -17,6 +17,11 @@ namespace DesktopIHM.GuiObjects
     {
         private Contrat contrat = new Contrat();
 
+        public FenSaisirContrat()
+        {
+            InitializeComponent();
+        }
+
         public FenSaisirContrat(Client client)
         {
             InitializeComponent();

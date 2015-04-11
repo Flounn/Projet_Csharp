@@ -96,7 +96,7 @@
             this.txt_montant_initial.Size = new System.Drawing.Size(121, 20);
             this.txt_montant_initial.TabIndex = 5;
             // 
-            // FenSaisirCompte
+            // FenSaisirContrat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -105,8 +105,8 @@
             this.Controls.Add(this.gb_type_compte);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bt_creer);
-            this.Name = "FenSaisirCompte";
-            this.Text = "Form1";
+            this.Name = "FenSaisirContrat";
+            this.Text = "Saisir Contrat";
             this.gb_type_compte.ResumeLayout(false);
             this.gb_type_compte.PerformLayout();
             this.ResumeLayout(false);
