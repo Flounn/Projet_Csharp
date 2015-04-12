@@ -36,12 +36,12 @@ namespace DataService.DAOService
             return Connexion.getAll(tableName);
         }
 
-        public static IDataReader get(object id)
+        public static IDataReader get(long id)
         {
             return Connexion.get(tableName, champsWhere, new object[] { id });
         }
 
-        public static IDataReader get(CritereRechercheMoyenPaiement criteres)
+        private static IDataReader get(CritereRechercheMoyenPaiement criteres)
         {
             IList<string> champsWhere = new List<string>();
             IList<object> valuesWhere = new List<object>();
@@ -51,6 +51,17 @@ namespace DataService.DAOService
             Utilities.addCritere(champsWhere, valuesWhere, operators, "ID_COMPTE", criteres.IdCompte, Connexion.EGAL);
             Utilities.addCritere(champsWhere, valuesWhere, operators, "ID_MOYEN_PAIEMENT", criteres.IdMoyenPaiement, Connexion.EGAL);
             return Connexion.get(tableName, champsWhere, valuesWhere, operators);
+        }
+        public static DataTable getDataTable(CritereRechercheMoyenPaiement criteres)
+        {
+            IDataReader reader = get(criteres);
+            DataTable dt = new DataTable();
+            if (reader != null)
+            {
+                dt.Load(reader);
+                reader.Close();
+            }
+            return dt;
         }
     }
 }

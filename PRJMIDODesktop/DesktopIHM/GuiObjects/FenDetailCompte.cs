@@ -12,47 +12,43 @@ using DataService.BSService;
 
 namespace DesktopIHM.GuiObjects
 {
-    public partial class FenDetailCompte : Form
+    public partial class FenDetailCompte : Form,UpdateDataGridView
     {
         private Compte monCompte;
-        private Client monClient;
 
         public FenDetailCompte(Compte compte)
         {
             InitializeComponent();
             monCompte = compte;
-            monClient = (Client) DAOClient.get(monCompte.Client.IdClient);
-            initData();
+            if (string.IsNullOrEmpty(monCompte.Client.Email))
+                monCompte.Client = BSGestionClient.getClient(monCompte.Client.IdClient);
+            initUi();
         }
 
 
-        private void initData()
+        private void initUi()
         {
-            if (monCompte != null)
-            {
-                this.txtId.Text = monCompte.IdCompte.ToString();
-                this.txtIdClient.Text = monClient.IdClient.ToString();
-                this.txtNomClient.Text = monClient.Nom;
-                this.txtPrenomClient.Text = monClient.Prenom;
-                this.dtDateOuverture.Value = monCompte.DateOuverture;
-                this.txtMontantInitial.Text = monCompte.MontantInitial.ToString();
-                this.txtTypeCompte.Text = monCompte.TypeCompte.ToString();
+            
+            this.txtId.Text = monCompte.IdCompte.ToString();
+            this.txtIdClient.Text = monCompte.Client.IdClient.ToString();
+            this.txtNomClient.Text = monCompte.Client.Nom;
+            this.txtPrenomClient.Text = monCompte.Client.Prenom;
+            this.dtDateOuverture.Value = monCompte.DateOuverture;
+            this.txtMontantInitial.Text = monCompte.MontantInitial.ToString();
+            this.txtTypeCompte.Text = monCompte.TypeCompte.ToString();
+            initMoyensPaiement();
+        }
 
-                CritereRechercheMoyenPaiement crtRechercheMoyenPaiement = new CritereRechercheMoyenPaiement();
-                crtRechercheMoyenPaiement.IdCompte = monCompte.IdCompte;
-                DataTable dtMoyenPaiement = new DataTable();
-                //dtMoyenPaiement.Load(DAOMoyenPaiement.get(crtRechercheMoyenPaiement));
-                dgvLstMoyenPaiements.DataSource = dtMoyenPaiement;
-            }
+        private void initMoyensPaiement()
+        {
+            CritereRechercheMoyenPaiement crtRechercheMoyenPaiement = new CritereRechercheMoyenPaiement();
+            crtRechercheMoyenPaiement.IdCompte = monCompte.IdCompte;
+            dgvLstMoyenPaiements.DataSource = BSGestionClient.RechercherMoyensPaiement(crtRechercheMoyenPaiement);
         }
 
         void dgvLstComptes_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            CritereRechercheClient crtRechercheOperation = new CritereRechercheClient();
-            crtRechercheOperation.IdClient = monClient.IdClient;
-            DataTable dtCompte = new DataTable();
-            dtCompte.Load(DAOClient.get(crtRechercheOperation));
-            dgvLstMoyenPaiements.DataSource = dtCompte;
+
         }
 
         private void btSupprimer_Click(object sender, EventArgs e)
@@ -70,7 +66,17 @@ namespace DesktopIHM.GuiObjects
 
         private void btDetailClient_Click(object sender, EventArgs e)
         {
-            new FenDetailClient(monClient).Show();
+            new FenDetailClient(monCompte.Client).Show();
+        }
+
+        private void btAjouterMoyenPaiement_Click(object sender, EventArgs e)
+        {
+            new FenSaisirMoyenPaiement(monCompte,this).Show(this);
+        }
+
+        public void refresh()
+        {
+            initMoyensPaiement();
         }
     }
 }

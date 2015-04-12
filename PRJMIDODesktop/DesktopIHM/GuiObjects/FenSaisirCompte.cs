@@ -57,7 +57,7 @@ namespace DesktopIHM.GuiObjects
                 Utilities.showInfoMessage("Le compte vient d'être ajouté", "Compte ajouté");
                 //if (callback != null)
                     //callback.refresh();
-                this.Close();
+                this.vider();
             }
             else
                 Utilities.showErrorMessage("Veuillez saisir un id client valide", "Erreur");

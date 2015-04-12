@@ -8,6 +8,15 @@ namespace DataService.BSDataObjects
 {
     public class ContratCredit: Contrat
     {
+
+        private static readonly string[] valuesPeriodicite = { "Hebdomadaire", "Mensuel" };
+
+        public static string[] ValuesPeriodicite
+        {
+            get { return ContratCredit.valuesPeriodicite; }
+        } 
+
+
         private string objectifCredit;
         private DateTime dateEcheance;
         private int duree;
@@ -17,6 +26,8 @@ namespace DataService.BSDataObjects
         private decimal montantEcheance;
         private decimal tauxNominal;
         private decimal encours;
+
+        public ContratCredit() { }
 
         public ContratCredit(long idContrat, string objectifCredit,
             int duree, decimal taux, decimal montantCredit)

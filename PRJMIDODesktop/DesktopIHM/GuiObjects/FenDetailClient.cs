@@ -41,21 +41,20 @@ namespace DesktopIHM.GuiObjects
 
                 CritereRechercheContrat crtRechercheContrat = new CritereRechercheContrat();
                 crtRechercheContrat.IdClient = client.IdClient;
-                DataTable dtContrat = new DataTable();
-                dtContrat.Load(BSGestionClient.RechercherContrats(crtRechercheContrat));
-                dgvLstContrats.DataSource = dtContrat;
+                dgvLstContrats.DataSource = BSGestionClient.RechercherContrats(crtRechercheContrat);
 
+                CritereRechercheCompte crtRechercheCompte = new CritereRechercheCompte();
+                crtRechercheCompte.IdClient = client.IdClient;
+                dgvLstComptes.DataSource = BSGestionClient.RechercherComptes(crtRechercheCompte);
                 
             }
         }
 
         void dgvLstComptes_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            CritereRechercheClient crtRechercheOperation = new CritereRechercheClient();
-            crtRechercheOperation.IdClient = client.IdClient;
-            DataTable dtCompte = new DataTable();
-            dtCompte.Load(DAOClient.get(crtRechercheOperation));
-            dgvLstComptes.DataSource = dtCompte;
+            if (e.RowIndex < 0)
+                return;
+            new FenDetailCompte(getCompteSelected(e.RowIndex)).Show(this);
         }
 
         private void btModifier_Click(object sender, EventArgs e)
@@ -124,20 +123,18 @@ namespace DesktopIHM.GuiObjects
                     "Supprimer un client", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) ==
                     DialogResult.Yes)
             {
-                client.delete();
+                BSGestionClient.SupprimerClient(client);
                 MessageBox.Show("Le client vient d'être supprimé",
                     "Supprimer un client", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Dispose();
             }
         }
 
-        private void dgvLstComptes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        void dgvLstComptes_SelectionChanged(object sender, System.EventArgs e)
         {
             CritereRechercheOperation crtRechercheOperation = new CritereRechercheOperation();
-            crtRechercheOperation.IdCompte = long.Parse(dgvLstComptes.Rows[e.RowIndex].Cells[0].Value.ToString());
-            DataTable dtOperation = new DataTable();
-            dtOperation.Load(DAOOperation.get(crtRechercheOperation));
-            dgvLstOperations.DataSource = dtOperation;
+            crtRechercheOperation.IdCompte = (int)dgvLstComptes.SelectedRows[0].Cells[0].Value;
+            dgvLstOperations.DataSource = BSGestionClient.RechercherOperations(crtRechercheOperation);
         }
 
         private void bt_ajouter_compte_Click(object sender, EventArgs e)
@@ -149,12 +146,7 @@ namespace DesktopIHM.GuiObjects
 
         private class UpdateCompte : UpdateDataGridView {
             public void refresh() {
-                /*CritereRechercheCompte crtRechercheCompte = new CritereRechercheCompte();
-                //FenDetailClient.
-                crtRechercheCompte.IdClient = this.IdClient;
-                DataTable dtCompte = new DataTable();
-                dtCompte.Load(BSGestionClient.RechercherComptes(crtRechercheCompte));
-                dgvLstComptes.DataSource = dtCompte;*/
+                /**/
             }
         }
 
@@ -166,6 +158,14 @@ namespace DesktopIHM.GuiObjects
         private void btImprimer_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private Compte getCompteSelected(int index)
+        {
+            if (index<0)
+                return null;
+            return new Compte((int)dgvLstComptes.Rows[index].Cells[0].Value, (string)dgvLstComptes.Rows[index].Cells[4].Value,
+                (DateTime)dgvLstComptes.Rows[index].Cells[1].Value,(decimal)dgvLstComptes.Rows[index].Cells[2].Value, this.client);
         }
 
 

@@ -14,148 +14,202 @@ namespace DesktopIHM.GuiObjects
 {
     public partial class FenSaisirContrat : Form
     {
-        private static string[] valuesStatut = { "Choisissez", "Titulaire", "Beneficiaire" };
-        private static string[] valuesTypeEpargne = { "Choisissez", "Assurance vie", "Livret A", "Livret DD", "Epargne logement", "Epargne retraite"};
-        private static string[] valuesPeriodicite = { "Choisissez", "Hebdomadaire", "Mensuel" };
-
+        
         private Contrat contrat = new Contrat();
+        private ContratCredit contratCredit;
+        private ContratEpargne contratEpargne;
 
         public FenSaisirContrat()
         {
             InitializeComponent();
-            cbStatut.Items.AddRange(valuesStatut);
-            cbStatut.SelectedIndex = 0;
-            cbTypeEpargne.Items.AddRange(valuesTypeEpargne);
-            cbTypeEpargne.SelectedIndex = 0;
-            cbPeriodicite.Items.AddRange(valuesPeriodicite);
-            cbPeriodicite.SelectedIndex = 0;
-            dtVersement.MinDate = DateTime.Today;
-
+            initUI();
         }
 
         public FenSaisirContrat(Client client, Compte compte)
         {
             InitializeComponent();
-            contrat.Client = client;
-            cbStatut.Items.AddRange(valuesStatut);
-            cbStatut.SelectedIndex = 0;
-            cbTypeEpargne.Items.AddRange(valuesTypeEpargne);
-            cbTypeEpargne.SelectedIndex = 0;
-            cbPeriodicite.Items.AddRange(valuesPeriodicite);
-            cbPeriodicite.SelectedIndex = 0;
-            contrat = new Contrat();
-            dtVersement.MinDate = DateTime.Today;
             contrat.Compte = compte;
             contrat.Client = client;
+            initUI();
+            txtIdClient.Text = client.IdClient.ToString();
+            txtIdCompte.Text = compte.IdCompte.ToString();
         }
 
         public FenSaisirContrat(Client client)
         {
             InitializeComponent();
             contrat.Client = client;
-            cbStatut.Items.AddRange(valuesStatut);
+            initUI();
+            txtIdClient.Text = client.IdClient.ToString();
+        }
+
+        private void initUI()
+        {
+            cbStatut.Items.Add("Choisissez");
+            cbTypeEpargne.Items.Add("Choisissez");
+            cbPeriodicite.Items.Add("Choisissez");
+            cbStatut.Items.AddRange(Contrat.getStatutJuridique());
             cbStatut.SelectedIndex = 0;
-            cbTypeEpargne.Items.AddRange(valuesTypeEpargne);
+            cbTypeEpargne.Items.AddRange(ContratEpargne.ValuesTypeEpargne);
             cbTypeEpargne.SelectedIndex = 0;
-            cbPeriodicite.Items.AddRange(valuesPeriodicite);
+            cbPeriodicite.Items.AddRange(ContratCredit.ValuesPeriodicite);
             cbPeriodicite.SelectedIndex = 0;
-            contrat = new Contrat();
             dtVersement.MinDate = DateTime.Today;
-            contrat.Client = client;
+            rbTypeContrat_Checked(rbCredit, null);
         }
 
         private void bt_creer_Click(object sender, EventArgs e)
         {
-            if (cbStatut.SelectedIndex == 0 || !string.IsNullOrEmpty(txtIntitule.Text))
-            {
-                MessageBox.Show("Tous les champs concernant le contrat doivent être renseignés!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if(contrat.Compte == null)
-            {
-                contrat.Compte = new Compte();
-                try{
-                    contrat.Compte.IdCompte = int.Parse(txtIdCompte.Text);
-                } catch (Exception) {
-                    MessageBox.Show("Le ID Compte n'a pas été saisies correctement", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                    
-            }
-            if(contrat.Client == null)
-            {
-                contrat.Client = new Client();
-                try{
-                    contrat.Client.IdClient = int.Parse(txtIdClient.Text);
-                } catch (Exception) {
-                    MessageBox.Show("Le ID Client n'a pas été saisies correctement", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            if (rbCredit.Checked == true)
-            {
-                if (!string.IsNullOrEmpty(txtObjet.SelectedText)
-                    || !string.IsNullOrEmpty(txtDuree.Text)
-                    || !string.IsNullOrEmpty(txtTaux.Text)
-                    || !string.IsNullOrEmpty(txtCreditMontant.Text))
-                {
-                    MessageBox.Show("Tous les champs concernant le contrat de crédit doivent être renseignés!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
 
-                try
-                {
-                    int.Parse(txtDuree.Text);
-                    decimal.Parse(txtTaux.Text);
-                    decimal.Parse(txtCreditMontant.Text);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Les données concernant le contrat crédit n'ont pas été saisies correctement", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }                
-
-                contrat = new Contrat(txtIntitule.Text, contrat.Client, contrat.Compte, cbStatut.SelectedText, "Credit");
-                contrat.persist();
-                contrat.IdContrat = DAOGenerique.lastId();
-                ContratCredit ctrCredit = new ContratCredit(contrat.IdContrat, txtObjet.Text, int.Parse(txtDuree.Text), decimal.Parse(txtTaux.Text), decimal.Parse(txtCreditMontant.Text));
-                //ctrCredit.persist();
-                //MessageBox.Show("Le contrat a été ajouté à la base", "Ajout Contrat", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Dispose();
+            if (string.IsNullOrEmpty(txtIntitule.Text))
+            {
+                Utilities.showErrorMessage("Veuillez renseigner l'intitulé du contrat", "Erreur");
                 return;
             }
 
-            if (rbEpargne.Checked == true)
+            if (cbStatut.SelectedIndex < 1)
             {
-                if (!string.IsNullOrEmpty(txtEpargneMontant.Text) || cbPeriodicite.SelectedIndex == 0
-                    || cbTypeEpargne.SelectedIndex ==0 || cbPeriodicite.SelectedIndex ==0)
-                {
-                    MessageBox.Show("Tous les champs concernant le contrat d'épargne doivent être renseignés", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                try
-                {
-                    decimal.Parse(txtEpargneMontant.Text);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Le montant de versement pour le contrat d'épargne n'a pas été saisi correctement", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                contrat = new Contrat(txtIntitule.Text, contrat.Client, contrat.Compte, cbStatut.SelectedText, "Epargne");
-                contrat.persist();
-                contrat.IdContrat = DAOGenerique.lastId();
-                string per;
-                if(rbPeriodique.Checked == true){
-                    per = rbPeriodique.Text;
-                } else {
-                    per = rbPonctuel.Text;
-                }
-                ContratEpargne ctrEpargne = new ContratEpargne(cbTypeEpargne.SelectedText, per, cbPeriodicite.SelectedText, dtVersement.Value, decimal.Parse(txtEpargneMontant.Text));
-                //ctrEpargne.persist();
-                //MessageBox.Show("Le contrat a été ajouté à la base", "Ajout moyen paiement", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Dispose();
+                Utilities.showErrorMessage("Veuillez renseigner le statut du souscripteur", "Erreur");
                 return;
+            }
+
+            contrat.Client = new Client();
+            try
+            {
+                contrat.Client.IdClient = int.Parse(txtIdClient.Text);
+            }
+            catch (Exception)
+            {
+                Utilities.showErrorMessage("L'ID Client n'a pas été saisies correctement", "Erreur");
+                return;
+            }
+
+            contrat.Compte = new Compte();
+            try{
+                contrat.Compte.IdCompte = int.Parse(txtIdCompte.Text);
+            } catch (Exception) {
+                Utilities.showErrorMessage("L'ID Compte n'a pas été saisie correctement", "Erreur");
+                return;
+            }
+
+            if (rbCredit.Checked)
+                creerContratCredit();
+            else
+                creerContratEpargne();
+
+            
+        }
+
+        private void creerContratEpargne()
+        {
+            if (!rbEpargne.Checked)
+                return;
+
+            if (cbTypeEpargne.SelectedIndex <1){
+                MessageBox.Show("Veuillez saisir le type de l'épargne", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (cbPeriodicite.SelectedIndex<1 && rbPeriodique.Checked)
+            {
+                MessageBox.Show("Veuillez saisir la périodicité du virement", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            contratEpargne = new ContratEpargne();
+            try
+            {
+                contratEpargne.MontantEpargne=  decimal.Parse(txtEpargneMontant.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Le montant de versement pour le contrat d'épargne n'a pas été saisi correctement", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            creerContrat();
+
+            string per;
+            if (rbPeriodique.Checked == true)
+            {
+                per = rbPeriodique.Text;
+            }
+            else
+            {
+                per = rbPonctuel.Text;
+            }
+            ContratEpargne ctrEpargne = new ContratEpargne(cbTypeEpargne.SelectedText, per, cbPeriodicite.SelectedText, dtVersement.Value, decimal.Parse(txtEpargneMontant.Text));
+            //ctrEpargne.persist();
+            //MessageBox.Show("Le contrat a été ajouté à la base", "Ajout moyen paiement", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Dispose();
+            
+        }
+
+        private void creerContratCredit()
+        {
+            if (rbCredit.Checked == false)
+                return;
+
+            if (string.IsNullOrEmpty(txtObjet.Text))
+            {
+                MessageBox.Show("Veuillez saisir l'objet du crédit", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            contratCredit = new ContratCredit();
+            try
+            {
+                contratCredit.Duree = int.Parse(txtDuree.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("La durée du contrat de crédit n'a pas été saisie correctement", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            try
+            {
+                contratCredit.Taux = decimal.Parse(txtTaux.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Le taux de contrat de crédit n'a pas été saisie correctement", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            try
+            {
+                contratCredit.MontantCredit = decimal.Parse(txtCreditMontant.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Le montant du contrat de crédit n'a pas été saisie correctement", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            creerContrat();
+            ContratCredit ctrCredit = new ContratCredit(contrat.IdContrat, txtObjet.Text, int.Parse(txtDuree.Text), decimal.Parse(txtTaux.Text), decimal.Parse(txtCreditMontant.Text));
+            //ctrCredit.persist();
+            //MessageBox.Show("Le contrat a été ajouté à la base", "Ajout Contrat", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Dispose();
+            
+        }
+
+        private void creerContrat()
+        {
+            contrat.Intitule = txtIntitule.Text;
+            contrat.StatutJuridiqueStr = (string)cbStatut.SelectedItem;
+            contrat.Type = Contrat.TypeContrat.Epargne;
+            /*contrat.persist();
+            contrat.IdContrat = DAOGenerique.lastId();*/
+        }
+
+        private void rbTypeContrat_Checked(object sender, EventArgs e)
+        {
+            if (((RadioButton)sender).Checked)
+            {
+                gb_credit.Visible = true;
+                gb_epargne.Visible = false;
+            }
+            else
+            {
+                gb_credit.Visible = false;
+                gb_epargne.Visible = true;
             }
         }
 

@@ -200,9 +200,9 @@
             this.lbDtOuverture.AutoSize = true;
             this.lbDtOuverture.Location = new System.Drawing.Point(235, 54);
             this.lbDtOuverture.Name = "lbDtOuverture";
-            this.lbDtOuverture.Size = new System.Drawing.Size(91, 13);
+            this.lbDtOuverture.Size = new System.Drawing.Size(80, 13);
             this.lbDtOuverture.TabIndex = 2;
-            this.lbDtOuverture.Text = "Date Souscription";
+            this.lbDtOuverture.Text = "Date Ouverture";
             // 
             // lbNomClient
             // 
@@ -226,8 +226,8 @@
             // 
             this.dgvLstMoyenPaiements.AllowUserToAddRows = false;
             this.dgvLstMoyenPaiements.AllowUserToDeleteRows = false;
-            this.dgvLstMoyenPaiements.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvLstMoyenPaiements.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvLstMoyenPaiements.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvLstMoyenPaiements.Location = new System.Drawing.Point(6, 17);
             this.dgvLstMoyenPaiements.MultiSelect = false;
@@ -239,8 +239,8 @@
             // 
             // gbListeMoyensPaiement
             // 
-            this.gbListeMoyensPaiement.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbListeMoyensPaiement.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbListeMoyensPaiement.Controls.Add(this.dgvLstMoyenPaiements);
             this.gbListeMoyensPaiement.Location = new System.Drawing.Point(4, 180);
             this.gbListeMoyensPaiement.Name = "gbListeMoyensPaiement";
@@ -257,6 +257,7 @@
             this.btAjouterMoyenPaiement.TabIndex = 20;
             this.btAjouterMoyenPaiement.Text = "Ajouter Moyen Paiement";
             this.btAjouterMoyenPaiement.UseVisualStyleBackColor = true;
+            this.btAjouterMoyenPaiement.Click += new System.EventHandler(this.btAjouterMoyenPaiement_Click);
             // 
             // FenDetailCompte
             // 

@@ -7,29 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using DataService.BSService;
+using DataService.BSDataObjects;
 
 namespace DesktopIHM.GuiObjects
 {
-    public partial class FenRechercheTypeCarte : Form
+    public partial class FenRechercheTypeCarte : Form, UpdateDataGridView
     {
-        private static string[] valuesReseau = { "Choisissez", "Visa", "MasterCard" };
 
-        FenSaisirMoyenPaiement fenSaisirMoyenPaiement = null;
-        CritereRechercheTypeCarte crtRechercheTypeCarte;
+        private FenSaisirMoyenPaiement fenSaisirMoyenPaiement;
+        private CritereRechercheTypeCarte crtRechercheTypeCarte = new CritereRechercheTypeCarte();
 
         public FenRechercheTypeCarte(FenSaisirMoyenPaiement fenSaisirMoyenPaiement)
         {
             InitializeComponent();
             this.fenSaisirMoyenPaiement = fenSaisirMoyenPaiement;
-            cbReseau.Items.AddRange(valuesReseau);
-            cbReseau.SelectedIndex = 1;
+            cbReseau.Items.Add("Choisissez");
+            cbReseau.Items.AddRange(TypeCarte.getReseauCarteBancaire());
+            cbReseau.SelectedIndex = 0;
+            initData();
         }
 
         private bool initCritereRecherche()
         {
             crtRechercheTypeCarte = new CritereRechercheTypeCarte();
-            if (cbReseau.SelectedIndex != 0 && cbReseau.SelectedIndex != -1)
-                crtRechercheTypeCarte.ReseauCarte = cbReseau.SelectedText;
+            if (cbReseau.SelectedIndex >0)
+                crtRechercheTypeCarte.ReseauCarte = (string)cbReseau.SelectedItem;
             
             if (!string.IsNullOrEmpty(txtPlfGloPaiement.Text))
                 try{
@@ -82,9 +84,7 @@ namespace DesktopIHM.GuiObjects
 
         private void initData()
         {
-            DataTable dTypeCarte = new DataTable();
-            dTypeCarte.Load(BSGestionClient.RechercherTypeCarte(crtRechercheTypeCarte));
-            dgvLstTypeCarte.DataSource = dTypeCarte;
+            dgvLstTypeCarte.DataSource = BSGestionClient.RechercherTypeCarte(crtRechercheTypeCarte);
             
         }
 
@@ -115,8 +115,9 @@ namespace DesktopIHM.GuiObjects
             new FenSaisirTypeCarte(this).Show();
         }
 
-
-        
-
+        public void refresh()
+        {
+            initData();
+        }
     }
 }

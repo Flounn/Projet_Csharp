@@ -261,3 +261,48 @@ alter table OPERATION add constraint FK_REFERENCE_18 foreign key (ID_COMPTE)
 
 alter table OPERATION add constraint FK_REFERENCE_8 foreign key (ID_MOYEN_PAIEMENT)
       references MOYEN_PAIEMENT (ID_MOYEN_PAIEMENT) on delete restrict on update restrict;
+
+
+drop procedure if exists addCarte;
+CREATE PROCEDURE addCarte (IN ID_COMPTE int,IN LIBELLE_MOYEN_PAIEMENT VARCHAR(30), IN DT_DEB_VALIDITE date
+							,IN DT_FIN_VALIDITE date,IN ID_TYPE_CARTE int
+							, NUMERO_CARTE varchar(30),OUT error varchar(50))
+main:BEGIN
+
+if LIBELLE_MOYEN_PAIEMENT is null then
+	set error='Le moyen de paiement est null';
+	leave main;
+end if;
+if ID_COMPTE is null or ID_COMPTE = 0 then
+	set error='Le compte est null';
+	leave main;
+end if;
+
+INSERT INTO MOYEN_PAIEMENT (ID_COMPTE,LIBELLE_MOYEN_PAIEMENT) values(ID_COMPTE,LIBELLE_MOYEN_PAIEMENT);
+set @id = LAST_INSERT_ID();
+INSERT INTO CARTE_BANCAIRE values(@id,DT_DEB_VALIDITE,DT_FIN_VALIDITE,ID_TYPE_CARTE,NUMERO_CARTE);
+
+leave main;
+END;
+
+drop procedure if exists addChequier;
+CREATE PROCEDURE addChequier (IN ID_COMPTE int,IN LIBELLE_MOYEN_PAIEMENT VARCHAR(30)
+							,IN NOMBRE_CHQ int,IN NUMERO_1_CHQ varchar(30)
+							,IN NUMERO_D_CHQ varchar(30),OUT error varchar(50))
+main:BEGIN
+
+if LIBELLE_MOYEN_PAIEMENT is null then
+	set error='Le moyen de paiement est null';
+	leave main;
+end if;
+if ID_COMPTE is null or ID_COMPTE = 0 then
+	set error='Le compte est null';
+	leave main;
+end if;
+
+INSERT INTO MOYEN_PAIEMENT (ID_COMPTE,LIBELLE_MOYEN_PAIEMENT) values(ID_COMPTE,LIBELLE_MOYEN_PAIEMENT);
+set @id = LAST_INSERT_ID();
+INSERT INTO CHEQUIER values(@id,NOMBRE_CHQ,NUMERO_1_CHQ,NUMERO_D_CHQ);
+
+leave main;
+END;

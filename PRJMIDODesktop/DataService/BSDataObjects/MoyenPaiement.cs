@@ -6,10 +6,13 @@ using DataService.DAOService;
 
 namespace DataService.BSDataObjects
 {
-    public enum TypeMoyenPaiement { Carte, Chequier };
+    
    
     public class MoyenPaiement
     {
+
+        public enum TypeMoyenPaiement { Carte, Chequier };
+
         public static string[] getTypesMoyenPaiement()
         {
             return Enum.GetNames(typeof(TypeMoyenPaiement));

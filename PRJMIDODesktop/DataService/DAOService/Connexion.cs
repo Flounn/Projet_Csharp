@@ -198,8 +198,10 @@ namespace DataService.DAOService
 
         public static IDataReader get(string table_name, string[] champsWhere, object[] valuesWhere, string[] operators)
         {
-            if (string.IsNullOrEmpty(table_name) || champsWhere.Length != valuesWhere.Length || champsWhere.Length == 0 || operators.Length != champsWhere.Length)
+            if (string.IsNullOrEmpty(table_name) || champsWhere.Length != valuesWhere.Length || operators.Length != champsWhere.Length)
                 return null;
+            if (champsWhere.Length == 0)
+                return getAll(table_name);
             StringBuilder commandText = new StringBuilder("SELECT * FROM " + table_name.ToUpper() + " WHERE " + champsWhere[0] + operators[0]+ "@0");
             MySqlCommand cmd = new MySqlCommand();
             cmd.Parameters.AddWithValue("@0", operators[0].Equals(LIKE) ? "%" + valuesWhere[0] + "%" : valuesWhere[0]);
@@ -226,15 +228,21 @@ namespace DataService.DAOService
             return reader;
         }
 
-        public static long getLastId()
+        public static bool callProcedureNonQuery(string procedure_name,string[] parametersInNames, object[] parametersIn)
         {
-            StringBuilder commandText = new StringBuilder("SELECT LAST_INSERT_ID()");
-            MySqlCommand cmd = new MySqlCommand();
-            cmd.CommandText = commandText.ToString();
+            if (parametersInNames.Length != parametersIn.Length)
+                return false;
+            MySqlCommand cmd = new MySqlCommand(procedure_name);
+            cmd.CommandType=CommandType.StoredProcedure;
+            int nbParametersIn = parametersInNames.Length;
+            for (int i = 0; i < nbParametersIn; i++)
+                cmd.Parameters.AddWithValue(parametersInNames[i], parametersIn[i]);
+
+            cmd.Parameters.AddWithValue("error",null).Direction = ParameterDirection.Output;
             cmd.Connection = singleton.Connection();
-            long id = (long)cmd.ExecuteScalar();
+            int nbMaj = cmd.ExecuteNonQuery();
             cmd.Connection.Close();
-            return id;
+            return nbMaj>0;
         }
 
     }

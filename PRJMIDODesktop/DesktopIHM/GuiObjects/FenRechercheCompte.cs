@@ -13,7 +13,7 @@ namespace DesktopIHM.GuiObjects
 {
     public partial class FenRechercheCompte : Form
     {
-        private CritereRechercheCompte crtRechercheCompte = null;
+        private CritereRechercheCompte crtRechercheCompte = new CritereRechercheCompte();
         private static string[] valuesDateOuverture = new string[] { "Choisissez", "Le", "Après le", "Avant le", "Entre le" };
         
         public FenRechercheCompte()
@@ -24,6 +24,7 @@ namespace DesktopIHM.GuiObjects
             cb_type.Items.AddRange(Compte.getTypes());
             cbDateOuverture.SelectedIndex = 0;
             cb_type.SelectedIndex = 0;
+            InitData();
         }
         
         private bool initCritereRecherche()
@@ -77,20 +78,18 @@ namespace DesktopIHM.GuiObjects
 
         private void InitData()
         {
-            DataTable dtt = new DataTable();
-            dtt.Load(BSGestionClient.RechercherComptes(crtRechercheCompte));
-            dgwLstCompte.DataSource = dtt;
+            dgwLstCompte.DataSource = BSGestionClient.RechercherComptes(crtRechercheCompte);
         }
 
         private void btRechercher_Click(object sender, EventArgs e)
         {
 
-            if (cbDateOuverture.SelectedIndex <1 && string.IsNullOrEmpty(txtIdClient.Text)
+            /*if (cbDateOuverture.SelectedIndex <1 && string.IsNullOrEmpty(txtIdClient.Text)
                    && string.IsNullOrEmpty(txtIdCompte.Text) && cb_type.SelectedIndex<1)
             {
                 Utilities.showErrorMessage("Veuillez saisir un des critères", "Erreur");
                 return;
-            }
+            }*/
            
             if (initCritereRecherche())
                 InitData();
@@ -124,6 +123,22 @@ namespace DesktopIHM.GuiObjects
             txtIdCompte.Text = string.Empty;
             cbDateOuverture.SelectedIndex = 0;
             cb_type.SelectedIndex = 0;
+        }
+
+        private void dgwLstCompte_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            new FenDetailCompte(getCompteSelected(e.RowIndex)).Show(this);
+        }
+
+        private Compte getCompteSelected(int index)
+        {
+            if (index < 0)
+                return null;
+            return new Compte((int)dgwLstCompte.Rows[index].Cells[0].Value, (string)dgwLstCompte.Rows[index].Cells[4].Value,
+                (DateTime)dgwLstCompte.Rows[index].Cells[1].Value, (decimal)dgwLstCompte.Rows[index].Cells[2].Value
+                , (int)dgwLstCompte.Rows[index].Cells[3].Value);
         }
     }
 }

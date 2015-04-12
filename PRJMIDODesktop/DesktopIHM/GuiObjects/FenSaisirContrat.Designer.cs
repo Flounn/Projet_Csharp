@@ -36,7 +36,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtIdClient = new System.Windows.Forms.TextBox();
             this.txtIdCompte = new System.Windows.Forms.TextBox();
-            this.é = new System.Windows.Forms.GroupBox();
+            this.gb_credit = new System.Windows.Forms.GroupBox();
+            this.txtDuree = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.txtTaux = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtCreditMontant = new System.Windows.Forms.TextBox();
@@ -55,15 +57,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cbTypeEpargne = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtDuree = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.gbContrat = new System.Windows.Forms.GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.cbStatut = new System.Windows.Forms.ComboBox();
             this.txtIntitule = new System.Windows.Forms.TextBox();
             this.lbIntitule = new System.Windows.Forms.Label();
-            this.cbStatut = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.gb_type_compte.SuspendLayout();
-            this.é.SuspendLayout();
+            this.gb_credit.SuspendLayout();
             this.gb_epargne.SuspendLayout();
             this.gbVersement.SuspendLayout();
             this.gbContrat.SuspendLayout();
@@ -100,6 +100,7 @@
             this.rbCredit.TabStop = true;
             this.rbCredit.Text = "Credit";
             this.rbCredit.UseVisualStyleBackColor = true;
+            this.rbCredit.CheckedChanged += new System.EventHandler(this.rbTypeContrat_Checked);
             // 
             // gb_type_compte
             // 
@@ -144,22 +145,38 @@
             this.txtIdCompte.Size = new System.Drawing.Size(133, 20);
             this.txtIdCompte.TabIndex = 9;
             // 
-            // é
+            // gb_credit
             // 
-            this.é.Controls.Add(this.txtDuree);
-            this.é.Controls.Add(this.label8);
-            this.é.Controls.Add(this.txtTaux);
-            this.é.Controls.Add(this.label10);
-            this.é.Controls.Add(this.txtCreditMontant);
-            this.é.Controls.Add(this.label9);
-            this.é.Controls.Add(this.txtObjet);
-            this.é.Controls.Add(this.label7);
-            this.é.Location = new System.Drawing.Point(33, 146);
-            this.é.Name = "é";
-            this.é.Size = new System.Drawing.Size(223, 216);
-            this.é.TabIndex = 10;
-            this.é.TabStop = false;
-            this.é.Text = "Contrat : Crédit";
+            this.gb_credit.Controls.Add(this.txtDuree);
+            this.gb_credit.Controls.Add(this.label8);
+            this.gb_credit.Controls.Add(this.txtTaux);
+            this.gb_credit.Controls.Add(this.label10);
+            this.gb_credit.Controls.Add(this.txtCreditMontant);
+            this.gb_credit.Controls.Add(this.label9);
+            this.gb_credit.Controls.Add(this.txtObjet);
+            this.gb_credit.Controls.Add(this.label7);
+            this.gb_credit.Location = new System.Drawing.Point(33, 146);
+            this.gb_credit.Name = "gb_credit";
+            this.gb_credit.Size = new System.Drawing.Size(223, 216);
+            this.gb_credit.TabIndex = 10;
+            this.gb_credit.TabStop = false;
+            this.gb_credit.Text = "Contrat : Crédit";
+            // 
+            // txtDuree
+            // 
+            this.txtDuree.Location = new System.Drawing.Point(74, 64);
+            this.txtDuree.Name = "txtDuree";
+            this.txtDuree.Size = new System.Drawing.Size(133, 20);
+            this.txtDuree.TabIndex = 19;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(17, 67);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(42, 13);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "Durée :";
             // 
             // txtTaux
             // 
@@ -329,22 +346,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Type :";
             // 
-            // txtDuree
-            // 
-            this.txtDuree.Location = new System.Drawing.Point(74, 64);
-            this.txtDuree.Name = "txtDuree";
-            this.txtDuree.Size = new System.Drawing.Size(133, 20);
-            this.txtDuree.TabIndex = 19;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(17, 67);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(42, 13);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "Durée :";
-            // 
             // gbContrat
             // 
             this.gbContrat.Controls.Add(this.cbStatut);
@@ -358,14 +359,13 @@
             this.gbContrat.TabStop = false;
             this.gbContrat.Text = "Généralités";
             // 
-            // label12
+            // cbStatut
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(22, 70);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(41, 13);
-            this.label12.TabIndex = 22;
-            this.label12.Text = "Statut :";
+            this.cbStatut.FormattingEnabled = true;
+            this.cbStatut.Location = new System.Drawing.Point(91, 68);
+            this.cbStatut.Name = "cbStatut";
+            this.cbStatut.Size = new System.Drawing.Size(136, 21);
+            this.cbStatut.TabIndex = 25;
             // 
             // txtIntitule
             // 
@@ -383,13 +383,14 @@
             this.lbIntitule.TabIndex = 21;
             this.lbIntitule.Text = "Intitulé :";
             // 
-            // cbStatut
+            // label12
             // 
-            this.cbStatut.FormattingEnabled = true;
-            this.cbStatut.Location = new System.Drawing.Point(91, 68);
-            this.cbStatut.Name = "cbStatut";
-            this.cbStatut.Size = new System.Drawing.Size(136, 21);
-            this.cbStatut.TabIndex = 25;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(22, 70);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(41, 13);
+            this.label12.TabIndex = 22;
+            this.label12.Text = "Statut :";
             // 
             // FenSaisirContrat
             // 
@@ -398,7 +399,7 @@
             this.ClientSize = new System.Drawing.Size(514, 406);
             this.Controls.Add(this.gbContrat);
             this.Controls.Add(this.gb_epargne);
-            this.Controls.Add(this.é);
+            this.Controls.Add(this.gb_credit);
             this.Controls.Add(this.txtIdCompte);
             this.Controls.Add(this.txtIdClient);
             this.Controls.Add(this.label3);
@@ -409,8 +410,8 @@
             this.Text = "Saisir Contrat";
             this.gb_type_compte.ResumeLayout(false);
             this.gb_type_compte.PerformLayout();
-            this.é.ResumeLayout(false);
-            this.é.PerformLayout();
+            this.gb_credit.ResumeLayout(false);
+            this.gb_credit.PerformLayout();
             this.gb_epargne.ResumeLayout(false);
             this.gb_epargne.PerformLayout();
             this.gbVersement.ResumeLayout(false);
@@ -432,7 +433,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtIdClient;
         private System.Windows.Forms.TextBox txtIdCompte;
-        private System.Windows.Forms.GroupBox é;
+        private System.Windows.Forms.GroupBox gb_credit;
         private System.Windows.Forms.GroupBox gb_epargne;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbTypeEpargne;

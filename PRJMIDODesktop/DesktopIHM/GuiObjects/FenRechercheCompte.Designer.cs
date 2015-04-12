@@ -47,7 +47,7 @@
             // lbIdClient
             // 
             this.lbIdClient.AutoSize = true;
-            this.lbIdClient.Location = new System.Drawing.Point(258, 29);
+            this.lbIdClient.Location = new System.Drawing.Point(316, 29);
             this.lbIdClient.Name = "lbIdClient";
             this.lbIdClient.Size = new System.Drawing.Size(47, 13);
             this.lbIdClient.TabIndex = 0;
@@ -56,7 +56,7 @@
             // lbDateSouscription
             // 
             this.lbDateSouscription.AutoSize = true;
-            this.lbDateSouscription.Location = new System.Drawing.Point(258, 70);
+            this.lbDateSouscription.Location = new System.Drawing.Point(316, 70);
             this.lbDateSouscription.Name = "lbDateSouscription";
             this.lbDateSouscription.Size = new System.Drawing.Size(80, 13);
             this.lbDateSouscription.TabIndex = 2;
@@ -65,7 +65,7 @@
             // lbIntitule
             // 
             this.lbIntitule.AutoSize = true;
-            this.lbIntitule.Location = new System.Drawing.Point(34, 69);
+            this.lbIntitule.Location = new System.Drawing.Point(49, 69);
             this.lbIntitule.Name = "lbIntitule";
             this.lbIntitule.Size = new System.Drawing.Size(31, 13);
             this.lbIntitule.TabIndex = 3;
@@ -75,7 +75,7 @@
             // 
             this.dtDateOuvertureDebut.Enabled = false;
             this.dtDateOuvertureDebut.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDateOuvertureDebut.Location = new System.Drawing.Point(436, 66);
+            this.dtDateOuvertureDebut.Location = new System.Drawing.Point(494, 66);
             this.dtDateOuvertureDebut.Name = "dtDateOuvertureDebut";
             this.dtDateOuvertureDebut.Size = new System.Drawing.Size(86, 20);
             this.dtDateOuvertureDebut.TabIndex = 4;
@@ -83,7 +83,7 @@
             // 
             // txtIdClient
             // 
-            this.txtIdClient.Location = new System.Drawing.Point(344, 26);
+            this.txtIdClient.Location = new System.Drawing.Point(402, 26);
             this.txtIdClient.Name = "txtIdClient";
             this.txtIdClient.Size = new System.Drawing.Size(178, 20);
             this.txtIdClient.TabIndex = 6;
@@ -92,20 +92,21 @@
             // 
             this.dgwLstCompte.AllowUserToAddRows = false;
             this.dgwLstCompte.AllowUserToDeleteRows = false;
-            this.dgwLstCompte.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgwLstCompte.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgwLstCompte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwLstCompte.Location = new System.Drawing.Point(37, 167);
             this.dgwLstCompte.MultiSelect = false;
             this.dgwLstCompte.Name = "dgwLstCompte";
             this.dgwLstCompte.ReadOnly = true;
-            this.dgwLstCompte.Size = new System.Drawing.Size(485, 233);
+            this.dgwLstCompte.Size = new System.Drawing.Size(556, 233);
             this.dgwLstCompte.TabIndex = 9;
+            this.dgwLstCompte.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwLstCompte_CellDoubleClick);
             // 
             // btRechercher
             // 
-            this.btRechercher.Location = new System.Drawing.Point(258, 119);
+            this.btRechercher.Location = new System.Drawing.Point(316, 119);
             this.btRechercher.Name = "btRechercher";
             this.btRechercher.Size = new System.Drawing.Size(264, 21);
             this.btRechercher.TabIndex = 10;
@@ -117,7 +118,7 @@
             // 
             this.dtDateOuvertureFin.Enabled = false;
             this.dtDateOuvertureFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDateOuvertureFin.Location = new System.Drawing.Point(436, 86);
+            this.dtDateOuvertureFin.Location = new System.Drawing.Point(494, 86);
             this.dtDateOuvertureFin.Name = "dtDateOuvertureFin";
             this.dtDateOuvertureFin.Size = new System.Drawing.Size(86, 20);
             this.dtDateOuvertureFin.TabIndex = 11;
@@ -127,7 +128,7 @@
             // cbDateOuverture
             // 
             this.cbDateOuverture.FormattingEnabled = true;
-            this.cbDateOuverture.Location = new System.Drawing.Point(344, 66);
+            this.cbDateOuverture.Location = new System.Drawing.Point(402, 66);
             this.cbDateOuverture.Name = "cbDateOuverture";
             this.cbDateOuverture.Size = new System.Drawing.Size(86, 21);
             this.cbDateOuverture.TabIndex = 12;
@@ -135,7 +136,7 @@
             // 
             // txtIdCompte
             // 
-            this.txtIdCompte.Location = new System.Drawing.Point(97, 26);
+            this.txtIdCompte.Location = new System.Drawing.Point(112, 26);
             this.txtIdCompte.Name = "txtIdCompte";
             this.txtIdCompte.Size = new System.Drawing.Size(135, 20);
             this.txtIdCompte.TabIndex = 14;
@@ -143,7 +144,7 @@
             // IdCompte
             // 
             this.IdCompte.AutoSize = true;
-            this.IdCompte.Location = new System.Drawing.Point(34, 29);
+            this.IdCompte.Location = new System.Drawing.Point(49, 29);
             this.IdCompte.Name = "IdCompte";
             this.IdCompte.Size = new System.Drawing.Size(57, 13);
             this.IdCompte.TabIndex = 13;
@@ -152,14 +153,14 @@
             // cb_type
             // 
             this.cb_type.FormattingEnabled = true;
-            this.cb_type.Location = new System.Drawing.Point(97, 66);
+            this.cb_type.Location = new System.Drawing.Point(112, 66);
             this.cb_type.Name = "cb_type";
             this.cb_type.Size = new System.Drawing.Size(135, 21);
             this.cb_type.TabIndex = 18;
             // 
             // btVider
             // 
-            this.btVider.Location = new System.Drawing.Point(37, 119);
+            this.btVider.Location = new System.Drawing.Point(52, 119);
             this.btVider.Name = "btVider";
             this.btVider.Size = new System.Drawing.Size(128, 21);
             this.btVider.TabIndex = 20;
@@ -171,7 +172,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(565, 429);
+            this.ClientSize = new System.Drawing.Size(636, 429);
             this.Controls.Add(this.btVider);
             this.Controls.Add(this.cb_type);
             this.Controls.Add(this.txtIdCompte);

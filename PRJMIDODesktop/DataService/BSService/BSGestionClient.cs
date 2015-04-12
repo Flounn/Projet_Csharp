@@ -11,29 +11,39 @@ namespace DataService.BSService
     public static class BSGestionClient
     {
 
-        public static IDataReader RechercherClients(CritereRechercheClient criteres)
+        public static DataTable RechercherClients(CritereRechercheClient criteres)
         {
-            return DAOClient.get(criteres);
+            return DAOClient.getDataTable(criteres);
         }
 
-        public static IDataReader RechercherComptes(CritereRechercheCompte criteres)
+        public static DataTable RechercherComptes(CritereRechercheCompte criteres)
         {
-            return DAOCompte.get(criteres);
+            return DAOCompte.getDataTable(criteres);
         }
 
-        public static IDataReader RechercherOperations(CritereRechercheOperation criteres)
+        public static DataTable RechercherOperations(CritereRechercheOperation criteres)
         {
-            return DAOOperation.get(criteres);
+            return DAOOperation.getDataTable(criteres);
         }
 
-        public static IDataReader RechercherContrats(CritereRechercheContrat criteres)
+        public static DataTable RechercherContrats(CritereRechercheContrat criteres)
         {
-            return DAOContrat.get(criteres);
+            return DAOContrat.getDataTable(criteres);
         }
 
+        public static DataTable RechercherMoyensPaiement(CritereRechercheMoyenPaiement criteres)
+        {
+            return DAOMoyenPaiement.getDataTable(criteres);
+        }
+        
         public static bool CreerModifierClient(Client client)
         {
             return client.persist();
+        }
+
+        public static bool SupprimerClient(Client client)
+        {
+            return client.delete();
         }
 
         public static bool CreerModifierCompte(Compte compte)
@@ -41,9 +51,19 @@ namespace DataService.BSService
             return compte.persist();
         }
 
+        public static bool SupprimerCompte(Compte compte)
+        {
+            return compte.delete();
+        }
+
         public static bool CreerModifierOperation(Operation operation)
         {
             return operation.persist();
+        }
+
+        public static bool SupprimerOperation(Operation operation)
+        {
+            return operation.delete();
         }
 
         public static bool CreerModifierContrat(Contrat contrat)
@@ -51,14 +71,59 @@ namespace DataService.BSService
             return contrat.persist();
         }
 
+        public static bool SupprimerContrat(Contrat contrat)
+        {
+            return contrat.delete();
+        }
+
         public static bool InsertTypeCarte(TypeCarte typeCarte)
         {
             return typeCarte.persist();
         }
 
-        public static IDataReader RechercherTypeCarte(CritereRechercheTypeCarte criteres)
+        public static DataTable RechercherTypeCarte(CritereRechercheTypeCarte criteres)
         {
-            return DAOTypeCarte.get(criteres);
+            return DAOTypeCarte.getDataTable(criteres);
+        }
+
+        public static bool creerModifierCarte(Carte carte)
+        {
+            return carte.persist();
+        }
+
+        public static bool creerModifierChequier(Chequier chequier)
+        {
+            return chequier.persist();
+        }
+
+        public static Client getClient(long idClient)
+        {
+            Client client = null;
+            IDataReader reader = DAOClient.get(idClient);
+            if (reader.Read())
+            {
+                client = new Client();
+                if (!reader.IsDBNull(0))
+                    client.IdClient=(int)reader.GetValue(0);
+                if (!reader.IsDBNull(1))
+                    client.Nom=(string)reader.GetValue(1);
+                if (!reader.IsDBNull(2))
+                    client.Prenom = (string)reader.GetValue(2);
+                if (!reader.IsDBNull(3))
+                    client.DateNaissance = (DateTime)reader.GetValue(3);
+                if (!reader.IsDBNull(4))
+                    client.Email = (string)reader.GetValue(4);
+                if (!reader.IsDBNull(5))
+                    client.AdressePrincipale = (string)reader.GetValue(5);
+                if (!reader.IsDBNull(6))
+                    client.AdresseTemporaire = (string)reader.GetValue(6);
+                if (!reader.IsDBNull(7))
+                    client.TelFixe = (string)reader.GetValue(7);
+                if (!reader.IsDBNull(8))
+                    client.TelPortable = (string)reader.GetValue(8);
+            }
+            reader.Close();
+            return client;
         }
     }
 }

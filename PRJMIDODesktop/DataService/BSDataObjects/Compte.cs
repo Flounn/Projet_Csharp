@@ -21,6 +21,27 @@ namespace DataService.BSDataObjects
         private Client client;
         private IList<Contrat> listeContrats;
 
+        public Compte() { }
+
+        public Compte(long idCompte, string typeCompte, DateTime dateOuverture, decimal montantInitial, Client client)
+        {
+            this.idCompte = idCompte;
+            TypeCompteStr = typeCompte;
+            this.dateOuverture = dateOuverture;
+            this.montantInitial = montantInitial;
+            this.client = client;
+        }
+
+        public Compte(long idCompte, string typeCompte, DateTime dateOuverture, decimal montantInitial, int idClient)
+        {
+            this.idCompte = idCompte;
+            TypeCompteStr = typeCompte;
+            this.dateOuverture = dateOuverture;
+            this.montantInitial = montantInitial;
+            this.client = new Client();
+            client.IdClient = idClient;
+        }
+
         public long IdCompte
         {
             get { return idCompte; }
@@ -35,13 +56,7 @@ namespace DataService.BSDataObjects
         public string TypeCompteStr
         {
             get { return typeCompte.ToString(); }
-            set
-            {
-                if (value.Equals("Courant"))
-                    typeCompte = Type.Courant;
-                else if (value.Equals("Epargne"))
-                    typeCompte = Type.Epargne;
-            }
+            set { typeCompte = (Type) Enum.Parse(typeof(Type),value,false); }
         }
 
         public DateTime DateOuverture

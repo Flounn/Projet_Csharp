@@ -7,12 +7,27 @@ namespace DataService.BSDataObjects
 {
     public class ContratEpargne: Contrat
     {
+        private static readonly string[] valuesTypeEpargne = { "Assurance vie", "Livret A", "Livret DD", "Epargne logement", "Epargne retraite" };
+
+        public static string[] ValuesTypeEpargne
+        {
+            get { return ContratEpargne.valuesTypeEpargne; }
+        } 
 
         private string typeEpargne;
         private string typeVersement;
         private string periodicite;
         private DateTime dateVersement;
         private decimal montantVerse;
+        private decimal montantEpargne;
+
+        public decimal MontantEpargne
+        {
+            get { return montantEpargne; }
+            set { montantEpargne = value; }
+        }
+
+        public ContratEpargne() { }
 
         public ContratEpargne(string typeEpargne, string typeVersement, string periodicite,
             DateTime dateVersement, decimal montantVerse)

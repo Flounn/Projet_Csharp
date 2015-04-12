@@ -12,7 +12,7 @@ namespace DataService.BSDataObjects
         private DateTime dateDebValidite;
         private DateTime dateFinValidite;
         private TypeCarte typeCarte;
-
+        public Carte() { }
         public Carte(long idMoyenPaiement, DateTime dateDebValidite, 
             DateTime dateFinValidite, string numeroCarte, TypeCarte typeCarte) 
         {

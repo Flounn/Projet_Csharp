@@ -37,6 +37,16 @@ namespace DataService.BSDataObjects
             this.TypeStr = typeContrat;
         }
 
+        public Contrat(string intitule, Client client, Compte compte, string statutJuridique, TypeContrat typeContrat)
+        {
+            this.intitule = intitule;
+            this.dateSouscription = DateTime.Now;
+            this.client = client;
+            this.compte = compte;
+            this.StatutJuridiqueStr = statutJuridique;
+            this.Type = typeContrat;
+        }
+
         public long IdContrat
         {
             get { return idContrat; }
@@ -54,10 +64,7 @@ namespace DataService.BSDataObjects
             get { return type.ToString(); }
             set
             {
-                if (value.Equals("Credit"))
-                    type = TypeContrat.Credit;
-                else if (value.Equals("Epargne"))
-                    type = TypeContrat.Epargne;
+                type = (TypeContrat)Enum.Parse(typeof(TypeContrat), value, true);
             }
         }
 
@@ -76,11 +83,8 @@ namespace DataService.BSDataObjects
         public string StatutJuridiqueStr
         {
             get { return statutJuridique.ToString(); }
-            set { 
-                if(value.Equals("Beneficiaire"))
-                    statutJuridique = Statut_Juridique.Beneficiaire;
-                else if(value.Equals("Titulaire"))
-                    statutJuridique = Statut_Juridique.Titulaire;
+            set {
+                statutJuridique = (Statut_Juridique)Enum.Parse(typeof(Statut_Juridique), value, true);
             }
         }
         
