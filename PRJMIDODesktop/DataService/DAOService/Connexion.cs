@@ -240,7 +240,12 @@ namespace DataService.DAOService
 
             cmd.Parameters.AddWithValue("error",null).Direction = ParameterDirection.Output;
             cmd.Connection = singleton.Connection();
-            int nbMaj = cmd.ExecuteNonQuery();
+            int nbMaj = 0;
+            try
+            {
+                nbMaj = cmd.ExecuteNonQuery();
+            }
+            catch { }
             cmd.Connection.Close();
             return nbMaj>0;
         }

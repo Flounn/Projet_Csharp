@@ -133,6 +133,9 @@ namespace DesktopIHM.GuiObjects
             contratEpargne.DateVersement = dtVersement.Value;
             contratEpargne.Intitule = txtIntitule.Text;
             contratEpargne.StatutJuridiqueStr = (string)cbStatut.SelectedItem;
+            contratEpargne.Compte = contrat.Compte;
+            contratEpargne.Client = contrat.Client;
+            contratEpargne.Type = Contrat.TypeContrat.Epargne;
             if (BSGestionClient.CreerModifierContratEpargne(contratEpargne))
             {
                 MessageBox.Show("Le contrat d'épargne a été ajouté", "Contrat épargne", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -194,6 +197,7 @@ namespace DesktopIHM.GuiObjects
             contratCredit.ObjectifCredit = txtObjet.Text;
             contratCredit.Intitule = txtIntitule.Text;
             contratCredit.StatutJuridiqueStr = (string)cbStatut.SelectedItem;
+            contratCredit.Client = contrat.Client;
             if (BSGestionClient.CreerModifierContratCredit(contratCredit))
             {
                 MessageBox.Show("Le contrat de crédit a été ajouté", "Contrat crédit", MessageBoxButtons.OK, MessageBoxIcon.Information);
