@@ -37,18 +37,6 @@
     <StartupObject>PRJMIDODesktop.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="itextsharp, Version=5.5.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>libs\itextsharp.dll</HintPath>
-    </Reference>
-    <Reference Include="itextsharp.pdfa, Version=5.5.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>libs\itextsharp.pdfa.dll</HintPath>
-    </Reference>
-    <Reference Include="itextsharp.xtra, Version=5.5.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>libs\itextsharp.xtra.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -229,7 +217,6 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -242,18 +229,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Image\Cover.png" />
-    <Content Include="Image\forPdf.png" />
-    <Content Include="Image\icon.png" />
-    <Content Include="libs\itextsharp.dll" />
-    <Content Include="libs\itextsharp.pdfa.dll" />
-    <Content Include="libs\iTextSharp.xml" />
-    <Content Include="libs\itextsharp.xtra.dll" />
     <Content Include="XMLFile\Utilisateurs.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Image\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataService\DataService.csproj">
       <Project>{5480FE3D-D946-48A7-93C2-C17BCCC84DD6}</Project>
