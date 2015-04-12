@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DataService.DAOService;
 
 namespace DataService.BSDataObjects
 {
@@ -16,6 +17,16 @@ namespace DataService.BSDataObjects
         private decimal montantEcheance;
         private decimal tauxNominal;
         private decimal encours;
+
+        public ContratCredit(long idContrat, string objectifCredit,
+            int duree, decimal taux, decimal montantCredit)
+        {
+            this.IdContrat = idContrat;
+            this.dateEcheance = DateTime.Today.AddYears(duree);
+            this.duree = duree;
+            this.taux = taux;
+            this.montantCredit = montantCredit;
+        }
 
         public string ObjectifCredit
         {
@@ -62,6 +73,29 @@ namespace DataService.BSDataObjects
             get { return encours; }
             set { encours = value; }
         }
+
+        /*#region DAO ContratCredit
+
+        private static DAOContrat dao = new DAOContrat();
+
+        public bool isPersist()
+        {
+            return idContrat != 0;
+        }
+
+        public bool persist()
+        {
+            if (isPersist())
+                return dao.update(this);
+            else return dao.insert(this);
+        }
+        public bool delete()
+        {
+            if (!isPersist())
+                return false;
+            return dao.delete(this);
+        }
+        #endregion*/
 
     }
 }

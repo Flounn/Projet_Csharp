@@ -50,12 +50,11 @@
     <Compile Include="BSDataObjects\Compte.cs" />
     <Compile Include="BSDataObjects\TypeCarte.cs" />
     <Compile Include="BSDataObjects\Contrat.cs" />
-    <Compile Include="BSDataObjects\ProduitCredit.cs" />
+    <Compile Include="BSDataObjects\ContratCredit.cs" />
     <Compile Include="BSDataObjects\HistoriqueEtudiant.cs" />
     <Compile Include="BSDataObjects\MoyenPaiement.cs" />
     <Compile Include="BSDataObjects\Operation.cs" />
-    <Compile Include="BSDataObjects\Produit.cs" />
-    <Compile Include="BSDataObjects\ProduitEpargne.cs" />
+    <Compile Include="BSDataObjects\ContratEpargne.cs" />
     <Compile Include="BSService\BSGestionClient.cs" />
     <Compile Include="BSService\CritereRechercheCarte.cs" />
     <Compile Include="BSService\CritereRechercheTypeCarte.cs" />

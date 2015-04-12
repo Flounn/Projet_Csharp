@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DataService.DAOService;
 
 namespace DataService.BSDataObjects
 {
@@ -10,6 +11,14 @@ namespace DataService.BSDataObjects
         private int nombreCheque;
         private int numero1Cheque;
         private int dernierCheque;
+
+        public Chequier(long idMoyenPaiement, int nombreCheque, int numero1Cheque, int dernierCheque)
+        {
+            this.IdMoyenPaiement = idMoyenPaiement;
+            this.nombreCheque = nombreCheque;
+            this.numero1Cheque = numero1Cheque;
+            this.dernierCheque = dernierCheque;
+        }
 
         public int NombreCheque
         {
@@ -30,5 +39,20 @@ namespace DataService.BSDataObjects
             get { return dernierCheque; }
             set { dernierCheque = value; }
         }
+
+        #region DAO Chequier
+
+        private static DAOChequier dao = new DAOChequier();
+
+        public bool persist()
+        {
+            return dao.insert(this);
+        }
+        public bool delete()
+        {
+            return dao.delete(this);
+        }
+
+        #endregion
     }
 }

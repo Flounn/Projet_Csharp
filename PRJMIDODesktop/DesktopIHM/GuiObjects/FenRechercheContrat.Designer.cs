@@ -204,7 +204,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 143);
+            this.label1.Location = new System.Drawing.Point(34, 149);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 20;
@@ -213,7 +213,7 @@
             // cb_type
             // 
             this.cb_type.FormattingEnabled = true;
-            this.cb_type.Location = new System.Drawing.Point(91, 140);
+            this.cb_type.Location = new System.Drawing.Point(91, 146);
             this.cb_type.Name = "cb_type";
             this.cb_type.Size = new System.Drawing.Size(141, 21);
             this.cb_type.TabIndex = 21;
@@ -242,7 +242,6 @@
             this.Controls.Add(this.lbDateSouscription);
             this.Controls.Add(this.lbIdProduit);
             this.Controls.Add(this.lbIdClient);
-            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "FenRechercheContrat";
             this.Text = "Rechercher Contrat";
             ((System.ComponentModel.ISupportInitialize)(this.dgwLstContrat)).EndInit();

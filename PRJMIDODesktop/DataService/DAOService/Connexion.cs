@@ -185,6 +185,17 @@ namespace DataService.DAOService
             return cmd.ExecuteReader();
         }
 
+        public static long getLastId()
+        {
+            StringBuilder commandText = new StringBuilder("SELECT LAST_INSERT_ID()");
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = commandText.ToString();
+            cmd.Connection = singleton.Connection();
+            long id = (long)cmd.ExecuteScalar();
+            cmd.Connection.Close();
+            return id;
+        }
+
     }
      
 }

@@ -15,7 +15,7 @@ namespace DataService.DAOService
         private static readonly string[] champsWhere = new string[] { "ID_MOYEN_PAIEMENT" };
 
         public bool insert(Carte carte){
-            object[] values = new object[] { carte.IdMoyenPaiement, carte.DateDebValidite, carte.DateFinValidite, carte.TypeCarte, carte.NumeroCarte };
+            object[] values = new object[] { carte.IdMoyenPaiement, carte.DateDebValidite, carte.DateFinValidite, carte.TypeCarte.IdTypeCarte, carte.NumeroCarte };
             return Connexion.insert(tableName, champs, values);
         }
 
@@ -26,7 +26,7 @@ namespace DataService.DAOService
 
         public bool update(Carte carte)
         {
-           object[] values = new object[] { carte.IdMoyenPaiement, carte.DateDebValidite, carte.DateFinValidite, carte.TypeCarte, carte.NumeroCarte };
+           object[] values = new object[] { carte.IdMoyenPaiement, carte.DateDebValidite, carte.DateFinValidite, carte.TypeCarte.IdTypeCarte, carte.NumeroCarte };
            object[] valuesWhere = new object[] { carte.IdMoyenPaiement };
            return Connexion.update(tableName, champs, values, champsWhere, valuesWhere);
         }

@@ -25,6 +25,11 @@ namespace DataService.DAOService
             string name = typeof(T).Name;
             return null;
         }
+
+        public static long lastId()
+        {
+            return Connexion.getLastId();
+        }
       
     }
 }

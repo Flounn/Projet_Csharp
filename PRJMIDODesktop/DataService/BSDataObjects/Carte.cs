@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DataService.DAOService;
 
 namespace DataService.BSDataObjects
 {
@@ -11,6 +12,16 @@ namespace DataService.BSDataObjects
         private DateTime dateDebValidite;
         private DateTime dateFinValidite;
         private TypeCarte typeCarte;
+
+        public Carte(long idMoyenPaiement, DateTime dateDebValidite, 
+            DateTime dateFinValidite, string numeroCarte, TypeCarte typeCarte) 
+        {
+            this.IdMoyenPaiement = idMoyenPaiement;
+            this.dateDebValidite = dateDebValidite;
+            this.dateFinValidite = dateFinValidite;
+            this.numeroCarte = numeroCarte;
+            this.typeCarte = typeCarte;
+        }
 
         public string NumeroCarte
         {
@@ -37,8 +48,6 @@ namespace DataService.BSDataObjects
             get { return typeCarte; }
             set { typeCarte = value; }
         }
-
-        public Carte() { }
 
         public override bool Equals(object obj)
         {
@@ -73,5 +82,20 @@ namespace DataService.BSDataObjects
 
             return chaine.ToString();
         }
+
+        #region DAO Carte
+
+        private static DAOCarte dao = new DAOCarte();
+
+        public bool persist()
+        {
+            return dao.insert(this);
+        }
+        public bool delete()
+        {
+            return dao.delete(this);
+        }
+
+        #endregion
     }
 }

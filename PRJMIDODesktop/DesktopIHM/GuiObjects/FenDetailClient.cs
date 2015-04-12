@@ -154,6 +154,11 @@ namespace DesktopIHM.GuiObjects
             new FenSaisirContrat(client).Show(this);
         }
 
+        private void btImprimer_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
     }
 }

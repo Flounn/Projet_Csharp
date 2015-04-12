@@ -47,7 +47,7 @@
             // lbIdClient
             // 
             this.lbIdClient.AutoSize = true;
-            this.lbIdClient.Location = new System.Drawing.Point(320, 29);
+            this.lbIdClient.Location = new System.Drawing.Point(258, 29);
             this.lbIdClient.Name = "lbIdClient";
             this.lbIdClient.Size = new System.Drawing.Size(47, 13);
             this.lbIdClient.TabIndex = 0;
@@ -83,18 +83,18 @@
             // 
             // txtIdClient
             // 
-            this.txtIdClient.Location = new System.Drawing.Point(381, 26);
+            this.txtIdClient.Location = new System.Drawing.Point(344, 26);
             this.txtIdClient.Name = "txtIdClient";
-            this.txtIdClient.Size = new System.Drawing.Size(141, 20);
+            this.txtIdClient.Size = new System.Drawing.Size(178, 20);
             this.txtIdClient.TabIndex = 6;
             // 
             // dgwLstCompte
             // 
             this.dgwLstCompte.AllowUserToAddRows = false;
             this.dgwLstCompte.AllowUserToDeleteRows = false;
-            this.dgwLstCompte.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgwLstCompte.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dgwLstCompte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwLstCompte.Location = new System.Drawing.Point(37, 167);
             this.dgwLstCompte.MultiSelect = false;
@@ -185,7 +185,6 @@
             this.Controls.Add(this.lbIntitule);
             this.Controls.Add(this.lbDateSouscription);
             this.Controls.Add(this.lbIdClient);
-            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "FenRechercheCompte";
             this.Text = "Rechercher Compte";
             ((System.ComponentModel.ISupportInitialize)(this.dgwLstCompte)).EndInit();

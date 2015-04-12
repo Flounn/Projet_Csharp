@@ -23,10 +23,19 @@ namespace DataService.BSDataObjects
         private DateTime dateSouscription;
         private string intitule;
         private Client client;
-        private Produit produit;
         private Compte compte;
         private Statut_Juridique statutJuridique;
         private TypeContrat type;
+
+        public Contrat(string intitule, Client client, Compte compte, string statutJuridique, string typeContrat)
+        {
+            this.intitule = intitule;
+            this.dateSouscription = DateTime.Now;
+            this.client = client;
+            this.compte = compte;
+            this.StatutJuridiqueStr = statutJuridique;
+            this.TypeStr = typeContrat;
+        }
 
         public long IdContrat
         {
@@ -85,14 +94,7 @@ namespace DataService.BSDataObjects
         {
             get { return client; }
             set { client = value; }
-        }
-        
-        public Produit Produit
-        {
-            get { return produit; }
-            set { produit = value; }
-        }
-        
+        }     
 
         public Compte Compte
         {

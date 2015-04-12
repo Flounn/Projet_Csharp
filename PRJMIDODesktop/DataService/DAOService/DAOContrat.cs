@@ -11,13 +11,12 @@ namespace DataService.DAOService
     public class DAOContrat
     {
         private const string tableName = "Contrat";
-        private static readonly string[] champs = new string[] { "INTITULE", "ID_CLIENT","ID_PRODUIT","ID_COMPTE","STATUT_JUR",
+        private static readonly string[] champs = new string[] { "INTITULE", "ID_CLIENT","ID_COMPTE","STATUT_JUR",
                 "TYPE"};
         private static readonly string[] champsWhere = new string[] { "ID_CONTRAT" };
 
         public bool insert(Contrat contrat){
-            object[] values = new object[] { contrat.Intitule, contrat.Client.IdClient, contrat.Produit.IdProduit,
-                contrat.Compte.IdCompte, contrat.StatutJuridiqueStr,contrat.TypeStr};
+            object[] values = new object[] { contrat.Intitule, contrat.Client.IdClient, contrat.Compte.IdCompte, contrat.StatutJuridiqueStr,contrat.TypeStr};
             return Connexion.insert(tableName, champs, values);
         }
 
@@ -28,7 +27,7 @@ namespace DataService.DAOService
 
         public bool update(Contrat contrat)
         {
-            object[] values = new object[] { contrat.Intitule, contrat.Client.IdClient, contrat.Produit.IdProduit,
+            object[] values = new object[] { contrat.Intitule, contrat.Client.IdClient,
                 contrat.Compte.IdCompte, contrat.StatutJuridiqueStr,contrat.TypeStr};
             object[] valuesWhere = new object[] { contrat.IdContrat };
             return Connexion.update(tableName, champs, values, champsWhere, valuesWhere);

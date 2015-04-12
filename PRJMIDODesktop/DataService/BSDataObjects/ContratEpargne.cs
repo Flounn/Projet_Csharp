@@ -14,6 +14,16 @@ namespace DataService.BSDataObjects
         private DateTime dateVersement;
         private decimal montantVerse;
 
+        public ContratEpargne(string typeEpargne, string typeVersement, string periodicite,
+            DateTime dateVersement, decimal montantVerse)
+        {
+            this.typeEpargne = typeEpargne;
+            this.typeVersement = typeVersement;
+            this.periodicite = periodicite;
+            this.dateVersement = dateVersement;
+            this.montantVerse = montantVerse;
+        }
+
         public string TypeEpargne
         {
             get { return typeEpargne; }

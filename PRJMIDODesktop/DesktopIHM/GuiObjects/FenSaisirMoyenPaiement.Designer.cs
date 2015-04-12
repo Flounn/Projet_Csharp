@@ -37,7 +37,7 @@
             this.lbNbPrCheque = new System.Windows.Forms.Label();
             this.lbNbCheque = new System.Windows.Forms.Label();
             this.gbCarteBancaire = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNoCarte = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtIdTypeCarte = new System.Windows.Forms.TextBox();
             this.btTypeCarte = new System.Windows.Forms.Button();
@@ -134,7 +134,7 @@
             // gbCarteBancaire
             // 
             this.gbCarteBancaire.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbCarteBancaire.Controls.Add(this.textBox1);
+            this.gbCarteBancaire.Controls.Add(this.txtNoCarte);
             this.gbCarteBancaire.Controls.Add(this.label1);
             this.gbCarteBancaire.Controls.Add(this.txtIdTypeCarte);
             this.gbCarteBancaire.Controls.Add(this.btTypeCarte);
@@ -151,12 +151,12 @@
             this.gbCarteBancaire.TabStop = false;
             this.gbCarteBancaire.Text = "Carte bancaire";
             // 
-            // textBox1
+            // txtNoCarte
             // 
-            this.textBox1.Location = new System.Drawing.Point(120, 84);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 12;
+            this.txtNoCarte.Location = new System.Drawing.Point(120, 84);
+            this.txtNoCarte.Name = "txtNoCarte";
+            this.txtNoCarte.Size = new System.Drawing.Size(121, 20);
+            this.txtNoCarte.TabIndex = 12;
             // 
             // label1
             // 
@@ -187,7 +187,7 @@
             // lbTypeCarte
             // 
             this.lbTypeCarte.AutoSize = true;
-            this.lbTypeCarte.Location = new System.Drawing.Point(34, 113);
+            this.lbTypeCarte.Location = new System.Drawing.Point(33, 113);
             this.lbTypeCarte.Name = "lbTypeCarte";
             this.lbTypeCarte.Size = new System.Drawing.Size(59, 13);
             this.lbTypeCarte.TabIndex = 4;
@@ -329,7 +329,7 @@
         private System.Windows.Forms.GroupBox gbType;
         private System.Windows.Forms.Button btTypeCarte;
         private System.Windows.Forms.TextBox txtIdTypeCarte;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNoCarte;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btAjoutMoyenPaiement;
     }

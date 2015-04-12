@@ -26,11 +26,11 @@ namespace DataService.BSService
         }
         public bool isCredit()
         {
-            return type.Equals(DataService.BSDataObjects.Operation.Type_Operation.Credit.ToString());
+            return typeOperation.Equals(DataService.BSDataObjects.Operation.Type_Operation.Credit.ToString());
         }
         public bool isDebit()
         {
-            return type.Equals(DataService.BSDataObjects.Operation.Type_Operation.Debit.ToString());
+            return typeOperation.Equals(DataService.BSDataObjects.Operation.Type_Operation.Debit.ToString());
         }
 
         public DateTime DateOperationDebut
@@ -77,7 +77,7 @@ namespace DataService.BSService
 
         public string Statut
         {
-            get { return statut.ToString(); }
+            get { return statut; }
             set { statut = value; }
         }
     }

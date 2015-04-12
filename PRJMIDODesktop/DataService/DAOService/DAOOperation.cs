@@ -57,7 +57,7 @@ namespace DataService.DAOService
             Utilities.addCritere(champsWhere, valuesWhere, operators, "ID_OPERATION", criteres.IdOperation, Connexion.EGAL);
             Utilities.addCritere(champsWhere, valuesWhere, operators, "ID_MOYEN_PAIEMENT", criteres.IdMoyenPaiement, Connexion.EGAL);
             Utilities.addCritere(champsWhere, valuesWhere, operators, "ID_COMPTE", criteres.IdMoyenPaiement, Connexion.EGAL);
-            Utilities.addCritere(champsWhere, valuesWhere, operators, criteres.isCredit() ? "MNT_CREDIT" : "MNT_DEBIT", "NOT NULL" , Connexion.IS);
+            //Utilities.addCritere(champsWhere, valuesWhere, operators, criteres.isCredit() ? "MNT_CREDIT" : "MNT_DEBIT", "NOT NULL" , Connexion.IS);
             return Connexion.get(tableName, champsWhere, valuesWhere, operators);
         }
 

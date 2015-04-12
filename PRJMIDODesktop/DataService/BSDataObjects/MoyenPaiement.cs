@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DataService.DAOService;
 
 namespace DataService.BSDataObjects
 {
@@ -9,7 +10,6 @@ namespace DataService.BSDataObjects
    
     public class MoyenPaiement
     {
-        
         public static string[] getTypesMoyenPaiement()
         {
             return Enum.GetNames(typeof(TypeMoyenPaiement));
@@ -18,6 +18,12 @@ namespace DataService.BSDataObjects
         private long idMoyenPaiement;
         private Compte compte;
         private TypeMoyenPaiement libelleMoyenPaiement;
+
+        public MoyenPaiement(Compte compte, string typeMoyenPaiement)
+        {
+            this.compte = compte;
+            LibelleMoyenPaiementStr = typeMoyenPaiement;
+        }
 
         public long IdMoyenPaiement
         {
@@ -87,5 +93,29 @@ namespace DataService.BSDataObjects
 
             return chaine.ToString();
         }
+
+        #region DAO MoyenPaiement
+
+        private static DAOMoyenPaiement dao = new DAOMoyenPaiement();
+
+        public bool isPersist()
+        {
+            return idMoyenPaiement != 0;
+        }
+
+        public bool persist()
+        {
+            if (isPersist())
+                return dao.update(this);
+            else return dao.insert(this);
+        }
+        public bool delete()
+        {
+            if (!isPersist())
+                return false;
+            return dao.delete(this);
+        }
+
+        #endregion
     }
 }
