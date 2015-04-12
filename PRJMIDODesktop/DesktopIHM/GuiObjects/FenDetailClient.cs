@@ -27,6 +27,19 @@ namespace DesktopIHM.GuiObjects
             dtDateNaissance.MaxDate = DateTime.Today;
         }
 
+        public void initContrats()
+        {
+            CritereRechercheContrat crtRechercheContrat = new CritereRechercheContrat();
+            crtRechercheContrat.IdClient = client.IdClient;
+            dgvLstContrats.DataSource = BSGestionClient.RechercherContrats(crtRechercheContrat);
+        }
+
+        public void initComptes()
+        {
+            CritereRechercheCompte crtRechercheCompte = new CritereRechercheCompte();
+            crtRechercheCompte.IdClient = client.IdClient;
+            dgvLstComptes.DataSource = BSGestionClient.RechercherComptes(crtRechercheCompte);
+        }
 
         private void initData()
         {
@@ -42,13 +55,8 @@ namespace DesktopIHM.GuiObjects
                 this.txtTelFixe.Text = client.TelFixe;
                 this.txtTelPort.Text = client.TelPortable;
 
-                CritereRechercheContrat crtRechercheContrat = new CritereRechercheContrat();
-                crtRechercheContrat.IdClient = client.IdClient;
-                dgvLstContrats.DataSource = BSGestionClient.RechercherContrats(crtRechercheContrat);
-
-                CritereRechercheCompte crtRechercheCompte = new CritereRechercheCompte();
-                crtRechercheCompte.IdClient = client.IdClient;
-                dgvLstComptes.DataSource = BSGestionClient.RechercherComptes(crtRechercheCompte);
+                initContrats();
+                initComptes();
                 
             }
         }
@@ -142,20 +150,12 @@ namespace DesktopIHM.GuiObjects
 
         private void bt_ajouter_compte_Click(object sender, EventArgs e)
         {
-            new FenSaisirCompte(client/*, updateCompte*/).Show(this);
-        }
-
-        private static UpdateCompte updateCompte = new UpdateCompte();
-
-        private class UpdateCompte : UpdateDataGridView {
-            public void refresh() {
-                /**/
-            }
+            new FenSaisirCompte(client, this).Show(this);
         }
 
         private void bt_ajouter_contrat_Click(object sender, EventArgs e)
         {
-            new FenSaisirContrat(client).Show(this);
+            new FenSaisirContrat(client,this).Show(this);
         }
 
         private void btImprimer_Click(object sender, EventArgs e)

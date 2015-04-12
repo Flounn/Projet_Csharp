@@ -66,9 +66,13 @@ namespace DataService.BSService
             return operation.delete();
         }
 
-        public static bool CreerModifierContrat(Contrat contrat)
+        public static bool CreerModifierContratEpargne(ContratEpargne contratEpargne)
         {
-            return contrat.persist();
+            return contratEpargne.persist();
+        }
+        public static bool CreerModifierContratCredit(ContratCredit contratCredit)
+        {
+            return contratCredit.persist();
         }
 
         public static bool SupprimerContrat(Contrat contrat)

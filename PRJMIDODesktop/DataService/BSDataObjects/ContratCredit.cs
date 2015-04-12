@@ -85,13 +85,13 @@ namespace DataService.BSDataObjects
             set { encours = value; }
         }
 
-        /*#region DAO ContratCredit
+        #region DAO ContratCredit
 
-        private static DAOContrat dao = new DAOContrat();
+        private static DAOContratCredit dao = new DAOContratCredit();
 
         public bool isPersist()
         {
-            return idContrat != 0;
+            return IdContrat != 0;
         }
 
         public bool persist()
@@ -106,7 +106,7 @@ namespace DataService.BSDataObjects
                 return false;
             return dao.delete(this);
         }
-        #endregion*/
+        #endregion
 
     }
 }

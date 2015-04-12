@@ -62,6 +62,7 @@
             this.txtIntitule = new System.Windows.Forms.TextBox();
             this.lbIntitule = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.bt_vider = new System.Windows.Forms.Button();
             this.gb_type_compte.SuspendLayout();
             this.gb_credit.SuspendLayout();
             this.gb_epargne.SuspendLayout();
@@ -71,7 +72,7 @@
             // 
             // bt_creer
             // 
-            this.bt_creer.Location = new System.Drawing.Point(207, 368);
+            this.bt_creer.Location = new System.Drawing.Point(285, 368);
             this.bt_creer.Name = "bt_creer";
             this.bt_creer.Size = new System.Drawing.Size(101, 23);
             this.bt_creer.TabIndex = 0;
@@ -392,11 +393,22 @@
             this.label12.TabIndex = 22;
             this.label12.Text = "Statut :";
             // 
+            // bt_vider
+            // 
+            this.bt_vider.Location = new System.Drawing.Point(133, 368);
+            this.bt_vider.Name = "bt_vider";
+            this.bt_vider.Size = new System.Drawing.Size(101, 23);
+            this.bt_vider.TabIndex = 13;
+            this.bt_vider.Text = "Vider";
+            this.bt_vider.UseVisualStyleBackColor = true;
+            this.bt_vider.Click += new System.EventHandler(this.bt_vider_Click);
+            // 
             // FenSaisirContrat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(514, 406);
+            this.Controls.Add(this.bt_vider);
             this.Controls.Add(this.gbContrat);
             this.Controls.Add(this.gb_epargne);
             this.Controls.Add(this.gb_credit);
@@ -459,5 +471,6 @@
         private System.Windows.Forms.TextBox txtIntitule;
         private System.Windows.Forms.Label lbIntitule;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button bt_vider;
     }
 }

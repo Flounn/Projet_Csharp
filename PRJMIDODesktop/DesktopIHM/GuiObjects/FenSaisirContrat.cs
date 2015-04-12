@@ -35,10 +35,12 @@ namespace DesktopIHM.GuiObjects
             txtIdCompte.Text = compte.IdCompte.ToString();
         }
 
-        public FenSaisirContrat(Client client)
+        private FenDetailClient detailsClient;
+        public FenSaisirContrat(Client client,FenDetailClient detailsClient)
         {
             InitializeComponent();
             contrat.Client = client;
+            this.detailsClient = detailsClient;
             initUI();
             txtIdClient.Text = client.IdClient.ToString();
         }
@@ -124,22 +126,27 @@ namespace DesktopIHM.GuiObjects
                 MessageBox.Show("Le montant de versement pour le contrat d'épargne n'a pas été saisi correctement", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            creerContrat();
-
-            string per;
-            if (rbPeriodique.Checked == true)
+            
+            contratEpargne.TypeVersement = rbPeriodique.Checked?rbPeriodique.Text:rbPonctuel.Text;
+            contratEpargne.TypeEpargne = (string)cbTypeEpargne.SelectedItem;
+            contratEpargne.Periodicite = (string)cbPeriodicite.SelectedItem;
+            contratEpargne.DateVersement = dtVersement.Value;
+            contratEpargne.Intitule = txtIntitule.Text;
+            contratEpargne.StatutJuridiqueStr = (string)cbStatut.SelectedItem;
+            if (BSGestionClient.CreerModifierContratEpargne(contratEpargne))
             {
-                per = rbPeriodique.Text;
+                MessageBox.Show("Le contrat d'épargne a été ajouté", "Contrat épargne", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (detailsClient != null)
+                {
+                    detailsClient.initContrats();
+                    Close();
+                    return;
+                }
+                vider();
             }
+
             else
-            {
-                per = rbPonctuel.Text;
-            }
-            ContratEpargne ctrEpargne = new ContratEpargne(cbTypeEpargne.SelectedText, per, cbPeriodicite.SelectedText, dtVersement.Value, decimal.Parse(txtEpargneMontant.Text));
-            //ctrEpargne.persist();
-            //MessageBox.Show("Le contrat a été ajouté à la base", "Ajout moyen paiement", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Dispose();
+                Utilities.showErrorMessage("Erreur lors de l'ajout du contrat de crédit", "Erreur");
             
         }
 
@@ -182,21 +189,25 @@ namespace DesktopIHM.GuiObjects
                 return;
             }
 
-            creerContrat();
-            ContratCredit ctrCredit = new ContratCredit(contrat.IdContrat, txtObjet.Text, int.Parse(txtDuree.Text), decimal.Parse(txtTaux.Text), decimal.Parse(txtCreditMontant.Text));
-            //ctrCredit.persist();
-            //MessageBox.Show("Le contrat a été ajouté à la base", "Ajout Contrat", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Dispose();
+            contratCredit.Compte = contrat.Compte;
+            contratCredit.Type = Contrat.TypeContrat.Credit;
+            contratCredit.ObjectifCredit = txtObjet.Text;
+            contratCredit.Intitule = txtIntitule.Text;
+            contratCredit.StatutJuridiqueStr = (string)cbStatut.SelectedItem;
+            if (BSGestionClient.CreerModifierContratCredit(contratCredit))
+            {
+                MessageBox.Show("Le contrat de crédit a été ajouté", "Contrat crédit", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (detailsClient != null)
+                {
+                    detailsClient.initContrats();
+                    Close();
+                    return;
+                }
+                vider();
+            }
+            else
+                Utilities.showErrorMessage("Erreur lors de l'ajout du contrat de crédit", "Erreur");
             
-        }
-
-        private void creerContrat()
-        {
-            contrat.Intitule = txtIntitule.Text;
-            contrat.StatutJuridiqueStr = (string)cbStatut.SelectedItem;
-            contrat.Type = Contrat.TypeContrat.Epargne;
-            /*contrat.persist();
-            contrat.IdContrat = DAOGenerique.lastId();*/
         }
 
         private void rbTypeContrat_Checked(object sender, EventArgs e)
@@ -211,6 +222,16 @@ namespace DesktopIHM.GuiObjects
                 gb_credit.Visible = false;
                 gb_epargne.Visible = true;
             }
+        }
+
+        private void bt_vider_Click(object sender, EventArgs e)
+        {
+            vider();
+        }
+
+        private void vider()
+        {
+            throw new NotImplementedException();
         }
 
     }

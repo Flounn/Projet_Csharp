@@ -16,14 +16,14 @@ namespace DesktopIHM.GuiObjects
     public partial class FenSaisirCompte : Form
     {
         private Compte compte = new Compte();
-        //private UpdateDataGridView callback;
+        private FenDetailClient detailsClient;
 
-        public FenSaisirCompte(Client client/*,UpdateDataGridView callback*/)
+        public FenSaisirCompte(Client client, FenDetailClient detailsClient)
         {
             InitializeComponent();
             compte.Client = client;
             txt_client.Text = client.IdClient.ToString();
-            //this.callback = callback;
+            this.detailsClient = detailsClient;
         }
 
         public FenSaisirCompte()
@@ -55,8 +55,12 @@ namespace DesktopIHM.GuiObjects
             if (BSGestionClient.CreerModifierCompte(compte))
             {
                 Utilities.showInfoMessage("Le compte vient d'être ajouté", "Compte ajouté");
-                //if (callback != null)
-                    //callback.refresh();
+                if (detailsClient != null)
+                {
+                    detailsClient.initComptes();
+                    Close();
+                    return;
+                }
                 this.vider();
             }
             else

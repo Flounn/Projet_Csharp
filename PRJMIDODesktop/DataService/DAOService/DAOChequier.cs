@@ -15,13 +15,16 @@ namespace DataService.DAOService
         private static readonly string[] champsWhere = new string[] { "ID_MOYEN_PAIEMENT" };
 
         public bool insert(Chequier chequier){
-            object[] values = new object[] { chequier.IdMoyenPaiement, chequier.NombreCheque, chequier.Numero1Cheque, chequier.DernierCheque};
-            return Connexion.insert(tableName, champs, values);
+            object[] values = new object[] { chequier.Compte.IdCompte,chequier.LibelleMoyenPaiementStr, chequier.NombreCheque
+                            , chequier.Numero1Cheque, chequier.DernierCheque };
+            string[] parameters = new string[] {"ID_COMPTE","LIBELLE_MOYEN_PAIEMENT", "NOMBRE_CHQ"
+							,"NUMERO_1_CHQ","NUMERO_D_CHQ"};
+            return Connexion.callProcedureNonQuery("addChequier", parameters, values);
         }
 
         public bool delete(Chequier chequier)
         {
-            return Connexion.delete(tableName, champsWhere, new object[] { chequier.IdMoyenPaiement });
+            return Connexion.callProcedureNonQuery("delChequier", new string[] { "ID_MOYEN_PAIEMENT" }, new object[] { chequier.IdMoyenPaiement });
         }
 
         public bool update(Chequier chequier)

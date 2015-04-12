@@ -63,6 +63,8 @@
     <Compile Include="BSService\CritereRechercheCompte.cs" />
     <Compile Include="BSService\CritereRechercheContrat.cs" />
     <Compile Include="DAOService\Connexion.cs" />
+    <Compile Include="DAOService\DAOContratEpargne.cs" />
+    <Compile Include="DAOService\DAOContratCredit.cs" />
     <Compile Include="DAOService\DAOTypeCarte.cs" />
     <Compile Include="DAOService\DAOChequier.cs" />
     <Compile Include="DAOService\DAOMoyenPaiement.cs" />

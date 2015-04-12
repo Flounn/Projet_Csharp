@@ -15,7 +15,7 @@ namespace DataService.DAOService
         private static readonly string[] champsWhere = new string[] { "ID_MOYEN_PAIEMENT" };
 
         public bool insert(Carte carte){
-            object[] values = new object[] { carte.Compte.IdCompte,carte.Compte.TypeCompteStr, carte.DateDebValidite
+            object[] values = new object[] { carte.Compte.IdCompte,carte.LibelleMoyenPaiementStr, carte.DateDebValidite
                             , carte.DateFinValidite, carte.TypeCarte.IdTypeCarte, carte.NumeroCarte };
             string[] parameters = new string[] {"ID_COMPTE","LIBELLE_MOYEN_PAIEMENT", "DT_DEB_VALIDITE"
 							,"DT_FIN_VALIDITE","ID_TYPE_CARTE", "NUMERO_CARTE"};
@@ -24,7 +24,7 @@ namespace DataService.DAOService
 
         public bool delete(Carte carte)
         {
-            return Connexion.delete(tableName, champsWhere, new object[] { carte.IdMoyenPaiement });
+            return Connexion.callProcedureNonQuery("delCarte", new string[]{"ID_MOYEN_PAIEMENT"}, new object[]{carte.IdMoyenPaiement});
         }
 
         public bool update(Carte carte)

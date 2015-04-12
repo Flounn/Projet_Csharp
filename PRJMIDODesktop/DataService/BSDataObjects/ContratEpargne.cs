@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DataService.DAOService;
 
 namespace DataService.BSDataObjects
 {
@@ -68,5 +69,29 @@ namespace DataService.BSDataObjects
             get { return montantVerse; }
             set { montantVerse = value; }
         }
+
+        #region DAO ContratEpargne
+
+        private static DAOContratEpargne dao = new DAOContratEpargne();
+
+        public bool isPersist()
+        {
+            return IdContrat != 0;
+        }
+
+        public bool persist()
+        {
+            if (isPersist())
+                return dao.update(this);
+            else return dao.insert(this);
+        }
+        public bool delete()
+        {
+            if (!isPersist())
+                return false;
+            return dao.delete(this);
+        }
+        #endregion
+
     }
 }
