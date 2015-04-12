@@ -15,8 +15,11 @@ namespace DataService.DAOService
         private static readonly string[] champsWhere = new string[] { "ID_MOYEN_PAIEMENT" };
 
         public bool insert(Carte carte){
-            object[] values = new object[] { carte.IdMoyenPaiement, carte.DateDebValidite, carte.DateFinValidite, carte.TypeCarte.IdTypeCarte, carte.NumeroCarte };
-            return Connexion.insert(tableName, champs, values);
+            object[] values = new object[] { carte.Compte.IdCompte,carte.Compte.TypeCompteStr, carte.DateDebValidite
+                            , carte.DateFinValidite, carte.TypeCarte.IdTypeCarte, carte.NumeroCarte };
+            string[] parameters = new string[] {"ID_COMPTE","LIBELLE_MOYEN_PAIEMENT", "DT_DEB_VALIDITE"
+							,"DT_FIN_VALIDITE","ID_TYPE_CARTE", "NUMERO_CARTE"};
+            return Connexion.callProcedureNonQuery("addCarte", parameters, values);
         }
 
         public bool delete(Carte carte)
@@ -57,8 +60,11 @@ namespace DataService.DAOService
         {
             IDataReader reader = get(criteres);
             DataTable dt = new DataTable();
-            dt.Load(reader);
-            reader.Close();
+            if (reader != null)
+            {
+                dt.Load(reader);
+                reader.Close();
+            }
             return dt;
         }
 

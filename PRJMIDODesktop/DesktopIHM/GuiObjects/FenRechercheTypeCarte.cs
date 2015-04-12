@@ -14,8 +14,8 @@ namespace DesktopIHM.GuiObjects
     public partial class FenRechercheTypeCarte : Form, UpdateDataGridView
     {
 
-        FenSaisirMoyenPaiement fenSaisirMoyenPaiement = null;
-        CritereRechercheTypeCarte crtRechercheTypeCarte;
+        private FenSaisirMoyenPaiement fenSaisirMoyenPaiement;
+        private CritereRechercheTypeCarte crtRechercheTypeCarte = new CritereRechercheTypeCarte();
 
         public FenRechercheTypeCarte(FenSaisirMoyenPaiement fenSaisirMoyenPaiement)
         {
@@ -24,13 +24,14 @@ namespace DesktopIHM.GuiObjects
             cbReseau.Items.Add("Choisissez");
             cbReseau.Items.AddRange(TypeCarte.getReseauCarteBancaire());
             cbReseau.SelectedIndex = 0;
+            initData();
         }
 
         private bool initCritereRecherche()
         {
             crtRechercheTypeCarte = new CritereRechercheTypeCarte();
             if (cbReseau.SelectedIndex >0)
-                crtRechercheTypeCarte.ReseauCarte = cbReseau.SelectedText;
+                crtRechercheTypeCarte.ReseauCarte = (string)cbReseau.SelectedItem;
             
             if (!string.IsNullOrEmpty(txtPlfGloPaiement.Text))
                 try{

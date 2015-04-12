@@ -19,6 +19,10 @@ namespace DataService.DAOService
                 return;
             if (valueWhere is long && (long)valueWhere == 0)
                 return;
+            if (valueWhere is double && (double)valueWhere == 0)
+                return;
+            if (valueWhere is decimal && (decimal)valueWhere == 0)
+                return;
             champsWhere.Add(champWhere);
             valuesWhere.Add(valueWhere);
             operators.Add(ope);

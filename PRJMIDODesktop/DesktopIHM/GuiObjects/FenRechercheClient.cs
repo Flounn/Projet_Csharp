@@ -14,7 +14,7 @@ namespace DesktopIHM.GuiObjects
 {
     public partial class FenRechercheClient : Form
     {
-        private CritereRechercheClient crtRechercheClient = null;
+        private CritereRechercheClient crtRechercheClient = new CritereRechercheClient();
 
         private static string[] valuesDateNaissance = new string[]{"Choisissez","Né le","Né après le"
             ,"Né avant le","Né entre le"};
@@ -61,6 +61,7 @@ namespace DesktopIHM.GuiObjects
             InitializeComponent();
             cbDateNaissance.Items.AddRange(valuesDateNaissance);
             cbDateNaissance.SelectedIndex = 0;
+            initData();
         }
 
 
@@ -70,18 +71,18 @@ namespace DesktopIHM.GuiObjects
         }
         private void btRechercher_Click(object sender, EventArgs e)
         {
-            if (!Utilities.isEmailValid(txtEmail.Text) && !string.IsNullOrEmpty(txtEmail.Text))
+            if (!string.IsNullOrEmpty(txtEmail.Text) && !Utilities.isEmailValid(txtEmail.Text))
             {
                 Utilities.showErrorMessage("L'email n'a pas été saisi correctement", "Erreur");
                 return;
             }
-            if (cbDateNaissance.SelectedIndex==0 && string.IsNullOrEmpty(txtAdresse.Text)
+            /*if (cbDateNaissance.SelectedIndex==0 && string.IsNullOrEmpty(txtAdresse.Text)
                     && string.IsNullOrEmpty(txtEmail.Text) && string.IsNullOrEmpty(txtId.Text)
                     && string.IsNullOrEmpty(txtNom.Text) && string.IsNullOrEmpty(txtPrenom.Text))
             {
                 Utilities.showErrorMessage("Veuillez saisir un des critères", "Erreur");
                 return;
-            }
+            }*/
 
             if (initCritereRecherche())
                 initData();

@@ -195,8 +195,8 @@ namespace DesktopIHM.GuiObjects
             contrat.Intitule = txtIntitule.Text;
             contrat.StatutJuridiqueStr = (string)cbStatut.SelectedItem;
             contrat.Type = Contrat.TypeContrat.Epargne;
-            contrat.persist();
-            contrat.IdContrat = DAOGenerique.lastId();
+            /*contrat.persist();
+            contrat.IdContrat = DAOGenerique.lastId();*/
         }
 
         private void rbTypeContrat_Checked(object sender, EventArgs e)

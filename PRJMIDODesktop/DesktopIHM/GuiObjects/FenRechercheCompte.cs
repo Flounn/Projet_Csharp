@@ -13,7 +13,7 @@ namespace DesktopIHM.GuiObjects
 {
     public partial class FenRechercheCompte : Form
     {
-        private CritereRechercheCompte crtRechercheCompte = null;
+        private CritereRechercheCompte crtRechercheCompte = new CritereRechercheCompte();
         private static string[] valuesDateOuverture = new string[] { "Choisissez", "Le", "Après le", "Avant le", "Entre le" };
         
         public FenRechercheCompte()
@@ -24,6 +24,7 @@ namespace DesktopIHM.GuiObjects
             cb_type.Items.AddRange(Compte.getTypes());
             cbDateOuverture.SelectedIndex = 0;
             cb_type.SelectedIndex = 0;
+            InitData();
         }
         
         private bool initCritereRecherche()
@@ -83,12 +84,12 @@ namespace DesktopIHM.GuiObjects
         private void btRechercher_Click(object sender, EventArgs e)
         {
 
-            if (cbDateOuverture.SelectedIndex <1 && string.IsNullOrEmpty(txtIdClient.Text)
+            /*if (cbDateOuverture.SelectedIndex <1 && string.IsNullOrEmpty(txtIdClient.Text)
                    && string.IsNullOrEmpty(txtIdCompte.Text) && cb_type.SelectedIndex<1)
             {
                 Utilities.showErrorMessage("Veuillez saisir un des critères", "Erreur");
                 return;
-            }
+            }*/
            
             if (initCritereRecherche())
                 InitData();

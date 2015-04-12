@@ -65,8 +65,11 @@ namespace DataService.DAOService
         {
             IDataReader reader = get(criteres);
             DataTable dt = new DataTable();
-            dt.Load(reader);
-            reader.Close();
+            if (reader != null)
+            {
+                dt.Load(reader);
+                reader.Close();
+            }
             return dt;
         }
 
