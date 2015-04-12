@@ -20,6 +20,8 @@ namespace DesktopIHM.GuiObjects
         {
             InitializeComponent();
             monCompte = compte;
+            if (string.IsNullOrEmpty(monCompte.Client.Email))
+                monCompte.Client = BSGestionClient.getClient(monCompte.Client.IdClient);
             initUi();
         }
 

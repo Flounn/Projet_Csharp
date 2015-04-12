@@ -123,5 +123,21 @@ namespace DesktopIHM.GuiObjects
             cbDateOuverture.SelectedIndex = 0;
             cb_type.SelectedIndex = 0;
         }
+
+        private void dgwLstCompte_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            new FenDetailCompte(getCompteSelected(e.RowIndex)).Show(this);
+        }
+
+        private Compte getCompteSelected(int index)
+        {
+            if (index < 0)
+                return null;
+            return new Compte((int)dgwLstCompte.Rows[index].Cells[0].Value, (string)dgwLstCompte.Rows[index].Cells[4].Value,
+                (DateTime)dgwLstCompte.Rows[index].Cells[1].Value, (decimal)dgwLstCompte.Rows[index].Cells[2].Value
+                , (int)dgwLstCompte.Rows[index].Cells[3].Value);
+        }
     }
 }

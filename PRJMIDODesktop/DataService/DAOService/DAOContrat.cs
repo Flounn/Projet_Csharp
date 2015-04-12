@@ -37,7 +37,7 @@ namespace DataService.DAOService
         {
             return Connexion.getAll(tableName);
         }
-        public static IDataReader get(object id)
+        public static IDataReader get(long id)
         {
             return Connexion.get(tableName, champsWhere, new object[] { id });
         }

@@ -36,7 +36,7 @@ namespace DataService.DAOService
             return Connexion.getAll(tableName);
         }
 
-        public static IDataReader get(object id)
+        public static IDataReader get(long id)
         {
             return Connexion.get(tableName, champsWhere, new object[] { id });
         }
@@ -60,8 +60,11 @@ namespace DataService.DAOService
         {
             IDataReader reader = get(criteres);
             DataTable dt = new DataTable();
-            dt.Load(reader);
-            reader.Close();
+            if (reader != null)
+            {
+                dt.Load(reader);
+                reader.Close();
+            }
             return dt;
         }
 

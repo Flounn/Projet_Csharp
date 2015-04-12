@@ -11,7 +11,14 @@ namespace DataService.BSDataObjects
         private int nombreCheque;
         private int numero1Cheque;
         private int dernierCheque;
+        private static readonly object[] valuesNbCheques = new object[] { 20, 50, 100 };
 
+        public static object[] ValuesNbCheques
+        {
+            get { return Chequier.valuesNbCheques; }
+        }
+
+        public Chequier() { }
         public Chequier(long idMoyenPaiement, int nombreCheque, int numero1Cheque, int dernierCheque)
         {
             this.IdMoyenPaiement = idMoyenPaiement;

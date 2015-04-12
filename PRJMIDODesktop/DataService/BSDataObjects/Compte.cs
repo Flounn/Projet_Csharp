@@ -32,6 +32,16 @@ namespace DataService.BSDataObjects
             this.client = client;
         }
 
+        public Compte(long idCompte, string typeCompte, DateTime dateOuverture, decimal montantInitial, int idClient)
+        {
+            this.idCompte = idCompte;
+            TypeCompteStr = typeCompte;
+            this.dateOuverture = dateOuverture;
+            this.montantInitial = montantInitial;
+            this.client = new Client();
+            client.IdClient = idClient;
+        }
+
         public long IdCompte
         {
             get { return idCompte; }

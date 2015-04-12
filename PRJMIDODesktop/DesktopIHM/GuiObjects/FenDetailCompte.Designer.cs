@@ -200,9 +200,9 @@
             this.lbDtOuverture.AutoSize = true;
             this.lbDtOuverture.Location = new System.Drawing.Point(235, 54);
             this.lbDtOuverture.Name = "lbDtOuverture";
-            this.lbDtOuverture.Size = new System.Drawing.Size(91, 13);
+            this.lbDtOuverture.Size = new System.Drawing.Size(80, 13);
             this.lbDtOuverture.TabIndex = 2;
-            this.lbDtOuverture.Text = "Date Souscription";
+            this.lbDtOuverture.Text = "Date Ouverture";
             // 
             // lbNomClient
             // 

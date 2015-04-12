@@ -92,9 +92,9 @@
             // 
             this.dgwLstCompte.AllowUserToAddRows = false;
             this.dgwLstCompte.AllowUserToDeleteRows = false;
-            this.dgwLstCompte.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgwLstCompte.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgwLstCompte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwLstCompte.Location = new System.Drawing.Point(37, 167);
             this.dgwLstCompte.MultiSelect = false;
@@ -102,6 +102,7 @@
             this.dgwLstCompte.ReadOnly = true;
             this.dgwLstCompte.Size = new System.Drawing.Size(485, 233);
             this.dgwLstCompte.TabIndex = 9;
+            this.dgwLstCompte.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwLstCompte_CellDoubleClick);
             // 
             // btRechercher
             // 

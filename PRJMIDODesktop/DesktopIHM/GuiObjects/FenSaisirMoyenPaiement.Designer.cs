@@ -90,7 +90,6 @@
             // 
             // txtNbDernierCheque
             // 
-            this.txtNbDernierCheque.Enabled = false;
             this.txtNbDernierCheque.Location = new System.Drawing.Point(137, 86);
             this.txtNbDernierCheque.Name = "txtNbDernierCheque";
             this.txtNbDernierCheque.Size = new System.Drawing.Size(98, 20);
@@ -98,7 +97,6 @@
             // 
             // txtNbPremierCheque
             // 
-            this.txtNbPremierCheque.Enabled = false;
             this.txtNbPremierCheque.Location = new System.Drawing.Point(137, 60);
             this.txtNbPremierCheque.Name = "txtNbPremierCheque";
             this.txtNbPremierCheque.Size = new System.Drawing.Size(98, 20);
@@ -143,7 +141,6 @@
             this.gbCarteBancaire.Controls.Add(this.lbDateFin);
             this.gbCarteBancaire.Controls.Add(this.dtDateDebut);
             this.gbCarteBancaire.Controls.Add(this.lbDateDebut);
-            this.gbCarteBancaire.Enabled = false;
             this.gbCarteBancaire.Location = new System.Drawing.Point(286, 96);
             this.gbCarteBancaire.Name = "gbCarteBancaire";
             this.gbCarteBancaire.Size = new System.Drawing.Size(275, 137);
@@ -195,7 +192,6 @@
             // 
             // dtDateFin
             // 
-            this.dtDateFin.Enabled = false;
             this.dtDateFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtDateFin.Location = new System.Drawing.Point(120, 58);
             this.dtDateFin.Name = "dtDateFin";
@@ -233,6 +229,7 @@
             // rbChequier
             // 
             this.rbChequier.AutoSize = true;
+            this.rbChequier.Checked = true;
             this.rbChequier.Location = new System.Drawing.Point(28, 19);
             this.rbChequier.Name = "rbChequier";
             this.rbChequier.Size = new System.Drawing.Size(67, 17);
@@ -249,7 +246,6 @@
             this.rbCarteBancaire.Name = "rbCarteBancaire";
             this.rbCarteBancaire.Size = new System.Drawing.Size(95, 17);
             this.rbCarteBancaire.TabIndex = 5;
-            this.rbCarteBancaire.TabStop = true;
             this.rbCarteBancaire.Text = "Carte Bancaire";
             this.rbCarteBancaire.UseVisualStyleBackColor = true;
             // 
