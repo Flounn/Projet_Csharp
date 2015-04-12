@@ -24,6 +24,18 @@ namespace DesktopIHM.GuiObjects
             txt_password.Text = utilisateur.Password;
             cb_profil.DataSource = Utilisateur.Profils;
             cb_profil.SelectedItem = utilisateur.Profil;
+            initRoles();
+        }
+
+        private void initRoles()
+        {
+            if (Session.isConsultation())
+            {
+                bt_modifier.Visible = false;
+                bt_supprimer.Visible = false;
+            }
+            if (Session.isOperateurDeSaisie())
+                bt_supprimer.Visible = false;
         }
 
         private void bt_ajouter_Click(object sender, EventArgs e)

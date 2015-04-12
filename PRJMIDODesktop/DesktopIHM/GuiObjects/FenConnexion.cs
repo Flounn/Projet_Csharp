@@ -12,10 +12,11 @@ namespace DesktopIHM
 {
     public partial class FenConnexion : Form
     {
-       
-        public FenConnexion()
+        private UpdateDataGridView callback;
+        public FenConnexion(UpdateDataGridView callback)
         {
             InitializeComponent();
+            this.callback = callback;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -39,9 +40,12 @@ namespace DesktopIHM
                 Utilities.showErrorMessage("Veuillez saisir votre mot de passe", "Echec de connexion");
                 return;
             }
-            
+
             if (Session.seConnecter(_login, _pwd))
+            {
+                callback.refresh();
                 this.Close();
+            }
             else
                 MessageBox.Show("Erreur d'identification. Reessayez", "Echec de connexion", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
         }

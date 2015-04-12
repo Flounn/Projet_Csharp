@@ -28,6 +28,19 @@ namespace DesktopIHM.GuiObjects
             initUi();
         }
 
+        private void initRoles()
+        {
+            if (Session.isConsultation())
+            {
+                bt_ajouter_compte.Visible = false;
+                bt_ajouter_contrat.Visible = false;
+                btModifier.Visible = false;
+                btSupprimer.Visible = false;
+            }
+            if (Session.isOperateurDeSaisie())
+                btSupprimer.Visible = false;
+        }
+
         public FenDetailClient(Client client)
         {
             InitializeComponent();
@@ -38,6 +51,7 @@ namespace DesktopIHM.GuiObjects
         private void initUi(){
             initData();
             dtDateNaissance.MaxDate = DateTime.Today;
+            initRoles();
         }
 
         public void initContrats()
@@ -74,7 +88,7 @@ namespace DesktopIHM.GuiObjects
             }
         }
 
-        void dgvLstComptes_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        void dgvLstComptes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
                 return;

@@ -25,10 +25,21 @@ namespace DesktopIHM.GuiObjects
             initUi();
         }
 
+        private void initRoles()
+        {
+            if (Session.isConsultation())
+            {
+                btAjouterMoyenPaiement.Visible = false;
+                btSupprimer.Visible = false;
+            }
+            if(Session.isOperateurDeSaisie())
+                btSupprimer.Visible = false;
+        }
+
 
         private void initUi()
         {
-            
+            initRoles();
             this.txtId.Text = monCompte.IdCompte.ToString();
             this.txtIdClient.Text = monCompte.Client.IdClient.ToString();
             this.txtNomClient.Text = monCompte.Client.Nom;

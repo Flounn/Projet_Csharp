@@ -352,7 +352,7 @@ namespace DesktopIHM.GuiObjects
             this.dgvLstComptes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLstComptes.Size = new System.Drawing.Size(687, 130);
             this.dgvLstComptes.TabIndex = 11;
-            this.dgvLstComptes.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLstComptes_CellContentDoubleClick);
+            this.dgvLstComptes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLstComptes_CellDoubleClick);
             this.dgvLstComptes.SelectionChanged += new System.EventHandler(this.dgvLstComptes_SelectionChanged);
             // 
             // gbListeTransactions

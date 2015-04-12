@@ -10,13 +10,22 @@ using DesktopIHM.GuiObjects;
 
 namespace DesktopIHM
 {
-    public partial class FenPrincipale : Form
+    public partial class FenPrincipale : Form, UpdateDataGridView
     {
        
         public FenPrincipale()
         {
             InitializeComponent();
             InitialisationReferentiel();
+        }
+
+        private void initRoles()
+        {
+            if (Session.isConsultation())
+            {
+                miAddUtilisateur.Enabled = false;
+                miSaisir.Enabled = false;
+            }
         }
 
         private void InitialisationReferentiel()
@@ -31,9 +40,10 @@ namespace DesktopIHM
 
         private void FenPrincipale_Load(object sender, EventArgs e)
         {
-            //FenConnexion connexion = new FenConnexion();
+            //FenConnexion connexion = new FenConnexion(this);
             //connexion.ShowDialog(this);
-            Session.seConnecter("tata", "yoyo");
+            Session.seConnecter("midoif", "passw1");
+            refresh();
         }
 
         private void miVersion_Click(object sender, EventArgs e)
@@ -96,6 +106,11 @@ namespace DesktopIHM
         {
             new FenRechercheOperation().Show();
         }
-        
+
+
+        public void refresh()
+        {
+            initRoles();
+        }
     }
 }

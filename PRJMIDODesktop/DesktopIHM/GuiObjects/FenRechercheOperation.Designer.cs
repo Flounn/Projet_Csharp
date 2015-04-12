@@ -62,7 +62,7 @@
             // 
             // btRechercher
             // 
-            this.btRechercher.Location = new System.Drawing.Point(261, 156);
+            this.btRechercher.Location = new System.Drawing.Point(288, 156);
             this.btRechercher.Name = "btRechercher";
             this.btRechercher.Size = new System.Drawing.Size(264, 21);
             this.btRechercher.TabIndex = 21;
@@ -74,22 +74,22 @@
             // 
             this.dgvLstClient.AllowUserToAddRows = false;
             this.dgvLstClient.AllowUserToDeleteRows = false;
-            this.dgvLstClient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvLstClient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvLstClient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvLstClient.Location = new System.Drawing.Point(40, 183);
             this.dgvLstClient.MultiSelect = false;
             this.dgvLstClient.Name = "dgvLstClient";
             this.dgvLstClient.ReadOnly = true;
             this.dgvLstClient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLstClient.Size = new System.Drawing.Size(485, 237);
+            this.dgvLstClient.Size = new System.Drawing.Size(513, 237);
             this.dgvLstClient.TabIndex = 20;
             // 
             // dtDateDebut
             // 
             this.dtDateDebut.Enabled = false;
             this.dtDateDebut.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDateDebut.Location = new System.Drawing.Point(106, 42);
+            this.dtDateDebut.Location = new System.Drawing.Point(131, 39);
             this.dtDateDebut.Name = "dtDateDebut";
             this.dtDateDebut.Size = new System.Drawing.Size(86, 20);
             this.dtDateDebut.TabIndex = 4;
@@ -99,7 +99,7 @@
             // 
             this.dtDateFin.Enabled = false;
             this.dtDateFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDateFin.Location = new System.Drawing.Point(106, 62);
+            this.dtDateFin.Location = new System.Drawing.Point(131, 60);
             this.dtDateFin.Name = "dtDateFin";
             this.dtDateFin.Size = new System.Drawing.Size(86, 20);
             this.dtDateFin.TabIndex = 11;
@@ -110,7 +110,7 @@
             this.cbDate.FormattingEnabled = true;
             this.cbDate.Location = new System.Drawing.Point(51, 42);
             this.cbDate.Name = "cbDate";
-            this.cbDate.Size = new System.Drawing.Size(49, 21);
+            this.cbDate.Size = new System.Drawing.Size(74, 21);
             this.cbDate.TabIndex = 12;
             this.cbDate.SelectedIndexChanged += new System.EventHandler(this.cbDate_SelectedIndexChanged);
             // 
@@ -127,7 +127,7 @@
             // 
             this.txtId.Location = new System.Drawing.Point(51, 17);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(141, 20);
+            this.txtId.Size = new System.Drawing.Size(166, 20);
             this.txtId.TabIndex = 16;
             // 
             // gbDonneesRecherche
@@ -148,22 +148,22 @@
             this.gbDonneesRecherche.Controls.Add(this.dtDateDebut);
             this.gbDonneesRecherche.Location = new System.Drawing.Point(40, 21);
             this.gbDonneesRecherche.Name = "gbDonneesRecherche";
-            this.gbDonneesRecherche.Size = new System.Drawing.Size(485, 127);
+            this.gbDonneesRecherche.Size = new System.Drawing.Size(513, 127);
             this.gbDonneesRecherche.TabIndex = 23;
             this.gbDonneesRecherche.TabStop = false;
             this.gbDonneesRecherche.Text = "Données de recherche";
             // 
             // txtLibelle
             // 
-            this.txtLibelle.Location = new System.Drawing.Point(324, 82);
+            this.txtLibelle.Location = new System.Drawing.Point(353, 82);
             this.txtLibelle.Name = "txtLibelle";
-            this.txtLibelle.Size = new System.Drawing.Size(155, 20);
+            this.txtLibelle.Size = new System.Drawing.Size(141, 20);
             this.txtLibelle.TabIndex = 25;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(218, 89);
+            this.label1.Location = new System.Drawing.Point(245, 85);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 13);
             this.label1.TabIndex = 24;
@@ -181,9 +181,9 @@
             // cbStatut
             // 
             this.cbStatut.FormattingEnabled = true;
-            this.cbStatut.Location = new System.Drawing.Point(51, 85);
+            this.cbStatut.Location = new System.Drawing.Point(51, 86);
             this.cbStatut.Name = "cbStatut";
-            this.cbStatut.Size = new System.Drawing.Size(141, 21);
+            this.cbStatut.Size = new System.Drawing.Size(166, 21);
             this.cbStatut.TabIndex = 22;
             // 
             // lbDate
@@ -197,15 +197,15 @@
             // 
             // txtIdCompte
             // 
-            this.txtIdCompte.Location = new System.Drawing.Point(324, 51);
+            this.txtIdCompte.Location = new System.Drawing.Point(353, 51);
             this.txtIdCompte.Name = "txtIdCompte";
-            this.txtIdCompte.Size = new System.Drawing.Size(155, 20);
+            this.txtIdCompte.Size = new System.Drawing.Size(141, 20);
             this.txtIdCompte.TabIndex = 20;
             // 
             // IdCompte
             // 
             this.IdCompte.AutoSize = true;
-            this.IdCompte.Location = new System.Drawing.Point(218, 54);
+            this.IdCompte.Location = new System.Drawing.Point(235, 54);
             this.IdCompte.Name = "IdCompte";
             this.IdCompte.Size = new System.Drawing.Size(57, 13);
             this.IdCompte.TabIndex = 19;
@@ -213,15 +213,15 @@
             // 
             // txtIdMoyenPaiement
             // 
-            this.txtIdMoyenPaiement.Location = new System.Drawing.Point(324, 19);
+            this.txtIdMoyenPaiement.Location = new System.Drawing.Point(353, 17);
             this.txtIdMoyenPaiement.Name = "txtIdMoyenPaiement";
-            this.txtIdMoyenPaiement.Size = new System.Drawing.Size(155, 20);
+            this.txtIdMoyenPaiement.Size = new System.Drawing.Size(141, 20);
             this.txtIdMoyenPaiement.TabIndex = 18;
             // 
             // lbIdMoyenPaiement
             // 
             this.lbIdMoyenPaiement.AutoSize = true;
-            this.lbIdMoyenPaiement.Location = new System.Drawing.Point(218, 23);
+            this.lbIdMoyenPaiement.Location = new System.Drawing.Point(235, 23);
             this.lbIdMoyenPaiement.Name = "lbIdMoyenPaiement";
             this.lbIdMoyenPaiement.Size = new System.Drawing.Size(100, 13);
             this.lbIdMoyenPaiement.TabIndex = 17;
@@ -231,7 +231,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(565, 468);
+            this.ClientSize = new System.Drawing.Size(588, 468);
             this.Controls.Add(this.gbDonneesRecherche);
             this.Controls.Add(this.btVider);
             this.Controls.Add(this.btRechercher);

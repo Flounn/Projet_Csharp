@@ -20,5 +20,9 @@ namespace DesktopIHM.GuiObjects
         {
             System.Windows.Forms.MessageBox.Show(text, caption, System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
         }
+        public static void actionNotAuthorized()
+        {
+            System.Windows.Forms.MessageBox.Show("Vous n'êtes pas autorisé à effectuer cette action", "Non autorisé", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+        }
     }
 }
