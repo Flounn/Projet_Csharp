@@ -26,6 +26,7 @@ namespace DesktopIHM.GuiObjects
             rbChequier_CheckedChanged(rbChequier, null);
             this.compte = compte;
             this.callabck = callabck;
+            txtNbPremierCheque.Focus();
         }
 
         private void btTypeCarte_Click(object sender, EventArgs e)

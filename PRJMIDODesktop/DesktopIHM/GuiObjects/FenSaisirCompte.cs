@@ -24,12 +24,14 @@ namespace DesktopIHM.GuiObjects
             compte.Client = client;
             txt_client.Text = client.IdClient.ToString();
             this.detailsClient = detailsClient;
+            txt_montant_initial.Focus();
         }
 
         public FenSaisirCompte()
         {
             InitializeComponent();
             compte.Client = new Client();
+            txt_client.Focus();
         }
 
         private void bt_creer_Click(object sender, EventArgs e)
@@ -71,7 +73,9 @@ namespace DesktopIHM.GuiObjects
         private void vider()
         {
             txt_montant_initial.Text = txt_client.Text = string.Empty;
+            txt_client.Text = string.Empty;
             rb_courant.Checked = true;
+            txt_client.Focus();
         }
 
         private void bt_vider_Click(object sender, EventArgs e)

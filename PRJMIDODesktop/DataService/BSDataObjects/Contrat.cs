@@ -46,6 +46,17 @@ namespace DataService.BSDataObjects
             this.StatutJuridiqueStr = statutJuridique;
             this.Type = typeContrat;
         }
+        public Contrat(long idContrat,DateTime dateSouscription,string intitule, Client client, Compte compte, string statutJuridique, string typeContrat)
+        {
+            this.idContrat = idContrat;
+            this.intitule = intitule;
+            this.dateSouscription = dateSouscription;
+            this.client = client;
+            this.compte = compte;
+            this.StatutJuridiqueStr = statutJuridique;
+            this.TypeStr = typeContrat;
+        }
+
 
         public long IdContrat
         {

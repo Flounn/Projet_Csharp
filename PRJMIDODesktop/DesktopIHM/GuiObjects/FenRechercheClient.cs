@@ -61,6 +61,7 @@ namespace DesktopIHM.GuiObjects
             InitializeComponent();
             cbDateNaissance.Items.AddRange(valuesDateNaissance);
             cbDateNaissance.SelectedIndex = 0;
+            txtId.Focus();
         }
 
 

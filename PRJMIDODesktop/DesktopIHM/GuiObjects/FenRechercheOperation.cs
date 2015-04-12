@@ -92,6 +92,7 @@ namespace DesktopIHM.GuiObjects
             cbDate.SelectedIndex = 0;
             dtDateDebut.MaxDate = DateTime.Today;
             dtDateFin.MaxDate = DateTime.Today;
+            txtId.Focus();
         }
 
 
@@ -141,6 +142,7 @@ namespace DesktopIHM.GuiObjects
             txtLibelle.Text = string.Empty;
             cbStatut.SelectedIndex = 0;
             cbDate.SelectedIndex = 0;
+            txtId.Focus();
         }
 
     }

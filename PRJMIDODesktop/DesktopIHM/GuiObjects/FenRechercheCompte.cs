@@ -24,6 +24,7 @@ namespace DesktopIHM.GuiObjects
             cb_type.Items.AddRange(Compte.getTypes());
             cbDateOuverture.SelectedIndex = 0;
             cb_type.SelectedIndex = 0;
+            txtIdCompte.Focus();
             //InitData();
         }
         
@@ -123,6 +124,7 @@ namespace DesktopIHM.GuiObjects
             txtIdCompte.Text = string.Empty;
             cbDateOuverture.SelectedIndex = 0;
             cb_type.SelectedIndex = 0;
+            txtIdCompte.Focus();
         }
 
         private void dgwLstCompte_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

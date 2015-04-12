@@ -23,6 +23,7 @@ namespace DesktopIHM.GuiObjects
         {
             InitializeComponent();
             initUI();
+            txtIdClient.Focus();
         }
 
         public FenSaisirContrat(Client client, Compte compte)
@@ -33,6 +34,7 @@ namespace DesktopIHM.GuiObjects
             initUI();
             txtIdClient.Text = client.IdClient.ToString();
             txtIdCompte.Text = compte.IdCompte.ToString();
+            txtIntitule.Focus();
         }
 
         private FenDetailClient detailsClient;
@@ -43,6 +45,7 @@ namespace DesktopIHM.GuiObjects
             this.detailsClient = detailsClient;
             initUI();
             txtIdClient.Text = client.IdClient.ToString();
+            txtIdCompte.Focus();
         }
 
         private void initUI()
@@ -245,6 +248,7 @@ namespace DesktopIHM.GuiObjects
             txtObjet.Text = string.Empty;
             txtTaux.Text = string.Empty;
             rbPeriodique.Checked = true;
+            txtIdClient.Focus();
         }
 
     }

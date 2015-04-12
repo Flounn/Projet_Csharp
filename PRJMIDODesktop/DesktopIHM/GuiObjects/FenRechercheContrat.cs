@@ -24,6 +24,7 @@ namespace DesktopIHM.GuiObjects
             cb_type.Items.AddRange(Contrat.getTypesContrat());
             cbDateSouscription.SelectedIndex = 0;
             cb_type.SelectedIndex = 0;
+            txtId.Focus();
             //InitData();
         }
         
@@ -147,7 +148,26 @@ namespace DesktopIHM.GuiObjects
             txtIntitule.Text = string.Empty;
             cbDateSouscription.SelectedIndex = 0;
             cb_type.SelectedIndex = 0;
+            txtId.Focus();
         }
 
+        private void dgwLstContrat_CellDoubleClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return ;
+            new FenDetailContrat(getContratRow(e.RowIndex)).Show(this);
+        }
+        private Contrat getContratRow(int index)
+        {
+            if (index <0)
+                return null;
+            Client client = new Client();
+            client.IdClient = (int)dgwLstContrat.Rows[index].Cells[3].Value;
+            Compte compte = new Compte();
+            compte.IdCompte=(int)dgwLstContrat.Rows[index].Cells[4].Value;
+            return new Contrat((int)dgwLstContrat.Rows[index].Cells[0].Value,(DateTime)dgwLstContrat.Rows[index].Cells[1].Value,
+                (string)dgwLstContrat.Rows[index].Cells[2].Value,client, compte, (string)dgwLstContrat.Rows[index].Cells[4].Value,
+                (string)dgwLstContrat.Rows[index].Cells[5].Value);
+        }
     }
 }

@@ -129,6 +129,7 @@
             this.dgwLstContrat.ReadOnly = true;
             this.dgwLstContrat.Size = new System.Drawing.Size(485, 207);
             this.dgwLstContrat.TabIndex = 9;
+            this.dgwLstContrat.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(dgwLstContrat_CellDoubleClick);
             // 
             // btRechercher
             // 

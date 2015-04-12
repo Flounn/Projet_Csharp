@@ -25,6 +25,7 @@ namespace DesktopIHM.GuiObjects
             cbReseau.Items.AddRange(TypeCarte.getReseauCarteBancaire());
             cbReseau.SelectedIndex = 0;
             initData();
+            txtId.Focus();
         }
 
         private bool initCritereRecherche()
@@ -102,6 +103,7 @@ namespace DesktopIHM.GuiObjects
             this.txtPlfGloPaiement.Text = string.Empty;
             this.txtPlfGloRetrait.Text = string.Empty;
             this.cbReseau.SelectedIndex = 0;
+            txtId.Focus();
         }
 
         private void btSelection_Click(object sender, EventArgs e)
