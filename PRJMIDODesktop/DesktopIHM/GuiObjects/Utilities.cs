@@ -16,9 +16,9 @@ namespace DesktopIHM.GuiObjects
         {
             System.Windows.Forms.MessageBox.Show(text,caption,System.Windows.Forms.MessageBoxButtons.OK,System.Windows.Forms.MessageBoxIcon.Error);
         }
-        public static string[] enumToString<T>() where T : class
+        public static void showInfoMessage(string text, string caption)
         {
-            return Enum.GetNames(typeof(T));
+            System.Windows.Forms.MessageBox.Show(text, caption, System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
         }
     }
 }

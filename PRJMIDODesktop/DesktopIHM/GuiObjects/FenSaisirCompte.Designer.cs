@@ -36,12 +36,13 @@
             this.txt_montant_initial = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_client = new System.Windows.Forms.TextBox();
+            this.bt_vider = new System.Windows.Forms.Button();
             this.gb_type_compte.SuspendLayout();
             this.SuspendLayout();
             // 
             // bt_creer
             // 
-            this.bt_creer.Location = new System.Drawing.Point(138, 202);
+            this.bt_creer.Location = new System.Drawing.Point(197, 202);
             this.bt_creer.Name = "bt_creer";
             this.bt_creer.Size = new System.Drawing.Size(75, 23);
             this.bt_creer.TabIndex = 0;
@@ -52,7 +53,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(67, 167);
+            this.label1.Location = new System.Drawing.Point(67, 168);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 13);
             this.label1.TabIndex = 1;
@@ -84,7 +85,7 @@
             // 
             this.gb_type_compte.Controls.Add(this.rb_courant);
             this.gb_type_compte.Controls.Add(this.rb_epargne);
-            this.gb_type_compte.Location = new System.Drawing.Point(70, 41);
+            this.gb_type_compte.Location = new System.Drawing.Point(70, 43);
             this.gb_type_compte.Name = "gb_type_compte";
             this.gb_type_compte.Size = new System.Drawing.Size(249, 100);
             this.gb_type_compte.TabIndex = 4;
@@ -93,7 +94,7 @@
             // 
             // txt_montant_initial
             // 
-            this.txt_montant_initial.Location = new System.Drawing.Point(181, 164);
+            this.txt_montant_initial.Location = new System.Drawing.Point(181, 165);
             this.txt_montant_initial.Name = "txt_montant_initial";
             this.txt_montant_initial.Size = new System.Drawing.Size(121, 20);
             this.txt_montant_initial.TabIndex = 5;
@@ -114,11 +115,22 @@
             this.txt_client.Size = new System.Drawing.Size(121, 20);
             this.txt_client.TabIndex = 7;
             // 
+            // bt_vider
+            // 
+            this.bt_vider.Location = new System.Drawing.Point(86, 202);
+            this.bt_vider.Name = "bt_vider";
+            this.bt_vider.Size = new System.Drawing.Size(75, 23);
+            this.bt_vider.TabIndex = 8;
+            this.bt_vider.Text = "Vider";
+            this.bt_vider.UseVisualStyleBackColor = true;
+            this.bt_vider.Click += new System.EventHandler(this.bt_vider_Click);
+            // 
             // FenSaisirCompte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(423, 237);
+            this.Controls.Add(this.bt_vider);
             this.Controls.Add(this.txt_client);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_montant_initial);
@@ -145,5 +157,6 @@
         private System.Windows.Forms.TextBox txt_montant_initial;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_client;
+        private System.Windows.Forms.Button bt_vider;
     }
 }

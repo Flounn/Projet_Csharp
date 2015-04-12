@@ -28,6 +28,7 @@ namespace DesktopIHM.GuiObjects
         public FenSaisirCompte()
         {
             InitializeComponent();
+            compte.Client = new Client();
             txt_client.Enabled = true;
         }
 
@@ -37,9 +38,39 @@ namespace DesktopIHM.GuiObjects
             {
                 compte.MontantInitial = decimal.Parse(txt_montant_initial.Text);
             }
-            catch (FormatException) { return; }
+            catch {
+                Utilities.showErrorMessage("Veuillez saisir un montant initial valide", "Erreur");
+                return; 
+            }
+            try
+            {
+                compte.Client.IdClient = int.Parse(txt_client.Text);
+            }
+            catch
+            {
+                Utilities.showErrorMessage("Veuillez saisir un id client valide", "Erreur");
+                return;
+            }
             compte.TypeCompte = rb_courant.Checked ? Compte.Type.Courant : Compte.Type.Epargne;
-            BSGestionClient.CreerModifierCompte(compte);
+            if (BSGestionClient.CreerModifierCompte(compte))
+            {
+                Utilities.showInfoMessage("Le compte vient d'être ajouté", "Compte ajouté");
+                vider();
+            }
+            else
+                Utilities.showErrorMessage("Veuillez saisir un id client valide", "Erreur");
+
+        }
+
+        private void vider()
+        {
+            txt_montant_initial.Text = txt_client.Text = string.Empty;
+            rb_courant.Checked = true;
+        }
+
+        private void bt_vider_Click(object sender, EventArgs e)
+        {
+            vider();
         }
 
     }
