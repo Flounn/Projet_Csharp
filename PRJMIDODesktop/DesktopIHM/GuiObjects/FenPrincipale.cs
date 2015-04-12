@@ -91,6 +91,11 @@ namespace DesktopIHM
         {
             new FenSaisirContrat().Show();
         }
+
+        private void miRechercheOperation_Click(object sender, EventArgs e)
+        {
+            new FenRechercheOperation().Show();
+        }
         
     }
 }

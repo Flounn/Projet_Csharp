@@ -56,6 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GuiObjects\FenRechercheOperation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GuiObjects\FenRechercheOperation.Designer.cs">
+      <DependentUpon>FenRechercheOperation.cs</DependentUpon>
+    </Compile>
     <Compile Include="GuiObjects\FenRechercheCompte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +173,9 @@
     <Compile Include="UpdateDataGridView.cs" />
     <EmbeddedResource Include="GuiObjects\FenRechercheCompte.resx">
       <DependentUpon>FenRechercheCompte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GuiObjects\FenRechercheOperation.resx">
+      <DependentUpon>FenRechercheOperation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GuiObjects\FenSaisirContrat.resx">
       <DependentUpon>FenSaisirContrat.cs</DependentUpon>

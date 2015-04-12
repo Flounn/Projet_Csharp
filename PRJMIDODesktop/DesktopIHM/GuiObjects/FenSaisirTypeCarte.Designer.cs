@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FenSaisirTypeCarte));
             this.txtPlfGloRetraitInt = new System.Windows.Forms.TextBox();
             this.txtPlfRetraitFr = new System.Windows.Forms.TextBox();
             this.txtPlfRetraitEtr = new System.Windows.Forms.TextBox();
@@ -240,8 +241,8 @@
             this.ClientSize = new System.Drawing.Size(335, 321);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btCreer);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FenSaisirTypeCarte";
-            this.ShowIcon = false;
             this.Text = "Saisir Type Carte";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

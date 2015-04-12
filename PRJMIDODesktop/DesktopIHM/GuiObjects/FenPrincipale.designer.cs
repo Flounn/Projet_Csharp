@@ -84,7 +84,7 @@
             this.miSouscription,
             this.miDonneesReferentiel});
             this.miSaisir.Name = "miSaisir";
-            this.miSaisir.Size = new System.Drawing.Size(136, 22);
+            this.miSaisir.Size = new System.Drawing.Size(152, 22);
             this.miSaisir.Text = "Saisir";
             // 
             // miSaisirClient
@@ -122,7 +122,7 @@
             this.miRechercheCompte,
             this.miRechercheOperation});
             this.miRechercher.Name = "miRechercher";
-            this.miRechercher.Size = new System.Drawing.Size(136, 22);
+            this.miRechercher.Size = new System.Drawing.Size(152, 22);
             this.miRechercher.Text = "Rechercher";
             // 
             // miRechercheClient
@@ -151,18 +151,19 @@
             this.miRechercheOperation.Name = "miRechercheOperation";
             this.miRechercheOperation.Size = new System.Drawing.Size(229, 22);
             this.miRechercheOperation.Text = "Une opération sur un compte";
+            this.miRechercheOperation.Click += new System.EventHandler(this.miRechercheOperation_Click);
             // 
             // miProfile
             // 
             this.miProfile.Name = "miProfile";
-            this.miProfile.Size = new System.Drawing.Size(136, 22);
+            this.miProfile.Size = new System.Drawing.Size(152, 22);
             this.miProfile.Text = "Mon profile";
             this.miProfile.Click += new System.EventHandler(this.monProfileToolStripMenuItem_Click);
             // 
             // miQuit
             // 
             this.miQuit.Name = "miQuit";
-            this.miQuit.Size = new System.Drawing.Size(136, 22);
+            this.miQuit.Size = new System.Drawing.Size(152, 22);
             this.miQuit.Text = "Quitter";
             this.miQuit.Click += new System.EventHandler(this.miQuit_Click);
             // 

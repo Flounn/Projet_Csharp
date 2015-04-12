@@ -24,7 +24,7 @@ namespace DesktopIHM.GuiObjects
             cb_type.Items.AddRange(Compte.getTypes());
             cbDateOuverture.SelectedIndex = 0;
             cb_type.SelectedIndex = 0;
-            InitData();
+            //InitData();
         }
         
         private bool initCritereRecherche()

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FenSaisirMoyenPaiement));
             this.lbIdCompte = new System.Windows.Forms.Label();
             this.gbCheque = new System.Windows.Forms.GroupBox();
             this.cbNbCheques = new System.Windows.Forms.ComboBox();
@@ -289,8 +290,8 @@
             this.Controls.Add(this.gbCarteBancaire);
             this.Controls.Add(this.gbCheque);
             this.Controls.Add(this.lbIdCompte);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FenSaisirMoyenPaiement";
-            this.ShowIcon = false;
             this.Text = "Ajouter Moyen Paiement";
             this.gbCheque.ResumeLayout(false);
             this.gbCheque.PerformLayout();

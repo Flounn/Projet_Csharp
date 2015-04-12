@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FenMonProfil));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.bt_modifier = new System.Windows.Forms.Button();
             this.txt_password = new System.Windows.Forms.TextBox();
@@ -171,6 +172,7 @@
             this.Controls.Add(this.lbl_profil);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FenMonProfil";
             this.Text = "Mon profil";
             this.groupBox1.ResumeLayout(false);

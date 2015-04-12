@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FenRechercheCompte));
             this.lbIdClient = new System.Windows.Forms.Label();
             this.lbDateSouscription = new System.Windows.Forms.Label();
             this.lbIntitule = new System.Windows.Forms.Label();
@@ -92,9 +93,9 @@
             // 
             this.dgwLstCompte.AllowUserToAddRows = false;
             this.dgwLstCompte.AllowUserToDeleteRows = false;
-            this.dgwLstCompte.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgwLstCompte.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dgwLstCompte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwLstCompte.Location = new System.Drawing.Point(37, 167);
             this.dgwLstCompte.MultiSelect = false;
@@ -186,6 +187,7 @@
             this.Controls.Add(this.lbIntitule);
             this.Controls.Add(this.lbDateSouscription);
             this.Controls.Add(this.lbIdClient);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FenRechercheCompte";
             this.Text = "Rechercher Compte";
             ((System.ComponentModel.ISupportInitialize)(this.dgwLstCompte)).EndInit();

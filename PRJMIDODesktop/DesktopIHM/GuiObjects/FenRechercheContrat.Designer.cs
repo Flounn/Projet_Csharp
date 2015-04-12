@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FenRechercheContrat));
             this.lbIdClient = new System.Windows.Forms.Label();
             this.lbIdProduit = new System.Windows.Forms.Label();
             this.lbDateSouscription = new System.Windows.Forms.Label();
@@ -222,7 +223,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(565, 429);
+            this.ClientSize = new System.Drawing.Size(565, 462);
             this.Controls.Add(this.cb_type);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btVider);
@@ -242,6 +243,7 @@
             this.Controls.Add(this.lbDateSouscription);
             this.Controls.Add(this.lbIdProduit);
             this.Controls.Add(this.lbIdClient);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FenRechercheContrat";
             this.Text = "Rechercher Contrat";
             ((System.ComponentModel.ISupportInitialize)(this.dgwLstContrat)).EndInit();

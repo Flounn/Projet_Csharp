@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FenSaisirClient));
             this.btCreer = new System.Windows.Forms.Button();
             this.lbNom = new System.Windows.Forms.Label();
             this.lbPrenom = new System.Windows.Forms.Label();
@@ -225,6 +226,7 @@
             this.Controls.Add(this.lbPrenom);
             this.Controls.Add(this.lbNom);
             this.Controls.Add(this.btCreer);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FenSaisirClient";
             this.Text = "Saisir Client";
             this.ResumeLayout(false);

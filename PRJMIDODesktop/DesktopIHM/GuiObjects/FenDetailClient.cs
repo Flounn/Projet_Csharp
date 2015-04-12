@@ -276,21 +276,24 @@ namespace DesktopIHM.GuiObjects
         private PdfPTable pdfOperationTable(DataGridView dgv)
         {
             //Creating iTextSharp Table from the DataTable data
-            PdfPTable pdfTable = new PdfPTable(dgv.ColumnCount);
+            PdfPTable pdfTable = new PdfPTable(dgv.ColumnCount - 4);
             pdfTable.DefaultCell.Padding = 3;
             pdfTable.WidthPercentage = 80;
             pdfTable.HorizontalAlignment = Element.ALIGN_CENTER;
             pdfTable.DefaultCell.BorderWidth = 1;
-            float[] widths = new float[] { 30f, 40f, 40f, 30f, 40f};
+            float[] widths = new float[] { 30f, 40f, 40f, 30f, 40f, 30f};
             pdfTable.SetWidths(widths);
 
             //Adding Header row
-            foreach (DataGridViewColumn column in dgv.Columns)
+            for (int i = 0; i < dgv.Columns.Count; i++ )
             {
-                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, iTextSharp.text.FontFactory.GetFont(FontFactory.TIMES_BOLD, 8)));
-                cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
-                cell.HorizontalAlignment = Element.ALIGN_RIGHT;
-                pdfTable.AddCell(cell);
+                if (i != 1 && i != 2 && i != 4 && i != 6)
+                {
+                    PdfPCell cell = new PdfPCell(new Phrase(dgv.Columns[i].HeaderText, iTextSharp.text.FontFactory.GetFont(FontFactory.TIMES_BOLD, 8)));
+                    cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
+                    cell.HorizontalAlignment = Element.ALIGN_RIGHT;
+                    pdfTable.AddCell(cell);
+                }
             }
 
             //Adding DataRow
@@ -298,9 +301,16 @@ namespace DesktopIHM.GuiObjects
             {
                 foreach (DataGridViewCell cell in row.Cells)
                 {
-                    PdfPCell myCell = new PdfPCell(new Phrase(cell.Value.ToString(), iTextSharp.text.FontFactory.GetFont(FontFactory.TIMES, 8)));
-                    myCell.HorizontalAlignment = Element.ALIGN_RIGHT;
-                    pdfTable.AddCell(myCell);
+                    
+                }
+                for (int i = 0; i < dgv.Columns.Count; i++)
+                {
+                    if (i != 1 && i != 2 && i != 4 && i != 6)
+                    {
+                        PdfPCell myCell = new PdfPCell(new Phrase(row.Cells[i].Value.ToString(), iTextSharp.text.FontFactory.GetFont(FontFactory.TIMES, 8)));
+                        myCell.HorizontalAlignment = Element.ALIGN_RIGHT;
+                        pdfTable.AddCell(myCell);
+                    }
                 }
             }
             pdfTable.SpacingAfter = 5;

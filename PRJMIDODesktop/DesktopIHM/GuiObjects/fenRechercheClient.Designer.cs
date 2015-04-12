@@ -30,6 +30,7 @@ namespace DesktopIHM.GuiObjects
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FenRechercheClient));
             this.lbNom = new System.Windows.Forms.Label();
             this.lbPrenom = new System.Windows.Forms.Label();
             this.lbDdn = new System.Windows.Forms.Label();
@@ -124,8 +125,8 @@ namespace DesktopIHM.GuiObjects
             // 
             this.dgvLstClient.AllowUserToAddRows = false;
             this.dgvLstClient.AllowUserToDeleteRows = false;
-            this.dgvLstClient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvLstClient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvLstClient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvLstClient.Location = new System.Drawing.Point(37, 163);
             this.dgvLstClient.MultiSelect = false;
@@ -200,8 +201,8 @@ namespace DesktopIHM.GuiObjects
             // 
             // btDetail
             // 
-            this.btDetail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btDetail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.btDetail.Location = new System.Drawing.Point(148, 406);
             this.btDetail.Name = "btDetail";
             this.btDetail.Size = new System.Drawing.Size(264, 21);
@@ -253,8 +254,8 @@ namespace DesktopIHM.GuiObjects
             this.Controls.Add(this.btDetail);
             this.Controls.Add(this.btRechercher);
             this.Controls.Add(this.dgvLstClient);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FenRechercheClient";
-            this.ShowIcon = false;
             this.Text = "Rechercher Client";
             ((System.ComponentModel.ISupportInitialize)(this.dgvLstClient)).EndInit();
             this.gbDonneesRecherche.ResumeLayout(false);

@@ -29,6 +29,7 @@ namespace DesktopIHM.GuiObjects
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FenRechercheTypeCarte));
             this.gbDonneesRecherche = new System.Windows.Forms.GroupBox();
             this.txtPeriodePlfGloRetrait = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -236,8 +237,8 @@ namespace DesktopIHM.GuiObjects
             this.Controls.Add(this.gbDonneesRecherche);
             this.Controls.Add(this.btVider);
             this.Controls.Add(this.btRechercher);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FenRechercheTypeCarte";
-            this.ShowIcon = false;
             this.Text = "Rechercher Type Carte";
             this.gbDonneesRecherche.ResumeLayout(false);
             this.gbDonneesRecherche.PerformLayout();

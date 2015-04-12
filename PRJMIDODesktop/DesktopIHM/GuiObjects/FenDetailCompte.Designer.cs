@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FenDetailCompte));
             this.gbDonneesCompte = new System.Windows.Forms.GroupBox();
             this.btDetailClient = new System.Windows.Forms.Button();
             this.btSupprimer = new System.Windows.Forms.Button();
@@ -226,8 +227,8 @@
             // 
             this.dgvLstMoyenPaiements.AllowUserToAddRows = false;
             this.dgvLstMoyenPaiements.AllowUserToDeleteRows = false;
-            this.dgvLstMoyenPaiements.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvLstMoyenPaiements.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvLstMoyenPaiements.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvLstMoyenPaiements.Location = new System.Drawing.Point(6, 17);
             this.dgvLstMoyenPaiements.MultiSelect = false;
@@ -239,8 +240,8 @@
             // 
             // gbListeMoyensPaiement
             // 
-            this.gbListeMoyensPaiement.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbListeMoyensPaiement.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.gbListeMoyensPaiement.Controls.Add(this.dgvLstMoyenPaiements);
             this.gbListeMoyensPaiement.Location = new System.Drawing.Point(4, 180);
             this.gbListeMoyensPaiement.Name = "gbListeMoyensPaiement";
@@ -267,8 +268,8 @@
             this.Controls.Add(this.btAjouterMoyenPaiement);
             this.Controls.Add(this.gbDonneesCompte);
             this.Controls.Add(this.gbListeMoyensPaiement);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FenDetailCompte";
-            this.ShowIcon = false;
             this.Text = "Détail Compte";
             this.gbDonneesCompte.ResumeLayout(false);
             this.gbDonneesCompte.PerformLayout();

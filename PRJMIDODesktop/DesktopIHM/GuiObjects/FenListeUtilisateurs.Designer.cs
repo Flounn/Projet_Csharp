@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FenListeUtilisateurs));
             this.dg_utilisateurs = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dg_utilisateurs)).BeginInit();
             this.SuspendLayout();
@@ -35,22 +36,24 @@
             // dg_utilisateurs
             // 
             this.dg_utilisateurs.AllowUserToAddRows = false;
-            this.dg_utilisateurs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dg_utilisateurs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dg_utilisateurs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dg_utilisateurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_utilisateurs.Location = new System.Drawing.Point(22, 28);
+            this.dg_utilisateurs.Location = new System.Drawing.Point(12, 12);
             this.dg_utilisateurs.Name = "dg_utilisateurs";
-            this.dg_utilisateurs.Size = new System.Drawing.Size(542, 265);
+            this.dg_utilisateurs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dg_utilisateurs.Size = new System.Drawing.Size(505, 255);
             this.dg_utilisateurs.TabIndex = 0;
             // 
             // FenListeUtilisateurs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(592, 305);
+            this.ClientSize = new System.Drawing.Size(529, 279);
             this.Controls.Add(this.dg_utilisateurs);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FenListeUtilisateurs";
             this.Text = "Liste Utilisateurs";
             ((System.ComponentModel.ISupportInitialize)(this.dg_utilisateurs)).EndInit();

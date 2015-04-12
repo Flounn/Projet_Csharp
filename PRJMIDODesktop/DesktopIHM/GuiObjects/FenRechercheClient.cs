@@ -61,7 +61,6 @@ namespace DesktopIHM.GuiObjects
             InitializeComponent();
             cbDateNaissance.Items.AddRange(valuesDateNaissance);
             cbDateNaissance.SelectedIndex = 0;
-            initData();
         }
 
 
@@ -76,13 +75,13 @@ namespace DesktopIHM.GuiObjects
                 Utilities.showErrorMessage("L'email n'a pas été saisi correctement", "Erreur");
                 return;
             }
-            /*if (cbDateNaissance.SelectedIndex==0 && string.IsNullOrEmpty(txtAdresse.Text)
+            if (cbDateNaissance.SelectedIndex==0 && string.IsNullOrEmpty(txtAdresse.Text)
                     && string.IsNullOrEmpty(txtEmail.Text) && string.IsNullOrEmpty(txtId.Text)
                     && string.IsNullOrEmpty(txtNom.Text) && string.IsNullOrEmpty(txtPrenom.Text))
             {
                 Utilities.showErrorMessage("Veuillez saisir un des critères", "Erreur");
                 return;
-            }*/
+            }
 
             if (initCritereRecherche())
                 initData();

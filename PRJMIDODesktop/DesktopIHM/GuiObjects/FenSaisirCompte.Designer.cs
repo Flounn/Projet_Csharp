@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FenSaisirCompte));
             this.bt_creer = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.rb_epargne = new System.Windows.Forms.RadioButton();
@@ -137,8 +138,8 @@
             this.Controls.Add(this.gb_type_compte);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bt_creer);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FenSaisirCompte";
-            this.ShowIcon = false;
             this.Text = "Saisir Compte";
             this.gb_type_compte.ResumeLayout(false);
             this.gb_type_compte.PerformLayout();
