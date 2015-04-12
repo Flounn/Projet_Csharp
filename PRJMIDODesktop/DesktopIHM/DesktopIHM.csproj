@@ -36,6 +36,9 @@
   <PropertyGroup>
     <StartupObject>PRJMIDODesktop.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="itextsharp, Version=5.5.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -234,6 +237,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="icon.ico" />
     <Content Include="Image\Cover.png" />
     <Content Include="Image\forPdf.png" />
     <Content Include="Image\icon.ico" />

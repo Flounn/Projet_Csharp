@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FenPrincipale));
             this.menuGeneral = new System.Windows.Forms.MenuStrip();
             this.miFichier = new System.Windows.Forms.ToolStripMenuItem();
             this.miSaisir = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,7 +84,7 @@
             this.miSouscription,
             this.miDonneesReferentiel});
             this.miSaisir.Name = "miSaisir";
-            this.miSaisir.Size = new System.Drawing.Size(152, 22);
+            this.miSaisir.Size = new System.Drawing.Size(136, 22);
             this.miSaisir.Text = "Saisir";
             // 
             // miSaisirClient
@@ -121,7 +122,7 @@
             this.miRechercheCompte,
             this.miRechercheOperation});
             this.miRechercher.Name = "miRechercher";
-            this.miRechercher.Size = new System.Drawing.Size(152, 22);
+            this.miRechercher.Size = new System.Drawing.Size(136, 22);
             this.miRechercher.Text = "Rechercher";
             // 
             // miRechercheClient
@@ -154,14 +155,14 @@
             // miProfile
             // 
             this.miProfile.Name = "miProfile";
-            this.miProfile.Size = new System.Drawing.Size(152, 22);
+            this.miProfile.Size = new System.Drawing.Size(136, 22);
             this.miProfile.Text = "Mon profile";
             this.miProfile.Click += new System.EventHandler(this.monProfileToolStripMenuItem_Click);
             // 
             // miQuit
             // 
             this.miQuit.Name = "miQuit";
-            this.miQuit.Size = new System.Drawing.Size(152, 22);
+            this.miQuit.Size = new System.Drawing.Size(136, 22);
             this.miQuit.Text = "Quitter";
             this.miQuit.Click += new System.EventHandler(this.miQuit_Click);
             // 
@@ -222,8 +223,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::DesktopIHM.Properties.Resources.Cover;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1213, 386);
             this.Controls.Add(this.menuGeneral);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuGeneral;
             this.Name = "FenPrincipale";
             this.Text = "LCP : Le Crédit Parisien";

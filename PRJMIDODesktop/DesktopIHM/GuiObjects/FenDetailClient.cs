@@ -187,7 +187,7 @@ namespace DesktopIHM.GuiObjects
                 pdfTable = pdfCompteTable(dgvLstComptes);
                 pdfDoc.Add(p1);
                 pdfDoc.Add(pdfTable);
-                pdfTable = pdfOperationTable(dgvLstComptes);
+                pdfTable = pdfOperationTable(dgvLstOperations);
                 pdfDoc.Add(p2);
                 pdfDoc.Add(pdfTable);
                 pdfDoc.Close();
@@ -249,8 +249,8 @@ namespace DesktopIHM.GuiObjects
             pdfTable.WidthPercentage = 80;
             pdfTable.HorizontalAlignment = Element.ALIGN_CENTER;
             pdfTable.DefaultCell.BorderWidth = 1;
-            //float[] widths = new float[] { 30f, 40f, 40f, 30f, 40f };
-            //pdfTable.SetWidths(widths);
+            float[] widths = new float[] { 30f, 40f, 40f, 30f, 40f };
+            pdfTable.SetWidths(widths);
 
             //Adding Header row
             foreach (DataGridViewColumn column in dgv.Columns)
