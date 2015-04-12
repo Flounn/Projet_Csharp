@@ -21,11 +21,14 @@ namespace DesktopIHM.GuiObjects
         {
             InitializeComponent();
             compte.Client = client;
+            txt_client.Text = client.IdClient.ToString();
+            txt_client.Enabled = false;
         }
 
         public FenSaisirCompte()
         {
             InitializeComponent();
+            txt_client.Enabled = true;
         }
 
         private void bt_creer_Click(object sender, EventArgs e)

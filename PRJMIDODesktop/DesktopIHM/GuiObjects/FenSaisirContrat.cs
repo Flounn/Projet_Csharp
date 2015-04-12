@@ -28,6 +28,12 @@ namespace DesktopIHM.GuiObjects
             contrat.Client = client;
         }
 
+        public FenSaisirContrat(Compte compte)
+        {
+            InitializeComponent();
+            contrat.Compte = compte;
+        }
+
         private void bt_creer_Click(object sender, EventArgs e)
         {
             /*try

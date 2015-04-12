@@ -50,7 +50,7 @@
     <Compile Include="BSDataObjects\Compte.cs" />
     <Compile Include="BSDataObjects\TypeCarte.cs" />
     <Compile Include="BSDataObjects\Contrat.cs" />
-    <Compile Include="BSDataObjects\Credit.cs" />
+    <Compile Include="BSDataObjects\ProduitCredit.cs" />
     <Compile Include="BSDataObjects\HistoriqueEtudiant.cs" />
     <Compile Include="BSDataObjects\MoyenPaiement.cs" />
     <Compile Include="BSDataObjects\Operation.cs" />

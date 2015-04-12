@@ -34,12 +34,14 @@
             this.rb_courant = new System.Windows.Forms.RadioButton();
             this.gb_type_compte = new System.Windows.Forms.GroupBox();
             this.txt_montant_initial = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt_client = new System.Windows.Forms.TextBox();
             this.gb_type_compte.SuspendLayout();
             this.SuspendLayout();
             // 
             // bt_creer
             // 
-            this.bt_creer.Location = new System.Drawing.Point(138, 189);
+            this.bt_creer.Location = new System.Drawing.Point(138, 202);
             this.bt_creer.Name = "bt_creer";
             this.bt_creer.Size = new System.Drawing.Size(75, 23);
             this.bt_creer.TabIndex = 0;
@@ -50,7 +52,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(67, 151);
+            this.label1.Location = new System.Drawing.Point(67, 167);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 13);
             this.label1.TabIndex = 1;
@@ -82,7 +84,7 @@
             // 
             this.gb_type_compte.Controls.Add(this.rb_courant);
             this.gb_type_compte.Controls.Add(this.rb_epargne);
-            this.gb_type_compte.Location = new System.Drawing.Point(70, 25);
+            this.gb_type_compte.Location = new System.Drawing.Point(70, 41);
             this.gb_type_compte.Name = "gb_type_compte";
             this.gb_type_compte.Size = new System.Drawing.Size(249, 100);
             this.gb_type_compte.TabIndex = 4;
@@ -91,16 +93,34 @@
             // 
             // txt_montant_initial
             // 
-            this.txt_montant_initial.Location = new System.Drawing.Point(181, 148);
+            this.txt_montant_initial.Location = new System.Drawing.Point(181, 164);
             this.txt_montant_initial.Name = "txt_montant_initial";
             this.txt_montant_initial.Size = new System.Drawing.Size(121, 20);
             this.txt_montant_initial.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(67, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "ID Client :";
+            // 
+            // txt_client
+            // 
+            this.txt_client.Location = new System.Drawing.Point(151, 9);
+            this.txt_client.Name = "txt_client";
+            this.txt_client.Size = new System.Drawing.Size(121, 20);
+            this.txt_client.TabIndex = 7;
             // 
             // FenSaisirCompte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(423, 237);
+            this.Controls.Add(this.txt_client);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_montant_initial);
             this.Controls.Add(this.gb_type_compte);
             this.Controls.Add(this.label1);
@@ -123,5 +143,7 @@
         private System.Windows.Forms.RadioButton rb_courant;
         private System.Windows.Forms.GroupBox gb_type_compte;
         private System.Windows.Forms.TextBox txt_montant_initial;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txt_client;
     }
 }

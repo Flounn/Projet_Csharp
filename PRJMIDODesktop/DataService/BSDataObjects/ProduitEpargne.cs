@@ -7,6 +7,7 @@ namespace DataService.BSDataObjects
 {
     public class ContratEpargne: Contrat
     {
+
         private string typeEpargne;
         private string typeVersement;
         private string periodicite;
