@@ -165,9 +165,10 @@ namespace DesktopIHM.GuiObjects
             client.IdClient = (int)dgwLstContrat.Rows[index].Cells[3].Value;
             Compte compte = new Compte();
             compte.IdCompte=(int)dgwLstContrat.Rows[index].Cells[4].Value;
+            compte.Client = client;
             return new Contrat((int)dgwLstContrat.Rows[index].Cells[0].Value,(DateTime)dgwLstContrat.Rows[index].Cells[1].Value,
-                (string)dgwLstContrat.Rows[index].Cells[2].Value,client, compte, (string)dgwLstContrat.Rows[index].Cells[4].Value,
-                (string)dgwLstContrat.Rows[index].Cells[5].Value);
+                (string)dgwLstContrat.Rows[index].Cells[2].Value,client, compte, (string)dgwLstContrat.Rows[index].Cells[5].Value,
+                (string)dgwLstContrat.Rows[index].Cells[6].Value);
         }
     }
 }

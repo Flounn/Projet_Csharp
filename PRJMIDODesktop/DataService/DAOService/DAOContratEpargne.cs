@@ -36,7 +36,9 @@ namespace DataService.DAOService
             object[] values = new object[] { contratEpargne.TypeEpargne,contratEpargne.TypeVersement,
                        contratEpargne.Periodicite,contratEpargne.DateVersement,contratEpargne.MontantVerse};
             object[] valuesWhere = new object[] { contratEpargne.IdContrat };
-            return Connexion.update(tableName, champs, values, champsWhere, valuesWhere);
+            if (((Contrat)contratEpargne).persist())
+                return Connexion.update(tableName, champs, values, champsWhere, valuesWhere);
+            else return false;
         }
 
         public static IDataReader getAll()

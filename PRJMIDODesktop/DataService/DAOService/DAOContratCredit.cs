@@ -38,7 +38,9 @@ namespace DataService.DAOService
                 contratCredit.Duree, contratCredit.Taux,contratCredit.MontantCredit,contratCredit.DateEcheance
                 ,contratCredit.MontantEcheance,contratCredit.TauxNominal,contratCredit.Encours};
             object[] valuesWhere = new object[] { contratCredit.IdContrat };
-            return Connexion.update(tableName, champs, values, champsWhere, valuesWhere);
+            if (((Contrat)contratCredit).persist())
+                return Connexion.update(tableName, champs, values, champsWhere, valuesWhere);
+            else return false;
         }
 
         public static IDataReader getAll()

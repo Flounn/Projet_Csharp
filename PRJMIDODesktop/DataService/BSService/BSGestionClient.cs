@@ -129,5 +129,73 @@ namespace DataService.BSService
             reader.Close();
             return client;
         }
+
+        public static bool supprimerContratEpargne(ContratEpargne contratEpargne)
+        {
+            return contratEpargne.delete();
+        }
+        public static bool supprimerContratCredit(ContratCredit contratCredit)
+        {
+            return contratCredit.delete();
+        }
+        public static ContratEpargne getContratEpargne(long idContrat)
+        {
+            ContratEpargne contrat = null;
+            IDataReader reader = DAOContratEpargne.get(idContrat);
+            if (reader.Read())
+            {
+                contrat = new ContratEpargne();
+                if (!reader.IsDBNull(0))
+                    client.IdClient = (int)reader.GetValue(0);
+                if (!reader.IsDBNull(1))
+                    client.Nom = (string)reader.GetValue(1);
+                if (!reader.IsDBNull(2))
+                    client.Prenom = (string)reader.GetValue(2);
+                if (!reader.IsDBNull(3))
+                    client.DateNaissance = (DateTime)reader.GetValue(3);
+                if (!reader.IsDBNull(4))
+                    client.Email = (string)reader.GetValue(4);
+                if (!reader.IsDBNull(5))
+                    client.AdressePrincipale = (string)reader.GetValue(5);
+                if (!reader.IsDBNull(6))
+                    client.AdresseTemporaire = (string)reader.GetValue(6);
+                if (!reader.IsDBNull(7))
+                    client.TelFixe = (string)reader.GetValue(7);
+                if (!reader.IsDBNull(8))
+                    client.TelPortable = (string)reader.GetValue(8);
+            }
+            reader.Close();
+            return contrat;
+        }
+
+        public static ContratCredit getContratCredit(long idContrat)
+        {
+            ContratCredit contrat = null;
+            IDataReader reader = DAOContratCredit.get(idContrat);
+            if (reader.Read())
+            {
+                contrat = new ContratCredit();
+                if (!reader.IsDBNull(0))
+                    client.IdClient = (int)reader.GetValue(0);
+                if (!reader.IsDBNull(1))
+                    client.Nom = (string)reader.GetValue(1);
+                if (!reader.IsDBNull(2))
+                    client.Prenom = (string)reader.GetValue(2);
+                if (!reader.IsDBNull(3))
+                    client.DateNaissance = (DateTime)reader.GetValue(3);
+                if (!reader.IsDBNull(4))
+                    client.Email = (string)reader.GetValue(4);
+                if (!reader.IsDBNull(5))
+                    client.AdressePrincipale = (string)reader.GetValue(5);
+                if (!reader.IsDBNull(6))
+                    client.AdresseTemporaire = (string)reader.GetValue(6);
+                if (!reader.IsDBNull(7))
+                    client.TelFixe = (string)reader.GetValue(7);
+                if (!reader.IsDBNull(8))
+                    client.TelPortable = (string)reader.GetValue(8);
+            }
+            reader.Close();
+            return contrat;
+        }
     }
 }
