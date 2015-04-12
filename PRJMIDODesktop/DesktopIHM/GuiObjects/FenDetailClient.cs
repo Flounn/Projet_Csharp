@@ -45,11 +45,7 @@ namespace DesktopIHM.GuiObjects
                 dtContrat.Load(BSGestionClient.RechercherContrats(crtRechercheContrat));
                 dgvLstContrats.DataSource = dtContrat;
 
-                CritereRechercheCompte crtRechercheCompte = new CritereRechercheCompte();
-                crtRechercheCompte.IdClient = client.IdClient;
-                DataTable dtCompte = new DataTable();
-                dtCompte.Load(BSGestionClient.RechercherComptes(crtRechercheCompte));
-                dgvLstComptes.DataSource = dtCompte;
+                
             }
         }
 
@@ -146,7 +142,20 @@ namespace DesktopIHM.GuiObjects
 
         private void bt_ajouter_compte_Click(object sender, EventArgs e)
         {
-            new FenSaisirCompte(client).Show(this);
+            new FenSaisirCompte(client/*, updateCompte*/).Show(this);
+        }
+
+        private static UpdateCompte updateCompte = new UpdateCompte();
+
+        private class UpdateCompte : UpdateDataGridView {
+            public void refresh() {
+                /*CritereRechercheCompte crtRechercheCompte = new CritereRechercheCompte();
+                //FenDetailClient.
+                crtRechercheCompte.IdClient = this.IdClient;
+                DataTable dtCompte = new DataTable();
+                dtCompte.Load(BSGestionClient.RechercherComptes(crtRechercheCompte));
+                dgvLstComptes.DataSource = dtCompte;*/
+            }
         }
 
         private void bt_ajouter_contrat_Click(object sender, EventArgs e)

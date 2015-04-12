@@ -75,7 +75,15 @@ namespace DataService.DAOService
             cmd.CommandText = commandText.ToString();
             Console.WriteLine(cmd.CommandText);
             cmd.Connection = singleton.Connection();
-            bool result = cmd.ExecuteNonQuery() > 0;
+            bool result = false;
+            try
+            {
+                result = cmd.ExecuteNonQuery() > 0;
+            }
+            catch
+            {
+                Console.WriteLine("MySqlException");
+            }
             cmd.Connection.Close();
             return result;
         }
@@ -97,7 +105,15 @@ namespace DataService.DAOService
             cmd.CommandText = commandText.ToString();
             Console.WriteLine(cmd.CommandText);
             cmd.Connection = singleton.Connection();
-            bool result = cmd.ExecuteNonQuery() > 0;
+            bool result = false;
+            try
+            {
+                result = cmd.ExecuteNonQuery() > 0;
+            }
+            catch
+            {
+                Console.WriteLine("MySqlException");
+            }
             cmd.Connection.Close();
             return result;
         }
@@ -132,7 +148,15 @@ namespace DataService.DAOService
             cmd.CommandText = commandText.ToString();
             Console.WriteLine(cmd.CommandText);
             cmd.Connection = singleton.Connection();
-            bool result = cmd.ExecuteNonQuery() > 0;
+            bool result = false;
+            try
+            {
+                result = cmd.ExecuteNonQuery() > 0;
+            }
+            catch
+            {
+                Console.WriteLine("MySqlException");
+            }
             cmd.Connection.Close();
             return result;
         }
@@ -142,7 +166,15 @@ namespace DataService.DAOService
             MySqlCommand cmd = new MySqlCommand("SELECT * FROM " + table_name.ToUpper() + ";");
             Console.WriteLine(cmd.CommandText);
             cmd.Connection = singleton.Connection();
-            IDataReader reader = cmd.ExecuteReader();
+            IDataReader reader = null;
+            try
+            {
+                reader = cmd.ExecuteReader();
+            }
+            catch
+            {
+                Console.WriteLine("MySqlException");
+            } 
             return reader;
         }
 
@@ -182,7 +214,16 @@ namespace DataService.DAOService
             cmd.CommandText = commandText.ToString();
             Console.WriteLine(cmd.CommandText);
             cmd.Connection = singleton.Connection();
-            return cmd.ExecuteReader();
+            IDataReader reader = null;
+            try
+            {
+                reader = cmd.ExecuteReader();
+            }
+            catch
+            {
+                Console.WriteLine("MySqlException");
+            }
+            return reader;
         }
 
         public static long getLastId()
