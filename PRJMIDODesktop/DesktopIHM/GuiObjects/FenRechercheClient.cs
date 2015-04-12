@@ -66,9 +66,7 @@ namespace DesktopIHM.GuiObjects
 
         private void initData()
         {
-            DataTable dtt = new DataTable();
-            dtt.Load(DAOClient.get(crtRechercheClient));
-            dgvLstClient.DataSource = dtt;
+            dgvLstClient.DataSource = BSGestionClient.RechercherClients(crtRechercheClient);
         }
         private void btRechercher_Click(object sender, EventArgs e)
         {

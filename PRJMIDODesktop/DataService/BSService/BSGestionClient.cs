@@ -11,29 +11,39 @@ namespace DataService.BSService
     public static class BSGestionClient
     {
 
-        public static IDataReader RechercherClients(CritereRechercheClient criteres)
+        public static DataTable RechercherClients(CritereRechercheClient criteres)
         {
-            return DAOClient.get(criteres);
+            return DAOClient.getDataTable(criteres);
         }
 
-        public static IDataReader RechercherComptes(CritereRechercheCompte criteres)
+        public static DataTable RechercherComptes(CritereRechercheCompte criteres)
         {
-            return DAOCompte.get(criteres);
+            return DAOCompte.getDataTable(criteres);
         }
 
-        public static IDataReader RechercherOperations(CritereRechercheOperation criteres)
+        public static DataTable RechercherOperations(CritereRechercheOperation criteres)
         {
-            return DAOOperation.get(criteres);
+            return DAOOperation.getDataTable(criteres);
         }
 
-        public static IDataReader RechercherContrats(CritereRechercheContrat criteres)
+        public static DataTable RechercherContrats(CritereRechercheContrat criteres)
         {
-            return DAOContrat.get(criteres);
+            return DAOContrat.getDataTable(criteres);
         }
 
+        public static DataTable RechercherMoyensPaiement(CritereRechercheMoyenPaiement criteres)
+        {
+            return DAOMoyenPaiement.getDataTable(criteres);
+        }
+        
         public static bool CreerModifierClient(Client client)
         {
             return client.persist();
+        }
+
+        public static bool SupprimerClient(Client client)
+        {
+            return client.delete();
         }
 
         public static bool CreerModifierCompte(Compte compte)
@@ -41,9 +51,19 @@ namespace DataService.BSService
             return compte.persist();
         }
 
+        public static bool SupprimerCompte(Compte compte)
+        {
+            return compte.delete();
+        }
+
         public static bool CreerModifierOperation(Operation operation)
         {
             return operation.persist();
+        }
+
+        public static bool SupprimerOperation(Operation operation)
+        {
+            return operation.delete();
         }
 
         public static bool CreerModifierContrat(Contrat contrat)
@@ -51,14 +71,19 @@ namespace DataService.BSService
             return contrat.persist();
         }
 
+        public static bool SupprimerContrat(Contrat contrat)
+        {
+            return contrat.delete();
+        }
+
         public static bool InsertTypeCarte(TypeCarte typeCarte)
         {
             return typeCarte.persist();
         }
 
-        public static IDataReader RechercherTypeCarte(CritereRechercheTypeCarte criteres)
+        public static DataTable RechercherTypeCarte(CritereRechercheTypeCarte criteres)
         {
-            return DAOTypeCarte.get(criteres);
+            return DAOTypeCarte.getDataTable(criteres);
         }
     }
 }

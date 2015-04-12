@@ -41,7 +41,7 @@ namespace DataService.DAOService
             return Connexion.get(tableName, champsWhere, new object[] { id });
         }
 
-        public static IDataReader get(CritereRechercheCarte criteres)
+        private static IDataReader get(CritereRechercheCarte criteres)
         {
             IList<string> champsWhere = new List<string>();
             IList<object> valuesWhere = new List<object>();
@@ -52,6 +52,16 @@ namespace DataService.DAOService
             Utilities.addCritere(champsWhere, valuesWhere, operators, "ID_TYPE_CARTE", criteres.IdTypeCarte, Connexion.EGAL);
             return Connexion.get(tableName, champsWhere, valuesWhere, operators);
         }
+
+        public static DataTable getDataTable(CritereRechercheCarte criteres)
+        {
+            IDataReader reader = get(criteres);
+            DataTable dt = new DataTable();
+            dt.Load(reader);
+            reader.Close();
+            return dt;
+        }
+
     }
 }
 

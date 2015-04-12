@@ -21,7 +21,7 @@ namespace DesktopIHM.GuiObjects
 
         void dg_utilisateurs_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex == -1)
+            if (e.RowIndex <0)
                 return;
             new FenDetailUtilisateur((Utilisateur)dg_utilisateurs.Rows[e.RowIndex].DataBoundItem,this).Show(this);
         }

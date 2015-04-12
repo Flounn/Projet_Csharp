@@ -16,14 +16,16 @@ namespace DesktopIHM.GuiObjects
 
         private static string[] valuesNbCheques = new string[] { "20", "50", "100" };
         private Compte compte;
+        private UpdateDataGridView callabck;
 
-        public FenSaisirMoyenPaiement(Compte compte)
+        public FenSaisirMoyenPaiement(Compte compte,UpdateDataGridView callabck)
         {
             InitializeComponent();
             txtIdCompte.Text = compte.IdCompte.ToString();
             cbNbCheques.Items.AddRange(valuesNbCheques);
-            cbNbCheques.SelectedIndex = 1;
+            cbNbCheques.SelectedIndex = 0;
             this.compte = compte;
+            this.callabck = callabck;
         }
 
         private void btTypeCarte_Click(object sender, EventArgs e)

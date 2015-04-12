@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using DataService.BSService;
+using DataService.BSDataObjects;
 
 namespace DesktopIHM.GuiObjects
 {
-    public partial class FenRechercheTypeCarte : Form
+    public partial class FenRechercheTypeCarte : Form, UpdateDataGridView
     {
-        private static string[] valuesReseau = { "Choisissez", "Visa", "MasterCard" };
 
         FenSaisirMoyenPaiement fenSaisirMoyenPaiement = null;
         CritereRechercheTypeCarte crtRechercheTypeCarte;
@@ -21,14 +21,15 @@ namespace DesktopIHM.GuiObjects
         {
             InitializeComponent();
             this.fenSaisirMoyenPaiement = fenSaisirMoyenPaiement;
-            cbReseau.Items.AddRange(valuesReseau);
-            cbReseau.SelectedIndex = 1;
+            cbReseau.Items.Add("Choisissez");
+            cbReseau.Items.AddRange(TypeCarte.getReseauCarteBancaire());
+            cbReseau.SelectedIndex = 0;
         }
 
         private bool initCritereRecherche()
         {
             crtRechercheTypeCarte = new CritereRechercheTypeCarte();
-            if (cbReseau.SelectedIndex != 0 && cbReseau.SelectedIndex != -1)
+            if (cbReseau.SelectedIndex >0)
                 crtRechercheTypeCarte.ReseauCarte = cbReseau.SelectedText;
             
             if (!string.IsNullOrEmpty(txtPlfGloPaiement.Text))
@@ -82,9 +83,7 @@ namespace DesktopIHM.GuiObjects
 
         private void initData()
         {
-            DataTable dTypeCarte = new DataTable();
-            dTypeCarte.Load(BSGestionClient.RechercherTypeCarte(crtRechercheTypeCarte));
-            dgvLstTypeCarte.DataSource = dTypeCarte;
+            dgvLstTypeCarte.DataSource = BSGestionClient.RechercherTypeCarte(crtRechercheTypeCarte);
             
         }
 
@@ -115,8 +114,9 @@ namespace DesktopIHM.GuiObjects
             new FenSaisirTypeCarte(this).Show();
         }
 
-
-        
-
+        public void refresh()
+        {
+            initData();
+        }
     }
 }

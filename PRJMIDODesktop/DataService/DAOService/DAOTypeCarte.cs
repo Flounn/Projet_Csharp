@@ -46,17 +46,31 @@ namespace DataService.DAOService
             return Connexion.get(tableName, champsWhere, new object[] { id });
         }
 
-        /*public static IDataReader get(CritereRechercheTypeCarte criteres)
+        private static IDataReader get(CritereRechercheTypeCarte criteres)
         {
             IList<string> champsWhere = new List<string>();
             IList<object> valuesWhere = new List<object>();
             IList<string> operators = new List<string>();
 
-            Utilities.addCritere(champsWhere, valuesWhere, operators, "NUMERO_CARTE", criteres.Numero, Connexion.LIKE);
-            Utilities.addCritere(champsWhere, valuesWhere, operators, "ID_MOYEN_PAIEMENT", criteres.IdMoyenPaiement, Connexion.EGAL);
-            Utilities.addCritere(champsWhere, valuesWhere, operators, "ID_TYPE_CARTE", criteres.IdTypeTypeCarte, Connexion.EGAL);
+            Utilities.addCritere(champsWhere, valuesWhere, operators, "ID_TYPE_CARTE", criteres.IdTypeCarte, Connexion.EGAL);
+            Utilities.addCritere(champsWhere, valuesWhere, operators, "RESEAU", criteres.ReseauCarte, Connexion.LIKE);
+            Utilities.addCritere(champsWhere, valuesWhere, operators, "PLF_GLO_PAIE", criteres.PlfGloPaiement, Connexion.EGAL);
+            Utilities.addCritere(champsWhere, valuesWhere, operators, "PERI_PLF_PAIE", criteres.PeriodePlfPaiement, Connexion.EGAL);
+            Utilities.addCritere(champsWhere, valuesWhere, operators, "PERI_PLF_GLO_RET", criteres.PeriodePlfGlobalRetrait, Connexion.EGAL);
+            Utilities.addCritere(champsWhere, valuesWhere, operators, "PLF_GLO_RET_INT", criteres.PlfGlobalRetraitInternes, Connexion.EGAL);
+            Utilities.addCritere(champsWhere, valuesWhere, operators, "PLF_RET_ETRG", criteres.PlfRetEtranger, Connexion.EGAL);
             return Connexion.get(tableName, champsWhere, valuesWhere, operators);
-        }*/
+        }
+
+        public static DataTable getDataTable(CritereRechercheTypeCarte criteres)
+        {
+            IDataReader reader = get(criteres);
+            DataTable dt = new DataTable();
+            dt.Load(reader);
+            reader.Close();
+            return dt;
+        }
+
     }
 }
 

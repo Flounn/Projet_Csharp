@@ -97,9 +97,7 @@ namespace DesktopIHM.GuiObjects
 
         private void InitData()
         {
-            DataTable dtt = new DataTable();
-            dtt.Load(BSGestionClient.RechercherContrats(crtRechercheContrat));
-            dgwLstContrat.DataSource = dtt;
+            dgwLstContrat.DataSource = BSGestionClient.RechercherContrats(crtRechercheContrat);
         }
 
         private void btRechercher_Click(object sender, EventArgs e)
