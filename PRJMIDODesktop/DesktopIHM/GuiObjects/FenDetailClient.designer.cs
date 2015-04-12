@@ -29,7 +29,10 @@ namespace DesktopIHM.GuiObjects
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FenDetailClient));
             this.gbDonneesPersonnelles = new System.Windows.Forms.GroupBox();
+            this.bt_ajouter_compte = new System.Windows.Forms.Button();
+            this.bt_ajouter_contrat = new System.Windows.Forms.Button();
             this.btSupprimer = new System.Windows.Forms.Button();
             this.btModifier = new System.Windows.Forms.Button();
             this.txtId = new System.Windows.Forms.TextBox();
@@ -51,10 +54,8 @@ namespace DesktopIHM.GuiObjects
             this.lPrenom = new System.Windows.Forms.Label();
             this.lNom = new System.Windows.Forms.Label();
             this.gbListeContrats = new System.Windows.Forms.GroupBox();
-            this.bt_ajouter_contrat = new System.Windows.Forms.Button();
             this.dgvLstContrats = new System.Windows.Forms.DataGridView();
             this.gbListeComptes = new System.Windows.Forms.GroupBox();
-            this.bt_ajouter_compte = new System.Windows.Forms.Button();
             this.dgvLstComptes = new System.Windows.Forms.DataGridView();
             this.gbListeTransactions = new System.Windows.Forms.GroupBox();
             this.dgvLstOperations = new System.Windows.Forms.DataGridView();
@@ -98,6 +99,26 @@ namespace DesktopIHM.GuiObjects
             this.gbDonneesPersonnelles.TabIndex = 0;
             this.gbDonneesPersonnelles.TabStop = false;
             this.gbDonneesPersonnelles.Text = "Données Personnelles";
+            // 
+            // bt_ajouter_compte
+            // 
+            this.bt_ajouter_compte.Location = new System.Drawing.Point(135, 128);
+            this.bt_ajouter_compte.Name = "bt_ajouter_compte";
+            this.bt_ajouter_compte.Size = new System.Drawing.Size(112, 23);
+            this.bt_ajouter_compte.TabIndex = 12;
+            this.bt_ajouter_compte.Text = "Ajouter Compte";
+            this.bt_ajouter_compte.UseVisualStyleBackColor = true;
+            this.bt_ajouter_compte.Click += new System.EventHandler(this.bt_ajouter_compte_Click);
+            // 
+            // bt_ajouter_contrat
+            // 
+            this.bt_ajouter_contrat.Location = new System.Drawing.Point(17, 128);
+            this.bt_ajouter_contrat.Name = "bt_ajouter_contrat";
+            this.bt_ajouter_contrat.Size = new System.Drawing.Size(112, 23);
+            this.bt_ajouter_contrat.TabIndex = 11;
+            this.bt_ajouter_contrat.Text = "Ajouter Contrat";
+            this.bt_ajouter_contrat.UseVisualStyleBackColor = true;
+            this.bt_ajouter_contrat.Click += new System.EventHandler(this.bt_ajouter_contrat_Click);
             // 
             // btSupprimer
             // 
@@ -290,16 +311,6 @@ namespace DesktopIHM.GuiObjects
             this.gbListeContrats.TabStop = false;
             this.gbListeContrats.Text = "Liste des contrats";
             // 
-            // bt_ajouter_contrat
-            // 
-            this.bt_ajouter_contrat.Location = new System.Drawing.Point(17, 128);
-            this.bt_ajouter_contrat.Name = "bt_ajouter_contrat";
-            this.bt_ajouter_contrat.Size = new System.Drawing.Size(112, 23);
-            this.bt_ajouter_contrat.TabIndex = 11;
-            this.bt_ajouter_contrat.Text = "Ajouter Contrat";
-            this.bt_ajouter_contrat.UseVisualStyleBackColor = true;
-            this.bt_ajouter_contrat.Click += new System.EventHandler(this.bt_ajouter_contrat_Click);
-            // 
             // dgvLstContrats
             // 
             this.dgvLstContrats.AllowUserToAddRows = false;
@@ -326,16 +337,6 @@ namespace DesktopIHM.GuiObjects
             this.gbListeComptes.TabIndex = 2;
             this.gbListeComptes.TabStop = false;
             this.gbListeComptes.Text = "Liste des comptes";
-            // 
-            // bt_ajouter_compte
-            // 
-            this.bt_ajouter_compte.Location = new System.Drawing.Point(135, 128);
-            this.bt_ajouter_compte.Name = "bt_ajouter_compte";
-            this.bt_ajouter_compte.Size = new System.Drawing.Size(112, 23);
-            this.bt_ajouter_compte.TabIndex = 12;
-            this.bt_ajouter_compte.Text = "Ajouter Compte";
-            this.bt_ajouter_compte.UseVisualStyleBackColor = true;
-            this.bt_ajouter_compte.Click += new System.EventHandler(this.bt_ajouter_compte_Click);
             // 
             // dgvLstComptes
             // 
@@ -403,9 +404,10 @@ namespace DesktopIHM.GuiObjects
             this.Controls.Add(this.gbListeTransactions);
             this.Controls.Add(this.gbListeContrats);
             this.Controls.Add(this.gbDonneesPersonnelles);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FenDetailClient";
-            this.ShowIcon = false;
             this.Text = "Détail Client";
+            this.Load += new System.EventHandler(this.FenDetailClient_Load);
             this.gbDonneesPersonnelles.ResumeLayout(false);
             this.gbDonneesPersonnelles.PerformLayout();
             this.gbListeContrats.ResumeLayout(false);

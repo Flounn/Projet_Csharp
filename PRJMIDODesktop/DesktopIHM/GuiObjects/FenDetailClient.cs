@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using DataService.BSDataObjects;
 using DataService.DAOService;
 using DataService.BSService;
+using System.IO;
+using System.Data;
+using System.Reflection;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
 
 namespace DesktopIHM.GuiObjects
 {
@@ -45,7 +45,11 @@ namespace DesktopIHM.GuiObjects
                 dtContrat.Load(BSGestionClient.RechercherContrats(crtRechercheContrat));
                 dgvLstContrats.DataSource = dtContrat;
 
-                
+                CritereRechercheCompte crtRechercheCompte = new CritereRechercheCompte();
+                crtRechercheCompte.IdClient = client.IdClient;
+                DataTable dtCompte = new DataTable();
+                dtCompte.Load(BSGestionClient.RechercherComptes(crtRechercheCompte));
+                dgvLstComptes.DataSource = dtCompte;
             }
         }
 
@@ -142,20 +146,7 @@ namespace DesktopIHM.GuiObjects
 
         private void bt_ajouter_compte_Click(object sender, EventArgs e)
         {
-            new FenSaisirCompte(client/*, updateCompte*/).Show(this);
-        }
-
-        private static UpdateCompte updateCompte = new UpdateCompte();
-
-        private class UpdateCompte : UpdateDataGridView {
-            public void refresh() {
-                /*CritereRechercheCompte crtRechercheCompte = new CritereRechercheCompte();
-                //FenDetailClient.
-                crtRechercheCompte.IdClient = this.IdClient;
-                DataTable dtCompte = new DataTable();
-                dtCompte.Load(BSGestionClient.RechercherComptes(crtRechercheCompte));
-                dgvLstComptes.DataSource = dtCompte;*/
-            }
+            new FenSaisirCompte(client).Show(this);
         }
 
         private void bt_ajouter_contrat_Click(object sender, EventArgs e)
@@ -166,8 +157,158 @@ namespace DesktopIHM.GuiObjects
         private void btImprimer_Click(object sender, EventArgs e)
         {
 
+            //Exporting to PDF
+            string folderPath = Path.GetTempPath();
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+            using (FileStream stream = new FileStream(folderPath + "Releve.pdf", FileMode.Create))
+            {
+                PdfPTable pdfTable = pdfIntitule();
+                Paragraph p1 = new Paragraph("Informations sur le compte: ", FontFactory.GetFont(FontFactory.TIMES, 12));
+                p1.SpacingAfter = 10;
+                p1.SpacingBefore = 10;
+                p1.Alignment = Element.ALIGN_CENTER;
+                Paragraph p2 = new Paragraph("Relevé du compte: ", FontFactory.GetFont(FontFactory.TIMES, 12));
+                p2.SpacingAfter = 10;
+                p2.SpacingBefore = 10;
+                p2.Alignment = Element.ALIGN_CENTER;
+                Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+                PdfWriter.GetInstance(pdfDoc, stream);
+                pdfDoc.Open();
+                pdfDoc.Add(pdfTable);
+                pdfTable = pdfDetailClient();
+                pdfDoc.Add(pdfTable);
+                pdfTable = pdfCompteTable(dgvLstComptes);
+                pdfDoc.Add(p1);
+                pdfDoc.Add(pdfTable);
+                pdfTable = pdfOperationTable(dgvLstComptes);
+                pdfDoc.Add(p2);
+                pdfDoc.Add(pdfTable);
+                pdfDoc.Close();
+                stream.Close();
+
+                System.Diagnostics.Process.Start(folderPath + "Releve.pdf");
+                
+            }
         }
 
+        private PdfPTable pdfIntitule()
+        {
+            //Creating iTextSharp Table from the DataTable data
+            PdfPTable pdfTable = new PdfPTable(1);
+            pdfTable.DefaultCell.Padding = 10;
+            pdfTable.WidthPercentage = 20;
+            pdfTable.HorizontalAlignment = Element.ALIGN_CENTER;
+            pdfTable.DefaultCell.BorderWidth = 1;
+
+            //Adding DataRow
+            iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(DesktopIHM.Properties.Resources.forPdf, System.Drawing.Imaging.ImageFormat.Png);
+            image.Alignment = iTextSharp.text.Image.ALIGN_CENTER;
+            image.ScaleAbsolute(120f, 120f);
+            pdfTable.AddCell(new PdfPCell(image));
+
+            pdfTable.SpacingAfter = 25;
+            return pdfTable;
+        }
+        
+        private PdfPTable pdfDetailClient()
+        {
+            //Creating iTextSharp Table from the DataTable data
+            PdfPTable pdfTable = new PdfPTable(1);
+            pdfTable.DefaultCell.Padding = 10;
+            pdfTable.WidthPercentage = 35;
+            pdfTable.HorizontalAlignment = Element.ALIGN_RIGHT;
+            pdfTable.DefaultCell.BorderWidth = 1;
+
+            //Adding DataRow
+            PdfPCell myCell = new PdfPCell(new Phrase(txtNom.Text + " " + txtPrenom.Text + 
+                "\n" + txtAdressePrinc.Text + 
+                "\nTel: " + txtTelPort.Text + 
+                "\nNumero Client:" + txtId.Text + 
+                "\n\n\n\n", iTextSharp.text.FontFactory.GetFont(FontFactory.TIMES, 12)));
+            myCell.HorizontalAlignment = Element.ALIGN_LEFT;
+            myCell.BorderColor = BaseColor.WHITE;
+            pdfTable.AddCell(myCell);
+
+            pdfTable.SpacingBefore = 10;
+            pdfTable.SpacingAfter = 25;
+            return pdfTable;
+        }
+
+        private PdfPTable pdfCompteTable(DataGridView dgv)
+        {
+            //Creating iTextSharp Table from the DataTable data
+            PdfPTable pdfTable = new PdfPTable(dgv.ColumnCount);
+            pdfTable.DefaultCell.Padding = 3;
+            pdfTable.WidthPercentage = 80;
+            pdfTable.HorizontalAlignment = Element.ALIGN_CENTER;
+            pdfTable.DefaultCell.BorderWidth = 1;
+            //float[] widths = new float[] { 30f, 40f, 40f, 30f, 40f };
+            //pdfTable.SetWidths(widths);
+
+            //Adding Header row
+            foreach (DataGridViewColumn column in dgv.Columns)
+            {
+                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, iTextSharp.text.FontFactory.GetFont(FontFactory.TIMES_BOLD, 8)));
+                cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
+                cell.HorizontalAlignment = Element.ALIGN_RIGHT;
+                pdfTable.AddCell(cell);
+            }
+
+            //Adding DataRow
+            foreach (DataGridViewCell cell in dgv.SelectedRows[0].Cells)
+            {
+                PdfPCell myCell = new PdfPCell(new Phrase(cell.Value.ToString(), iTextSharp.text.FontFactory.GetFont(FontFactory.TIMES, 8)));
+                myCell.HorizontalAlignment = Element.ALIGN_RIGHT;
+                pdfTable.AddCell(myCell);
+            }
+            pdfTable.SpacingAfter = 5;
+            pdfTable.SpacingAfter = 10;
+            return pdfTable;
+        }
+
+        private PdfPTable pdfOperationTable(DataGridView dgv)
+        {
+            //Creating iTextSharp Table from the DataTable data
+            PdfPTable pdfTable = new PdfPTable(dgv.ColumnCount);
+            pdfTable.DefaultCell.Padding = 3;
+            pdfTable.WidthPercentage = 80;
+            pdfTable.HorizontalAlignment = Element.ALIGN_CENTER;
+            pdfTable.DefaultCell.BorderWidth = 1;
+            float[] widths = new float[] { 30f, 40f, 40f, 30f, 40f};
+            pdfTable.SetWidths(widths);
+
+            //Adding Header row
+            foreach (DataGridViewColumn column in dgv.Columns)
+            {
+                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, iTextSharp.text.FontFactory.GetFont(FontFactory.TIMES_BOLD, 8)));
+                cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
+                cell.HorizontalAlignment = Element.ALIGN_RIGHT;
+                pdfTable.AddCell(cell);
+            }
+
+            //Adding DataRow
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    PdfPCell myCell = new PdfPCell(new Phrase(cell.Value.ToString(), iTextSharp.text.FontFactory.GetFont(FontFactory.TIMES, 8)));
+                    myCell.HorizontalAlignment = Element.ALIGN_RIGHT;
+                    pdfTable.AddCell(myCell);
+                }
+            }
+            pdfTable.SpacingAfter = 5;
+            pdfTable.SpacingAfter = 10;
+            return pdfTable;
+        }
+
+        private void FenDetailClient_Load(object sender, EventArgs e)
+        {
+        
+        }
+        
 
     }
 }
