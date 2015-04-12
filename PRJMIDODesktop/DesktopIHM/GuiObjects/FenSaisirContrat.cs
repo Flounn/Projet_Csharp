@@ -235,7 +235,16 @@ namespace DesktopIHM.GuiObjects
 
         private void vider()
         {
-            throw new NotImplementedException();
+            txtIntitule.Text = string.Empty;
+            cbStatut.SelectedIndex = 0;
+            cbPeriodicite.SelectedIndex = 0;
+            cbTypeEpargne.SelectedIndex = 0;
+            txtCreditMontant.Text = string.Empty;
+            txtDuree.Text = string.Empty;
+            txtEpargneMontant.Text = string.Empty;
+            txtObjet.Text = string.Empty;
+            txtTaux.Text = string.Empty;
+            rbPeriodique.Checked = true;
         }
 
     }

@@ -18,14 +18,14 @@ namespace DesktopIHM.GuiObjects
             InitProfile();
         }
 
-        public void InitProfile()
+        private void InitProfile()
         {
 
             txt_login.Text = Session.Utilisateur.Login;
             txt_email.Text = Session.Utilisateur.Email;
             lbl_profil.Text = Session.Utilisateur.Profil;
             txt_password.Text = Session.Utilisateur.Password;
-
+            txt_login.Focus();
         }
 
         private void bt_modifier_Click(object sender, EventArgs e)
@@ -41,6 +41,7 @@ namespace DesktopIHM.GuiObjects
                 return;
             }
             Session.modifierUtilisateur(txt_login.Text, txt_password.Text);
+            Utilities.showInfoMessage("Votre profil a été modifié avec succès", "Mon profil");
         }
 
     }

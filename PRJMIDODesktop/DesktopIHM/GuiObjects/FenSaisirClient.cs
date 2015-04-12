@@ -19,6 +19,7 @@ namespace DesktopIHM.GuiObjects
         {
             InitializeComponent();
             dtDateNaissance.Value = DateTime.Today;
+            txtNom.Focus();
         }
 
         private void btCreer_Click(object sender, EventArgs e)
@@ -49,9 +50,23 @@ namespace DesktopIHM.GuiObjects
             }
 
             Client client = new Client(txtNom.Text, txtPrenom.Text, dtDateNaissance.Value ,txtEmail.Text, txtAdressePrinc.Text, txtAdresseTemp.Text, txtTelFixe.Text, txtTelPort.Text);
-            BSGestionClient.CreerModifierClient(client); 
-            MessageBox.Show("Le client vient d'être rajouté",
-                "Ajout d'un client", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (BSGestionClient.CreerModifierClient(client))
+                Utilities.showInfoMessage("Le client vient d'être rajouté", "Ajout d'un client");
+            else
+                Utilities.showErrorMessage("Erreur lors de l'ajout du client","Erreur");
+        }
+
+        private void bt_vider_Click(object sender, EventArgs e)
+        {
+            dtDateNaissance.Value = DateTime.Today;
+            txtAdressePrinc.Text = string.Empty;
+            txtAdresseTemp.Text = string.Empty;
+            txtEmail.Text = string.Empty;
+            txtNom.Text = string.Empty;
+            txtPrenom.Text = string.Empty;
+            txtTelFixe.Text = string.Empty;
+            txtTelPort.Text = string.Empty;
+            txtNom.Focus();
         }
 
     }

@@ -16,6 +16,7 @@ namespace DesktopIHM.GuiObjects
         {
             InitializeComponent();
             cb_profil.DataSource = Utilisateur.profils;
+            txt_login.Focus();
         }
 
         private void bt_ajouter_Click(object sender, EventArgs e)
@@ -37,6 +38,22 @@ namespace DesktopIHM.GuiObjects
             }
 
             GestionnaireUtilisateur.ajouterUtilisateur(new Utilisateur(txt_login.Text,txt_password.Text,txt_email.Text,(string)cb_profil.SelectedValue));
+            Utilities.showInfoMessage("Utilisateur ajouté avec succès", "Ajout utilisateur");
+            vider();
+        }
+
+        private void vider()
+        {
+            txt_email.Text = string.Empty;
+            txt_password.Text = string.Empty;
+            cb_profil.SelectedIndex = 0;
+            txt_login.Text = string.Empty;
+            txt_login.Focus();
+        }
+
+        private void bt_vider_Click(object sender, EventArgs e)
+        {
+            vider();   
         }
     }
 }

@@ -37,11 +37,12 @@
             this.txt_login = new System.Windows.Forms.TextBox();
             this.txt_password = new System.Windows.Forms.TextBox();
             this.txt_email = new System.Windows.Forms.TextBox();
+            this.bt_vider = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // bt_ajouter
             // 
-            this.bt_ajouter.Location = new System.Drawing.Point(133, 184);
+            this.bt_ajouter.Location = new System.Drawing.Point(169, 183);
             this.bt_ajouter.Name = "bt_ajouter";
             this.bt_ajouter.Size = new System.Drawing.Size(51, 31);
             this.bt_ajouter.TabIndex = 0;
@@ -114,11 +115,22 @@
             this.txt_email.Size = new System.Drawing.Size(100, 20);
             this.txt_email.TabIndex = 8;
             // 
+            // bt_vider
+            // 
+            this.bt_vider.Location = new System.Drawing.Point(75, 183);
+            this.bt_vider.Name = "bt_vider";
+            this.bt_vider.Size = new System.Drawing.Size(51, 31);
+            this.bt_vider.TabIndex = 9;
+            this.bt_vider.Text = "Vider";
+            this.bt_vider.UseVisualStyleBackColor = true;
+            this.bt_vider.Click += new System.EventHandler(this.bt_vider_Click);
+            // 
             // FenSaisirUtilisateur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(320, 245);
+            this.Controls.Add(this.bt_vider);
             this.Controls.Add(this.txt_email);
             this.Controls.Add(this.txt_password);
             this.Controls.Add(this.txt_login);
@@ -146,5 +158,6 @@
         private System.Windows.Forms.TextBox txt_login;
         private System.Windows.Forms.TextBox txt_password;
         private System.Windows.Forms.TextBox txt_email;
+        private System.Windows.Forms.Button bt_vider;
     }
 }

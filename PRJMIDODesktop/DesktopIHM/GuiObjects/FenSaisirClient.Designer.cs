@@ -45,11 +45,12 @@
             this.txtTelFixe = new System.Windows.Forms.TextBox();
             this.txtTelPort = new System.Windows.Forms.TextBox();
             this.dtDateNaissance = new System.Windows.Forms.DateTimePicker();
+            this.bt_vider = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btCreer
             // 
-            this.btCreer.Location = new System.Drawing.Point(113, 244);
+            this.btCreer.Location = new System.Drawing.Point(165, 244);
             this.btCreer.Name = "btCreer";
             this.btCreer.Size = new System.Drawing.Size(75, 23);
             this.btCreer.TabIndex = 0;
@@ -191,11 +192,22 @@
             this.dtDateNaissance.TabIndex = 17;
             this.dtDateNaissance.Value = new System.DateTime(2015, 4, 10, 0, 0, 0, 0);
             // 
+            // bt_vider
+            // 
+            this.bt_vider.Location = new System.Drawing.Point(60, 244);
+            this.bt_vider.Name = "bt_vider";
+            this.bt_vider.Size = new System.Drawing.Size(75, 23);
+            this.bt_vider.TabIndex = 18;
+            this.bt_vider.Text = "Vider";
+            this.bt_vider.UseVisualStyleBackColor = true;
+            this.bt_vider.Click += new System.EventHandler(this.bt_vider_Click);
+            // 
             // FenSaisirClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(306, 285);
+            this.Controls.Add(this.bt_vider);
             this.Controls.Add(this.dtDateNaissance);
             this.Controls.Add(this.txtTelPort);
             this.Controls.Add(this.txtTelFixe);
@@ -239,5 +251,6 @@
         private System.Windows.Forms.TextBox txtTelFixe;
         private System.Windows.Forms.TextBox txtTelPort;
         private System.Windows.Forms.DateTimePicker dtDateNaissance;
+        private System.Windows.Forms.Button bt_vider;
     }
 }
