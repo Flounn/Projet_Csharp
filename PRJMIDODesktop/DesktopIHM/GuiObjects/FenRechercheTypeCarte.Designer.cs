@@ -177,6 +177,7 @@ namespace DesktopIHM.GuiObjects
             this.btVider.TabIndex = 21;
             this.btVider.Text = "Vider les champs";
             this.btVider.UseVisualStyleBackColor = true;
+            this.btVider.Click += new System.EventHandler(this.btVider_Click);
             // 
             // btRechercher
             // 
@@ -202,7 +203,7 @@ namespace DesktopIHM.GuiObjects
             this.dgvLstTypeCarte.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLstTypeCarte.Size = new System.Drawing.Size(523, 154);
             this.dgvLstTypeCarte.TabIndex = 23;
-            this.dgvLstTypeCarte.CellContentDoubleClick += new DataGridViewCellEventHandler(this.dgvLstTypeCarte_CellContentDoubleClick);
+            this.dgvLstTypeCarte.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLstTypeCarte_CellContentDoubleClick);
             // 
             // btSelection
             // 
@@ -212,6 +213,7 @@ namespace DesktopIHM.GuiObjects
             this.btSelection.TabIndex = 24;
             this.btSelection.Text = "Choisir";
             this.btSelection.UseVisualStyleBackColor = true;
+            this.btSelection.Click += new System.EventHandler(this.btSelection_Click);
             // 
             // btAjouterTypeCarte
             // 
@@ -221,6 +223,7 @@ namespace DesktopIHM.GuiObjects
             this.btAjouterTypeCarte.TabIndex = 25;
             this.btAjouterTypeCarte.Text = "Ajouter un Type Carte";
             this.btAjouterTypeCarte.UseVisualStyleBackColor = true;
+            this.btAjouterTypeCarte.Click += new System.EventHandler(this.btAjouterTypeCarte_Click);
             // 
             // FenRechercheTypeCarte
             // 

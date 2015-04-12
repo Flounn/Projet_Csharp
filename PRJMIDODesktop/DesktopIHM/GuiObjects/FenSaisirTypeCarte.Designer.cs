@@ -47,46 +47,48 @@
             this.txtPeriodePlfRetrait = new System.Windows.Forms.TextBox();
             this.lbPeriodePlfRetrait = new System.Windows.Forms.Label();
             this.txtPlfPaiementEtr = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtPlfGloRetraitInt
             // 
-            this.txtPlfGloRetraitInt.Location = new System.Drawing.Point(224, 171);
+            this.txtPlfGloRetraitInt.Location = new System.Drawing.Point(200, 157);
             this.txtPlfGloRetraitInt.Name = "txtPlfGloRetraitInt";
             this.txtPlfGloRetraitInt.Size = new System.Drawing.Size(100, 20);
             this.txtPlfGloRetraitInt.TabIndex = 33;
             // 
             // txtPlfRetraitFr
             // 
-            this.txtPlfRetraitFr.Location = new System.Drawing.Point(224, 223);
+            this.txtPlfRetraitFr.Location = new System.Drawing.Point(200, 209);
             this.txtPlfRetraitFr.Name = "txtPlfRetraitFr";
             this.txtPlfRetraitFr.Size = new System.Drawing.Size(100, 20);
             this.txtPlfRetraitFr.TabIndex = 32;
             // 
             // txtPlfRetraitEtr
             // 
-            this.txtPlfRetraitEtr.Location = new System.Drawing.Point(224, 197);
+            this.txtPlfRetraitEtr.Location = new System.Drawing.Point(200, 183);
             this.txtPlfRetraitEtr.Name = "txtPlfRetraitEtr";
             this.txtPlfRetraitEtr.Size = new System.Drawing.Size(100, 20);
             this.txtPlfRetraitEtr.TabIndex = 31;
             // 
             // txtPlfGloRetraitExt
             // 
-            this.txtPlfGloRetraitExt.Location = new System.Drawing.Point(224, 145);
+            this.txtPlfGloRetraitExt.Location = new System.Drawing.Point(200, 131);
             this.txtPlfGloRetraitExt.Name = "txtPlfGloRetraitExt";
             this.txtPlfGloRetraitExt.Size = new System.Drawing.Size(100, 20);
             this.txtPlfGloRetraitExt.TabIndex = 30;
             // 
             // txtPeriodePlfPaiement
             // 
-            this.txtPeriodePlfPaiement.Location = new System.Drawing.Point(224, 119);
+            this.txtPeriodePlfPaiement.Location = new System.Drawing.Point(200, 105);
             this.txtPeriodePlfPaiement.Name = "txtPeriodePlfPaiement";
             this.txtPeriodePlfPaiement.Size = new System.Drawing.Size(100, 20);
             this.txtPeriodePlfPaiement.TabIndex = 29;
             // 
             // txtPlfGloPaiement
             // 
-            this.txtPlfGloPaiement.Location = new System.Drawing.Point(224, 67);
+            this.txtPlfGloPaiement.Location = new System.Drawing.Point(200, 53);
             this.txtPlfGloPaiement.Name = "txtPlfGloPaiement";
             this.txtPlfGloPaiement.Size = new System.Drawing.Size(100, 20);
             this.txtPlfGloPaiement.TabIndex = 28;
@@ -94,7 +96,7 @@
             // lbPlfRetraitFr
             // 
             this.lbPlfRetraitFr.AutoSize = true;
-            this.lbPlfRetraitFr.Location = new System.Drawing.Point(36, 226);
+            this.lbPlfRetraitFr.Location = new System.Drawing.Point(12, 212);
             this.lbPlfRetraitFr.Name = "lbPlfRetraitFr";
             this.lbPlfRetraitFr.Size = new System.Drawing.Size(115, 13);
             this.lbPlfRetraitFr.TabIndex = 26;
@@ -103,7 +105,7 @@
             // lbPlfGloRetraitInt
             // 
             this.lbPlfGloRetraitInt.AutoSize = true;
-            this.lbPlfGloRetraitInt.Location = new System.Drawing.Point(36, 174);
+            this.lbPlfGloRetraitInt.Location = new System.Drawing.Point(12, 160);
             this.lbPlfGloRetraitInt.Name = "lbPlfGloRetraitInt";
             this.lbPlfGloRetraitInt.Size = new System.Drawing.Size(158, 13);
             this.lbPlfGloRetraitInt.TabIndex = 25;
@@ -112,7 +114,7 @@
             // lbPlfRetraitEtr
             // 
             this.lbPlfRetraitEtr.AutoSize = true;
-            this.lbPlfRetraitEtr.Location = new System.Drawing.Point(36, 200);
+            this.lbPlfRetraitEtr.Location = new System.Drawing.Point(12, 186);
             this.lbPlfRetraitEtr.Name = "lbPlfRetraitEtr";
             this.lbPlfRetraitEtr.Size = new System.Drawing.Size(122, 13);
             this.lbPlfRetraitEtr.TabIndex = 24;
@@ -121,7 +123,7 @@
             // lbPlfGloRetraitExt
             // 
             this.lbPlfGloRetraitExt.AutoSize = true;
-            this.lbPlfGloRetraitExt.Location = new System.Drawing.Point(36, 148);
+            this.lbPlfGloRetraitExt.Location = new System.Drawing.Point(12, 134);
             this.lbPlfGloRetraitExt.Name = "lbPlfGloRetraitExt";
             this.lbPlfGloRetraitExt.Size = new System.Drawing.Size(178, 13);
             this.lbPlfGloRetraitExt.TabIndex = 23;
@@ -130,7 +132,7 @@
             // lbPeriodePaiment
             // 
             this.lbPeriodePaiment.AutoSize = true;
-            this.lbPeriodePaiment.Location = new System.Drawing.Point(36, 122);
+            this.lbPeriodePaiment.Location = new System.Drawing.Point(12, 108);
             this.lbPeriodePaiment.Name = "lbPeriodePaiment";
             this.lbPeriodePaiment.Size = new System.Drawing.Size(149, 13);
             this.lbPeriodePaiment.TabIndex = 22;
@@ -139,7 +141,7 @@
             // lbPlfPaiementEtranger
             // 
             this.lbPlfPaiementEtranger.AutoSize = true;
-            this.lbPlfPaiementEtranger.Location = new System.Drawing.Point(36, 96);
+            this.lbPlfPaiementEtranger.Location = new System.Drawing.Point(12, 82);
             this.lbPlfPaiementEtranger.Name = "lbPlfPaiementEtranger";
             this.lbPlfPaiementEtranger.Size = new System.Drawing.Size(153, 13);
             this.lbPlfPaiementEtranger.TabIndex = 21;
@@ -148,7 +150,7 @@
             // lbPlfGloPaiement
             // 
             this.lbPlfGloPaiement.AutoSize = true;
-            this.lbPlfGloPaiement.Location = new System.Drawing.Point(36, 70);
+            this.lbPlfGloPaiement.Location = new System.Drawing.Point(12, 56);
             this.lbPlfGloPaiement.Name = "lbPlfGloPaiement";
             this.lbPlfGloPaiement.Size = new System.Drawing.Size(142, 13);
             this.lbPlfGloPaiement.TabIndex = 20;
@@ -157,7 +159,7 @@
             // lbReseau
             // 
             this.lbReseau.AutoSize = true;
-            this.lbReseau.Location = new System.Drawing.Point(36, 44);
+            this.lbReseau.Location = new System.Drawing.Point(12, 30);
             this.lbReseau.Name = "lbReseau";
             this.lbReseau.Size = new System.Drawing.Size(51, 13);
             this.lbReseau.TabIndex = 19;
@@ -165,7 +167,7 @@
             // 
             // btCreer
             // 
-            this.btCreer.Location = new System.Drawing.Point(139, 289);
+            this.btCreer.Location = new System.Drawing.Point(127, 286);
             this.btCreer.Name = "btCreer";
             this.btCreer.Size = new System.Drawing.Size(75, 23);
             this.btCreer.TabIndex = 18;
@@ -176,14 +178,14 @@
             // cbReseau
             // 
             this.cbReseau.FormattingEnabled = true;
-            this.cbReseau.Location = new System.Drawing.Point(224, 41);
+            this.cbReseau.Location = new System.Drawing.Point(200, 27);
             this.cbReseau.Name = "cbReseau";
             this.cbReseau.Size = new System.Drawing.Size(100, 21);
             this.cbReseau.TabIndex = 35;
             // 
             // txtPeriodePlfRetrait
             // 
-            this.txtPeriodePlfRetrait.Location = new System.Drawing.Point(224, 249);
+            this.txtPeriodePlfRetrait.Location = new System.Drawing.Point(200, 235);
             this.txtPeriodePlfRetrait.Name = "txtPeriodePlfRetrait";
             this.txtPeriodePlfRetrait.Size = new System.Drawing.Size(100, 20);
             this.txtPeriodePlfRetrait.TabIndex = 37;
@@ -191,7 +193,7 @@
             // lbPeriodePlfRetrait
             // 
             this.lbPeriodePlfRetrait.AutoSize = true;
-            this.lbPeriodePlfRetrait.Location = new System.Drawing.Point(36, 252);
+            this.lbPeriodePlfRetrait.Location = new System.Drawing.Point(12, 238);
             this.lbPeriodePlfRetrait.Name = "lbPeriodePlfRetrait";
             this.lbPeriodePlfRetrait.Size = new System.Drawing.Size(117, 13);
             this.lbPeriodePlfRetrait.TabIndex = 36;
@@ -199,40 +201,51 @@
             // 
             // txtPlfPaiementEtr
             // 
-            this.txtPlfPaiementEtr.Location = new System.Drawing.Point(224, 93);
+            this.txtPlfPaiementEtr.Location = new System.Drawing.Point(200, 79);
             this.txtPlfPaiementEtr.Name = "txtPlfPaiementEtr";
             this.txtPlfPaiementEtr.Size = new System.Drawing.Size(100, 20);
             this.txtPlfPaiementEtr.TabIndex = 38;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtPlfPaiementEtr);
+            this.groupBox1.Controls.Add(this.txtPeriodePlfRetrait);
+            this.groupBox1.Controls.Add(this.lbPeriodePlfRetrait);
+            this.groupBox1.Controls.Add(this.cbReseau);
+            this.groupBox1.Controls.Add(this.txtPlfGloRetraitInt);
+            this.groupBox1.Controls.Add(this.txtPlfRetraitFr);
+            this.groupBox1.Controls.Add(this.txtPlfRetraitEtr);
+            this.groupBox1.Controls.Add(this.txtPlfGloRetraitExt);
+            this.groupBox1.Controls.Add(this.txtPeriodePlfPaiement);
+            this.groupBox1.Controls.Add(this.txtPlfGloPaiement);
+            this.groupBox1.Controls.Add(this.lbPlfRetraitFr);
+            this.groupBox1.Controls.Add(this.lbPlfGloRetraitInt);
+            this.groupBox1.Controls.Add(this.lbPlfRetraitEtr);
+            this.groupBox1.Controls.Add(this.lbPlfGloRetraitExt);
+            this.groupBox1.Controls.Add(this.lbPeriodePaiment);
+            this.groupBox1.Controls.Add(this.lbPlfPaiementEtranger);
+            this.groupBox1.Controls.Add(this.lbPlfGloPaiement);
+            this.groupBox1.Controls.Add(this.lbReseau);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(311, 264);
+            this.groupBox1.TabIndex = 39;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Données Type Carte";
             // 
             // FenSaisirTypeCarte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(354, 324);
-            this.Controls.Add(this.txtPlfPaiementEtr);
-            this.Controls.Add(this.txtPeriodePlfRetrait);
-            this.Controls.Add(this.lbPeriodePlfRetrait);
-            this.Controls.Add(this.cbReseau);
-            this.Controls.Add(this.txtPlfGloRetraitInt);
-            this.Controls.Add(this.txtPlfRetraitFr);
-            this.Controls.Add(this.txtPlfRetraitEtr);
-            this.Controls.Add(this.txtPlfGloRetraitExt);
-            this.Controls.Add(this.txtPeriodePlfPaiement);
-            this.Controls.Add(this.txtPlfGloPaiement);
-            this.Controls.Add(this.lbPlfRetraitFr);
-            this.Controls.Add(this.lbPlfGloRetraitInt);
-            this.Controls.Add(this.lbPlfRetraitEtr);
-            this.Controls.Add(this.lbPlfGloRetraitExt);
-            this.Controls.Add(this.lbPeriodePaiment);
-            this.Controls.Add(this.lbPlfPaiementEtranger);
-            this.Controls.Add(this.lbPlfGloPaiement);
-            this.Controls.Add(this.lbReseau);
+            this.ClientSize = new System.Drawing.Size(335, 321);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btCreer);
             this.Name = "FenSaisirTypeCarte";
             this.ShowIcon = false;
             this.Text = "Saisir Type Carte";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -257,5 +270,6 @@
         private System.Windows.Forms.TextBox txtPeriodePlfRetrait;
         private System.Windows.Forms.Label lbPeriodePlfRetrait;
         private System.Windows.Forms.TextBox txtPlfPaiementEtr;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

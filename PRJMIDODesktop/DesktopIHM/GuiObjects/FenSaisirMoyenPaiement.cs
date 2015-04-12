@@ -47,5 +47,32 @@ namespace DesktopIHM.GuiObjects
             this.txtIdTypeCarte.Text = idMoyenPaiement;
         }
 
+        private void btAjoutMoyenPaiement_Click(object sender, EventArgs e)
+        {
+            if (rbChequier.Checked == true)
+            {
+                if (!string.IsNullOrEmpty(cbNbCheques.SelectedText) 
+                    || !string.IsNullOrEmpty(txtNbPremierCheque.Text) 
+                    || !string.IsNullOrEmpty(txtNbDernierCheque.Text))
+                {
+                    MessageBox.Show("Tous les champs concernant le chequier doivent être remplis", "Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                try
+                {
+                    int.Parse(txtNbDernierCheque.Text);
+                    int.Parse(txtNbPremierCheque.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Les données saisies doivent être des nombres", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+
+            }
+        }
+
     }
 }

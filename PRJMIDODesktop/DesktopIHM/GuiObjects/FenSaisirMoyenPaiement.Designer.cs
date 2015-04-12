@@ -280,6 +280,7 @@
             this.btAjoutMoyenPaiement.TabIndex = 12;
             this.btAjoutMoyenPaiement.Text = "Ajouter le moyen de paiement";
             this.btAjoutMoyenPaiement.UseVisualStyleBackColor = true;
+            this.btAjoutMoyenPaiement.Click += new System.EventHandler(this.btAjoutMoyenPaiement_Click);
             // 
             // FenSaisirMoyenPaiement
             // 

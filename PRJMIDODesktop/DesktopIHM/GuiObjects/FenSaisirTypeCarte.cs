@@ -7,12 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using DataService.BSDataObjects;
+using DataService.BSService;
 
 namespace DesktopIHM.GuiObjects
 {
     public partial class FenSaisirTypeCarte : Form
     {
-        private static string[] valuesReseau = {"Visa", "MasterCard"};
+        FenRechercheTypeCarte fenRechercheTypeCarte = null;
+        private static string[] valuesReseau = {"Visa", "MasterCard"};        
+
+        public FenSaisirTypeCarte(FenRechercheTypeCarte fenRechercheTypeCarte)
+        {
+            InitializeComponent();
+            cbReseau.Items.AddRange(valuesReseau);
+            cbReseau.SelectedIndex = 1;
+            this.fenRechercheTypeCarte = fenRechercheTypeCarte;
+        }
 
         public FenSaisirTypeCarte()
         {
@@ -134,10 +144,16 @@ namespace DesktopIHM.GuiObjects
                     "Ajout d'une type de carte bancaire", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            TypeCarte typeCarte = new TypeCarte();
-            //BSGestionClient.CreerModifierClient(client); 
+            TypeCarte typeCarte = new TypeCarte(cbReseau.SelectedText,
+                decimal.Parse(txtPlfGloPaiement.Text),
+                decimal.Parse(txtPlfPaiementEtr.Text), int.Parse(txtPeriodePlfPaiement.Text),
+                decimal.Parse(txtPlfGloRetraitExt.Text), decimal.Parse(txtPlfRetraitEtr.Text),
+                decimal.Parse(txtPlfRetraitFr.Text), decimal.Parse(txtPlfGloRetraitInt.Text), int.Parse(txtPeriodePlfRetrait.Text));
+            BSGestionClient.InsertTypeCarte(typeCarte);
             MessageBox.Show("Le type de carte vient d'être ajouté",
                 "Ajout d'une type de carte bancaire", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            fenRechercheTypeCarte.Refresh();
+            this.Dispose();
         }
     }
 }

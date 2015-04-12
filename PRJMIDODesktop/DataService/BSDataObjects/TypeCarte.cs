@@ -25,6 +25,22 @@ namespace DataService.BSDataObjects
         private decimal plfGlobalRetraitInternes; //Sur les distributeurs de la banque
         private int periodePlfGlobalRetrait;
 
+        public TypeCarte(string reseauCarte, decimal plfGloPaiement,
+            decimal plfGloPaiementEtranger, int periodePlfPaiement,
+            decimal plfGlobalRetraitExterne, decimal plfRetEtranger,
+            decimal plfRetraitFrance, decimal plfGlobalRetraitInternes, int periodePlfGlobalRetrait)
+        {
+            this.ReseauCarteStr=reseauCarte;
+            this.plfGloPaiement = plfGloPaiement;
+            this.plfGloPaiementEtranger = plfGloPaiementEtranger;
+            this.periodePlfPaiement = periodePlfPaiement;
+            this.plfGlobalRetraitExterne = plfGlobalRetraitExterne;
+            this.plfRetEtranger = plfRetEtranger;
+            this.plfRetraitFrance = plfRetraitFrance;
+            this.plfGlobalRetraitInternes = plfGlobalRetraitInternes;
+            this.periodePlfGlobalRetrait = periodePlfGlobalRetrait;
+        }
+
         public ReseauCarteBancaire ReseauCarte
         {
             get { return reseauCarte; }

@@ -51,5 +51,14 @@ namespace DataService.BSService
             return contrat.persist();
         }
 
+        public static bool InsertTypeCarte(TypeCarte typeCarte)
+        {
+            return typeCarte.persist();
+        }
+
+        public static IDataReader RechercherTypeCarte(CritereRechercheTypeCarte criteres)
+        {
+            return DAOTypeCarte.get(criteres);
+        }
     }
 }

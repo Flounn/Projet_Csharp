@@ -83,7 +83,7 @@ namespace DesktopIHM.GuiObjects
         private void initData()
         {
             DataTable dTypeCarte = new DataTable();
-            //dTypeCarte.Load(BSGestionClient..get(crtRechercheCarteBancaire));
+            dTypeCarte.Load(BSGestionClient.RechercherTypeCarte(crtRechercheTypeCarte));
             dgvLstTypeCarte.DataSource = dTypeCarte;
             
         }
@@ -91,6 +91,28 @@ namespace DesktopIHM.GuiObjects
         void dgvLstTypeCarte_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             fenSaisirMoyenPaiement.setTxtMoyenPaiement(dgvLstTypeCarte.Rows[e.RowIndex].Cells[0].Value.ToString());
+            this.Dispose();
+        }
+
+        private void btVider_Click(object sender, EventArgs e)
+        {
+            this.txtId.Text = string.Empty;
+            this.txtPeriodePlfGloPaiement.Text = string.Empty;
+            this.txtPeriodePlfGloRetrait.Text = string.Empty;
+            this.txtPlfGloPaiement.Text = string.Empty;
+            this.txtPlfGloRetrait.Text = string.Empty;
+            this.cbReseau.SelectedIndex = 0;
+        }
+
+        private void btSelection_Click(object sender, EventArgs e)
+        {
+            fenSaisirMoyenPaiement.setTxtMoyenPaiement(dgvLstTypeCarte.SelectedRows[0].Cells[0].Value.ToString());
+            this.Dispose();
+        }
+
+        private void btAjouterTypeCarte_Click(object sender, EventArgs e)
+        {
+            new FenSaisirTypeCarte(this).Show();
         }
 
 
