@@ -15,7 +15,7 @@ namespace DesktopIHM.GuiObjects
         public FenSaisirUtilisateur()
         {
             InitializeComponent();
-            cb_profil.DataSource = Utilisateur.profils;
+            cb_profil.DataSource = Utilisateur.Profils;
             txt_login.Focus();
         }
 

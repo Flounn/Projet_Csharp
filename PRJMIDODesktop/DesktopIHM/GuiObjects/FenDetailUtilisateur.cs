@@ -22,7 +22,7 @@ namespace DesktopIHM.GuiObjects
             txt_email.Text = utilisateur.Email;
             txt_login.Text = utilisateur.Login;
             txt_password.Text = utilisateur.Password;
-            cb_profil.DataSource = Utilisateur.profils;
+            cb_profil.DataSource = Utilisateur.Profils;
             cb_profil.SelectedItem = utilisateur.Profil;
         }
 

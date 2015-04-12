@@ -12,7 +12,26 @@ namespace DesktopIHM.GuiObjects
         private string email;
         private string profil;
 
-        public static string[] profils = new string[] { "Administrateur", "Opératrice de saisie", "Consultation" };
+        private static string[] profils = new string[] { "Administrateur", "Opératrice de saisie", "Consultation" };
+
+        public static string[] Profils
+        {
+            get { return Utilisateur.profils; }
+            set { Utilisateur.profils = value; }
+        }
+
+        public bool isAdministrateur()
+        {
+            return profil.Equals(profils[0]);
+        }
+        public bool isOperateurDeSaisie()
+        {
+            return profil.Equals(profils[1]);
+        }
+        public bool isConsultation()
+        {
+            return profil.Equals(profils[2]);
+        }
 
         public string Email
         {

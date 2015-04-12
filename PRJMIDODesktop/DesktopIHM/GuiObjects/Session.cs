@@ -31,5 +31,18 @@ namespace DesktopIHM.GuiObjects
             utilisateur.Password = password;
             GestionnaireUtilisateur.modifierUtilisateur(utilisateur);
         }
+
+        public static bool isOperateurDeSaisie()
+        {
+            return utilisateur.isOperateurDeSaisie();
+        }
+        public static bool isAdministrateur()
+        {
+            return utilisateur.isAdministrateur();
+        }
+        public static bool isConsultation()
+        {
+            return utilisateur.isConsultation();
+        }
     }
 }

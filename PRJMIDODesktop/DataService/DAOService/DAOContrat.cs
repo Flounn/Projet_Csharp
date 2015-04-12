@@ -16,13 +16,17 @@ namespace DataService.DAOService
         private static readonly string[] champsWhere = new string[] { "ID_CONTRAT" };
 
         public bool insert(Contrat contrat){
-            object[] values = new object[] { contrat.Intitule, contrat.Client.IdClient, contrat.Compte.IdCompte, contrat.StatutJuridiqueStr,contrat.TypeStr};
-            return Connexion.insert(tableName, champs, values);
+            if (contrat is ContratCredit)
+                return ((ContratCredit)contrat).persist();
+            else if (contrat is ContratEpargne)
+                return ((ContratEpargne)contrat).persist();
+            else
+                throw new NotImplementedException();
         }
 
         public bool delete(Contrat contrat)
         {
-            return Connexion.delete(tableName, champsWhere, new object[] { contrat.IdContrat });
+            return Connexion.callProcedureNonQuery("delContrat", champsWhere, new object[] { contrat.IdContrat });
         }
 
         public bool update(Contrat contrat)
