@@ -146,23 +146,17 @@ namespace DataService.BSService
             {
                 contrat = new ContratEpargne();
                 if (!reader.IsDBNull(0))
-                    client.IdClient = (int)reader.GetValue(0);
+                    contrat.IdContrat = (int)reader.GetValue(0);
                 if (!reader.IsDBNull(1))
-                    client.Nom = (string)reader.GetValue(1);
+                    contrat.TypeEpargne = (string)reader.GetValue(1);
                 if (!reader.IsDBNull(2))
-                    client.Prenom = (string)reader.GetValue(2);
+                    contrat.TypeVersement = (string)reader.GetValue(2);
                 if (!reader.IsDBNull(3))
-                    client.DateNaissance = (DateTime)reader.GetValue(3);
+                    contrat.Periodicite = (string)reader.GetValue(3);
                 if (!reader.IsDBNull(4))
-                    client.Email = (string)reader.GetValue(4);
+                    contrat.DateVersement = (DateTime)reader.GetValue(4);
                 if (!reader.IsDBNull(5))
-                    client.AdressePrincipale = (string)reader.GetValue(5);
-                if (!reader.IsDBNull(6))
-                    client.AdresseTemporaire = (string)reader.GetValue(6);
-                if (!reader.IsDBNull(7))
-                    client.TelFixe = (string)reader.GetValue(7);
-                if (!reader.IsDBNull(8))
-                    client.TelPortable = (string)reader.GetValue(8);
+                    contrat.MontantVerse = (decimal)reader.GetValue(4);
             }
             reader.Close();
             return contrat;
@@ -176,23 +170,25 @@ namespace DataService.BSService
             {
                 contrat = new ContratCredit();
                 if (!reader.IsDBNull(0))
-                    client.IdClient = (int)reader.GetValue(0);
+                    contrat.IdContrat = (int)reader.GetValue(0);
                 if (!reader.IsDBNull(1))
-                    client.Nom = (string)reader.GetValue(1);
+                    contrat.ObjectifCredit = (string)reader.GetValue(1);
                 if (!reader.IsDBNull(2))
-                    client.Prenom = (string)reader.GetValue(2);
+                    contrat.DateEcheance = (DateTime)reader.GetValue(2);
                 if (!reader.IsDBNull(3))
-                    client.DateNaissance = (DateTime)reader.GetValue(3);
+                    contrat.Duree = (int)reader.GetValue(3);
                 if (!reader.IsDBNull(4))
-                    client.Email = (string)reader.GetValue(4);
+                    contrat.Taux = (decimal)reader.GetValue(4);
                 if (!reader.IsDBNull(5))
-                    client.AdressePrincipale = (string)reader.GetValue(5);
+                    contrat.MontantCredit = (decimal)reader.GetValue(5);
                 if (!reader.IsDBNull(6))
-                    client.AdresseTemporaire = (string)reader.GetValue(6);
+                    contrat.DateProchaineEcheance = (DateTime)reader.GetValue(6);
                 if (!reader.IsDBNull(7))
-                    client.TelFixe = (string)reader.GetValue(7);
+                    contrat.MontantEcheance = (decimal)reader.GetValue(7);
                 if (!reader.IsDBNull(8))
-                    client.TelPortable = (string)reader.GetValue(8);
+                    contrat.TauxNominal = (decimal)reader.GetValue(8);
+                if (!reader.IsDBNull(8))
+                    contrat.Encours = (decimal)reader.GetValue(8);
             }
             reader.Close();
             return contrat;

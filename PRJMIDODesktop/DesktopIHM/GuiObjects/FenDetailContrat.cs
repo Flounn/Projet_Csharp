@@ -40,7 +40,10 @@ namespace DesktopIHM.GuiObjects
                 gb_epargne.Visible = false;
                 contratCredit = BSGestionClient.getContratCredit(contrat.IdContrat);
                 txtCreditMontant.Text = contratCredit.MontantCredit.ToString();
-                //TODO champ textes a remplir
+                txtObjet.Text = contratCredit.ObjectifCredit;
+                txtTaux.Text = contratCredit.Taux.ToString();
+                txtDuree.Text = contratCredit.Duree.ToString();
+                txtCreditMontant.Text = contratCredit.MontantCredit.ToString();
             }
             else if (contrat.Type == Contrat.TypeContrat.Epargne)
             {
@@ -48,7 +51,19 @@ namespace DesktopIHM.GuiObjects
                 gb_epargne.Visible = false;
                 contratEpargne = BSGestionClient.getContratEpargne(contrat.IdContrat);
                 txtEpargneMontant.Text = contratEpargne.MontantEpargne.ToString();
-                //TODO champ textes a remplir
+                dtVersement.Value = contratEpargne.DateVersement;
+                cbTypeEpargne.Text = contratEpargne.TypeEpargne;
+                if (contratEpargne.Periodicite.Equals("Mensuel"))
+                {
+                    cbPeriodicite.SelectedIndex = 1;
+                }
+                else cbPeriodicite.SelectedIndex = 0;
+                if (contratEpargne.TypeVersement.Equals("Ponctuel"))
+                {
+                    rbPonctuel.Checked = true;
+                }
+                else rbPeriodique.Checked = true;
+                    
             }
         }
 
@@ -81,12 +96,53 @@ namespace DesktopIHM.GuiObjects
             
             if (contratEpargne != null)
             {
-                //TODO champs a recup
+                if (!string.IsNullOrEmpty(txtEpargneMontant.Text) && cbPeriodicite.SelectedIndex != -1
+                    && cbTypeEpargne.SelectedIndex != -1)
+                {
+                    MessageBox.Show("Tous les champs doivent être renseignés", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                try
+                {
+                    contratEpargne.MontantEpargne = decimal.Parse(txtEpargneMontant.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Le montant n'a pas été renseigné correctement", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                
+                contratEpargne.Periodicite = cbPeriodicite.SelectedText;
+                contratEpargne.DateVersement = dtVersement.Value;
+                contratEpargne.TypeEpargne = cbTypeEpargne.SelectedText;
+                if(rbPeriodique.Checked)                
+                    contratEpargne.TypeVersement = "Peridodique";
+                if (rbPonctuel.Checked)
+                    contratEpargne.TypeVersement = "Ponctuel";
                 BSGestionClient.CreerModifierContratEpargne(contratEpargne);
             }
             else if (contratCredit != null)
             {
-                //TODO champs a recup
+                if (!string.IsNullOrEmpty(txtObjet.Text) && !string.IsNullOrEmpty(txtDuree.Text)
+                    && !string.IsNullOrEmpty(txtTaux.Text) && !string.IsNullOrEmpty(txtCreditMontant.Text))
+                {
+                    MessageBox.Show("Tous les champs doivent être renseignés", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                try
+                {
+                    contratCredit.Duree = int.Parse(txtDuree.Text);
+                    contratCredit.Taux = decimal.Parse(txtTaux.Text);
+                    contratCredit.MontantCredit = decimal.Parse(txtCreditMontant.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Le champs n'ont pas été renseignés correctement", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                contratCredit.ObjectifCredit = txtObjet.Text;
                 BSGestionClient.CreerModifierContratCredit(contratCredit);
             }
         }

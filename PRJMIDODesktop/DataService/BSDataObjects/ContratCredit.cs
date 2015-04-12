@@ -22,7 +22,7 @@ namespace DataService.BSDataObjects
         private int duree;
         private decimal taux;
         private decimal montantCredit;
-        private DateTime dateProchaineEcheance;   
+        private DateTime dateProchaineEcheance;
         private decimal montantEcheance;
         private decimal tauxNominal;
         private decimal encours;
@@ -38,6 +38,12 @@ namespace DataService.BSDataObjects
             this.taux = taux;
             this.montantCredit = montantCredit;
         }
+
+        public DateTime DateProchaineEcheance
+        {
+            get { return dateProchaineEcheance; }
+            set { dateProchaineEcheance = value; }
+        }   
 
         public string ObjectifCredit
         {
