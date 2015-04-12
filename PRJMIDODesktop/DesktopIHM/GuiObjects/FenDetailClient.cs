@@ -18,11 +18,24 @@ namespace DesktopIHM.GuiObjects
     public partial class FenDetailClient : Form
     {
         private Client client;
+        private UpdateDataGridView callback;
+
+        public FenDetailClient(Client client,UpdateDataGridView callback)
+        {
+            InitializeComponent();
+            this.client = client;
+            this.callback = callback;
+            initUi();
+        }
 
         public FenDetailClient(Client client)
         {
             InitializeComponent();
             this.client = client;
+            initUi();
+        }
+
+        private void initUi(){
             initData();
             dtDateNaissance.MaxDate = DateTime.Today;
         }
@@ -104,15 +117,22 @@ namespace DesktopIHM.GuiObjects
                     "Modification des données", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) ==
                     DialogResult.Yes)
                 {
-                    BSGestionClient.CreerModifierClient(client);
-                    this.txtNom.Enabled = false;
-                    this.txtPrenom.Enabled = false;
-                    this.dtDateNaissance.Enabled = false;
-                    this.txtEmail.Enabled = false;
-                    this.txtAdressePrinc.Enabled = false;
-                    this.txtAdresseTemp.Enabled = false;
-                    this.txtTelFixe.Enabled = false;
-                    this.txtTelPort.Enabled = false;
+                    if (BSGestionClient.CreerModifierClient(client))
+                    {
+                        Utilities.showInfoMessage("Client modifié avec succès", "Client modification");
+                        this.txtNom.Enabled = false;
+                        this.txtPrenom.Enabled = false;
+                        this.dtDateNaissance.Enabled = false;
+                        this.txtEmail.Enabled = false;
+                        this.txtAdressePrinc.Enabled = false;
+                        this.txtAdresseTemp.Enabled = false;
+                        this.txtTelFixe.Enabled = false;
+                        this.txtTelPort.Enabled = false;
+                        if (callback != null)
+                            callback.refresh();
+                    }
+                    else
+                        Utilities.showErrorMessage("Erreur lors de la modification du client", "Erreur");
                 }
             }
             else
@@ -134,10 +154,15 @@ namespace DesktopIHM.GuiObjects
                     "Supprimer un client", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) ==
                     DialogResult.Yes)
             {
-                BSGestionClient.SupprimerClient(client);
-                MessageBox.Show("Le client vient d'être supprimé",
-                    "Supprimer un client", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Dispose();
+                if (BSGestionClient.SupprimerClient(client))
+                {
+                    Utilities.showInfoMessage("Le client vient d'être supprimé", "Supprimer un client");
+                    if (callback != null)
+                        callback.refresh();
+                    this.Close();
+                }
+                else
+                    Utilities.showErrorMessage("Erreur lors de la suppression du client","Erreur");
             }
         }
 

@@ -12,7 +12,7 @@ using DataService.DAOService;
 
 namespace DesktopIHM.GuiObjects
 {
-    public partial class FenRechercheClient : Form
+    public partial class FenRechercheClient : Form, UpdateDataGridView
     {
         private CritereRechercheClient crtRechercheClient = new CritereRechercheClient();
 
@@ -109,14 +109,14 @@ namespace DesktopIHM.GuiObjects
 
         private void btDetail_Click(object sender, EventArgs e)
         {
-            new FenDetailClient(getClientRow()).Show();
+            new FenDetailClient(getClientRow(),this).Show();
         }
 
         private void dgvLstClient_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1)
                 return;
-            new FenDetailClient(getClientRow(e.RowIndex)).Show();
+            new FenDetailClient(getClientRow(e.RowIndex),this).Show();
         }
 
         private Client getClientRow(int index)
@@ -143,5 +143,10 @@ namespace DesktopIHM.GuiObjects
             cbDateNaissance.SelectedIndex = 0;
         }
 
+
+        public void refresh()
+        {
+            initData();
+        }
     }
 }
