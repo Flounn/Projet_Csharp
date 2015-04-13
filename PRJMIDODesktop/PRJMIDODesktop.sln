@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\Projet_C#_2014-2015.docx = ..\Projet_C#_2014-2015.docx
 	EndProjectSection
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{5B051B04-00A8-47C8-B098-69584C674D10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,12 @@ Global
 		{C72C7268-4BC1-4785-9D38-7BC2EA17C804}.Release|Mixed Platforms.Build.0 = Release|x86
 		{C72C7268-4BC1-4785-9D38-7BC2EA17C804}.Release|x86.ActiveCfg = Release|x86
 		{C72C7268-4BC1-4785-9D38-7BC2EA17C804}.Release|x86.Build.0 = Release|x86
+		{5B051B04-00A8-47C8-B098-69584C674D10}.Debug|Any CPU.ActiveCfg = Debug
+		{5B051B04-00A8-47C8-B098-69584C674D10}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{5B051B04-00A8-47C8-B098-69584C674D10}.Debug|x86.ActiveCfg = Debug
+		{5B051B04-00A8-47C8-B098-69584C674D10}.Release|Any CPU.ActiveCfg = Release
+		{5B051B04-00A8-47C8-B098-69584C674D10}.Release|Mixed Platforms.ActiveCfg = Release
+		{5B051B04-00A8-47C8-B098-69584C674D10}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
