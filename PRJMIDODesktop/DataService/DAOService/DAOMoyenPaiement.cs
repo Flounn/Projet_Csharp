@@ -25,7 +25,8 @@ namespace DataService.DAOService
 
         public bool delete(MoyenPaiement moyenPaiement)
         {
-            return Connexion.callProcedureNonQuery("delMoyenPaiement", champsWhere, new object[] { moyenPaiement.IdMoyenPaiement });
+            return Connexion.callProcedureNonQuery("delMoyenPaiement", new string[] { "P_ID_MOYEN_PAIEMENT" },
+                new object[] { moyenPaiement.IdMoyenPaiement }, false);
         }
 
         public bool update(MoyenPaiement moyenPaiement)

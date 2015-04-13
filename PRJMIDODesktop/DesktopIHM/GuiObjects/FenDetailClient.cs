@@ -15,7 +15,7 @@ using iTextSharp.text;
 
 namespace DesktopIHM.GuiObjects
 {
-    public partial class FenDetailClient : Form
+    public partial class FenDetailClient : Form,Updates
     {
         private Client client;
         private UpdateDataGridView callback;
@@ -92,7 +92,7 @@ namespace DesktopIHM.GuiObjects
         {
             if (e.RowIndex < 0)
                 return;
-            new FenDetailCompte(getCompteSelected(e.RowIndex)).Show(this);
+            new FenDetailCompte(getCompteSelected(e.RowIndex),this).Show(this);
         }
 
         private void btModifier_Click(object sender, EventArgs e)
@@ -180,8 +180,34 @@ namespace DesktopIHM.GuiObjects
             }
         }
 
+        void dgvLstContrats_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            new FenDetailContrat(getContratRow(e.RowIndex), this).Show(this);
+        }
+
+        private Contrat getContratRow(int index)
+        {
+            if (index < 0)
+                return null;
+            Client client = new Client();
+            client.IdClient = (int)dgvLstContrats.Rows[index].Cells[3].Value;
+            Compte compte = new Compte();
+            compte.IdCompte = (int)dgvLstContrats.Rows[index].Cells[4].Value;
+            compte.Client = client;
+            return new Contrat((int)dgvLstContrats.Rows[index].Cells[0].Value, (DateTime)dgvLstContrats.Rows[index].Cells[1].Value,
+                (string)dgvLstContrats.Rows[index].Cells[2].Value, client, compte, (string)dgvLstContrats.Rows[index].Cells[5].Value,
+                (string)dgvLstContrats.Rows[index].Cells[6].Value);
+        }
+
         void dgvLstComptes_SelectionChanged(object sender, System.EventArgs e)
         {
+            if (dgvLstComptes.SelectedRows.Count==0){
+                dgvLstOperations.DataSource=null;
+                return;
+            }
+
             CritereRechercheOperation crtRechercheOperation = new CritereRechercheOperation();
             crtRechercheOperation.IdCompte = (int)dgvLstComptes.SelectedRows[0].Cells[0].Value;
             dgvLstOperations.DataSource = BSGestionClient.RechercherOperations(crtRechercheOperation);
@@ -365,6 +391,14 @@ namespace DesktopIHM.GuiObjects
                 (DateTime)dgvLstComptes.Rows[index].Cells[1].Value,(decimal)dgvLstComptes.Rows[index].Cells[2].Value, this.client);
         }
 
+        public void UpdateContrats()
+        {
+            initContrats();
+        }
 
+        public void UpdateComptes()
+        {
+            initComptes();
+        }
     }
 }

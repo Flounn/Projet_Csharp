@@ -40,10 +40,10 @@ namespace DesktopIHM
 
         private void FenPrincipale_Load(object sender, EventArgs e)
         {
-            //FenConnexion connexion = new FenConnexion(this);
-            //connexion.ShowDialog(this);
-            Session.seConnecter("midoif", "passw1");
-            refresh();
+            FenConnexion connexion = new FenConnexion(this);
+            connexion.ShowDialog(this);
+            //Session.seConnecter("midoif", "passw1");
+            //refresh();
         }
 
         private void miVersion_Click(object sender, EventArgs e)

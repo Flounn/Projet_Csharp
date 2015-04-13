@@ -23,12 +23,12 @@ namespace DataService.DAOService
                                                     ,"TYPE_EPARGNE", "TYPE_VERSEMENT","PERIODICITE","DT_VERSEMENT"
                                                     ,"MNT_VERSE"};
 
-            return Connexion.callProcedureNonQuery("addContratEpargne", parametersName, values);
+            return Connexion.callProcedureNonQuery("addContratEpargne", parametersName, values,true);
         }
 
         public bool delete(ContratEpargne contratEpargne)
         {
-            return Connexion.callProcedureNonQuery("delContratEpargne", champsWhere, new object[] { contratEpargne.IdContrat });
+            return Connexion.callProcedureNonQuery("delContratEpargne", new string[] { "P_ID_CONTRAT" }, new object[] { contratEpargne.IdContrat }, false);
         }
 
         public bool update(ContratEpargne contratEpargne)

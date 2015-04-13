@@ -227,8 +227,8 @@ namespace DataService.DAOService
             }
             return reader;
         }
-
-        public static bool callProcedureNonQuery(string procedure_name,string[] parametersInNames, object[] parametersIn)
+        
+        public static bool callProcedureNonQuery(string procedure_name,string[] parametersInNames, object[] parametersIn,bool errorOut)
         {
             if (parametersInNames.Length != parametersIn.Length)
                 return false;
@@ -237,8 +237,8 @@ namespace DataService.DAOService
             int nbParametersIn = parametersInNames.Length;
             for (int i = 0; i < nbParametersIn; i++)
                 cmd.Parameters.AddWithValue(parametersInNames[i], parametersIn[i]);
-
-            cmd.Parameters.AddWithValue("error",null).Direction = ParameterDirection.Output;
+            if (errorOut)
+                cmd.Parameters.AddWithValue("error",null).Direction = ParameterDirection.Output;
             cmd.Connection = singleton.Connection();
             int nbMaj = 0;
             try

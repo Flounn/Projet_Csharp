@@ -336,9 +336,9 @@
             // 
             // txtEpargneMontant
             // 
-            this.txtEpargneMontant.Location = new System.Drawing.Point(91, 179);
+            this.txtEpargneMontant.Location = new System.Drawing.Point(109, 179);
             this.txtEpargneMontant.Name = "txtEpargneMontant";
-            this.txtEpargneMontant.Size = new System.Drawing.Size(136, 20);
+            this.txtEpargneMontant.Size = new System.Drawing.Size(118, 20);
             this.txtEpargneMontant.TabIndex = 8;
             // 
             // label11
@@ -346,9 +346,9 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(22, 182);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(52, 13);
+            this.label11.Size = new System.Drawing.Size(81, 13);
             this.label11.TabIndex = 7;
-            this.label11.Text = "Montant :";
+            this.label11.Text = "Montant versé :";
             // 
             // gbVersement
             // 
@@ -386,9 +386,9 @@
             // cbPeriodicite
             // 
             this.cbPeriodicite.FormattingEnabled = true;
-            this.cbPeriodicite.Location = new System.Drawing.Point(91, 126);
+            this.cbPeriodicite.Location = new System.Drawing.Point(109, 126);
             this.cbPeriodicite.Name = "cbPeriodicite";
-            this.cbPeriodicite.Size = new System.Drawing.Size(136, 21);
+            this.cbPeriodicite.Size = new System.Drawing.Size(118, 21);
             this.cbPeriodicite.TabIndex = 5;
             // 
             // label13

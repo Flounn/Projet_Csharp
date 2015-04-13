@@ -15,11 +15,22 @@ namespace DesktopIHM.GuiObjects
     public partial class FenDetailCompte : Form,UpdateDataGridView
     {
         private Compte monCompte;
+        private Updates callback;
 
         public FenDetailCompte(Compte compte)
         {
             InitializeComponent();
             monCompte = compte;
+            if (string.IsNullOrEmpty(monCompte.Client.Email))
+                monCompte.Client = BSGestionClient.getClient(monCompte.Client.IdClient);
+            initUi();
+        }
+
+        public FenDetailCompte(Compte compte, Updates callback)
+        {
+            InitializeComponent();
+            monCompte = compte;
+            this.callback = callback;
             if (string.IsNullOrEmpty(monCompte.Client.Email))
                 monCompte.Client = BSGestionClient.getClient(monCompte.Client.IdClient);
             initUi();
@@ -57,21 +68,22 @@ namespace DesktopIHM.GuiObjects
             dgvLstMoyenPaiements.DataSource = BSGestionClient.RechercherMoyensPaiement(crtRechercheMoyenPaiement);
         }
 
-        void dgvLstComptes_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btSupprimer_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Etes-vous sûr de vouloir supprimer le compte?",
                     "Supprimer un compte", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) ==
                     DialogResult.Yes)
             {
-                //monCompte.delete();
-                MessageBox.Show("Le compte vient d'être supprimé",
-                    "Supprimer un compte", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Dispose();
+                if (BSGestionClient.SupprimerCompte(monCompte))
+                {
+                    MessageBox.Show("Le compte vient d'être supprimé",
+                        "Supprimer un compte", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (callback != null)
+                        callback.UpdateComptes();
+                    this.Close();
+                }
+                else
+                    Utilities.showErrorMessage("Erreur lors de la suppression du compte","Erreur");
             }
         }
 
@@ -89,5 +101,6 @@ namespace DesktopIHM.GuiObjects
         {
             initMoyensPaiement();
         }
+
     }
 }

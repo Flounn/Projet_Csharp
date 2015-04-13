@@ -24,12 +24,13 @@ namespace DataService.DAOService
                                                     ,"OBJ_CREDIT", "DT_ECHEANCE","DUREE","TAUX","MNT_CREDIT",
                                                     "DT_PROC_ECHANCE","MNT_ECHEANCE","TAUX_NOMINAL","ENCOURS"};
 
-            return Connexion.callProcedureNonQuery("addContratCredit", parametersName, values);
+            return Connexion.callProcedureNonQuery("addContratCredit", parametersName, values,true);
         }
 
         public bool delete(ContratCredit contratCredit)
         {
-            return Connexion.callProcedureNonQuery("delContratCredit", champsWhere, new object[] { contratCredit.IdContrat });
+            return Connexion.callProcedureNonQuery("delContratCredit", new string[]{"P_ID_CONTRAT"},
+                new object[] { contratCredit.IdContrat }, false);
         }
 
         public bool update(ContratCredit contratCredit)

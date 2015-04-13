@@ -97,6 +97,7 @@
             this.btSupprimer.TabIndex = 18;
             this.btSupprimer.Text = "Supprimer";
             this.btSupprimer.UseVisualStyleBackColor = true;
+            this.btSupprimer.Click += new System.EventHandler(this.btSupprimer_Click);
             // 
             // txtId
             // 
@@ -227,8 +228,8 @@
             // 
             this.dgvLstMoyenPaiements.AllowUserToAddRows = false;
             this.dgvLstMoyenPaiements.AllowUserToDeleteRows = false;
-            this.dgvLstMoyenPaiements.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvLstMoyenPaiements.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvLstMoyenPaiements.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvLstMoyenPaiements.Location = new System.Drawing.Point(6, 17);
             this.dgvLstMoyenPaiements.MultiSelect = false;
@@ -240,8 +241,8 @@
             // 
             // gbListeMoyensPaiement
             // 
-            this.gbListeMoyensPaiement.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbListeMoyensPaiement.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbListeMoyensPaiement.Controls.Add(this.dgvLstMoyenPaiements);
             this.gbListeMoyensPaiement.Location = new System.Drawing.Point(4, 180);
             this.gbListeMoyensPaiement.Name = "gbListeMoyensPaiement";

@@ -26,7 +26,7 @@ namespace DataService.DAOService
 
         public bool delete(Contrat contrat)
         {
-            return Connexion.callProcedureNonQuery("delContrat", champsWhere, new object[] { contrat.IdContrat });
+            return Connexion.callProcedureNonQuery("delContrat", new string[] { "P_ID_CONTRAT" }, new object[] { contrat.IdContrat }, false);
         }
 
         public bool update(Contrat contrat)

@@ -57,7 +57,7 @@ namespace DesktopIHM.GuiObjects
             cbStatut.SelectedIndex = 0;
             cbTypeEpargne.Items.AddRange(ContratEpargne.ValuesTypeEpargne);
             cbTypeEpargne.SelectedIndex = 0;
-            cbPeriodicite.Items.AddRange(ContratCredit.ValuesPeriodicite);
+            cbPeriodicite.Items.AddRange(ContratEpargne.ValuesPeriodicite);
             cbPeriodicite.SelectedIndex = 0;
             dtVersement.MinDate = DateTime.Today;
             rbTypeContrat_Checked(rbCredit, null);

@@ -325,6 +325,7 @@ namespace DesktopIHM.GuiObjects
             this.dgvLstContrats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLstContrats.Size = new System.Drawing.Size(687, 130);
             this.dgvLstContrats.TabIndex = 10;
+            this.dgvLstContrats.CellDoubleClick += new DataGridViewCellEventHandler(dgvLstContrats_CellDoubleClick);
             // 
             // gbListeComptes
             // 

@@ -10,6 +10,14 @@ namespace DataService.BSDataObjects
     {
         private static readonly string[] valuesTypeEpargne = { "Assurance vie", "Livret A", "Livret DD", "Epargne logement", "Epargne retraite" };
 
+        private static readonly string[] valuesPeriodicite = { "Hebdomadaire", "Mensuel" };
+
+        public static string[] ValuesPeriodicite
+        {
+            get { return ContratEpargne.valuesPeriodicite; }
+        } 
+
+
         public static string[] ValuesTypeEpargne
         {
             get { return ContratEpargne.valuesTypeEpargne; }

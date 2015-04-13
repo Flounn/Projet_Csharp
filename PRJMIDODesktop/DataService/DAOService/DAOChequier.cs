@@ -19,12 +19,12 @@ namespace DataService.DAOService
                             , chequier.Numero1Cheque, chequier.DernierCheque };
             string[] parameters = new string[] {"ID_COMPTE","LIBELLE_MOYEN_PAIEMENT", "NOMBRE_CHQ"
 							,"NUMERO_1_CHQ","NUMERO_D_CHQ"};
-            return Connexion.callProcedureNonQuery("addChequier", parameters, values);
+            return Connexion.callProcedureNonQuery("addChequier", parameters, values,true);
         }
 
         public bool delete(Chequier chequier)
         {
-            return Connexion.callProcedureNonQuery("delChequier", new string[] { "ID_MOYEN_PAIEMENT" }, new object[] { chequier.IdMoyenPaiement });
+            return Connexion.callProcedureNonQuery("delChequier", new string[] { "P_ID_MOYEN_PAIEMENT" }, new object[] { chequier.IdMoyenPaiement }, false);
         }
 
         public bool update(Chequier chequier)

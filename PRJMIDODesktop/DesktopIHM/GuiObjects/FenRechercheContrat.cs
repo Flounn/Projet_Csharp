@@ -11,7 +11,7 @@ using DataService.BSService;
 
 namespace DesktopIHM.GuiObjects
 {
-    public partial class FenRechercheContrat : Form
+    public partial class FenRechercheContrat : Form, UpdateDataGridView
     {
         private CritereRechercheContrat crtRechercheContrat = new CritereRechercheContrat();
         private static string[] valuesDateSouscription = new string[] { "Choisissez", "Le", "Après le", "Avant le", "Entre le" };
@@ -155,7 +155,7 @@ namespace DesktopIHM.GuiObjects
         {
             if (e.RowIndex < 0)
                 return ;
-            new FenDetailContrat(getContratRow(e.RowIndex)).Show(this);
+            new FenDetailContrat(getContratRow(e.RowIndex),this).Show(this);
         }
         private Contrat getContratRow(int index)
         {
@@ -169,6 +169,11 @@ namespace DesktopIHM.GuiObjects
             return new Contrat((int)dgwLstContrat.Rows[index].Cells[0].Value,(DateTime)dgwLstContrat.Rows[index].Cells[1].Value,
                 (string)dgwLstContrat.Rows[index].Cells[2].Value,client, compte, (string)dgwLstContrat.Rows[index].Cells[5].Value,
                 (string)dgwLstContrat.Rows[index].Cells[6].Value);
+        }
+
+        public void refresh()
+        {
+            InitData();
         }
     }
 }

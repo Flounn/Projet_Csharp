@@ -19,12 +19,12 @@ namespace DataService.DAOService
                             , carte.DateFinValidite, carte.TypeCarte.IdTypeCarte, carte.NumeroCarte };
             string[] parameters = new string[] {"ID_COMPTE","LIBELLE_MOYEN_PAIEMENT", "DT_DEB_VALIDITE"
 							,"DT_FIN_VALIDITE","ID_TYPE_CARTE", "NUMERO_CARTE"};
-            return Connexion.callProcedureNonQuery("addCarte", parameters, values);
+            return Connexion.callProcedureNonQuery("addCarte", parameters, values,true);
         }
 
         public bool delete(Carte carte)
         {
-            return Connexion.callProcedureNonQuery("delCarte", new string[]{"ID_MOYEN_PAIEMENT"}, new object[]{carte.IdMoyenPaiement});
+            return Connexion.callProcedureNonQuery("delCarte", new string[] { "P_ID_MOYEN_PAIEMENT" }, new object[] { carte.IdMoyenPaiement }, false);
         }
 
         public bool update(Carte carte)

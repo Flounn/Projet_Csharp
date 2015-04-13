@@ -156,7 +156,7 @@ namespace DataService.BSService
                 if (!reader.IsDBNull(4))
                     contrat.DateVersement = (DateTime)reader.GetValue(4);
                 if (!reader.IsDBNull(5))
-                    contrat.MontantVerse = (decimal)reader.GetValue(4);
+                    contrat.MontantVerse = (decimal)reader.GetValue(5);
             }
             reader.Close();
             return contrat;
